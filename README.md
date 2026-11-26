@@ -2,7 +2,7 @@
 
 Free, open-source stock, expiry and reorder tracker for Indian hospital stores and pharmacies. See [SPEC.md](SPEC.md).
 
-**Status:** Phase 3 of 7 (stock ledger with FEFO: receive, issue, transfer, dispense, ledger; barcode scan).
+**Status:** Phase 4 of 7 (indents, expiry centre, reorder list, dashboard, stock counts on top of the Phase 3 stock ledger).
 
 ## Run it
 
@@ -23,6 +23,8 @@ Open http://localhost:3002 and sign in. Demo accounts (password `ChangeMe@123`, 
 | Pharmacist | 9000000003 |
 | Ward nurse | 9000000004 |
 | Auditor | 9000000005 |
+
+Try the flows: the store keeper receives stock, the nurse raises an indent, the keeper approves and issues it; open the Expiry and Reorder pages; the keeper starts a stock count, the admin approves it. `EXPIRY_ALERT_DAYS` in `.env` sets the expiry bands (default 90,60,30).
 
 Health: http://localhost:3002/health (JSON: `/api/health`).
 

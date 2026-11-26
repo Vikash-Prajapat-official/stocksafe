@@ -25,7 +25,7 @@ function routeFiles(dir: string): string[] {
 describe("every API route is wrapped in route(...)", () => {
   const files = routeFiles(API_DIR).map((f) => ({ f, rel: path.relative(API_DIR, f).split(path.sep).join("/") }));
 
-  it("finds the routes", () => expect(files.length).toBeGreaterThan(15));
+  it("finds the routes", () => expect(files.length).toBeGreaterThan(25));
 
   it.each(files.filter(({ rel }) => !PUBLIC_ROUTES.has(rel)))("$rel", ({ f }) => {
     const src = readFileSync(f, "utf8");
@@ -58,6 +58,21 @@ const MATRIX: [string, string, Allowed][] = [
   ["dispense/route", "POST", ["PHARMACIST"]],
   ["writeoff/route", "POST", ADMIN],
   ["returns/route", "POST", ADMIN],
+  ["indents/route", "GET", "ANY"],
+  ["indents/route", "POST", ["NURSE"]],
+  ["indents/[id]/route", "GET", "ANY"],
+  ["indents/[id]/submit/route", "POST", ["NURSE"]],
+  ["indents/[id]/approve/route", "POST", ["STOREKEEPER"]],
+  ["indents/[id]/reject/route", "POST", ["STOREKEEPER"]],
+  ["indents/[id]/issue/route", "POST", ["STOREKEEPER"]],
+  ["indents/[id]/close/route", "POST", ["STOREKEEPER"]],
+  ["alerts/expiry/route", "GET", "ANY"],
+  ["alerts/low-stock/route", "GET", "ANY"],
+  ["counts/route", "GET", ["STOREKEEPER", "ADMIN", "AUDITOR"]],
+  ["counts/route", "POST", ["STOREKEEPER", "ADMIN"]],
+  ["counts/[id]/route", "GET", ["STOREKEEPER", "ADMIN", "AUDITOR"]],
+  ["counts/[id]/route", "PATCH", ["STOREKEEPER", "ADMIN"]],
+  ["counts/[id]/approve/route", "POST", ADMIN],
   ["admin/stores/route", "GET", ADMIN],
   ["admin/stores/route", "POST", ADMIN],
   ["admin/stores/[id]/route", "PATCH", ADMIN],

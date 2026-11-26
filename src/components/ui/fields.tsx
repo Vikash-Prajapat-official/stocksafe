@@ -34,6 +34,17 @@ export function Field({
   );
 }
 
+const BADGE = {
+  neutral: "bg-neutral-100 text-neutral-700",
+  green: "bg-green-50 text-green-800",
+  amber: "bg-amber-50 text-amber-800", // amber and red are for expiry warnings only
+  red: "bg-red-50 text-red-700",
+} as const;
+
+export function Badge({ tone = "neutral", children }: { tone?: keyof typeof BADGE; children: React.ReactNode }) {
+  return <span className={cn("inline-block rounded px-1.5 py-0.5 text-xs font-medium", BADGE[tone])}>{children}</span>;
+}
+
 export function FormError({ message }: { message: string | null | undefined }) {
   if (!message) return null;
   return (

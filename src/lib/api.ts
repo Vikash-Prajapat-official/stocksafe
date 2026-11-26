@@ -1,21 +1,13 @@
 import { NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
 import { ZodError, type z } from "zod";
+import { ApiError } from "@/lib/api-error";
 import { clientIp } from "@/lib/audit";
 import { checkAccess, type RoleName } from "@/lib/rbac";
 import { StockError } from "@/lib/stock-errors";
 import { getSessionUser, type SessionUser } from "@/lib/session";
 
-export class ApiError extends Error {
-  constructor(
-    public status: number,
-    public code: string,
-    message: string,
-    public details?: unknown,
-  ) {
-    super(message);
-  }
-}
+export { ApiError };
 
 /** Error body shape from SPEC section 7: { error: { code, message } }. */
 export function errorResponse(status: number, code: string, message: string, details?: unknown) {
@@ -53,6 +45,18 @@ export async function readJson(req: Request): Promise<unknown> {
 
 export async function parseBody<S extends z.ZodType>(req: Request, schema: S): Promise<z.infer<S>> {
   return schema.parse(await readJson(req));
+}
+
+/** Like parseBody, but an empty body is treated as {} (all defaults). Invalid JSON is still a 400. */
+export async function parseOptionalBody<S extends z.ZodType>(req: Request, schema: S): Promise<z.infer<S>> {
+  const text = await req.text();
+  if (!text.trim()) return schema.parse({});
+  try {
+    return schema.parse(JSON.parse(text));
+  } catch (e) {
+    if (e instanceof SyntaxError) throw new ApiError(400, "INVALID_JSON", "Request body must be valid JSON.");
+    throw e;
+  }
 }
 
 export type HandlerArgs = {

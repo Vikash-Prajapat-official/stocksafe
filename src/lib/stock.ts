@@ -14,6 +14,7 @@ import { randomUUID } from "node:crypto";
 import { Prisma } from "@prisma/client";
 import { db } from "@/lib/db";
 import { isExpired, splitFefo, toDay, todayIST } from "@/lib/fefo";
+import { canDo, outstanding, statusAfterIssue, type IndentStatus } from "@/lib/indent-flow";
 import { writeAudit } from "@/lib/audit";
 import { MAX_PAISE, lineValuePaise } from "@/lib/money";
 import { StockError } from "@/lib/stock-errors";
@@ -613,6 +614,129 @@ export async function adjust(input: {
     actorUserId: input.actorUserId,
     approvedBy: input.approvedBy,
     today: todayIST(),
+  });
+}
+
+// ---------- indents and stock counts (workflows that move stock) ----------
+
+export type IndentIssueResult = {
+  status: "ISSUED" | "PARTIAL";
+  issued: { lineId: string; itemId: string; approved: number; issuedNow: number; issuedTotal: number }[];
+  picks: Pick[];
+};
+
+/**
+ * Issues an approved indent: moves the outstanding quantity of every line from the supplying store to the
+ * ward (FEFO, as a transfer). If stock is short it issues what exists and the indent becomes PARTIAL.
+ * The indent row is locked first, so two people pressing Issue at once cannot issue it twice.
+ */
+export async function issueIndent(
+  input: { indentId: string; actorUserId: string; ip?: string | null },
+  opts: Opts = {},
+): Promise<IndentIssueResult> {
+  const today = opts.today ?? todayIST();
+  return run(async (tx) => {
+    const found = await tx.$queryRaw<{ id: string; status: string; fromStoreId: string; toStoreId: string; seq: number }[]>`
+      SELECT id, status::text AS status, from_store_id AS "fromStoreId", to_store_id AS "toStoreId", seq
+      FROM indent WHERE id = ${input.indentId} FOR UPDATE`;
+    const ind = found[0];
+    if (!ind) throw new StockError("NOT_FOUND", "Indent not found");
+    if (!canDo("issue", ind.status as IndentStatus))
+      throw new StockError("INVALID_STATE", `Indent #${ind.seq} is ${ind.status.toLowerCase()}, so it cannot be issued`);
+    await requireStore(tx, ind.toStoreId, "Supplying store");
+    await requireStore(tx, ind.fromStoreId, "Ward");
+
+    const lines = await tx.indentLine.findMany({ where: { indentId: ind.id }, orderBy: { id: "asc" } });
+    const todo = lines.filter((l) => outstanding(l) > 0);
+    await lockItems(tx, todo.map((l) => l.itemId));
+
+    const picks: Pick[] = [];
+    const now = new Map<string, number>();
+    const shortages: Record<string, unknown>[] = [];
+    for (const l of todo) {
+      let want = outstanding(l);
+      let [p] = await plan(tx, ind.toStoreId, [{ itemId: l.itemId, quantity: want }], today, true);
+      if (p?.shortage) {
+        shortages.push({ itemId: l.itemId, wanted: want, available: p.shortage.available, expired: p.shortage.expired });
+        want = p.shortage.available;
+        if (want <= 0) continue;
+        [p] = await plan(tx, ind.toStoreId, [{ itemId: l.itemId, quantity: want }], today, true);
+      }
+      if (!p || p.shortage) continue;
+      for (const pick of p.picks) {
+        const common = { batchId: pick.batchId, refType: "INDENT", refId: ind.id, actorUserId: input.actorUserId, reason: `Indent #${ind.seq}` };
+        await post(tx, { ...common, type: "TRANSFER_OUT", storeId: ind.toStoreId, quantity: -pick.quantity });
+        await post(tx, { ...common, type: "TRANSFER_IN", storeId: ind.fromStoreId, quantity: pick.quantity });
+        picks.push(pick);
+      }
+      now.set(l.id, want);
+    }
+    if (picks.length === 0)
+      throw new StockError("INSUFFICIENT_STOCK", "There is no usable stock to issue for this indent", { shortages });
+
+    for (const [lineId, n] of now) await tx.indentLine.update({ where: { id: lineId }, data: { qtyIssued: { increment: n } } });
+    const after = lines.map((l) => ({ ...l, qtyIssued: l.qtyIssued + (now.get(l.id) ?? 0) }));
+    const status = statusAfterIssue(after);
+    await tx.indent.update({ where: { id: ind.id }, data: { status } });
+    await writeAudit(tx, { actorUserId: input.actorUserId, action: "INDENT_ISSUE", entity: "indent", entityId: ind.id, ip: input.ip });
+    return {
+      status,
+      picks,
+      issued: after
+        .filter((l) => (l.qtyApproved ?? 0) > 0)
+        .map((l) => ({ lineId: l.id, itemId: l.itemId, approved: l.qtyApproved ?? 0, issuedNow: now.get(l.id) ?? 0, issuedTotal: l.qtyIssued })),
+    };
+  });
+}
+
+/**
+ * Approves a submitted stock count: for every counted line it writes an ADJUSTMENT so the balance equals the
+ * counted quantity. The adjustment is counted minus the balance AT APPROVAL TIME (not the snapshot taken when
+ * the count started), and the reason records both. Needs an active admin as approver. Lines left uncounted
+ * are not touched. The count row is locked, so approving twice at once adjusts only once.
+ */
+export async function applyCount(input: { countId: string; approverId: string; ip?: string | null }) {
+  return run(async (tx) => {
+    await requireApprover(tx, input.approverId);
+    const found = await tx.$queryRaw<{ id: string; status: string; storeId: string; seq: number }[]>`
+      SELECT id, status::text AS status, store_id AS "storeId", seq FROM stock_count WHERE id = ${input.countId} FOR UPDATE`;
+    const c = found[0];
+    if (!c) throw new StockError("NOT_FOUND", "Stock count not found");
+    if (c.status !== "SUBMITTED")
+      throw new StockError("INVALID_STATE", `Count #${c.seq} is ${c.status.toLowerCase()}, so it cannot be approved`);
+
+    const lines = await tx.stockCountLine.findMany({
+      where: { countId: c.id, countedQty: { not: null } },
+      include: { batch: { select: { itemId: true } } },
+      orderBy: { batchId: "asc" },
+    });
+    await lockItems(tx, lines.map((l) => l.batch.itemId));
+
+    let adjustments = 0;
+    let netUnits = 0;
+    for (const l of lines) {
+      const rows = await tx.$queryRaw<{ quantity: number }[]>`SELECT quantity FROM stock_balance WHERE store_id = ${c.storeId} AND batch_id = ${l.batchId} FOR UPDATE`;
+      const current = rows[0]?.quantity ?? 0;
+      const counted = l.countedQty ?? 0;
+      const delta = counted - current;
+      if (delta === 0) continue;
+      await post(tx, {
+        type: "ADJUSTMENT",
+        storeId: c.storeId,
+        batchId: l.batchId,
+        quantity: delta,
+        refType: "COUNT",
+        refId: c.id,
+        actorUserId: input.approverId,
+        approvedBy: input.approverId,
+        reason: `Stock count #${c.seq}: counted ${counted}, system ${current}` + (current !== l.systemQty ? ` (was ${l.systemQty} when the count started)` : ""),
+      });
+      adjustments++;
+      netUnits += delta;
+    }
+    await tx.stockCount.update({ where: { id: c.id }, data: { status: "APPROVED", approvedBy: input.approverId, approvedAt: new Date() } });
+    await writeAudit(tx, { actorUserId: input.approverId, action: "STOCK_COUNT_APPROVE", entity: "stock_count", entityId: c.id, ip: input.ip });
+    return { adjustments, netUnits, counted: lines.length };
   });
 }
 

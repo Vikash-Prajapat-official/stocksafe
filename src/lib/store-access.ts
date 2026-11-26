@@ -1,4 +1,4 @@
-import { ApiError } from "@/lib/api";
+import { ApiError } from "@/lib/api-error";
 import { db } from "@/lib/db";
 import type { SessionUser } from "@/lib/session";
 

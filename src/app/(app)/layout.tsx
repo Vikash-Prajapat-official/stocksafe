@@ -7,10 +7,15 @@ import { requirePageUser } from "@/lib/session";
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const user = await requirePageUser();
   const links = [
+    { href: "/dashboard", label: "Dashboard" },
     { href: "/items", label: "Items" },
+    { href: "/expiry", label: "Expiry" },
+    { href: "/reorder", label: "Reorder list" },
     ...(user.role === "STOREKEEPER" ? [{ href: "/grn", label: "Receive stock" }] : []),
     ...(user.role === "STOREKEEPER" || user.role === "PHARMACIST" ? [{ href: "/issue", label: "Issue / transfer" }] : []),
     ...(user.role === "PHARMACIST" ? [{ href: "/dispense", label: "Dispense" }] : []),
+    ...(["NURSE", "STOREKEEPER", "ADMIN", "AUDITOR"].includes(user.role) ? [{ href: "/indents", label: "Indents" }] : []),
+    ...(["STOREKEEPER", "ADMIN", "AUDITOR"].includes(user.role) ? [{ href: "/counts", label: "Stock counts" }] : []),
     ...(user.role === "ADMIN"
       ? [
           { href: "/admin/stores", label: "Stores" },
@@ -29,7 +34,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
     <div className="min-h-screen">
       <header className="border-b bg-white print:hidden">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3">
-          <Link href="/items" className="text-lg font-semibold text-primary">
+          <Link href="/dashboard" className="text-lg font-semibold text-primary">
             StockSafe
           </Link>
           <nav aria-label="Main" className="flex flex-wrap gap-4 text-sm">

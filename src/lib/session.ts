@@ -25,6 +25,6 @@ export async function getSessionUser(): Promise<SessionUser | null> {
 export async function requirePageUser(allowed?: readonly RoleName[]): Promise<SessionUser> {
   const user = await getSessionUser();
   if (!user) redirect("/login");
-  if (!checkAccess(user.role, allowed).ok) redirect("/items");
+  if (!checkAccess(user.role, allowed).ok) redirect("/dashboard");
   return user;
 }

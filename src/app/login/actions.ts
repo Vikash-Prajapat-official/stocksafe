@@ -7,7 +7,7 @@ export type LoginState = { error?: string } | undefined;
 
 // Only allow redirects back into this site (no open redirect).
 function safePath(p: FormDataEntryValue | null): string {
-  return typeof p === "string" && p.startsWith("/") && !p.startsWith("//") ? p : "/items";
+  return typeof p === "string" && p.startsWith("/") && !p.startsWith("//") ? p : "/dashboard";
 }
 
 export async function loginAction(_prev: LoginState, formData: FormData): Promise<LoginState> {

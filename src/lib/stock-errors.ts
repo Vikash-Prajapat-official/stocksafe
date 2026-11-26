@@ -10,7 +10,8 @@ export type StockErrorCode =
   | "NOT_EXPIRED"
   | "BATCH_MISMATCH"
   | "OVERRIDE_REASON_REQUIRED"
-  | "APPROVER_REQUIRED";
+  | "APPROVER_REQUIRED"
+  | "INVALID_STATE";
 
 const STATUS: Record<StockErrorCode, number> = {
   VALIDATION: 400,
@@ -23,6 +24,7 @@ const STATUS: Record<StockErrorCode, number> = {
   EXPIRED_BATCH: 409,
   NOT_EXPIRED: 409,
   BATCH_MISMATCH: 409,
+  INVALID_STATE: 409, // the record is not in a state that allows this (for example an indent already issued)
 };
 
 export class StockError extends Error {

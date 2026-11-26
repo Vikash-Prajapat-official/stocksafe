@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* StockSafe palette: green #15803D and white. Amber and red are reserved for expiry warnings. */
+:root {
+  --primary: #15803d;
+  --primary-foreground: #ffffff;
+  --warn: #d97706;
+  --danger: #dc2626;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+}

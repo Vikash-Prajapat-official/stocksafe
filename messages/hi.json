@@ -814,7 +814,10 @@
     "subAsOfWithin": "{where}, {date} तक, {days} दिन के अंदर",
     "subMonths": "{where}, पिछले {n} महीने ({from} से)",
     "subAbc": "{where}, पिछले {n} महीनों में खपत का मूल्य",
-    "subDays": "{where}, पिछले {n} दिन ({from} से {to})"
+    "subDays": "{where}, पिछले {n} दिन ({from} से {to})",
+    "pdfGenerated": "{when} को बनाया गया (भारतीय समय)।",
+    "pdfPage": "{title}  |  पृष्ठ {page} / {total}",
+    "pdfCut": "यहाँ केवल पहली {max} पंक्तियाँ दिखाई गई हैं। पूरी सूची के लिए CSV डाउनलोड करें।"
   },
   "system": {
     "title": "सिस्टम",

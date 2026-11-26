@@ -814,7 +814,10 @@
     "subAsOfWithin": "{where}, as of {date}, within {days} days",
     "subMonths": "{where}, last {n} months (from {from})",
     "subAbc": "{where}, consumption value over the last {n} months",
-    "subDays": "{where}, last {n} days ({from} to {to})"
+    "subDays": "{where}, last {n} days ({from} to {to})",
+    "pdfGenerated": "Generated {when} (India time).",
+    "pdfPage": "{title}  |  page {page} of {total}",
+    "pdfCut": "Only the first {max} rows are shown here. Download the CSV for the complete list."
   },
   "system": {
     "title": "System",

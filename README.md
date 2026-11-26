@@ -2,6 +2,8 @@
 
 **Stop throwing away expired medicines.** A free, open-source stock, expiry and reorder tracker for Indian hospital stores and pharmacies. English and Hindi. Runs on a PC with 2 GB of RAM, works without internet on the hospital network, MIT licence.
 
+**Try it now: <https://stocksafe-rouge.vercel.app>** (public demo with sample data; the sign-in page lists the demo accounts; do not enter real patient or hospital data).
+
 - **FEFO by default:** issuing always picks the earliest-expiry batch, and expired batches are never issued or dispensed.
 - **The ledger is the truth:** every stock change is an append-only movement; balances are derived from it and always match. Nothing in the ledger can be edited or deleted (the database refuses).
 - **Expiry centre, reorder list, ward indents, stock counts, barcode scanning (GS1), reports (CSV and PDF), audit log, nightly alerts and an optional email digest.**

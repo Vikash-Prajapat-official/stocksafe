@@ -1,6 +1,4 @@
-import { getLocale } from "next-intl/server";
 import { NextResponse } from "next/server";
-import type { Locale } from "@/i18n/locale";
 import { ApiError, route } from "@/lib/api";
 import { writeAudit } from "@/lib/audit";
 import { db } from "@/lib/db";
@@ -20,7 +18,7 @@ function intParam(sp: URLSearchParams, name: string): number | undefined {
 
 // stock | expiry | consumption | abc | stockout. ?store=<id> &months=<n> &days=<n> &format=json|csv|pdf
 // SPEC section 7: ADMIN, AUDITOR (read-only).
-export const GET = route(["ADMIN", "AUDITOR"], async ({ req, user, params, ip }) => {
+export const GET = route(["ADMIN", "AUDITOR"], async ({ req, user, params, ip, locale }) => {
   const name = params.name ?? "";
   if (!isReportName(name)) throw new ApiError(404, "NOT_FOUND", "Unknown report. Use stock, expiry, consumption, abc or stockout.");
   const sp = new URL(req.url).searchParams;
@@ -31,7 +29,7 @@ export const GET = route(["ADMIN", "AUDITOR"], async ({ req, user, params, ip })
 
   let report;
   try {
-    report = await buildReport(name, { storeId, months: intParam(sp, "months"), days: intParam(sp, "days"), locale: (await getLocale()) as Locale });
+    report = await buildReport(name, { storeId, months: intParam(sp, "months"), days: intParam(sp, "days"), locale });
   } catch (e) {
     if (e instanceof RangeError) throw new ApiError(400, "VALIDATION", e.message);
     throw e;
@@ -46,7 +44,7 @@ export const GET = route(["ADMIN", "AUDITOR"], async ({ req, user, params, ip })
     });
   }
   const hospital = await db.hospital.findFirst({ select: { name: true } });
-  const pdf = await renderReportPdf(report, { hospitalName: hospital?.name ?? "StockSafe" });
+  const pdf = await renderReportPdf(report, { hospitalName: hospital?.name ?? "StockSafe", locale });
   return new Response(new Uint8Array(pdf), {
     headers: { "Content-Type": "application/pdf", "Content-Disposition": `attachment; filename="${file}"` },
   });

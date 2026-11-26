@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
   "description": "Free, open-source stock, expiry and reorder tracker for Indian hospital stores and pharmacies.",
   "scripts": {
     "dev": "next dev -p 3002",
@@ -70,8 +73,5 @@
     "tailwindcss": "^4.1.14",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4"
-  },
-  "engines": {
-    "node": ">=20"
   }
 }

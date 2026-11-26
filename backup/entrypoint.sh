@@ -5,8 +5,9 @@ set -eu
 
 pass="${BACKUP_PASSPHRASE:-}"
 if [ "${#pass}" -lt 12 ]; then
-  echo "BACKUP_PASSPHRASE is missing or shorter than 12 characters. Set a strong passphrase in .env and keep a copy somewhere safe." >&2
-  exit 1
+  # Not an error that restarts the container in a loop: the rest of StockSafe works, and the System page shows "No backup yet".
+  echo "BACKUPS ARE OFF: BACKUP_PASSPHRASE is missing or shorter than 12 characters. Put a strong passphrase in .env, keep a copy somewhere safe, then run: docker compose up -d" >&2
+  exec tail -f /dev/null
 fi
 
 hour="${BACKUP_HOUR:-2}"

@@ -4,6 +4,7 @@ import { PrismaClient, type Role, type StoreType } from "@prisma/client";
 import { importItemsFromBytes } from "../src/lib/item-import";
 import { itemKey } from "../src/lib/schemas/item";
 import { hashPassword } from "../src/lib/password";
+import { seedDemoHistory } from "./demo-history";
 
 const prisma = new PrismaClient();
 
@@ -84,6 +85,9 @@ async function main() {
     throw new Error("NLEM file has invalid rows");
   }
   const created = await prisma.item.createMany({ data: result.items.map((i) => i.data) });
+
+  // Six months of synthetic movements, so the demo dashboard looks real. SEED_DEMO=0 skips it (for a real hospital).
+  if (process.env.SEED_DEMO !== "0") await seedDemoHistory(prisma);
 
   console.log(
     `Seeded: ${STORES.length} stores, ${USERS.length} users, ${SUPPLIERS.length} suppliers, ` +

@@ -23,12 +23,14 @@ services:
     env_file: .env
     environment:
       DATABASE_URL: postgresql://stocksafe:${POSTGRES_PASSWORD:-change-me}@db:5432/stocksafe
-      AUTH_SECRET: ${AUTH_SECRET:?Set AUTH_SECRET in .env - see .env.example}
+      AUTH_SECRET: ${AUTH_SECRET:-} # blank: the app makes one on first start and keeps it in the appdata volume
       AUTH_TRUST_HOST: "true"
+      PORT: "3002" # the port inside the container; PORT in .env only chooses the port on the PC
     ports:
       - "${PORT:-3002}:3002"
     volumes:
       - backups:/backups:ro # so the System page can show the latest backup
+      - appdata:/app/data # the generated session secret
     depends_on:
       db:
         condition: service_healthy
@@ -60,7 +62,7 @@ services:
       PGUSER: stocksafe
       PGDATABASE: stocksafe
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me}
-      BACKUP_PASSPHRASE: ${BACKUP_PASSPHRASE:?Set BACKUP_PASSPHRASE in .env (at least 12 characters) - see .env.example}
+      BACKUP_PASSPHRASE: ${BACKUP_PASSPHRASE:-}
       BACKUP_KEEP_DAYS: ${BACKUP_KEEP_DAYS:-14}
       BACKUP_HOUR: ${BACKUP_HOUR:-2}
     volumes:
@@ -93,6 +95,7 @@ services:
       - app
 
 volumes:
+  appdata:
   caddy_data:
   pgdata:
   backups:

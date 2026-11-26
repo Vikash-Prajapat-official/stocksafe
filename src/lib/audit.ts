@@ -1,4 +1,5 @@
 import type { Prisma, PrismaClient } from "@prisma/client";
+import { stampTime } from "@/lib/clock";
 
 type Client = PrismaClient | Prisma.TransactionClient;
 
@@ -20,6 +21,7 @@ export async function writeAudit(
       entity: e.entity,
       entityId: e.entityId,
       ip: e.ip ?? null,
+      ...(stampTime() ? { at: stampTime()! } : {}),
     },
   });
 }

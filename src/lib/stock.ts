@@ -17,6 +17,7 @@ import { isSqlite } from "@/lib/dialect";
 import { isExpired, splitFefo, toDay, todayIST } from "@/lib/fefo";
 import { canDo, outstanding, statusAfterIssue, type IndentStatus } from "@/lib/indent-flow";
 import { writeAudit } from "@/lib/audit";
+import { stampTime } from "@/lib/clock";
 import { MAX_PAISE, lineValuePaise } from "@/lib/money";
 import { nextSeq } from "@/lib/seq";
 import { StockError } from "@/lib/stock-errors";
@@ -171,6 +172,7 @@ async function post(tx: Tx, m: MovementData): Promise<string> {
       actorUserId: m.actorUserId,
       reason: m.reason ?? null,
       approvedBy: m.approvedBy ?? null,
+      ...(stampTime() ? { at: stampTime()! } : {}), // demo history only (see clock.ts)
     },
     select: { id: true },
   });
@@ -377,6 +379,7 @@ export async function receive(input: ReceiveInput, opts: Opts = {}) {
         invoiceDate: new Date(`${input.invoiceDate}T00:00:00Z`),
         receivedBy: input.actorUserId,
         totalPaise,
+        ...(stampTime() ? { receivedAt: stampTime()! } : {}),
       },
       select: { id: true },
     });

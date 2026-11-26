@@ -1,0 +1,2001 @@
+﻿Medicine Name,Generic,Dose,Dosage Form,UOM,Category,NLEM,Storage Condition,Min Stock,Reorder Point,Max Stock
+Azithromycin 0,Paracetamol,100 mg,ointment,bottle,Analgesics,no,Ambient,7,29,302
+Cetirizine 1,,,tablet,capsule,Antibacterials,N,Ambient,10,37,348
+Omeprazole 2,,500 mg,Tablets,tube,Respiratory,N,ROOM,4,8,142
+Azithromycin 0,Paracetamol,100 mg,ointment,bottle,Analgesics,no,Ambient,7,29,302
+Omeprazole 2,,500 mg,Tablets,tube,Respiratory,N,ROOM,4,8,142
+Ibuprofen 5,Diclofenac,,Tablets,piece,Respiratory,,,30,117,424
+  अमोक्सिसिलिन 6  ,Cetirizine,500 mg,tablet,strip,Analgesics,0,cold chain,48,141,210
+,,500 mg,INJ,strip,Cardiovascular,हाँ,ROOM,0,92,439
+Cetirizine 8,Omeprazole,,TAB,piece,Antibacterials,नहीं,,100,50,500
+,,,,,,,,,,
+Azithromycin 10,Paracetamol,50 mg,Capsule,strip,"Vitamins, minerals and tonics",नहीं,2-8 C,11,43,108
+  Diclofenac 11  ,,,Capsule,tablet,Antibacterials,no,Ambient,2,12,396
+आइबुप्रोफेन 12,,250 mg,tablet,strip,Cardiovascular,kabhi,cold chain,30,88,485
+  Atenolol 13  ,Atenolol,10 mg,Injection,capsule,Respiratory,,Ambient,6,23,161
+Doxycycline 14,Pantoprazole,10 mg,Tablets,strip,Cardiovascular,N,COLD,45,116,183
+  Ibuprofen 15  ,Paracetamol,5 mg,Tablets,tube,Gastrointestinal,yes,cold chain,abc,16,153
+ओमेप्राज़ोल 16,Atenolol,250 mg,syrup,piece,"Vitamins, minerals and tonics",नहीं,Ambient,25,80,301
+Amoxicillin 17,,100 mg,pills,tube,Respiratory,0,Ambient,35,85,135
+Paracetamol 18,,,pills,strip,Antiallergics,0,room,27,44,169
+  मेटफॉर्मिन 19  ,,,xyz,piece,Antibacterials,हाँ,ROOM,21,106,239
+Cetirizine 20,,,ointment,strip,Cardiovascular,1,,25,121,262
+Azithromycin 0,Paracetamol,100 mg,ointment,bottle,Analgesics,no,Ambient,7,29,302
+  Metformin 22  ,,50 mg,TAB,tube,Antibacterials,no,cold chain,22,34,255
+Prednisolone 23,Diclofenac,100 mg,syrup,bottle,Analgesics,yes,COLD,20,113,225
+Metformin 24,,5 mg,Tablets,vial,Antiallergics,,COLD,33,111,129
+  Salbutamol 25  ,Metformin,250 mg,consumable,strip,Antibacterials,नहीं,COLD,37,121,420
+सेट्रिज़िन 26,,100 mg,syrup,capsule,Cardiovascular,1,,20,63,216
+  Pantoprazole 27  ,Ranitidine,,consumable,piece,Gastrointestinal,0,Ambient,17,80,275
+Ibuprofen 28,Paracetamol,50 mg,INJ,bottle,Cardiovascular,,ROOM,24,109,410
+Prednisolone 29,Salbutamol,,Capsule,tablet,Antiallergics,0,ROOM,18,22,54
+अमोक्सिसिलिन 30,Paracetamol,250 mg,drops,strip,Respiratory,हाँ,2-8 C,36,111,146
+Atenolol 31,,100 mg,consumable,strip,Gastrointestinal,yes,2-8 C,29,67,100
+पैरासिटामोल 32,,,Injection,piece,Gastrointestinal,N,2-8 C,0,72,157
+Omeprazole 33,,,Tablets,bottle,Gastrointestinal,yes,,49,71,225
+Omeprazole 34,Metformin,,TAB,vial,Gastrointestinal,N,room,100,50,500
+Cetirizine 35,Amoxicillin,,Tablets,tablet,Gastrointestinal,no,,45,98,158
+सेट्रिज़िन 36,Salbutamol,,drops,vial,Respiratory,हाँ,cold chain,20,62,387
+Atenolol 37,,5 mg,drops,tube,Antibacterials,नहीं,,48,126,299
+Amoxicillin 38,,50 mg,Injection,piece,Antiallergics,Y,Ambient,16,22,133
+Salbutamol 39,,,Injection,strip,"Vitamins, minerals and tonics",no,,3,31,230
+Metformin 40,,5 mg,syrup,tablet,Respiratory,Y,,14,105,321
+Ibuprofen 5,Diclofenac,,Tablets,piece,Respiratory,,,30,117,424
+अमोक्सिसिलिन 30,Paracetamol,250 mg,drops,strip,Respiratory,हाँ,2-8 C,36,111,146
+Salbutamol 43,Amoxicillin,10 mg,Tablets,piece,Analgesics,1,,11,15,180
+Ranitidine 44,,50 mg,drops,bottle,Antibacterials,नहीं,2-8 C,50,70,161
+Azithromycin 45,Ciprofloxacin,10 mg,tablet,tablet,Analgesics,0,ROOM,49,121,229
+Amoxicillin 46,,50 mg,Tablets,tube,Antibacterials,yes,Ambient,24,100,272
+Pantoprazole 47,,500 mg,ointment,tube,Cardiovascular,नहीं,,30,99,311
+
+Metformin 49,Omeprazole,,ointment,piece,Antibacterials,0,2-8 C,41,136,240
+  Amoxicillin 50  ,Prednisolone,250 mg,syrup,capsule,Analgesics,yes,room,38,67,440
+Paracetamol 51,,100 mg,syrup,piece,Antibacterials,,ROOM,15,54,109
+Amoxicillin 52,,,syrup,capsule,Gastrointestinal,1,cold chain,38,71,284
+Cetirizine 53,,,Capsule,strip,Antiallergics,1,ROOM,2,100,174
+Atenolol 54,,100 mg,TAB,vial,Cardiovascular,0,COLD,47,49,238
+Doxycycline 55,,,tablet,bottle,Cardiovascular,no,COLD,6,24,104
+एटेनोलोल 56,,,Tablets,piece,Cardiovascular,1,cold chain,19,33,346
+Amoxicillin 57,,,Capsule,capsule,Cardiovascular,Y,room,36,135,363
+Diclofenac 58,,100 mg,syrup,tablet,Gastrointestinal,yes,2-8 C,20,41,422
+Diclofenac 59,,,drops,tablet,Antibacterials,1,Ambient,32,91,122
+,,,,,,,,,,
+Paracetamol 61,,50 mg,INJ,vial,Gastrointestinal,N,,9,60,66
+Diclofenac 62,,10 mg,Tablets,capsule,Antiallergics,नहीं,2-8 C,31/02/2026,13,345
+Ranitidine 63,Ibuprofen,5 mg,Tablets,tablet,Respiratory,नहीं,cold chain,26,99,323
+Azithromycin 64,,100 mg,syrup,vial,Cardiovascular,0,ROOM,13/13/2025,65,147
+Cetirizine 65,,500 mg,consumable,vial,"Vitamins, minerals and tonics",0,,27,60,204
+Amoxicillin 66,Cetirizine,500 mg,syrup,tube,Antibacterials,no,Ambient,26,39,81
+Pantoprazole 67,Ciprofloxacin,100 mg,xyz,bottle,Antibacterials,Y,ROOM,40,134,487
+  Ranitidine 68  ,,500 mg,ointment,vial,Antiallergics,Y,ROOM,abc,121,375
+  Amoxicillin 69  ,,,TAB,capsule,Antiallergics,नहीं,room,5,99,289
+Omeprazole 70,Azithromycin,50 mg,drops,tube,Antibacterials,0,2-8 C,47,80,441
+  Diclofenac 71  ,Amoxicillin,,INJ,piece,"Vitamins, minerals and tonics",हाँ,Ambient,41,134,208
+Omeprazole 72,Metformin,100 mg,ointment,tube,Antibacterials,0,,31,125,405
+Diclofenac 73,,10 mg,Injection,capsule,"Vitamins, minerals and tonics",N,room,36,131,152
+Omeprazole 74,,10 mg,INJ,tablet,Antibacterials,yes,ROOM,13/13/2025,48,262
+Prednisolone 75,Doxycycline,,consumable,tube,Analgesics,Y,room,100,50,500
+Diclofenac 76,,5 mg,syrup,strip,Respiratory,,Ambient,23,28,57
+  Amoxicillin 77  ,,100 mg,Injection,bottle,Antibacterials,no,,12,72,267
+Atenolol 78,Doxycycline,5 mg,लिक्विड,piece,Analgesics,हाँ,Ambient,14,23,324
+  Amoxicillin 79  ,,10 mg,ointment,piece,Antiallergics,N,,25,88,127
+सिप्रोफ्लॉक्सासिन 80,,50 mg,Injection,strip,"Vitamins, minerals and tonics",N,,29,76,454
+,Metformin,500 mg,Tablets,vial,Analgesics,,room,12,100,181
+ओमेप्राज़ोल 16,Atenolol,250 mg,syrup,piece,"Vitamins, minerals and tonics",नहीं,Ambient,25,80,301
+Cetirizine 83,,50 mg,ointment,piece,Antibacterials,N,2-8 C,1,29,311
+Amoxicillin 84,Amoxicillin,5 mg,drops,strip,Respiratory,Y,cold chain,33,106,152
+  Pantoprazole 27  ,Ranitidine,,consumable,piece,Gastrointestinal,0,Ambient,17,80,275
+Salbutamol 86,Prednisolone,5 mg,syrup,capsule,Gastrointestinal,N,COLD,-5,58,157
+अमोक्सिसिलिन 30,Paracetamol,250 mg,drops,strip,Respiratory,हाँ,2-8 C,36,111,146
+,Atenolol,250 mg,ointment,vial,Antiallergics,yes,2-8 C,10,73,305
+Atenolol 89,,10 mg,Tablets,bottle,"Vitamins, minerals and tonics",no,COLD,46,91,356
+Amoxicillin 90,Salbutamol,,syrup,tube,Gastrointestinal,नहीं,2-8 C,44,68,341
+Pantoprazole 91,,,INJ,bottle,"Vitamins, minerals and tonics",Y,COLD,-5,91,202
+,,,,,,,,,,
+Paracetamol 93,Amoxicillin,50 mg,tablet,tube,Antibacterials,Y,2-8 C,19,115,464
+Amoxicillin 94,Atenolol,,syrup,piece,Antiallergics,हाँ,Ambient,47,102,440
+Prednisolone 95,Diclofenac,50 mg,TAB,capsule,"Vitamins, minerals and tonics",हाँ,ROOM,abc,59,141
+Cetirizine 96,,50 mg,INJ,tube,Respiratory,हाँ,Ambient,50,103,333
+Paracetamol 97,,5 mg,INJ,capsule,Antiallergics,Y,Ambient,18,69,375
+Paracetamol 98,Atenolol,,Tablets,capsule,Gastrointestinal,N,Ambient,7,97,151
+मेटफॉर्मिन 99,,,Capsule,vial,Gastrointestinal,Y,ROOM,47,60,343
+   ,,50 mg,Capsule,piece,"Vitamins, minerals and tonics",0,cold chain,6,62,421
+,,,,,,,,,,
+Ranitidine 102,,100 mg,syrup,vial,Antibacterials,no,COLD,42,105,273
+
+Azithromycin 104,,,Capsule,piece,Antibacterials,1,,25,94,126
+  Amoxicillin 105  ,,100 mg,tablet,piece,Analgesics,N,ROOM,33,132,164
+Atenolol 106,Metformin,,syrup,vial,"Vitamins, minerals and tonics",Y,ROOM,38,114,421
+Ibuprofen 107,Ciprofloxacin,50 mg,xyz,strip,Cardiovascular,,,6,59,401
+Cetirizine 96,,50 mg,INJ,tube,Respiratory,हाँ,Ambient,50,103,333
+Omeprazole 109,Amoxicillin,250 mg,syrup,tablet,Analgesics,yes,ROOM,29,107,409
+Ibuprofen 110,Salbutamol,100 mg,ointment,capsule,Analgesics,,2-8 C,14,36,409
+   ,Ciprofloxacin,,Tablets,tube,Cardiovascular,no,COLD,6,45,415
+  आइबुप्रोफेन 112  ,Diclofenac,,syrup,capsule,Gastrointestinal,,room,12,24,55
+  Salbutamol 113  ,Doxycycline,,ointment,bottle,"Vitamins, minerals and tonics",हाँ,cold chain,44,86,445
+Salbutamol 114,Cetirizine,5 mg,Tablets,bottle,"Vitamins, minerals and tonics",,freezer,14,114,350
+अमोक्सिसिलिन 115,Pantoprazole,5 mg,INJ,vial,Respiratory,Y,COLD,15,36,106
+Ranitidine 116,Omeprazole,500 mg,drops,tube,"Vitamins, minerals and tonics",yes,cold chain,26,92,234
+  Amoxicillin 117  ,,,INJ,bottle,"Vitamins, minerals and tonics",0,,many,22,330
+Atenolol 118,,,Tablets,strip,Antibacterials,Y,2-8 C,7,29,42
+Pantoprazole 119,,10 mg,drops,capsule,Antiallergics,,COLD,13/13/2025,107,264
+सेट्रिज़िन 26,,100 mg,syrup,capsule,Cardiovascular,1,,20,63,216
+   ,Ranitidine,250 mg,TAB,tube,Analgesics,,Ambient,5,76,162
+Paracetamol 122,Diclofenac,250 mg,Injection,bottle,Respiratory,नहीं,room,50,76,411
+  ,,,,,,,,,,
+Atenolol 124,,100 mg,ointment,strip,Respiratory,no,room,10,101,203
+  Cetirizine 125  ,,100 mg,consumable,capsule,Cardiovascular,no,2-8 C,17,106,241
+Salbutamol 126,,10 mg,INJ,tube,Analgesics,,ROOM,12,102,415
+Paracetamol 127,Omeprazole,5 mg,Capsule,strip,"Vitamins, minerals and tonics",no,COLD,42,123,362
+  Prednisolone 128  ,,5 mg,INJ,bottle,Antiallergics,Y,COLD,16,88,410
+  Amoxicillin 129  ,,,ointment,strip,Gastrointestinal,yes,Ambient,17,88,486
+सेट्रिज़िन 36,Salbutamol,,drops,vial,Respiratory,हाँ,cold chain,20,62,387
+  Diclofenac 131  ,,100 mg,consumable,tablet,Cardiovascular,N,cold chain,13/13/2025,84,284
+Diclofenac 132,,500 mg,INJ,vial,Gastrointestinal,maybe,COLD,16,116,434
+
+Doxycycline 134,Amoxicillin,,tablet,vial,Analgesics,N,,15,77,235
+Prednisolone 135,,5 mg,Capsule,bottle,Antibacterials,kabhi,room,40,137,229
+Paracetamol 136,Prednisolone,500 mg,xyz,capsule,Respiratory,no,,8,70,430
+एज़िथ्रोमाइसिन 137,,10 mg,syrup,tablet,"Vitamins, minerals and tonics",yes,COLD,36,92,199
+  सिप्रोफ्लॉक्सासिन 138  ,Salbutamol,500 mg,consumable,piece,Antiallergics,yes,,29,43,320
+Diclofenac 139,,250 mg,consumable,capsule,Antiallergics,1,,19,34,71
+Omeprazole 140,Amoxicillin,250 mg,Injection,strip,Cardiovascular,नहीं,cold chain,35,104,467
+Ibuprofen 141,,,consumable,vial,Analgesics,हाँ,COLD,100,50,500
+Ibuprofen 142,,50 mg,TAB,bottle,Antibacterials,0,Ambient,48,101,194
+Omeprazole 143,,250 mg,Injection,vial,Antiallergics,,room,2,30,217
+आइबुप्रोफेन 144,Omeprazole,5 mg,ointment,vial,Antibacterials,1,Ambient,0,73,355
+  अमोक्सिसिलिन 6  ,Cetirizine,500 mg,tablet,strip,Analgesics,0,cold chain,48,141,210
+Atenolol 146,,250 mg,लिक्विड,vial,Antiallergics,N,COLD,19,52,351
+Azithromycin 147,,100 mg,INJ,vial,Antibacterials,1,room,19,67,258
+Metformin 148,Metformin,5 mg,syrup,piece,Analgesics,नहीं,room,43,48,170
+Paracetamol 149,Salbutamol,50 mg,drops,capsule,Analgesics,N,room,16,105,383
+Cetirizine 150,,50 mg,Tablets,tablet,Cardiovascular,N,ROOM,7,86,111
+Prednisolone 151,Pantoprazole,5 mg,Capsule,tablet,Analgesics,N,cold chain,many,43,165
+पैरासिटामोल 152,,500 mg,Tablets,bottle,Antiallergics,,ROOM,26,40,103
+एटेनोलोल 153,Salbutamol,,consumable,vial,"Vitamins, minerals and tonics",1,,1,59,316
+,,,INJ,piece,Analgesics,नहीं,ROOM,31,130,505
+  आइबुप्रोफेन 112  ,Diclofenac,,syrup,capsule,Gastrointestinal,,room,12,24,55
+  Pantoprazole 156  ,,,Tablets,bottle,"Vitamins, minerals and tonics",no,room,31/02/2026,71,237
+Doxycycline 157,,10 mg,tablet,strip,Antibacterials,हाँ,,29,80,347
+  Diclofenac 158  ,Diclofenac,50 mg,drops,capsule,Antiallergics,हाँ,2-8 C,25,87,112
+Atenolol 159,,5 mg,Capsule,capsule,Antibacterials,no,COLD,41,73,147
+Azithromycin 160,,,Injection,tube,"Vitamins, minerals and tonics",maybe,COLD,10,93,423
+Ibuprofen 161,Diclofenac,,ointment,vial,"Vitamins, minerals and tonics",नहीं,Ambient,36,110,272
+  Ibuprofen 162  ,,500 mg,drops,tube,Antibacterials,0,COLD,3,10,51
+अमोक्सिसिलिन 163,Amoxicillin,50 mg,Capsule,tube,Antiallergics,yes,cold chain,8,22,212
+Amoxicillin 164,Ranitidine,,Tablets,tablet,Cardiovascular,Y,Ambient,32,119,437
+Cetirizine 165,Salbutamol,250 mg,Capsule,piece,Respiratory,N,2-8 C,31,51,60
+Azithromycin 166,Atenolol,,Injection,vial,Analgesics,0,Ambient,17,52,335
+,,500 mg,ointment,tablet,Analgesics,,Ambient,34,50,379
+Cetirizine 168,Cetirizine,,Tablets,capsule,Respiratory,no,room,39,67,225
+  Cetirizine 169  ,,,consumable,vial,Respiratory,Y,COLD,31/02/2026,78,136
+Ciprofloxacin 170,Ibuprofen,100 mg,TAB,capsule,"Vitamins, minerals and tonics",हाँ,cold chain,0,67,125
+डाइक्लोफेनैक 171,Omeprazole,,INJ,capsule,Cardiovascular,Y,2-8 C,4,75,355
+  Azithromycin 172  ,,50 mg,consumable,strip,Antibacterials,N,Ambient,many,68,468
+  Metformin 173  ,Amoxicillin,,syrup,tablet,"Vitamins, minerals and tonics",yes,room,36,48,266
+  Pantoprazole 174  ,,,Injection,tube,Gastrointestinal,1,ROOM,2,9,44
+Prednisolone 175,Azithromycin,50 mg,TAB,capsule,Antiallergics,1,,29,29,331
+Pantoprazole 176,,50 mg,INJ,tablet,Antibacterials,नहीं,ROOM,44,104,225
+  Amoxicillin 77  ,,100 mg,Injection,bottle,Antibacterials,no,,12,72,267
+  Metformin 178  ,Salbutamol,250 mg,drops,capsule,Respiratory,no,ROOM,20,22,413
+Prednisolone 179,,,drops,tablet,"Vitamins, minerals and tonics",1,ROOM,50,69,183
+Pantoprazole 180,,5 mg,Capsule,strip,Analgesics,हाँ,2-8 C,8,88,375
+  ,,,,,,,,,,
+  पैरासिटामोल 182  ,Ranitidine,50 mg,Tablets,tube,Gastrointestinal,N,Ambient,39,107,489
+Atenolol 183,,5 mg,Capsule,vial,Gastrointestinal,1,room,25,91,218
+Doxycycline 184,Amoxicillin,50 mg,drops,capsule,"Vitamins, minerals and tonics",0,Ambient,17,78,161
+Azithromycin 185,,,TAB,piece,Analgesics,no,2-8 C,12,107,433
+Metformin 186,Salbutamol,,Tablets,vial,Cardiovascular,no,Ambient,14,52,158
+सेट्रिज़िन 187,Doxycycline,,drops,bottle,Antiallergics,नहीं,room,14,79,84
+  Cetirizine 188  ,,,Tablets,tablet,Gastrointestinal,N,COLD,100,50,500
+  Prednisolone 189  ,,,drops,bottle,Analgesics,Y,room,36,46,94
+Prednisolone 190,Cetirizine,5 mg,TAB,capsule,Cardiovascular,0,ROOM,23,35,244
+
+  डाइक्लोफेनैक 192  ,,500 mg,TAB,strip,Antiallergics,हाँ,COLD,3,89,104
+  Paracetamol 193  ,Salbutamol,500 mg,consumable,strip,"Vitamins, minerals and tonics",Y,freezer,5,62,363
+  Atenolol 194  ,Diclofenac,50 mg,tabletz,vial,Respiratory,1,2-8 C,5,42,140
+Ranitidine 195,Atenolol,,syrup,capsule,"Vitamins, minerals and tonics",1,Ambient,38,72,277
+Diclofenac 196,,250 mg,TAB,strip,Cardiovascular,,cold chain,31,60,440
+Cetirizine 197,Paracetamol,10 mg,syrup,vial,Antibacterials,,cold chain,0,73,421
+  Atenolol 198  ,Prednisolone,250 mg,tablet,bottle,Cardiovascular,,2-8 C,48,81,397
+Prednisolone 199,,50 mg,INJ,piece,Analgesics,,,18,109,455
+  Diclofenac 200  ,Salbutamol,500 mg,consumable,tube,Antiallergics,,room,7,33,265
+Azithromycin 201,Doxycycline,,drops,capsule,Analgesics,no,COLD,0,56,418
+Ranitidine 202,Metformin,,ointment,bottle,Antiallergics,,COLD,45,81,449
+Amoxicillin 203,,250 mg,Injection,bottle,Antiallergics,N,COLD,100,50,500
+  Diclofenac 204  ,Paracetamol,500 mg,INJ,strip,Cardiovascular,kabhi,,29,45,438
+,Azithromycin,,Capsule,tablet,Respiratory,हाँ,,13,111,127
+Pantoprazole 180,,5 mg,Capsule,strip,Analgesics,हाँ,2-8 C,8,88,375
+,,,,,,,,,,
+Pantoprazole 208,,500 mg,tabletz,vial,Gastrointestinal,नहीं,2-8 C,33,77,172
+एज़िथ्रोमाइसिन 209,,,pills,strip,"Vitamins, minerals and tonics",,2-8 C,3,76,171
+  Ciprofloxacin 210  ,Salbutamol,,Capsule,capsule,Respiratory,yes,2-8 C,30,130,232
+  Doxycycline 211  ,Salbutamol,5 mg,Capsule,tube,Respiratory,नहीं,cold chain,9,61,341
+एटेनोलोल 212,,100 mg,syrup,tube,"Vitamins, minerals and tonics",0,room,34,133,526
+  Pantoprazole 213  ,Pantoprazole,,syrup,vial,Antiallergics,हाँ,2-8 C,49,137,339
+Atenolol 54,,100 mg,TAB,vial,Cardiovascular,0,COLD,47,49,238
+Doxycycline 215,Atenolol,,TAB,tube,"Vitamins, minerals and tonics",हाँ,ROOM,9,73,98
+  Azithromycin 216  ,,50 mg,tabletz,strip,"Vitamins, minerals and tonics",N,room,3,81,82
+Diclofenac 217,Azithromycin,10 mg,Tablets,vial,Antibacterials,N,cold chain,12,98,361
+ओमेप्राज़ोल 218,Azithromycin,50 mg,Tablets,bottle,Analgesics,,ROOM,4,83,241
+Ranitidine 219,,50 mg,लिक्विड,tablet,Antibacterials,नहीं,COLD,15,72,118
+Metformin 220,,100 mg,ointment,strip,Analgesics,0,cold chain,7,43,74
+  Paracetamol 221  ,,10 mg,Injection,tube,Antiallergics,N,freezer,37,51,83
+Ranitidine 222,Paracetamol,,INJ,vial,Antiallergics,Y,,41,52,337
+  ,,,,,,,,,,
+Prednisolone 224,Metformin,50 mg,drops,piece,Respiratory,,cold chain,12,33,341
+Metformin 225,Salbutamol,250 mg,tablet,tablet,Cardiovascular,Y,Ambient,35,84,195
+Omeprazole 226,Metformin,,ointment,strip,Respiratory,,2-8 C,1,74,135
+एटेनोलोल 227,,100 mg,consumable,capsule,Analgesics,0,room,27,118,469
+Ciprofloxacin 228,,50 mg,INJ,piece,Analgesics,0,ROOM,45,94,358
+  Paracetamol 229  ,Salbutamol,10 mg,tablet,bottle,Antiallergics,,2-8 C,100,50,500
+Prednisolone 230,,250 mg,tablet,tablet,Analgesics,हाँ,COLD,46,137,182
+  Azithromycin 231  ,,50 mg,INJ,vial,"Vitamins, minerals and tonics",0,room,46,54,452
+  Salbutamol 232  ,Metformin,50 mg,Capsule,bottle,Cardiovascular,हाँ,ROOM,6,37,419
+  पैरासिटामोल 233  ,,100 mg,syrup,vial,Gastrointestinal,,Ambient,38,130,455
+Azithromycin 234,Atenolol,,Tablets,tablet,Gastrointestinal,yes,COLD,1,90,138
+Pantoprazole 235,Ibuprofen,500 mg,syrup,tablet,Antiallergics,no,,21,112,115
+एटेनोलोल 236,,250 mg,syrup,capsule,Antiallergics,,,45,95,266
+Paracetamol 237,,500 mg,tablet,strip,Analgesics,Y,Ambient,41,122,194
+Pantoprazole 238,,,drops,bottle,Antibacterials,0,2-8 C,8,85,281
+
+Ciprofloxacin 240,Ranitidine,10 mg,ointment,capsule,Analgesics,yes,room,39,99,147
+,,,,,,,,,,
+Prednisolone 242,,,Tablets,piece,Analgesics,1,2-8 C,12,52,412
+Azithromycin 243,Cetirizine,,ointment,bottle,Antiallergics,1,ROOM,49,127,186
+Azithromycin 244,,,Capsule,bottle,"Vitamins, minerals and tonics",yes,Ambient,100,50,500
+एटेनोलोल 245,Paracetamol,500 mg,INJ,capsule,"Vitamins, minerals and tonics",N,Ambient,100,50,500
+Atenolol 246,,250 mg,syrup,bottle,"Vitamins, minerals and tonics",,Ambient,100,50,500
+  ,,,,,,,,,,
+Ciprofloxacin 248,Atenolol,250 mg,tablet,strip,"Vitamins, minerals and tonics",Y,,32,96,183
+Cetirizine 249,Omeprazole,5 mg,Tablets,vial,"Vitamins, minerals and tonics",1,2-8 C,46,121,137
+सिप्रोफ्लॉक्सासिन 250,,50 mg,drops,capsule,Respiratory,no,2-8 C,15,43,392
+Omeprazole 251,,,ointment,vial,Antibacterials,नहीं,cold chain,20,85,93
+Diclofenac 252,,5 mg,Tablets,vial,Antibacterials,,2-8 C,9,58,155
+Omeprazole 253,Amoxicillin,10 mg,TAB,tablet,Antiallergics,1,room,42,102,472
+Metformin 254,Ciprofloxacin,500 mg,Tablets,vial,Respiratory,0,COLD,2,11,212
+सिप्रोफ्लॉक्सासिन 255,,250 mg,Capsule,tablet,Antibacterials,हाँ,Ambient,31,84,429
+अमोक्सिसिलिन 256,Amoxicillin,250 mg,ointment,piece,Antiallergics,नहीं,COLD,37,128,174
+Paracetamol 257,,100 mg,Injection,piece,Analgesics,no,ROOM,25,48,328
+  अमोक्सिसिलिन 258  ,,50 mg,INJ,strip,"Vitamins, minerals and tonics",N,room,50,100,337
+अमोक्सिसिलिन 256,Amoxicillin,250 mg,ointment,piece,Antiallergics,नहीं,COLD,37,128,174
+आइबुप्रोफेन 260,,,Injection,capsule,Analgesics,Y,Ambient,48,56,132
+Paracetamol 261,Amoxicillin,,Injection,tablet,"Vitamins, minerals and tonics",नहीं,ROOM,6,32,211
+Ciprofloxacin 262,,5 mg,INJ,bottle,Respiratory,N,2-8 C,100,50,500
+Metformin 263,Prednisolone,500 mg,drops,strip,Antiallergics,no,,45,140,300
+
+Salbutamol 265,Paracetamol,100 mg,Injection,vial,Antibacterials,yes,cold chain,48,76,86
+  Cetirizine 266  ,Metformin,5 mg,ointment,tablet,Gastrointestinal,,ROOM,100,50,500
+,,,,,,,,,,
+Amoxicillin 268,,5 mg,Injection,strip,Gastrointestinal,1,room,16,20,361
+सेट्रिज़िन 269,Metformin,250 mg,consumable,tube,Analgesics,no,cold chain,9,45,424
+   ,Ciprofloxacin,50 mg,syrup,capsule,Respiratory,N,cold chain,8,15,100
+Azithromycin 271,Ranitidine,,Tablets,strip,Antibacterials,हाँ,2-8 C,1,14,322
+  Pantoprazole 272  ,Pantoprazole,,Capsule,capsule,Cardiovascular,1,,40,124,369
+Ciprofloxacin 273,,500 mg,drops,vial,Antiallergics,Y,Ambient,43,109,280
+Salbutamol 274,,,Tablets,capsule,Antibacterials,Y,ROOM,24,46,198
+  Cetirizine 275  ,Paracetamol,,syrup,piece,"Vitamins, minerals and tonics",,ROOM,21,108,118
+Ranitidine 276,,100 mg,Capsule,tablet,"Vitamins, minerals and tonics",1,,27,83,409
+  ,,,,,,,,,,
+  सिप्रोफ्लॉक्सासिन 278  ,,,Injection,vial,Cardiovascular,no,room,2,39,370
+
+Diclofenac 280,,50 mg,लिक्विड,bottle,"Vitamins, minerals and tonics",नहीं,2-8 C,0,96,400
+   ,,,Capsule,piece,Respiratory,N,cold chain,3,20,140
+Azithromycin 282,Omeprazole,5 mg,drops,tube,Analgesics,नहीं,ROOM,36,130,291
+Atenolol 283,,500 mg,syrup,tube,Analgesics,0,room,16,116,334
+Atenolol 284,,500 mg,consumable,piece,Antibacterials,0,2-8 C,31/02/2026,48,161
+Paracetamol 285,Pantoprazole,5 mg,consumable,vial,Antibacterials,yes,COLD,2,95,167
+Diclofenac 286,,,TAB,tube,Antibacterials,हाँ,Ambient,16,16,160
+  Omeprazole 287  ,,,Injection,strip,Analgesics,0,2-8 C,100,50,500
+   ,Doxycycline,,Tablets,tube,Respiratory,नहीं,ROOM,15,90,163
+Doxycycline 289,Prednisolone,500 mg,xyz,capsule,Antibacterials,1,,20,120,270
+  Pantoprazole 290  ,,,tablet,tube,Respiratory,N,,26,56,65
+एज़िथ्रोमाइसिन 291,Ranitidine,100 mg,syrup,bottle,Gastrointestinal,0,Ambient,34,89,489
+Paracetamol 237,,500 mg,tablet,strip,Analgesics,Y,Ambient,41,122,194
+एटेनोलोल 293,Doxycycline,50 mg,Injection,piece,"Vitamins, minerals and tonics",N,ROOM,abc,60,284
+Salbutamol 294,Pantoprazole,500 mg,TAB,strip,Gastrointestinal,,ROOM,4,84,200
+Prednisolone 224,Metformin,50 mg,drops,piece,Respiratory,,cold chain,12,33,341
+,,10 mg,tablet,tablet,Antiallergics,no,room,11,102,357
+  Cetirizine 297  ,Doxycycline,10 mg,ointment,tablet,Respiratory,N,COLD,48,111,167
+Omeprazole 143,,250 mg,Injection,vial,Antiallergics,,room,2,30,217
+Cetirizine 299,Pantoprazole,100 mg,Tablets,tablet,Antiallergics,1,ROOM,32,124,467
+Ranitidine 300,,,consumable,tube,Gastrointestinal,,cold chain,6,86,464
+Ciprofloxacin 301,Ranitidine,,ointment,tablet,Analgesics,,2-8 C,49,76,451
+Ibuprofen 302,Pantoprazole,100 mg,drops,piece,Cardiovascular,नहीं,ROOM,26,64,104
+  ,,,,,,,,,,
+Azithromycin 304,Atenolol,5 mg,Capsule,bottle,Gastrointestinal,0,cold chain,17,97,357
+सिप्रोफ्लॉक्सासिन 305,Atenolol,50 mg,consumable,capsule,Gastrointestinal,0,ROOM,32,125,231
+  Ibuprofen 306  ,Pantoprazole,250 mg,Capsule,tube,Antibacterials,yes,ROOM,17,94,135
+Amoxicillin 307,,10 mg,Injection,capsule,Antiallergics,नहीं,cold chain,35,41,254
+  ,,,,,,,,,,
+Cetirizine 309,Amoxicillin,,syrup,vial,Respiratory,हाँ,Ambient,100,50,500
+Ranitidine 310,Atenolol,100 mg,tablet,bottle,Respiratory,नहीं,2-8 C,49,70,136
+Amoxicillin 311,,,Injection,bottle,Antibacterials,,cold chain,17,66,189
+Amoxicillin 312,,100 mg,consumable,tube,Antiallergics,नहीं,COLD,1,34,181
+एटेनोलोल 313,,10 mg,syrup,capsule,Respiratory,हाँ,room,100,50,500
+Ibuprofen 314,Amoxicillin,500 mg,Tablets,bottle,Analgesics,kabhi,ROOM,40,59,76
+Salbutamol 315,,250 mg,tablet,tube,Cardiovascular,Y,2-8 C,40,58,248
+  Pantoprazole 316  ,,,tablet,tablet,Cardiovascular,N,2-8 C,7,68,130
+एज़िथ्रोमाइसिन 317,Pantoprazole,5 mg,syrup,vial,"Vitamins, minerals and tonics",N,room,4,43,141
+Ciprofloxacin 318,Amoxicillin,250 mg,syrup,vial,Antiallergics,,,34,89,475
+Pantoprazole 319,Ciprofloxacin,10 mg,INJ,strip,"Vitamins, minerals and tonics",maybe,COLD,39,51,373
+Paracetamol 320,Metformin,50 mg,लिक्विड,tube,Gastrointestinal,N,COLD,14,21,66
+,,,,,,,,,,
+Diclofenac 322,Ibuprofen,,ointment,bottle,Analgesics,1,ROOM,43,86,306
+  Doxycycline 323  ,,,Capsule,tablet,Antibacterials,Y,2-8 C,18,85,129
+Ranitidine 324,,100 mg,ointment,bottle,Cardiovascular,नहीं,COLD,10,66,331
+  Diclofenac 325  ,Cetirizine,,drops,bottle,Respiratory,0,Ambient,100,50,500
+Amoxicillin 326,,,Capsule,capsule,"Vitamins, minerals and tonics",N,COLD,19,70,70
+  एज़िथ्रोमाइसिन 327  ,,10 mg,Capsule,piece,Antibacterials,,2-8 C,100,50,500
+  Paracetamol 328  ,Pantoprazole,,consumable,vial,Cardiovascular,,,42,106,270
+  पैरासिटामोल 233  ,,100 mg,syrup,vial,Gastrointestinal,,Ambient,38,130,455
+सेट्रिज़िन 330,Omeprazole,100 mg,Tablets,strip,Antibacterials,नहीं,COLD,5,73,121
+Ciprofloxacin 331,Amoxicillin,100 mg,pills,strip,Antibacterials,N,room,33,113,501
+Atenolol 332,,250 mg,syrup,vial,Analgesics,0,COLD,13/13/2025,70,218
+आइबुप्रोफेन 333,Amoxicillin,500 mg,TAB,capsule,"Vitamins, minerals and tonics",yes,2-8 C,100,50,500
+Atenolol 334,Doxycycline,5 mg,TAB,bottle,Respiratory,0,,6,87,394
+अमोक्सिसिलिन 335,,,Tablets,tube,Gastrointestinal,1,Ambient,40,87,110
+  Paracetamol 336  ,,,tabletz,tablet,Respiratory,no,cold chain,5,14,404
+Doxycycline 337,Ranitidine,250 mg,syrup,strip,Cardiovascular,no,ROOM,35,86,189
+Metformin 49,Omeprazole,,ointment,piece,Antibacterials,0,2-8 C,41,136,240
+Salbutamol 339,,500 mg,ointment,strip,"Vitamins, minerals and tonics",,2-8 C,18,66,109
+Ciprofloxacin 340,,10 mg,tabletz,piece,Gastrointestinal,हाँ,COLD,8,57,347
+Pantoprazole 341,,250 mg,drops,piece,Antibacterials,N,,14,72,389
+Ranitidine 342,,50 mg,xyz,bottle,Antibacterials,1,Ambient,42,104,490
+Omeprazole 343,,500 mg,TAB,strip,"Vitamins, minerals and tonics",Y,2-8 C,45,75,214
+सेट्रिज़िन 36,Salbutamol,,drops,vial,Respiratory,हाँ,cold chain,20,62,387
+Ibuprofen 345,,250 mg,consumable,tablet,"Vitamins, minerals and tonics",हाँ,room,46,87,447
+  Paracetamol 346  ,Atenolol,10 mg,consumable,piece,"Vitamins, minerals and tonics",0,Ambient,48,88,307
+Salbutamol 347,,500 mg,Capsule,capsule,Respiratory,Y,COLD,8,69,309
+Ranitidine 348,Ranitidine,500 mg,ointment,tablet,Antiallergics,,COLD,100,50,500
+Metformin 40,,5 mg,syrup,tablet,Respiratory,Y,,14,105,321
+Amoxicillin 350,Diclofenac,10 mg,ointment,strip,Antibacterials,Y,COLD,46,127,292
+Ibuprofen 351,Atenolol,5 mg,Tablets,vial,Respiratory,no,room,25,64,169
+Metformin 352,,5 mg,syrup,tablet,Gastrointestinal,हाँ,room,17,22,134
+,Paracetamol,5 mg,INJ,tablet,Gastrointestinal,0,cold chain,49,94,431
+Ciprofloxacin 354,Salbutamol,10 mg,tablet,bottle,Respiratory,N,cold chain,27,39,48
+Omeprazole 355,Cetirizine,100 mg,ointment,strip,Analgesics,,room,25,27,335
+,,,,,,,,,,
+Azithromycin 357,Cetirizine,500 mg,INJ,tube,"Vitamins, minerals and tonics",Y,2-8 C,13/13/2025,27,194
+Omeprazole 358,,250 mg,Tablets,tube,Analgesics,yes,,100,50,500
+Pantoprazole 359,,,drops,bottle,"Vitamins, minerals and tonics",Y,ROOM,13/13/2025,51,309
+Cetirizine 360,Pantoprazole,100 mg,TAB,tube,Antibacterials,N,ROOM,many,106,450
+Doxycycline 361,,250 mg,Injection,bottle,Antiallergics,0,2-8 C,30,124,124
+  Doxycycline 362  ,,,INJ,tablet,Antibacterials,yes,COLD,34,115,220
+Cetirizine 363,,10 mg,ointment,tube,"Vitamins, minerals and tonics",yes,,39,103,442
+Diclofenac 364,,,consumable,capsule,Antiallergics,,ROOM,43,100,275
+  Doxycycline 365  ,Amoxicillin,,drops,strip,Gastrointestinal,हाँ,ROOM,21,52,124
+  Paracetamol 366  ,Doxycycline,,drops,piece,"Vitamins, minerals and tonics",,COLD,abc,87,177
+  अमोक्सिसिलिन 258  ,,50 mg,INJ,strip,"Vitamins, minerals and tonics",N,room,50,100,337
+Prednisolone 368,Prednisolone,500 mg,INJ,strip,Antiallergics,1,cold chain,many,36,320
+Ciprofloxacin 369,Paracetamol,500 mg,syrup,vial,Analgesics,N,2-8 C,10,31,95
+Azithromycin 370,Pantoprazole,,INJ,strip,Antiallergics,maybe,Ambient,33,61,326
+,,250 mg,Capsule,capsule,Antibacterials,N,2-8 C,12,46,219
+Paracetamol 372,,50 mg,consumable,strip,Respiratory,no,ROOM,31,52,78
+Ibuprofen 373,Diclofenac,250 mg,ointment,bottle,Antibacterials,Y,,48,79,179
+Cetirizine 374,Metformin,,tablet,strip,Gastrointestinal,no,COLD,3,82,231
+Azithromycin 375,,100 mg,consumable,tube,Analgesics,हाँ,ROOM,19,66,441
+Salbutamol 376,,500 mg,Injection,tablet,Antibacterials,yes,cold chain,30,37,433
+एज़िथ्रोमाइसिन 377,Cetirizine,100 mg,syrup,strip,Cardiovascular,1,room,7,100,350
+Atenolol 378,Doxycycline,10 mg,लिक्विड,capsule,Analgesics,,room,28,109,205
+सिप्रोफ्लॉक्सासिन 379,,5 mg,syrup,tablet,Cardiovascular,,ROOM,many,71,271
+  ,,,,,,,,,,
+  Amoxicillin 381  ,Ciprofloxacin,,ointment,piece,Gastrointestinal,Y,ROOM,27,58,312
+Atenolol 382,,5 mg,syrup,piece,Analgesics,,cold chain,48,116,409
+Amoxicillin 350,Diclofenac,10 mg,ointment,strip,Antibacterials,Y,COLD,46,127,292
+Doxycycline 384,Pantoprazole,500 mg,Capsule,tablet,Antibacterials,नहीं,Ambient,6,45,147
+,,500 mg,Capsule,vial,Gastrointestinal,नहीं,Ambient,11,60,299
+Omeprazole 386,,250 mg,Injection,vial,Antiallergics,,COLD,36,136,506
+  ,,,,,,,,,,
+Diclofenac 388,,,tablet,tablet,Cardiovascular,,ROOM,100,50,500
+Cetirizine 389,Ranitidine,500 mg,ointment,strip,Analgesics,0,COLD,28,128,248
+  Doxycycline 365  ,Amoxicillin,,drops,strip,Gastrointestinal,हाँ,ROOM,21,52,124
+Omeprazole 391,,250 mg,Capsule,vial,"Vitamins, minerals and tonics",,ROOM,26,108,309
+Metformin 392,Doxycycline,,consumable,piece,Cardiovascular,N,Ambient,12,61,377
+Pantoprazole 393,Cetirizine,,consumable,strip,Antibacterials,no,COLD,40,69,196
+Paracetamol 394,,100 mg,TAB,tablet,Antiallergics,1,2-8 C,-5,102,162
+अमोक्सिसिलिन 395,,,consumable,vial,Respiratory,,room,41,133,144
+  Amoxicillin 396  ,Diclofenac,50 mg,ointment,capsule,Respiratory,1,room,18,90,363
+Amoxicillin 397,,5 mg,INJ,piece,"Vitamins, minerals and tonics",,COLD,32,59,159
+Cetirizine 398,,10 mg,syrup,tube,Antiallergics,,Ambient,100,50,500
+Pantoprazole 399,,250 mg,Tablets,piece,Antiallergics,हाँ,2-8 C,38,73,82
+Cetirizine 400,Ranitidine,,Capsule,bottle,Antibacterials,N,COLD,11,94,251
+Salbutamol 43,Amoxicillin,10 mg,Tablets,piece,Analgesics,1,,11,15,180
+  Atenolol 402  ,,10 mg,Injection,tube,Gastrointestinal,yes,cold chain,100,50,500
+Metformin 403,Pantoprazole,100 mg,Capsule,strip,Analgesics,yes,,many,72,225
+Omeprazole 404,,50 mg,tablet,tube,Antiallergics,,cold chain,100,50,500
+Ciprofloxacin 405,,500 mg,tablet,capsule,Antiallergics,N,ROOM,33,120,232
+Doxycycline 406,,,syrup,vial,Antiallergics,maybe,room,50,56,325
+  Ranitidine 407  ,,,INJ,vial,Respiratory,yes,COLD,25,61,201
+Salbutamol 408,,10 mg,TAB,vial,Gastrointestinal,0,Ambient,48,61,70
+Paracetamol 409,,,TAB,capsule,Cardiovascular,,ROOM,43,107,134
+  Prednisolone 410  ,,100 mg,ointment,piece,Analgesics,हाँ,COLD,7,12,171
+एटेनोलोल 411,,,tabletz,tube,Antiallergics,yes,2-8 C,35,111,252
+Salbutamol 412,,50 mg,TAB,tube,"Vitamins, minerals and tonics",,room,abc,127,496
+Azithromycin 413,Pantoprazole,10 mg,tablet,capsule,Cardiovascular,no,2-8 C,49,144,481
+  Prednisolone 414  ,,50 mg,INJ,vial,"Vitamins, minerals and tonics",yes,,29,79,223
+  Ranitidine 415  ,,5 mg,TAB,tube,"Vitamins, minerals and tonics",yes,room,-5,55,287
+   ,Ciprofloxacin,5 mg,Tablets,piece,Antibacterials,1,room,16,51,191
+  Pantoprazole 417  ,,5 mg,Tablets,tablet,"Vitamins, minerals and tonics",1,cold chain,19,94,450
+  सिप्रोफ्लॉक्सासिन 418  ,Ciprofloxacin,500 mg,INJ,piece,Cardiovascular,Y,cold chain,47,65,351
+  Atenolol 419  ,Pantoprazole,,TAB,tablet,Cardiovascular,yes,ROOM,20,20,209
+Azithromycin 420,Paracetamol,100 mg,Injection,tablet,Gastrointestinal,yes,Ambient,41,57,357
+Salbutamol 421,,100 mg,syrup,strip,"Vitamins, minerals and tonics",1,ROOM,100,50,500
+Doxycycline 422,Cetirizine,500 mg,drops,vial,Antiallergics,no,2-8 C,39,71,379
+  Doxycycline 423  ,,,ointment,capsule,Antibacterials,N,ROOM,17,109,505
+Ranitidine 300,,,consumable,tube,Gastrointestinal,,cold chain,6,86,464
+अमोक्सिसिलिन 425,Amoxicillin,250 mg,INJ,tube,Antibacterials,हाँ,,32,127,172
+Amoxicillin 426,,100 mg,ointment,tablet,Respiratory,Y,,29,61,218
+Ranitidine 427,Doxycycline,250 mg,ointment,vial,Antibacterials,Y,cold chain,17,100,263
+आइबुप्रोफेन 428,Cetirizine,10 mg,ointment,piece,Gastrointestinal,no,2-8 C,27,37,319
+अमोक्सिसिलिन 429,Prednisolone,,TAB,piece,Antibacterials,,,1,64,81
+,,,,,,,,,,
+Diclofenac 431,Diclofenac,10 mg,Tablets,bottle,Respiratory,Y,ROOM,many,58,315
+Azithromycin 432,,5 mg,consumable,tablet,Respiratory,0,Ambient,15,91,317
+Salbutamol 433,Ciprofloxacin,10 mg,syrup,piece,Cardiovascular,,COLD,100,50,500
+Paracetamol 434,,250 mg,drops,capsule,Respiratory,,2-8 C,abc,67,264
+Atenolol 435,Atenolol,,xyz,tablet,Respiratory,N,ROOM,21,75,155
+Atenolol 436,,500 mg,drops,strip,Gastrointestinal,Y,COLD,abc,77,309
+,,250 mg,tablet,capsule,Antibacterials,नहीं,ROOM,47,95,113
+Metformin 438,,250 mg,ointment,vial,Antiallergics,N,freezer,10,110,185
+Diclofenac 439,,,Injection,strip,Gastrointestinal,0,2-8 C,34,120,300
+Paracetamol 440,Ranitidine,,syrup,bottle,Analgesics,नहीं,,31/02/2026,97,357
+Cetirizine 96,,50 mg,INJ,tube,Respiratory,हाँ,Ambient,50,103,333
+  Ibuprofen 442  ,Amoxicillin,50 mg,TAB,bottle,Antibacterials,N,COLD,26,104,447
+Amoxicillin 443,Atenolol,50 mg,TAB,capsule,"Vitamins, minerals and tonics",हाँ,2-8 C,31/02/2026,83,406
+Metformin 444,Ciprofloxacin,100 mg,drops,tablet,Antibacterials,no,2-8 C,40,92,118
+  Paracetamol 445  ,,10 mg,consumable,tablet,Analgesics,,room,19,88,152
+Cetirizine 446,,100 mg,syrup,strip,Respiratory,yes,Ambient,39,41,84
+Diclofenac 58,,100 mg,syrup,tablet,Gastrointestinal,yes,2-8 C,20,41,422
+Doxycycline 448,,,Tablets,tablet,Cardiovascular,1,room,15,33,216
+  Omeprazole 449  ,Paracetamol,500 mg,TAB,strip,Respiratory,N,Ambient,34,88,365
+Prednisolone 450,Atenolol,250 mg,Injection,strip,Gastrointestinal,N,cold chain,100,50,500
+Ibuprofen 451,Ranitidine,50 mg,Tablets,piece,Cardiovascular,yes,2-8 C,28,92,168
+Doxycycline 452,,100 mg,syrup,tablet,Cardiovascular,no,COLD,100,50,500
+Pantoprazole 453,,250 mg,Capsule,tablet,Respiratory,1,Ambient,36,57,316
+Ranitidine 454,Diclofenac,,tabletz,bottle,Gastrointestinal,नहीं,COLD,32,82,100
+Ranitidine 455,,,Injection,strip,Antibacterials,yes,ROOM,39,123,452
+  Salbutamol 456  ,,500 mg,Injection,tablet,Cardiovascular,no,,6,12,231
+  ,,,,,,,,,,
+  Atenolol 458  ,Ranitidine,50 mg,drops,strip,Gastrointestinal,Y,cold chain,16,21,339
+  Amoxicillin 459  ,,,drops,tube,Antiallergics,Y,2-8 C,13/13/2025,136,470
+  ओमेप्राज़ोल 460  ,Ranitidine,,Injection,strip,Analgesics,no,room,47,63,439
+Diclofenac 461,,,pills,vial,Cardiovascular,1,room,29,109,285
+आइबुप्रोफेन 260,,,Injection,capsule,Analgesics,Y,Ambient,48,56,132
+  पैरासिटामोल 463  ,Salbutamol,10 mg,drops,bottle,Antibacterials,no,COLD,27,74,321
+Cetirizine 464,Amoxicillin,250 mg,Capsule,capsule,Respiratory,N,Ambient,22,28,258
+Ibuprofen 465,,10 mg,ointment,strip,Analgesics,no,cold chain,100,50,500
+Omeprazole 466,,,Capsule,bottle,Analgesics,Y,room,29,46,236
+Prednisolone 467,,,consumable,capsule,"Vitamins, minerals and tonics",yes,ROOM,9,64,72
+Salbutamol 347,,500 mg,Capsule,capsule,Respiratory,Y,COLD,8,69,309
+Ibuprofen 469,,250 mg,drops,strip,Cardiovascular,N,2-8 C,15,100,219
+  Metformin 470  ,,5 mg,INJ,tube,Analgesics,N,2-8 C,6,70,454
+Paracetamol 471,Metformin,50 mg,tablet,bottle,Antibacterials,yes,ROOM,-5,68,96
+  सिप्रोफ्लॉक्सासिन 472  ,,10 mg,INJ,piece,Gastrointestinal,Y,2-8 C,46,135,390
+मेटफॉर्मिन 473,Diclofenac,5 mg,Injection,strip,Cardiovascular,Y,cold chain,49,52,223
+Diclofenac 474,,10 mg,tablet,bottle,"Vitamins, minerals and tonics",1,COLD,7,67,333
+  ,,,,,,,,,,
+सेट्रिज़िन 476,,500 mg,drops,bottle,"Vitamins, minerals and tonics",no,,36,76,256
+Doxycycline 477,Paracetamol,100 mg,pills,capsule,Antiallergics,,room,43,117,481
+Salbutamol 478,Pantoprazole,,Tablets,tablet,Antiallergics,Y,Ambient,100,50,500
+,,,,,,,,,,
+Ranitidine 480,Pantoprazole,10 mg,Injection,tablet,"Vitamins, minerals and tonics",1,cold chain,47,137,382
+Prednisolone 481,Atenolol,50 mg,Tablets,piece,Gastrointestinal,हाँ,2-8 C,30,51,359
+Prednisolone 482,,500 mg,Tablets,capsule,Analgesics,नहीं,room,32,50,448
+Pantoprazole 483,,50 mg,INJ,bottle,Analgesics,no,2-8 C,29,111,491
+  ,,,,,,,,,,
+  Paracetamol 485  ,Salbutamol,500 mg,drops,bottle,"Vitamins, minerals and tonics",,,30,106,348
+Azithromycin 271,Ranitidine,,Tablets,strip,Antibacterials,हाँ,2-8 C,1,14,322
+Doxycycline 487,,50 mg,Capsule,piece,Analgesics,kabhi,COLD,33,47,169
+Ibuprofen 488,,10 mg,drops,tube,Cardiovascular,N,room,33,128,156
+आइबुप्रोफेन 489,Salbutamol,5 mg,TAB,bottle,Antiallergics,0,2-8 C,-5,38,122
+,,50 mg,Capsule,tablet,Analgesics,Y,COLD,36,64,239
+Doxycycline 491,Cetirizine,,syrup,piece,Respiratory,नहीं,cold chain,36,70,402
+Amoxicillin 492,,500 mg,tablet,piece,Antiallergics,0,,19,93,383
+,,,,,,,,,,
+Amoxicillin 494,Azithromycin,,Tablets,piece,Cardiovascular,N,cold chain,5,58,289
+  अमोक्सिसिलिन 495  ,,10 mg,INJ,tube,Antibacterials,no,2-8 C,13/13/2025,33,390
+  Ciprofloxacin 496  ,,5 mg,pills,bottle,"Vitamins, minerals and tonics",नहीं,ROOM,37,133,291
+Ciprofloxacin 497,Ibuprofen,5 mg,Injection,vial,Antiallergics,0,,100,50,500
+ओमेप्राज़ोल 498,,250 mg,pills,strip,Analgesics,नहीं,2-8 C,12,45,207
+Pantoprazole 499,,,tablet,tube,Antiallergics,0,ROOM,100,50,500
+  Pantoprazole 500  ,Atenolol,,drops,capsule,"Vitamins, minerals and tonics",Y,COLD,44,57,339
+Azithromycin 501,Doxycycline,10 mg,लिक्विड,capsule,Antibacterials,1,Ambient,15,72,196
+  Prednisolone 502  ,Salbutamol,5 mg,syrup,tablet,Antibacterials,yes,,8,37,328
+Ibuprofen 503,,,tablet,strip,Antiallergics,N,room,33,101,292
+Ciprofloxacin 504,,50 mg,TAB,capsule,Antibacterials,नहीं,2-8 C,28,39,166
+   ,,,Tablets,piece,Antibacterials,1,room,4,103,211
+  Ranitidine 506  ,,100 mg,tablet,capsule,Antiallergics,1,2-8 C,31/02/2026,117,181
+Amoxicillin 507,,5 mg,TAB,capsule,Analgesics,1,,43,121,254
+Cetirizine 508,,100 mg,tablet,vial,Analgesics,N,,16,114,292
+Paracetamol 509,,5 mg,Tablets,strip,Cardiovascular,,2-8 C,5,13,35
+Ibuprofen 510,Ranitidine,500 mg,TAB,capsule,Analgesics,0,2-8 C,19,75,220
+Atenolol 511,Ibuprofen,5 mg,INJ,capsule,Cardiovascular,no,ROOM,0,53,329
+Atenolol 512,,100 mg,consumable,tablet,"Vitamins, minerals and tonics",yes,room,27,109,304
+सेट्रिज़िन 513,Salbutamol,50 mg,tablet,tube,Antibacterials,हाँ,room,5,90,403
+  ,,,,,,,,,,
+Metformin 515,Pantoprazole,,लिक्विड,piece,Respiratory,,room,14,85,287
+Ibuprofen 516,,10 mg,TAB,piece,Cardiovascular,1,room,3,74,285
+Atenolol 517,Amoxicillin,250 mg,tabletz,bottle,Gastrointestinal,0,2-8 C,28,58,412
+  ,,,,,,,,,,
+Atenolol 519,Doxycycline,10 mg,consumable,tube,Gastrointestinal,Y,room,48,70,236
+Salbutamol 520,Diclofenac,5 mg,INJ,capsule,Respiratory,नहीं,ROOM,15,103,476
+Paracetamol 521,Diclofenac,100 mg,Tablets,capsule,Antiallergics,0,room,15,72,394
+,Azithromycin,5 mg,Injection,vial,Analgesics,1,,0,67,413
+,Metformin,250 mg,tablet,capsule,Cardiovascular,yes,ROOM,17,105,109
+Diclofenac 196,,250 mg,TAB,strip,Cardiovascular,,cold chain,31,60,440
+Ciprofloxacin 318,Amoxicillin,250 mg,syrup,vial,Antiallergics,,,34,89,475
+Salbutamol 526,,50 mg,syrup,vial,Gastrointestinal,1,ROOM,4,52,293
+आइबुप्रोफेन 527,,100 mg,ointment,bottle,Analgesics,,Ambient,7,13,157
+Salbutamol 528,Omeprazole,100 mg,tabletz,tube,"Vitamins, minerals and tonics",0,ROOM,34,55,204
+Ibuprofen 529,Ibuprofen,500 mg,pills,capsule,"Vitamins, minerals and tonics",,Ambient,49,87,127
+Diclofenac 530,,10 mg,consumable,capsule,Analgesics,नहीं,ROOM,37,55,140
+Salbutamol 531,Pantoprazole,100 mg,ointment,piece,Analgesics,kabhi,room,34,86,449
+Metformin 532,,50 mg,TAB,strip,Antiallergics,Y,Ambient,11,44,249
+  Diclofenac 533  ,Ciprofloxacin,10 mg,consumable,tube,Gastrointestinal,no,COLD,5,83,169
+Omeprazole 534,Azithromycin,5 mg,Capsule,strip,Cardiovascular,1,room,29,46,273
+  Paracetamol 535  ,,10 mg,ointment,strip,Antiallergics,no,room,42,43,434
+  आइबुप्रोफेन 536  ,,250 mg,TAB,piece,Gastrointestinal,no,cold chain,-5,104,492
+  Amoxicillin 537  ,,100 mg,Tablets,capsule,Gastrointestinal,Y,room,14,91,311
+Atenolol 538,Ciprofloxacin,500 mg,pills,capsule,Respiratory,Y,ROOM,17,113,485
+  Amoxicillin 539  ,,,tablet,strip,Respiratory,हाँ,ROOM,30,75,152
+Ciprofloxacin 540,Paracetamol,250 mg,tablet,piece,Respiratory,no,COLD,1,40,206
+Paracetamol 541,,50 mg,tablet,vial,Antiallergics,no,Ambient,41,101,304
+  Cetirizine 542  ,Atenolol,,tablet,tablet,Antibacterials,हाँ,Ambient,15,17,44
+Pantoprazole 543,Ranitidine,250 mg,tablet,vial,Respiratory,1,ROOM,13/13/2025,62,397
+Prednisolone 544,Pantoprazole,,consumable,bottle,Antiallergics,1,Ambient,3,55,334
+Ibuprofen 545,Paracetamol,,TAB,vial,Cardiovascular,नहीं,COLD,100,50,500
+Cetirizine 546,Metformin,100 mg,Tablets,bottle,Respiratory,नहीं,Ambient,39,87,268
+एज़िथ्रोमाइसिन 377,Cetirizine,100 mg,syrup,strip,Cardiovascular,1,room,7,100,350
+,Pantoprazole,50 mg,tablet,tube,Antiallergics,yes,room,36,52,430
+Azithromycin 549,,,TAB,strip,Antiallergics,0,2-8 C,37,121,312
+Ciprofloxacin 550,Omeprazole,,tablet,capsule,Antiallergics,1,Ambient,0,74,430
+Paracetamol 551,,100 mg,syrup,strip,Analgesics,,ROOM,12,55,152
+Salbutamol 552,,,consumable,strip,Respiratory,no,cold chain,27,78,268
+Omeprazole 553,Ciprofloxacin,,tabletz,bottle,Antibacterials,नहीं,room,4,80,218
+Ciprofloxacin 554,,100 mg,Injection,bottle,Antiallergics,1,room,11,16,36
+सेट्रिज़िन 555,Azithromycin,100 mg,Tablets,piece,Respiratory,N,COLD,37,65,116
+अमोक्सिसिलिन 556,,500 mg,INJ,tablet,Cardiovascular,N,room,41,84,460
+Ibuprofen 557,,500 mg,consumable,strip,Antibacterials,1,cold chain,34,76,169
+,,100 mg,ointment,capsule,Analgesics,नहीं,COLD,16,65,159
+  Azithromycin 559  ,Ciprofloxacin,250 mg,Injection,tablet,Cardiovascular,no,Ambient,21,56,74
+Omeprazole 560,Ciprofloxacin,10 mg,Tablets,piece,Gastrointestinal,yes,Ambient,37,91,270
+Salbutamol 561,,250 mg,drops,vial,Antiallergics,1,,23,107,471
+Ciprofloxacin 562,,10 mg,TAB,strip,Antibacterials,yes,room,28,39,283
+  Azithromycin 563  ,Prednisolone,10 mg,लिक्विड,bottle,Gastrointestinal,yes,COLD,13,85,93
+  Pantoprazole 564  ,,,drops,piece,Respiratory,1,2-8 C,50,88,431
+Salbutamol 565,,,INJ,strip,Respiratory,0,cold chain,11,86,236
+Salbutamol 566,Ciprofloxacin,250 mg,TAB,tablet,"Vitamins, minerals and tonics",हाँ,freezer,26,71,250
+Ranitidine 567,,50 mg,drops,tube,Respiratory,N,Ambient,27,34,58
+Amoxicillin 57,,,Capsule,capsule,Cardiovascular,Y,room,36,135,363
+अमोक्सिसिलिन 569,Prednisolone,250 mg,Capsule,strip,Gastrointestinal,no,Ambient,34,111,408
+   ,,,Injection,tablet,Antibacterials,नहीं,Ambient,28,119,137
+Amoxicillin 571,,,consumable,strip,Respiratory,Y,COLD,abc,89,443
+Atenolol 572,,10 mg,Injection,tablet,Cardiovascular,Y,2-8 C,100,50,500
+Doxycycline 573,,500 mg,drops,bottle,Analgesics,no,2-8 C,12,13,248
+Doxycycline 574,,100 mg,syrup,capsule,Antibacterials,kabhi,2-8 C,1,40,62
+Amoxicillin 575,Salbutamol,250 mg,Tablets,tablet,Gastrointestinal,नहीं,COLD,34,44,113
+,,,,,,,,,,
+  Pantoprazole 577  ,,50 mg,consumable,bottle,Gastrointestinal,no,cold chain,13,27,354
+Doxycycline 578,Salbutamol,10 mg,INJ,capsule,Respiratory,yes,COLD,6,87,428
+,Salbutamol,50 mg,ointment,vial,Antiallergics,हाँ,COLD,18,111,511
+Paracetamol 580,,5 mg,लिक्विड,strip,"Vitamins, minerals and tonics",0,ROOM,20,77,333
+  Ibuprofen 581  ,Omeprazole,500 mg,Injection,tablet,Respiratory,,COLD,9,64,128
+Pantoprazole 582,Atenolol,,Injection,tube,Cardiovascular,Y,ROOM,20,114,278
+  Diclofenac 583  ,Salbutamol,500 mg,Injection,vial,Analgesics,0,room,28,41,214
+Paracetamol 61,,50 mg,INJ,vial,Gastrointestinal,N,,9,60,66
+Atenolol 585,Cetirizine,,INJ,piece,Antibacterials,नहीं,,8,23,154
+Amoxicillin 586,,50 mg,tablet,tablet,Gastrointestinal,0,Ambient,13,33,274
+  Pantoprazole 587  ,Pantoprazole,5 mg,INJ,capsule,Gastrointestinal,0,COLD,4,8,372
+Atenolol 588,,,pills,tablet,"Vitamins, minerals and tonics",0,Ambient,17,29,203
+Cetirizine 589,Pantoprazole,100 mg,Capsule,piece,Gastrointestinal,हाँ,ROOM,31/02/2026,108,406
+Azithromycin 590,,,ointment,capsule,Respiratory,,Ambient,29,32,375
+Azithromycin 591,Azithromycin,10 mg,TAB,tablet,Cardiovascular,नहीं,room,100,50,500
+  Metformin 592  ,Ciprofloxacin,50 mg,ointment,piece,Antibacterials,0,,26,28,32
+Pantoprazole 593,,100 mg,tablet,tablet,Antiallergics,0,ROOM,33,119,246
+Salbutamol 594,,,tablet,vial,Antibacterials,N,freezer,47,74,443
+Salbutamol 595,Azithromycin,,consumable,tablet,"Vitamins, minerals and tonics",Y,2-8 C,8,94,182
+Prednisolone 596,,,INJ,piece,Gastrointestinal,नहीं,Ambient,26,35,175
+  Pantoprazole 597  ,,,Tablets,piece,Antiallergics,no,Ambient,6,60,325
+,Diclofenac,,ointment,vial,Gastrointestinal,1,2-8 C,22,52,232
+ओमेप्राज़ोल 599,Salbutamol,5 mg,INJ,bottle,Cardiovascular,N,2-8 C,42,74,206
+,Metformin,,TAB,bottle,Analgesics,,Ambient,23,56,66
+Metformin 532,,50 mg,TAB,strip,Antiallergics,Y,Ambient,11,44,249
+Prednisolone 596,,,INJ,piece,Gastrointestinal,नहीं,Ambient,26,35,175
+Pantoprazole 603,Ciprofloxacin,10 mg,TAB,strip,Respiratory,0,COLD,100,50,500
+Amoxicillin 575,Salbutamol,250 mg,Tablets,tablet,Gastrointestinal,नहीं,COLD,34,44,113
+Azithromycin 605,,50 mg,INJ,tablet,Respiratory,नहीं,,25,26,281
+एटेनोलोल 606,,500 mg,Injection,vial,Cardiovascular,N,room,abc,100,343
+एटेनोलोल 607,,50 mg,Injection,capsule,Analgesics,0,Ambient,100,50,500
+Cetirizine 608,Metformin,,consumable,capsule,Respiratory,no,ROOM,31,69,110
+  Amoxicillin 609  ,,,consumable,strip,"Vitamins, minerals and tonics",0,Ambient,14,110,394
+
+Diclofenac 611,,5 mg,syrup,capsule,Cardiovascular,,Ambient,6,36,338
+  अमोक्सिसिलिन 258  ,,50 mg,INJ,strip,"Vitamins, minerals and tonics",N,room,50,100,337
+Ciprofloxacin 613,,,tablet,vial,Cardiovascular,नहीं,room,37,42,244
+Amoxicillin 614,Salbutamol,250 mg,consumable,piece,Analgesics,0,Ambient,31,119,202
+  Amoxicillin 615  ,Diclofenac,250 mg,ointment,vial,Analgesics,yes,cold chain,19,67,417
+Omeprazole 616,,,drops,tablet,Antibacterials,N,room,100,50,500
+Paracetamol 617,Prednisolone,,TAB,strip,Gastrointestinal,no,room,25,62,131
+Ibuprofen 618,,250 mg,Tablets,tablet,Antibacterials,0,Ambient,7,44,306
+Atenolol 619,,5 mg,INJ,piece,Gastrointestinal,yes,room,abc,116,156
+Ciprofloxacin 620,,5 mg,Injection,vial,"Vitamins, minerals and tonics",maybe,cold chain,1,54,64
+Omeprazole 621,,100 mg,tablet,capsule,Antiallergics,yes,ROOM,29,108,379
+Ranitidine 622,Paracetamol,250 mg,Capsule,strip,Respiratory,Y,Ambient,13,59,272
+,,,,,,,,,,
+Diclofenac 624,,500 mg,pills,vial,Antibacterials,0,,26,91,148
+Ciprofloxacin 625,Ibuprofen,250 mg,xyz,vial,Cardiovascular,,Ambient,0,34,190
+  Omeprazole 626  ,Ibuprofen,250 mg,INJ,strip,Respiratory,नहीं,,10,38,402
+डाइक्लोफेनैक 627,Salbutamol,10 mg,Tablets,tube,Antiallergics,no,cold chain,31/02/2026,58,456
+Cetirizine 628,,,Injection,bottle,Gastrointestinal,,2-8 C,33,66,394
+Pantoprazole 629,Paracetamol,5 mg,Injection,strip,"Vitamins, minerals and tonics",0,2-8 C,16,115,299
+Omeprazole 630,,5 mg,Capsule,piece,Analgesics,yes,ROOM,7,67,156
+Cetirizine 631,,100 mg,ointment,bottle,Respiratory,N,COLD,25,25,259
+  ,,,,,,,,,,
+Omeprazole 633,,5 mg,consumable,capsule,Respiratory,yes,Ambient,100,50,500
+Amoxicillin 634,Amoxicillin,5 mg,Tablets,bottle,Cardiovascular,0,room,20,45,220
+आइबुप्रोफेन 635,Ciprofloxacin,10 mg,INJ,strip,Antiallergics,,Ambient,40,72,327
+,,,,,,,,,,
+Omeprazole 637,Salbutamol,50 mg,Injection,piece,Antiallergics,Y,ROOM,42,101,213
+Atenolol 638,,,drops,piece,Antiallergics,,cold chain,11,39,225
+  आइबुप्रोफेन 639  ,,10 mg,consumable,piece,Gastrointestinal,0,cold chain,26,63,307
+Paracetamol 640,,,Injection,capsule,Antibacterials,N,,7,35,284
+  Omeprazole 641  ,Ciprofloxacin,5 mg,Capsule,strip,"Vitamins, minerals and tonics",yes,2-8 C,16,22,334
+Atenolol 642,,,INJ,capsule,Antibacterials,N,,13,14,305
+
+Omeprazole 644,,100 mg,consumable,capsule,Cardiovascular,yes,COLD,13,52,402
+  Azithromycin 645  ,Metformin,5 mg,ointment,strip,Respiratory,0,2-8 C,100,50,500
+  Prednisolone 646  ,Azithromycin,500 mg,tablet,vial,"Vitamins, minerals and tonics",no,2-8 C,44,45,88
+Azithromycin 647,Amoxicillin,,syrup,strip,Antibacterials,,,37,100,268
+  Salbutamol 648  ,Ranitidine,250 mg,INJ,tube,Cardiovascular,1,,6,53,336
+  Atenolol 649  ,,,ointment,tablet,Antibacterials,yes,,31/02/2026,92,194
+  अमोक्सिसिलिन 650  ,Salbutamol,50 mg,Tablets,capsule,Antibacterials,,,5,26,370
+  Doxycycline 651  ,,,INJ,capsule,Analgesics,0,ROOM,100,50,500
+अमोक्सिसिलिन 652,,,tablet,tablet,Cardiovascular,नहीं,2-8 C,1,19,350
+अमोक्सिसिलिन 653,Amoxicillin,500 mg,Tablets,strip,Cardiovascular,1,Ambient,29,127,365
+Metformin 654,Omeprazole,250 mg,drops,vial,Antiallergics,N,room,9,94,318
+Diclofenac 655,,250 mg,ointment,bottle,Respiratory,yes,room,46,71,420
+  ,,,,,,,,,,
+Metformin 657,Metformin,,INJ,piece,Respiratory,0,2-8 C,100,50,500
+Pantoprazole 658,Omeprazole,100 mg,drops,bottle,Antibacterials,नहीं,,44,112,394
+  Amoxicillin 129  ,,,ointment,strip,Gastrointestinal,yes,Ambient,17,88,486
+  सेट्रिज़िन 660  ,,10 mg,Injection,vial,Cardiovascular,1,cold chain,45,65,115
+Amoxicillin 661,,100 mg,syrup,vial,Gastrointestinal,yes,2-8 C,11,73,185
+Amoxicillin 662,,250 mg,Capsule,bottle,Analgesics,1,2-8 C,45,133,352
+Pantoprazole 663,Ciprofloxacin,,ointment,bottle,"Vitamins, minerals and tonics",,2-8 C,24,122,488
+Salbutamol 664,Paracetamol,,Injection,tablet,Antibacterials,Y,2-8 C,32,74,139
+  आइबुप्रोफेन 665  ,,10 mg,Capsule,tablet,Respiratory,yes,,22,83,387
+Metformin 666,,100 mg,tablet,bottle,Respiratory,,room,31/02/2026,102,180
+Azithromycin 667,,,Injection,tablet,Antiallergics,1,COLD,36,114,363
+पैरासिटामोल 668,,500 mg,Tablets,piece,Analgesics,Y,cold chain,100,50,500
+मेटफॉर्मिन 99,,,Capsule,vial,Gastrointestinal,Y,ROOM,47,60,343
+ओमेप्राज़ोल 670,,250 mg,Tablets,tablet,Antibacterials,नहीं,room,10,90,291
+Diclofenac 671,,10 mg,tablet,tube,"Vitamins, minerals and tonics",Y,2-8 C,1,31,107
+Ibuprofen 672,,10 mg,TAB,strip,Antiallergics,no,cold chain,100,50,500
+Diclofenac 673,,500 mg,TAB,bottle,Respiratory,1,Ambient,19,85,111
+Ciprofloxacin 674,Prednisolone,,tablet,tablet,Analgesics,1,2-8 C,25,34,59
+,Prednisolone,250 mg,drops,capsule,Analgesics,,COLD,46,137,285
+Omeprazole 391,,250 mg,Capsule,vial,"Vitamins, minerals and tonics",,ROOM,26,108,309
+Pantoprazole 677,Ibuprofen,,Capsule,piece,Gastrointestinal,yes,COLD,17,104,105
+Metformin 678,,5 mg,Capsule,bottle,Analgesics,0,COLD,41,136,485
+  Ciprofloxacin 679  ,,,consumable,tablet,Respiratory,नहीं,room,100,50,500
+  Diclofenac 71  ,Amoxicillin,,INJ,piece,"Vitamins, minerals and tonics",हाँ,Ambient,41,134,208
+Prednisolone 681,Paracetamol,10 mg,Capsule,capsule,Antibacterials,हाँ,2-8 C,21,95,212
+Omeprazole 682,,5 mg,drops,strip,Cardiovascular,Y,2-8 C,0,15,32
+Azithromycin 683,,100 mg,xyz,piece,Gastrointestinal,yes,2-8 C,38,38,45
+  Doxycycline 684  ,Pantoprazole,50 mg,INJ,tube,Cardiovascular,0,,100,50,500
+Diclofenac 685,,10 mg,INJ,tablet,"Vitamins, minerals and tonics",yes,room,1,23,237
+Ibuprofen 686,Amoxicillin,250 mg,tablet,bottle,"Vitamins, minerals and tonics",हाँ,COLD,39,115,134
+Metformin 687,Atenolol,,syrup,strip,Antibacterials,नहीं,,49,99,214
+   ,Ibuprofen,10 mg,ointment,strip,Antiallergics,1,ROOM,31,68,350
+Omeprazole 689,,,tabletz,bottle,Cardiovascular,N,2-8 C,50,54,394
+   ,,,ointment,tube,Respiratory,1,Ambient,4,39,134
+Amoxicillin 691,Prednisolone,50 mg,TAB,vial,Antibacterials,0,,41,125,336
+Ciprofloxacin 692,Salbutamol,250 mg,TAB,piece,Antibacterials,N,2-8 C,43,53,374
+Ibuprofen 693,Atenolol,250 mg,Injection,piece,Analgesics,0,,31/02/2026,97,156
+Pantoprazole 694,,10 mg,syrup,tube,Respiratory,0,ROOM,22,107,136
+Metformin 695,Ibuprofen,10 mg,TAB,piece,Antibacterials,no,Ambient,41,115,265
+,Amoxicillin,100 mg,INJ,vial,Gastrointestinal,,COLD,49,74,290
+  Omeprazole 697  ,Amoxicillin,,Capsule,strip,"Vitamins, minerals and tonics",Y,Ambient,4,81,97
+ओमेप्राज़ोल 698,Ibuprofen,5 mg,consumable,vial,Cardiovascular,no,COLD,17,73,422
+  सेट्रिज़िन 699  ,Paracetamol,5 mg,tablet,capsule,Respiratory,N,room,15,38,279
+Atenolol 118,,,Tablets,strip,Antibacterials,Y,2-8 C,7,29,42
+  आइबुप्रोफेन 701  ,Diclofenac,500 mg,INJ,vial,Respiratory,maybe,2-8 C,45,119,173
+Doxycycline 702,,250 mg,TAB,piece,Respiratory,1,2-8 C,8,65,381
+  ,,,,,,,,,,
+  Pantoprazole 704  ,,5 mg,drops,tube,"Vitamins, minerals and tonics",1,2-8 C,13,96,474
+Azithromycin 705,,,Capsule,tablet,Analgesics,0,room,36,40,304
+Prednisolone 706,Prednisolone,,Injection,tablet,Gastrointestinal,नहीं,COLD,many,47,369
+Ciprofloxacin 707,Azithromycin,100 mg,Tablets,vial,Gastrointestinal,N,Ambient,23,113,365
+Cetirizine 708,,,syrup,vial,Antiallergics,no,,18,108,212
+Doxycycline 709,Omeprazole,50 mg,tablet,vial,Analgesics,yes,ROOM,36,110,399
+  Paracetamol 710  ,Prednisolone,5 mg,Tablets,tablet,Gastrointestinal,yes,cold chain,30,111,507
+  ,,,,,,,,,,
+Pantoprazole 712,Paracetamol,5 mg,consumable,bottle,Antiallergics,yes,room,13/13/2025,55,290
+  Ibuprofen 713  ,,,TAB,vial,Antibacterials,नहीं,2-8 C,39,108,205
+Diclofenac 611,,5 mg,syrup,capsule,Cardiovascular,,Ambient,6,36,338
+  Omeprazole 626  ,Ibuprofen,250 mg,INJ,strip,Respiratory,नहीं,,10,38,402
+  Omeprazole 716  ,,250 mg,Injection,bottle,Cardiovascular,yes,Ambient,6,65,409
+Metformin 717,,50 mg,Capsule,piece,Respiratory,no,2-8 C,36,90,114
+Metformin 718,Ibuprofen,100 mg,TAB,capsule,Antibacterials,नहीं,2-8 C,14,112,152
+Ciprofloxacin 719,Ranitidine,,Tablets,capsule,"Vitamins, minerals and tonics",N,Ambient,27,43,54
+Azithromycin 720,,250 mg,tablet,strip,Gastrointestinal,no,ROOM,19,34,422
+Ranitidine 721,Cetirizine,,tablet,tablet,"Vitamins, minerals and tonics",नहीं,,4,103,106
+Atenolol 722,,,Tablets,piece,"Vitamins, minerals and tonics",no,2-8 C,8,10,407
+Azithromycin 723,Prednisolone,100 mg,drops,tablet,Antiallergics,1,cold chain,8,12,290
+Paracetamol 724,Ranitidine,,TAB,piece,Respiratory,N,cold chain,3,21,76
+Salbutamol 725,Ibuprofen,250 mg,syrup,vial,Antibacterials,0,cold chain,20,70,376
+Ibuprofen 726,Amoxicillin,,drops,piece,Cardiovascular,0,2-8 C,21,95,156
+Amoxicillin 727,Salbutamol,250 mg,Injection,bottle,Antibacterials,1,room,32,58,445
+Cetirizine 728,,50 mg,drops,tablet,"Vitamins, minerals and tonics",1,COLD,28,105,379
+Doxycycline 729,Metformin,500 mg,tabletz,capsule,Analgesics,नहीं,cold chain,2,80,107
+  Ciprofloxacin 730  ,,100 mg,Injection,vial,Antiallergics,N,2-8 C,33,63,278
+  Atenolol 731  ,,,Tablets,strip,Antibacterials,yes,freezer,12,12,218
+  Metformin 732  ,Ibuprofen,,tablet,tube,Analgesics,नहीं,,100,50,500
+Ciprofloxacin 733,Omeprazole,500 mg,xyz,vial,Gastrointestinal,Y,COLD,18,79,443
+  Ranitidine 734  ,Ibuprofen,,drops,strip,Respiratory,yes,Ambient,100,50,500
+Doxycycline 735,Ibuprofen,100 mg,Tablets,vial,Respiratory,N,,47,119,465
+
+Ciprofloxacin 737,,250 mg,syrup,vial,"Vitamins, minerals and tonics",,cold chain,100,50,500
+Ibuprofen 738,Pantoprazole,,tabletz,piece,Antiallergics,1,Ambient,42,52,380
+Omeprazole 739,Ciprofloxacin,,drops,tablet,Cardiovascular,N,cold chain,100,50,500
+  Pantoprazole 740  ,Ibuprofen,5 mg,INJ,capsule,Analgesics,maybe,ROOM,30,57,227
+Diclofenac 741,Amoxicillin,5 mg,Capsule,tablet,Respiratory,नहीं,COLD,37,57,346
+Pantoprazole 742,Doxycycline,,tablet,tablet,Cardiovascular,हाँ,room,2,47,197
+सिप्रोफ्लॉक्सासिन 743,,,consumable,bottle,Gastrointestinal,हाँ,room,9,44,208
+Metformin 744,,10 mg,xyz,bottle,Respiratory,0,,26,106,157
+   ,,,Injection,tube,"Vitamins, minerals and tonics",1,2-8 C,35,90,114
+Azithromycin 375,,100 mg,consumable,tube,Analgesics,हाँ,ROOM,19,66,441
+  Omeprazole 747  ,Salbutamol,10 mg,Tablets,tablet,Antibacterials,Y,freezer,37,53,131
+ओमेप्राज़ोल 748,,500 mg,TAB,strip,Cardiovascular,no,Ambient,14,36,270
+,,,drops,piece,Cardiovascular,no,2-8 C,47,95,195
+आइबुप्रोफेन 144,Omeprazole,5 mg,ointment,vial,Antibacterials,1,Ambient,0,73,355
+Metformin 751,Ranitidine,250 mg,drops,bottle,Respiratory,N,Ambient,4,4,133
+Diclofenac 752,Ranitidine,100 mg,tablet,bottle,Respiratory,0,Ambient,1,28,368
+Cetirizine 753,Atenolol,5 mg,drops,capsule,Cardiovascular,no,2-8 C,48,129,437
+Cetirizine 754,Amoxicillin,,लिक्विड,tube,Respiratory,0,COLD,39,103,229
+Prednisolone 755,,100 mg,ointment,vial,Respiratory,0,,36,104,253
+Azithromycin 756,Ciprofloxacin,5 mg,Capsule,tube,Antiallergics,N,cold chain,36,72,227
+Ranitidine 757,,10 mg,INJ,tablet,Antibacterials,0,Ambient,38,59,140
+Ranitidine 758,,50 mg,Injection,capsule,Antibacterials,,,40,56,285
+Ciprofloxacin 759,Diclofenac,,tablet,capsule,Respiratory,no,2-8 C,13/13/2025,132,306
+  Prednisolone 760  ,Ranitidine,100 mg,tablet,bottle,"Vitamins, minerals and tonics",,,19,61,176
+  सिप्रोफ्लॉक्सासिन 761  ,Prednisolone,,INJ,tube,Cardiovascular,Y,cold chain,44,129,262
+Salbutamol 762,,10 mg,syrup,vial,Gastrointestinal,no,,9,28,31
+आइबुप्रोफेन 144,Omeprazole,5 mg,ointment,vial,Antibacterials,1,Ambient,0,73,355
+Metformin 764,Pantoprazole,,tablet,vial,Analgesics,,COLD,32,114,231
+Ciprofloxacin 719,Ranitidine,,Tablets,capsule,"Vitamins, minerals and tonics",N,Ambient,27,43,54
+Ciprofloxacin 766,,100 mg,syrup,vial,"Vitamins, minerals and tonics",,COLD,47,124,282
+
+आइबुप्रोफेन 768,Ranitidine,10 mg,TAB,piece,Respiratory,नहीं,room,43,62,179
+Azithromycin 769,,,INJ,vial,Antiallergics,,ROOM,40,63,384
+  Ciprofloxacin 770  ,,,drops,capsule,Respiratory,N,2-8 C,43,49,279
+Metformin 771,Doxycycline,,drops,piece,Antiallergics,1,cold chain,46,84,361
+Paracetamol 521,Diclofenac,100 mg,Tablets,capsule,Antiallergics,0,room,15,72,394
+सेट्रिज़िन 269,Metformin,250 mg,consumable,tube,Analgesics,no,cold chain,9,45,424
+Omeprazole 774,Ibuprofen,,INJ,tube,Antibacterials,1,cold chain,21,81,108
+  Amoxicillin 615  ,Diclofenac,250 mg,ointment,vial,Analgesics,yes,cold chain,19,67,417
+Salbutamol 776,,50 mg,consumable,strip,Cardiovascular,yes,cold chain,24,120,386
+Metformin 777,Atenolol,,Injection,capsule,Antibacterials,0,Ambient,46,56,273
+Salbutamol 778,,10 mg,Injection,bottle,Analgesics,N,room,14,65,142
+Cetirizine 779,,,drops,piece,Cardiovascular,0,Ambient,49,92,386
+Ibuprofen 780,,10 mg,Capsule,bottle,Analgesics,Y,cold chain,49,51,423
+ओमेप्राज़ोल 781,Azithromycin,5 mg,syrup,piece,Antiallergics,N,COLD,39,44,417
+  Pantoprazole 782  ,Doxycycline,250 mg,INJ,capsule,Analgesics,,freezer,34,128,417
+,,,,,,,,,,
+Ibuprofen 784,,250 mg,consumable,tablet,"Vitamins, minerals and tonics",yes,COLD,44,121,480
+सिप्रोफ्लॉक्सासिन 785,,500 mg,TAB,bottle,Antibacterials,हाँ,ROOM,34,66,463
+सेट्रिज़िन 786,Amoxicillin,,INJ,bottle,Gastrointestinal,हाँ,cold chain,36,47,56
+Prednisolone 787,,500 mg,drops,vial,Cardiovascular,,room,34,98,479
+  Ibuprofen 788  ,Amoxicillin,5 mg,ointment,strip,"Vitamins, minerals and tonics",नहीं,2-8 C,many,47,270
+Ibuprofen 789,Omeprazole,,syrup,strip,Respiratory,N,room,31/02/2026,68,84
+,,,,,,,,,,
+आइबुप्रोफेन 791,,100 mg,consumable,tube,Analgesics,1,ROOM,13,33,426
+  Ibuprofen 792  ,,,syrup,strip,Respiratory,N,COLD,14,41,161
+Ranitidine 793,,10 mg,drops,strip,Antiallergics,Y,room,4,29,35
+अमोक्सिसिलिन 794,Ibuprofen,5 mg,syrup,vial,Analgesics,no,,100,50,500
+Diclofenac 795,,500 mg,ointment,tube,Analgesics,हाँ,COLD,47,140,315
+Salbutamol 796,,250 mg,लिक्विड,vial,"Vitamins, minerals and tonics",no,2-8 C,23,88,383
+Omeprazole 797,Pantoprazole,10 mg,TAB,piece,Antiallergics,नहीं,cold chain,9,55,403
+Prednisolone 798,,50 mg,Injection,tube,Cardiovascular,0,2-8 C,1,9,214
+Amoxicillin 799,,,syrup,strip,"Vitamins, minerals and tonics",हाँ,room,29,121,369
+Paracetamol 800,Metformin,500 mg,drops,piece,Antiallergics,no,cold chain,19,100,280
+  ,,,,,,,,,,
+Ibuprofen 802,,250 mg,INJ,capsule,Respiratory,1,ROOM,13,101,210
+Omeprazole 803,Diclofenac,,Injection,capsule,Cardiovascular,1,ROOM,32,48,163
+Cetirizine 804,Omeprazole,5 mg,xyz,tube,Gastrointestinal,हाँ,,19,36,251
+Diclofenac 805,Cetirizine,10 mg,INJ,tablet,"Vitamins, minerals and tonics",N,cold chain,3,30,252
+   ,Metformin,,TAB,tablet,Antibacterials,yes,room,0,73,413
+Amoxicillin 807,Azithromycin,5 mg,Injection,strip,"Vitamins, minerals and tonics",N,2-8 C,50,100,403
+  Atenolol 808  ,Ciprofloxacin,50 mg,drops,capsule,Antibacterials,no,,17,40,135
+पैरासिटामोल 809,Ranitidine,10 mg,TAB,strip,Cardiovascular,Y,COLD,32,69,224
+आइबुप्रोफेन 810,Ibuprofen,100 mg,ointment,strip,Respiratory,हाँ,Ambient,36,131,320
+
+Amoxicillin 812,Pantoprazole,250 mg,लिक्विड,tablet,Cardiovascular,,,25,107,120
+Ciprofloxacin 240,Ranitidine,10 mg,ointment,capsule,Analgesics,yes,room,39,99,147
+Azithromycin 814,,,drops,piece,Respiratory,0,cold chain,31,108,469
+Paracetamol 815,Diclofenac,5 mg,Injection,capsule,Antiallergics,,ROOM,13,99,245
+Diclofenac 816,,10 mg,drops,strip,Antiallergics,no,room,100,50,500
+
+एज़िथ्रोमाइसिन 818,,50 mg,INJ,vial,Antiallergics,नहीं,Ambient,12,32,196
+Amoxicillin 819,Atenolol,250 mg,ointment,bottle,Respiratory,1,cold chain,15,94,307
+Pantoprazole 820,Pantoprazole,250 mg,Capsule,tube,"Vitamins, minerals and tonics",Y,COLD,40,111,193
+Salbutamol 821,Metformin,500 mg,Capsule,tube,Antibacterials,kabhi,ROOM,30,32,94
+Diclofenac 822,Ibuprofen,10 mg,syrup,vial,Respiratory,N,2-8 C,38,106,160
+Prednisolone 823,Omeprazole,10 mg,INJ,piece,"Vitamins, minerals and tonics",Y,ROOM,15,107,477
+Diclofenac 824,Atenolol,5 mg,xyz,tube,Antiallergics,नहीं,2-8 C,10,59,313
+  Diclofenac 825  ,,,ointment,piece,Antibacterials,no,,3,22,276
+,,,,,,,,,,
+  Prednisolone 827  ,,5 mg,Tablets,tube,"Vitamins, minerals and tonics",हाँ,ROOM,27,76,199
+   ,Metformin,,Capsule,piece,Antibacterials,yes,room,25,28,212
+Ibuprofen 829,Ranitidine,5 mg,INJ,tube,Gastrointestinal,yes,,4,13,146
+Amoxicillin 830,,,drops,capsule,Antibacterials,हाँ,room,3,55,179
+Doxycycline 831,,10 mg,INJ,bottle,Respiratory,1,ROOM,32,108,465
+Omeprazole 832,,,consumable,capsule,Gastrointestinal,yes,ROOM,20,63,312
+  Salbutamol 833  ,,5 mg,INJ,capsule,Cardiovascular,,room,13,99,165
+   ,,100 mg,drops,piece,Antiallergics,yes,room,42,69,446
+Cetirizine 835,Azithromycin,500 mg,Injection,tube,Antibacterials,yes,COLD,8,54,307
+Amoxicillin 836,,50 mg,drops,tube,Antiallergics,yes,2-8 C,-5,109,420
+Cetirizine 837,,,TAB,capsule,Antiallergics,हाँ,Ambient,25,37,302
+  ,,,,,,,,,,
+  आइबुप्रोफेन 839  ,Prednisolone,,Capsule,vial,Respiratory,,Ambient,25,37,190
+Ranitidine 840,,100 mg,Capsule,vial,Cardiovascular,yes,room,18,70,119
+सिप्रोफ्लॉक्सासिन 841,Atenolol,10 mg,consumable,tube,Antiallergics,yes,Ambient,3,73,123
+  Salbutamol 842  ,Atenolol,5 mg,syrup,vial,Antiallergics,नहीं,,many,123,239
+Salbutamol 843,,,TAB,tablet,Gastrointestinal,yes,,21,105,423
+   ,Azithromycin,50 mg,Tablets,tube,Antibacterials,Y,cold chain,6,63,136
+मेटफॉर्मिन 845,Ibuprofen,,syrup,tube,"Vitamins, minerals and tonics",Y,ROOM,15,55,434
+Paracetamol 846,,,consumable,capsule,Analgesics,Y,2-8 C,-5,72,144
+Paracetamol 847,Amoxicillin,100 mg,tabletz,vial,Cardiovascular,yes,,30,67,281
+Pantoprazole 848,,,Capsule,bottle,Analgesics,हाँ,,18,37,343
+Omeprazole 849,Azithromycin,,tabletz,piece,"Vitamins, minerals and tonics",no,2-8 C,1,51,401
+,Ibuprofen,50 mg,Injection,tablet,Antiallergics,Y,cold chain,40,45,214
+  Azithromycin 851  ,,250 mg,Tablets,tube,Respiratory,नहीं,room,12,70,235
+Ciprofloxacin 852,Metformin,,drops,bottle,Analgesics,no,Ambient,23,114,249
+Pantoprazole 853,Atenolol,50 mg,Capsule,bottle,Analgesics,no,COLD,43,104,379
+   ,Pantoprazole,250 mg,Injection,bottle,Gastrointestinal,yes,,42,118,459
+सेट्रिज़िन 855,,10 mg,TAB,capsule,Analgesics,Y,,40,99,399
+Doxycycline 856,,,drops,vial,Antiallergics,,Ambient,38,87,294
+Doxycycline 857,,,लिक्विड,strip,Cardiovascular,1,ROOM,3,80,450
+  ओमेप्राज़ोल 858  ,Ibuprofen,5 mg,Tablets,piece,Antibacterials,N,2-8 C,50,92,470
+,,,,,,,,,,
+Atenolol 519,Doxycycline,10 mg,consumable,tube,Gastrointestinal,Y,room,48,70,236
+  Ibuprofen 861  ,Ibuprofen,5 mg,Capsule,strip,"Vitamins, minerals and tonics",yes,COLD,8,68,143
+Metformin 862,,,Capsule,tablet,Analgesics,N,ROOM,23,69,219
+Cetirizine 863,,100 mg,tablet,bottle,Gastrointestinal,0,,24,85,242
+Ibuprofen 864,Doxycycline,250 mg,tablet,tablet,Antiallergics,0,2-8 C,15,61,61
+Diclofenac 865,Pantoprazole,500 mg,ointment,bottle,Cardiovascular,हाँ,cold chain,49,79,332
+
+Cetirizine 867,Azithromycin,,tablet,piece,Analgesics,,ROOM,48,76,473
+Cetirizine 868,Diclofenac,50 mg,syrup,capsule,Analgesics,Y,room,50,91,177
+Amoxicillin 869,,,tablet,bottle,Antibacterials,Y,COLD,-5,63,352
+Paracetamol 870,Omeprazole,500 mg,Capsule,vial,Cardiovascular,हाँ,COLD,28,86,320
+Ciprofloxacin 871,Amoxicillin,250 mg,INJ,vial,Antibacterials,0,,1,92,235
+Omeprazole 872,,50 mg,drops,strip,Antiallergics,N,room,5,41,390
+  Doxycycline 873  ,,,INJ,piece,Antibacterials,,cold chain,24,31,51
+Ranitidine 874,Ciprofloxacin,,Capsule,bottle,"Vitamins, minerals and tonics",yes,2-8 C,12,78,117
+  Ranitidine 875  ,Amoxicillin,250 mg,INJ,tablet,"Vitamins, minerals and tonics",no,cold chain,42,139,412
+Amoxicillin 876,Metformin,100 mg,consumable,capsule,Respiratory,N,room,0,15,208
+   ,Cetirizine,50 mg,Injection,strip,Gastrointestinal,0,ROOM,29,125,177
+Ranitidine 878,,,Injection,piece,Antiallergics,नहीं,room,32,61,220
+Prednisolone 879,,,Tablets,strip,Antibacterials,,,20,77,328
+
+Amoxicillin 881,Azithromycin,50 mg,ointment,piece,Gastrointestinal,हाँ,ROOM,20,67,306
+  Atenolol 882  ,Salbutamol,,drops,tube,Analgesics,नहीं,cold chain,30,93,277
+Prednisolone 883,,250 mg,Tablets,piece,Antibacterials,kabhi,,24,63,413
+  Omeprazole 884  ,Paracetamol,50 mg,consumable,tube,Antiallergics,हाँ,room,9,60,278
+Salbutamol 778,,10 mg,Injection,bottle,Analgesics,N,room,14,65,142
+  Ranitidine 886  ,Metformin,5 mg,drops,tube,Antiallergics,Y,COLD,5,7,375
+Salbutamol 887,Azithromycin,5 mg,consumable,capsule,Analgesics,नहीं,cold chain,27,64,71
+मेटफॉर्मिन 888,Diclofenac,,xyz,bottle,Analgesics,हाँ,,14,37,297
+Paracetamol 889,,250 mg,Injection,tablet,Antibacterials,0,,0,94,480
+Azithromycin 890,Omeprazole,5 mg,drops,piece,Antibacterials,no,room,-5,139,417
+Prednisolone 891,,500 mg,Injection,capsule,"Vitamins, minerals and tonics",हाँ,freezer,26,40,413
+  Prednisolone 892  ,Ranitidine,,ointment,piece,Gastrointestinal,kabhi,COLD,26,72,106
+Atenolol 893,,5 mg,drops,bottle,Gastrointestinal,N,,35,82,288
+Azithromycin 894,Ibuprofen,5 mg,Tablets,piece,Cardiovascular,नहीं,cold chain,4,21,193
+Salbutamol 895,Prednisolone,250 mg,Capsule,capsule,Antiallergics,yes,room,26,55,173
+   ,Pantoprazole,100 mg,tablet,capsule,"Vitamins, minerals and tonics",नहीं,,7,80,441
+Omeprazole 897,Metformin,50 mg,INJ,capsule,Antiallergics,नहीं,cold chain,43,123,203
+,,100 mg,TAB,bottle,Analgesics,नहीं,room,19,22,150
+Omeprazole 899,,100 mg,syrup,piece,"Vitamins, minerals and tonics",0,COLD,44,61,230
+सेट्रिज़िन 900,,,ointment,strip,Antibacterials,Y,room,23,61,303
+  सिप्रोफ्लॉक्सासिन 901  ,Paracetamol,100 mg,tablet,capsule,Cardiovascular,नहीं,,31/02/2026,94,473
+Ibuprofen 902,,50 mg,syrup,piece,Cardiovascular,,ROOM,38,92,387
+Paracetamol 903,Atenolol,5 mg,syrup,piece,Antibacterials,Y,room,13,41,253
+  Pantoprazole 904  ,Omeprazole,,Tablets,bottle,Cardiovascular,1,room,33,123,341
+Atenolol 905,,50 mg,Tablets,strip,"Vitamins, minerals and tonics",,Ambient,27,93,317
+  Ibuprofen 906  ,,,consumable,bottle,Antiallergics,नहीं,ROOM,45,91,310
+Prednisolone 907,,250 mg,Capsule,capsule,Cardiovascular,,2-8 C,2,57,394
+  सिप्रोफ्लॉक्सासिन 908  ,Diclofenac,5 mg,ointment,vial,Gastrointestinal,yes,2-8 C,43,65,380
+Prednisolone 909,,,consumable,vial,Respiratory,0,2-8 C,35,101,372
+Prednisolone 910,,,drops,vial,Antiallergics,0,cold chain,18,53,315
+Atenolol 911,Salbutamol,50 mg,Tablets,bottle,Antibacterials,0,ROOM,29,73,108
+Omeprazole 912,,,Injection,piece,Antibacterials,,cold chain,3,103,391
+  Ibuprofen 913  ,Omeprazole,,INJ,capsule,Respiratory,नहीं,cold chain,7,17,240
+Azithromycin 590,,,ointment,capsule,Respiratory,,Ambient,29,32,375
+आइबुप्रोफेन 915,,5 mg,tablet,vial,Gastrointestinal,नहीं,ROOM,45,120,146
+Cetirizine 446,,100 mg,syrup,strip,Respiratory,yes,Ambient,39,41,84
+Atenolol 917,,500 mg,Injection,capsule,Analgesics,1,ROOM,43,100,111
+Salbutamol 126,,10 mg,INJ,tube,Analgesics,,ROOM,12,102,415
+  Paracetamol 919  ,Cetirizine,5 mg,drops,tablet,Cardiovascular,0,2-8 C,18,27,267
+Doxycycline 920,Cetirizine,,syrup,tube,Respiratory,0,,12,100,440
+Atenolol 921,,10 mg,Injection,tablet,Cardiovascular,N,COLD,10,99,154
+एज़िथ्रोमाइसिन 922,Ranitidine,10 mg,Injection,vial,Cardiovascular,yes,room,20,100,106
+Salbutamol 923,,100 mg,syrup,capsule,Analgesics,नहीं,ROOM,22,51,270
+एटेनोलोल 924,,250 mg,Capsule,tablet,"Vitamins, minerals and tonics",N,ROOM,17,100,206
+ओमेप्राज़ोल 925,,500 mg,लिक्विड,vial,Antiallergics,no,cold chain,3,15,273
+
+  Amoxicillin 927  ,,,syrup,piece,"Vitamins, minerals and tonics",,ROOM,45,111,408
+Pantoprazole 928,,10 mg,drops,vial,Antiallergics,,ROOM,39,69,232
+Amoxicillin 929,Ranitidine,,syrup,tube,Respiratory,नहीं,COLD,28,60,357
+Prednisolone 930,,10 mg,ointment,strip,Respiratory,नहीं,COLD,2,23,297
+  Ciprofloxacin 931  ,Pantoprazole,5 mg,Capsule,strip,Gastrointestinal,0,Ambient,23,107,489
+Amoxicillin 932,Paracetamol,5 mg,Capsule,strip,Antiallergics,yes,room,42,82,105
+ओमेप्राज़ोल 933,,500 mg,लिक्विड,piece,Antiallergics,yes,2-8 C,45,75,117
+Atenolol 934,Azithromycin,,Capsule,vial,"Vitamins, minerals and tonics",0,Ambient,13/13/2025,119,119
+
+  Atenolol 936  ,,,Injection,capsule,"Vitamins, minerals and tonics",1,room,34,67,192
+  सेट्रिज़िन 937  ,Ciprofloxacin,10 mg,drops,capsule,Antiallergics,no,,8,79,404
+Omeprazole 938,Doxycycline,,Injection,tablet,Antiallergics,नहीं,,43,141,219
+Omeprazole 939,Ranitidine,100 mg,xyz,tube,Respiratory,,,32,45,234
+Ciprofloxacin 940,Metformin,250 mg,TAB,strip,Antiallergics,0,COLD,many,36,202
+Ciprofloxacin 941,Omeprazole,250 mg,INJ,tablet,Antibacterials,0,ROOM,38,92,328
+  एज़िथ्रोमाइसिन 942  ,,,ointment,piece,Antibacterials,1,2-8 C,14,106,432
+Omeprazole 943,Diclofenac,,Injection,bottle,Antiallergics,N,2-8 C,17,57,106
+सिप्रोफ्लॉक्सासिन 944,,,syrup,strip,Cardiovascular,,2-8 C,many,45,160
+Paracetamol 945,Doxycycline,,Tablets,bottle,Gastrointestinal,,COLD,37,136,297
+Paracetamol 127,Omeprazole,5 mg,Capsule,strip,"Vitamins, minerals and tonics",no,COLD,42,123,362
+  सिप्रोफ्लॉक्सासिन 947  ,Atenolol,,syrup,tube,"Vitamins, minerals and tonics",0,room,14,14,222
+  Ranitidine 948  ,Ibuprofen,50 mg,ointment,bottle,Analgesics,N,ROOM,28,122,505
+Salbutamol 949,Ranitidine,250 mg,xyz,vial,Respiratory,नहीं,,21,106,399
+  Metformin 950  ,Salbutamol,50 mg,Capsule,capsule,Antibacterials,yes,ROOM,41,130,196
+Diclofenac 951,Ibuprofen,5 mg,Tablets,piece,Analgesics,no,cold chain,16,86,370
+  Amoxicillin 952  ,Cetirizine,250 mg,ointment,vial,Analgesics,N,ROOM,15,52,362
+  Diclofenac 953  ,,10 mg,Capsule,vial,Antiallergics,Y,ROOM,13/13/2025,50,276
+  Doxycycline 954  ,Pantoprazole,10 mg,syrup,bottle,Analgesics,yes,COLD,3,35,357
+  अमोक्सिसिलिन 955  ,,250 mg,Capsule,tube,Analgesics,yes,ROOM,49,107,362
+Salbutamol 956,,250 mg,tablet,piece,Analgesics,हाँ,room,16,113,441
+सिप्रोफ्लॉक्सासिन 957,Azithromycin,100 mg,syrup,capsule,Analgesics,kabhi,2-8 C,8,48,268
+Ciprofloxacin 958,Salbutamol,250 mg,INJ,capsule,Analgesics,yes,cold chain,38,79,310
+Metformin 959,,,TAB,tablet,Analgesics,,ROOM,12,34,256
+ओमेप्राज़ोल 698,Ibuprofen,5 mg,consumable,vial,Cardiovascular,no,COLD,17,73,422
+Cetirizine 961,Paracetamol,50 mg,Capsule,capsule,Antiallergics,yes,room,15,114,487
+एटेनोलोल 153,Salbutamol,,consumable,vial,"Vitamins, minerals and tonics",1,,1,59,316
+Cetirizine 963,,250 mg,INJ,bottle,Antiallergics,1,2-8 C,29,128,497
+Azithromycin 964,,,ointment,piece,Antibacterials,N,COLD,27,75,92
+Metformin 965,Omeprazole,500 mg,syrup,vial,Cardiovascular,,Ambient,48,112,262
+Prednisolone 966,,100 mg,TAB,capsule,Antiallergics,नहीं,,16,91,346
+Pantoprazole 967,Atenolol,250 mg,consumable,strip,Antiallergics,0,Ambient,40,62,305
+Ibuprofen 968,Ranitidine,,drops,strip,Gastrointestinal,नहीं,Ambient,15,30,52
+  Metformin 969  ,Doxycycline,,syrup,bottle,"Vitamins, minerals and tonics",नहीं,room,25,33,75
+  Paracetamol 970  ,Azithromycin,100 mg,ointment,capsule,Analgesics,no,ROOM,2,75,273
+Diclofenac 971,,50 mg,tablet,strip,Analgesics,0,ROOM,43,68,428
+  सेट्रिज़िन 937  ,Ciprofloxacin,10 mg,drops,capsule,Antiallergics,no,,8,79,404
+Prednisolone 973,,10 mg,pills,tube,Antiallergics,0,room,38,39,135
+Atenolol 974,Cetirizine,100 mg,Injection,piece,Antiallergics,1,cold chain,100,50,500
+   ,Ibuprofen,,Capsule,strip,Antibacterials,0,cold chain,3,96,153
+Pantoprazole 976,,5 mg,Tablets,vial,Antibacterials,नहीं,cold chain,18,76,222
+Omeprazole 977,,10 mg,syrup,piece,Gastrointestinal,0,COLD,34,130,379
+  पैरासिटामोल 978  ,Metformin,250 mg,syrup,tube,Antibacterials,नहीं,ROOM,23,36,235
+मेटफॉर्मिन 979,,100 mg,Capsule,piece,"Vitamins, minerals and tonics",1,COLD,16,33,384
+Salbutamol 980,Ibuprofen,500 mg,ointment,capsule,Gastrointestinal,1,ROOM,32,48,141
+Prednisolone 981,Metformin,100 mg,ointment,tablet,Gastrointestinal,,cold chain,31,89,296
+,,100 mg,Capsule,tablet,Antiallergics,Y,2-8 C,0,34,427
+  ,,,,,,,,,,
+Salbutamol 984,,100 mg,Injection,bottle,Gastrointestinal,,cold chain,0,99,125
+  ,,,,,,,,,,
+Diclofenac 986,,10 mg,tabletz,tablet,Antibacterials,हाँ,room,24,76,185
+   ,,250 mg,Injection,tube,Antiallergics,N,ROOM,0,73,228
+Ibuprofen 988,Amoxicillin,100 mg,Capsule,strip,Antiallergics,नहीं,,10,12,349
+  ,,,,,,,,,,
+Pantoprazole 990,Metformin,,ointment,tube,Respiratory,no,cold chain,16,69,115
+अमोक्सिसिलिन 256,Amoxicillin,250 mg,ointment,piece,Antiallergics,नहीं,COLD,37,128,174
+Salbutamol 992,,,TAB,bottle,Antibacterials,1,room,49,71,370
+सेट्रिज़िन 993,,10 mg,ointment,strip,Analgesics,,cold chain,3,13,127
+  Prednisolone 994  ,,100 mg,ointment,capsule,Antibacterials,,2-8 C,12,64,147
+Doxycycline 995,,100 mg,ointment,strip,Analgesics,yes,Ambient,32,66,72
+  Cetirizine 996  ,Ranitidine,,INJ,strip,Respiratory,1,COLD,29,95,294
+पैरासिटामोल 997,Omeprazole,500 mg,tabletz,bottle,"Vitamins, minerals and tonics",yes,2-8 C,45,81,199
+एटेनोलोल 998,,10 mg,syrup,capsule,Analgesics,N,room,12,54,72
+Ibuprofen 999,,,ointment,tablet,Analgesics,,Ambient,20,67,192
+Omeprazole 1000,Ibuprofen,10 mg,Capsule,capsule,Respiratory,yes,Ambient,6,69,259
+Ibuprofen 1001,Paracetamol,50 mg,tablet,tablet,"Vitamins, minerals and tonics",नहीं,ROOM,100,50,500
+Amoxicillin 1002,Doxycycline,,ointment,capsule,Antibacterials,हाँ,cold chain,33,74,123
+Omeprazole 1003,,,drops,capsule,Gastrointestinal,kabhi,,27,89,149
+Diclofenac 1004,Ranitidine,,ointment,piece,Gastrointestinal,1,,10,97,114
+आइबुप्रोफेन 1005,Paracetamol,5 mg,TAB,capsule,"Vitamins, minerals and tonics",,,17,72,321
+Salbutamol 1006,Ranitidine,250 mg,Tablets,vial,Antibacterials,no,COLD,46,51,98
+  Diclofenac 1007  ,Ranitidine,5 mg,drops,capsule,Antibacterials,N,COLD,5,76,401
+Cetirizine 1008,Ciprofloxacin,10 mg,ointment,bottle,Antiallergics,N,cold chain,many,69,351
+अमोक्सिसिलिन 1009,,500 mg,xyz,tablet,"Vitamins, minerals and tonics",1,COLD,48,128,331
+Azithromycin 1010,Doxycycline,100 mg,INJ,tube,"Vitamins, minerals and tonics",हाँ,ROOM,-5,71,206
+Atenolol 1011,,250 mg,Injection,tablet,Cardiovascular,नहीं,Ambient,32,132,475
+Ciprofloxacin 1012,Atenolol,,INJ,tablet,Cardiovascular,Y,2-8 C,39,133,316
+Ciprofloxacin 1013,,250 mg,consumable,vial,Analgesics,no,room,49,148,154
+Ibuprofen 1014,Ibuprofen,,Capsule,capsule,Gastrointestinal,yes,2-8 C,36,80,114
+Prednisolone 1015,,100 mg,INJ,vial,Antibacterials,,cold chain,43,142,482
+Metformin 1016,Ciprofloxacin,10 mg,tabletz,vial,Analgesics,0,Ambient,17,72,295
+  डाइक्लोफेनैक 1017  ,Atenolol,,TAB,vial,Analgesics,Y,2-8 C,7,97,392
+Prednisolone 1018,,,xyz,tablet,Gastrointestinal,no,2-8 C,38,86,210
+Salbutamol 408,,10 mg,TAB,vial,Gastrointestinal,0,Ambient,48,61,70
+Atenolol 1020,,100 mg,tabletz,piece,Antiallergics,N,Ambient,20,93,354
+
+  डाइक्लोफेनैक 1022  ,Salbutamol,10 mg,drops,strip,"Vitamins, minerals and tonics",yes,2-8 C,29,38,53
+Ibuprofen 1023,,5 mg,consumable,strip,Gastrointestinal,0,2-8 C,37,131,376
+Pantoprazole 1024,Ranitidine,,Tablets,tube,"Vitamins, minerals and tonics",0,,8,48,259
+Doxycycline 1025,,5 mg,Capsule,piece,Gastrointestinal,,COLD,34,127,265
+Omeprazole 1026,Salbutamol,5 mg,Injection,piece,Respiratory,N,2-8 C,7,77,131
+Paracetamol 1027,Cetirizine,100 mg,drops,tube,Analgesics,kabhi,cold chain,0,32,417
+  Ciprofloxacin 1028  ,,5 mg,INJ,vial,Antibacterials,0,room,43,108,211
+Diclofenac 1029,Amoxicillin,250 mg,Tablets,capsule,Antiallergics,yes,ROOM,43,119,196
+Cetirizine 1030,Paracetamol,,xyz,vial,Cardiovascular,1,2-8 C,46,63,394
+Doxycycline 1031,Salbutamol,50 mg,TAB,piece,"Vitamins, minerals and tonics",0,2-8 C,31,114,496
+  पैरासिटामोल 1032  ,,500 mg,ointment,tube,Analgesics,N,Ambient,32,49,226
+Azithromycin 1033,,,Injection,piece,Antiallergics,kabhi,room,28,55,290
+  Amoxicillin 1034  ,Pantoprazole,,लिक्विड,tube,Antibacterials,हाँ,room,22,61,317
+  Doxycycline 365  ,Amoxicillin,,drops,strip,Gastrointestinal,हाँ,ROOM,21,52,124
+Ibuprofen 1036,,10 mg,Capsule,capsule,Respiratory,yes,2-8 C,26,86,473
+   ,Azithromycin,5 mg,tablet,bottle,"Vitamins, minerals and tonics",Y,COLD,24,121,270
+पैरासिटामोल 1038,,,tablet,tube,Analgesics,1,room,2,39,358
+Prednisolone 1039,,5 mg,pills,piece,Gastrointestinal,0,room,42,102,156
+Ranitidine 1040,,,TAB,tube,Antiallergics,no,cold chain,16,90,175
+  Prednisolone 1041  ,,250 mg,INJ,tube,Antiallergics,Y,2-8 C,45,107,113
+Azithromycin 1042,Pantoprazole,5 mg,Tablets,strip,Gastrointestinal,N,,8,18,214
+  Ibuprofen 1043  ,,50 mg,tablet,piece,Cardiovascular,0,Ambient,9,97,484
+  Omeprazole 1044  ,Atenolol,250 mg,Capsule,tube,"Vitamins, minerals and tonics",Y,room,100,50,500
+Salbutamol 1045,,500 mg,INJ,vial,Antibacterials,no,cold chain,39,93,489
+Azithromycin 1046,,50 mg,Capsule,tube,Antiallergics,Y,room,39,108,484
+Metformin 1047,,,drops,tablet,Antibacterials,,Ambient,13/13/2025,118,466
+,,,drops,tablet,Cardiovascular,Y,,12,84,236
+Paracetamol 1049,Paracetamol,50 mg,consumable,tube,"Vitamins, minerals and tonics",1,room,45,81,362
+Ciprofloxacin 1050,,10 mg,TAB,capsule,Cardiovascular,no,ROOM,24,98,349
+मेटफॉर्मिन 1051,Azithromycin,500 mg,Tablets,tube,Respiratory,,Ambient,6,65,420
+सेट्रिज़िन 1052,,100 mg,tablet,tablet,Antiallergics,हाँ,COLD,4,40,322
+Metformin 1053,,,tabletz,capsule,Antibacterials,हाँ,room,33,126,218
+
+  Ranitidine 1055  ,,,drops,piece,Gastrointestinal,हाँ,room,abc,71,308
+  Ibuprofen 1056  ,Diclofenac,5 mg,TAB,vial,Analgesics,हाँ,ROOM,29,67,237
+Ibuprofen 1057,Amoxicillin,250 mg,drops,capsule,Antiallergics,Y,cold chain,28,109,110
+Omeprazole 1058,,500 mg,ointment,vial,Gastrointestinal,1,cold chain,10,16,245
+  Ciprofloxacin 1059  ,,50 mg,consumable,strip,Antibacterials,no,room,31,76,299
+   ,Pantoprazole,,TAB,strip,Respiratory,yes,2-8 C,4,17,361
+Ranitidine 1061,Salbutamol,5 mg,ointment,bottle,Gastrointestinal,,COLD,20,83,313
+Paracetamol 1062,,5 mg,drops,vial,Antiallergics,maybe,room,26,68,276
+एटेनोलोल 1063,Prednisolone,10 mg,ointment,strip,Cardiovascular,नहीं,,42,80,403
+  Salbutamol 1064  ,Omeprazole,,TAB,strip,Analgesics,,room,-5,94,389
+  डाइक्लोफेनैक 1065  ,,,consumable,vial,"Vitamins, minerals and tonics",maybe,ROOM,50,109,171
+Paracetamol 1066,,,syrup,strip,Antiallergics,maybe,cold chain,39,42,46
+Cetirizine 1067,Ranitidine,50 mg,consumable,strip,Antibacterials,0,2-8 C,18,99,342
+Metformin 1068,,,tablet,strip,"Vitamins, minerals and tonics",,COLD,28,66,310
+पैरासिटामोल 1069,Metformin,100 mg,Capsule,tablet,Antibacterials,yes,ROOM,7,103,247
+Azithromycin 1070,,100 mg,TAB,strip,Analgesics,हाँ,,32,56,160
+Salbutamol 1071,Doxycycline,10 mg,Tablets,tube,Antiallergics,N,cold chain,5,105,334
+Doxycycline 1072,,500 mg,drops,bottle,Antiallergics,नहीं,cold chain,19,22,43
+Doxycycline 1073,Salbutamol,,drops,tube,Cardiovascular,0,Ambient,11,77,80
+Ibuprofen 1074,,500 mg,लिक्विड,tablet,Cardiovascular,Y,,24,54,172
+  Metformin 1075  ,,50 mg,ointment,tablet,Gastrointestinal,no,Ambient,12,52,304
+अमोक्सिसिलिन 1076,Ciprofloxacin,250 mg,consumable,capsule,"Vitamins, minerals and tonics",हाँ,2-8 C,44,135,498
+Metformin 1077,,50 mg,Injection,piece,Antibacterials,yes,2-8 C,24,53,404
+  Azithromycin 1078  ,Prednisolone,50 mg,consumable,capsule,Antiallergics,नहीं,COLD,100,50,500
+Amoxicillin 1079,,,syrup,tube,Respiratory,yes,room,34,98,159
+Doxycycline 1080,Metformin,5 mg,INJ,tablet,"Vitamins, minerals and tonics",N,COLD,13/13/2025,52,169
+Azithromycin 1081,Cetirizine,,xyz,tube,Antiallergics,yes,COLD,3,23,209
+Amoxicillin 1082,,500 mg,tablet,tube,Cardiovascular,Y,,32,109,274
+  Ibuprofen 1083  ,,,Injection,tube,Analgesics,Y,ROOM,11,77,348
+Ibuprofen 1084,,10 mg,INJ,capsule,Gastrointestinal,हाँ,2-8 C,0,52,262
+Metformin 1085,Ranitidine,5 mg,Tablets,vial,Cardiovascular,maybe,Ambient,25,31,166
+Diclofenac 1086,,,Injection,strip,Antibacterials,,ROOM,24,68,215
+Ibuprofen 1087,Doxycycline,5 mg,xyz,tablet,Analgesics,0,cold chain,15,51,150
+  Paracetamol 1088  ,Paracetamol,50 mg,Injection,bottle,Cardiovascular,yes,2-8 C,32,97,126
+,,,,,,,,,,
+Prednisolone 1090,Paracetamol,10 mg,drops,tablet,"Vitamins, minerals and tonics",yes,,19,97,234
+Atenolol 1091,Ibuprofen,100 mg,TAB,vial,Antibacterials,yes,cold chain,35,104,108
+Doxycycline 1092,Ibuprofen,,Capsule,tube,Cardiovascular,maybe,2-8 C,32,79,326
+  Atenolol 1093  ,,500 mg,xyz,tube,Cardiovascular,,COLD,9,25,357
+  एटेनोलोल 1094  ,Amoxicillin,,TAB,piece,Antibacterials,N,ROOM,18,47,445
+आइबुप्रोफेन 1095,Azithromycin,,TAB,capsule,"Vitamins, minerals and tonics",हाँ,cold chain,35,101,357
+Omeprazole 1096,,50 mg,Injection,vial,"Vitamins, minerals and tonics",,COLD,41,51,346
+Prednisolone 1097,,,TAB,tablet,Cardiovascular,kabhi,COLD,22,85,218
+Amoxicillin 799,,,syrup,strip,"Vitamins, minerals and tonics",हाँ,room,29,121,369
+Prednisolone 1099,,50 mg,consumable,piece,Gastrointestinal,0,COLD,44,91,137
+,Prednisolone,10 mg,Tablets,vial,Analgesics,N,COLD,50,114,252
+Prednisolone 1101,Pantoprazole,,Injection,tablet,Antibacterials,,room,abc,59,263
+Ciprofloxacin 1102,,,ointment,bottle,Cardiovascular,N,Ambient,37,84,222
+Azithromycin 1103,,500 mg,tablet,capsule,Antiallergics,हाँ,room,9,27,295
+Azithromycin 1104,Ibuprofen,,ointment,tablet,Respiratory,नहीं,2-8 C,1,14,16
+  Ciprofloxacin 1105  ,Pantoprazole,,drops,tube,Gastrointestinal,no,,13/13/2025,49,320
+  Doxycycline 1106  ,,10 mg,tablet,tablet,Respiratory,no,Ambient,45,57,97
+Amoxicillin 1107,,,tabletz,capsule,Analgesics,no,Ambient,41,114,208
+Prednisolone 1108,,500 mg,ointment,tube,Gastrointestinal,,2-8 C,26,61,125
+Ibuprofen 1109,Metformin,10 mg,TAB,vial,Gastrointestinal,1,,many,31,141
+Salbutamol 1110,Doxycycline,250 mg,INJ,tube,Respiratory,हाँ,COLD,36,45,136
+Atenolol 1111,,50 mg,ointment,tablet,"Vitamins, minerals and tonics",0,Ambient,45,65,143
+  Amoxicillin 1112  ,Atenolol,,consumable,tube,Gastrointestinal,no,cold chain,1,49,428
+Diclofenac 1113,,,Tablets,vial,Respiratory,हाँ,room,22,100,270
+  आइबुप्रोफेन 1114  ,Salbutamol,100 mg,Tablets,strip,Respiratory,नहीं,COLD,many,88,216
+Paracetamol 1115,Amoxicillin,100 mg,Capsule,vial,Antiallergics,no,cold chain,1,42,359
+,Ciprofloxacin,5 mg,consumable,tube,"Vitamins, minerals and tonics",हाँ,2-8 C,1,64,88
+Omeprazole 1117,,,xyz,capsule,Cardiovascular,yes,cold chain,17,38,338
+Ibuprofen 1118,Amoxicillin,500 mg,tablet,capsule,Respiratory,हाँ,Ambient,20,32,340
+Salbutamol 1119,Salbutamol,250 mg,Capsule,tube,"Vitamins, minerals and tonics",no,cold chain,25,41,440
+Doxycycline 1120,Pantoprazole,,syrup,tube,Respiratory,no,COLD,42,117,241
+Pantoprazole 1121,,5 mg,ointment,piece,Gastrointestinal,हाँ,COLD,100,50,500
+Azithromycin 1122,,10 mg,consumable,capsule,Analgesics,yes,Ambient,31/02/2026,63,127
+आइबुप्रोफेन 1123,,,Capsule,piece,Antiallergics,Y,cold chain,34,59,305
+Doxycycline 1124,Azithromycin,250 mg,TAB,piece,Gastrointestinal,N,,26,95,414
+Prednisolone 179,,,drops,tablet,"Vitamins, minerals and tonics",1,ROOM,50,69,183
+Ciprofloxacin 1126,Atenolol,50 mg,tablet,bottle,Analgesics,Y,,35,113,213
+Metformin 1127,Diclofenac,50 mg,tabletz,tablet,Antiallergics,0,,25,71,429
+Paracetamol 1128,,5 mg,Tablets,strip,"Vitamins, minerals and tonics",N,,36,37,182
+Ranitidine 1129,Omeprazole,250 mg,Injection,capsule,"Vitamins, minerals and tonics",,cold chain,44,108,353
+  Prednisolone 502  ,Salbutamol,5 mg,syrup,tablet,Antibacterials,yes,,8,37,328
+Ranitidine 1131,,100 mg,syrup,tube,Analgesics,no,room,abc,40,344
+Paracetamol 1132,,,syrup,strip,Gastrointestinal,no,COLD,34,61,151
+Diclofenac 1133,Prednisolone,,लिक्विड,bottle,Antiallergics,yes,,38,122,430
+Prednisolone 1134,Salbutamol,5 mg,tablet,piece,"Vitamins, minerals and tonics",0,2-8 C,45,45,425
+   ,Paracetamol,,TAB,vial,Gastrointestinal,Y,room,50,59,329
+   ,,,Tablets,strip,Gastrointestinal,0,cold chain,35,73,299
+   ,Doxycycline,50 mg,syrup,capsule,Respiratory,0,,37,74,182
+ओमेप्राज़ोल 1138,Ranitidine,100 mg,TAB,capsule,Analgesics,0,COLD,19,83,466
+एटेनोलोल 1139,Salbutamol,,tablet,vial,Analgesics,हाँ,cold chain,31,50,194
+  Azithromycin 1140  ,Ibuprofen,250 mg,TAB,capsule,"Vitamins, minerals and tonics",0,ROOM,37,103,180
+  ,,,,,,,,,,
+Diclofenac 1142,,5 mg,syrup,bottle,Antibacterials,हाँ,,28,29,30
+Metformin 1143,,500 mg,tablet,tablet,Antiallergics,1,Ambient,13,103,273
+  मेटफॉर्मिन 1144  ,Ranitidine,,Injection,strip,"Vitamins, minerals and tonics",yes,,22,65,260
+Diclofenac 1145,Prednisolone,10 mg,pills,bottle,Gastrointestinal,Y,ROOM,28,77,388
+Ibuprofen 161,Diclofenac,,ointment,vial,"Vitamins, minerals and tonics",नहीं,Ambient,36,110,272
+  Salbutamol 1147  ,Ibuprofen,,Capsule,tablet,Antibacterials,yes,Ambient,25,105,410
+मेटफॉर्मिन 1148,Ranitidine,,ointment,tablet,Respiratory,नहीं,COLD,50,52,271
+Doxycycline 1149,Salbutamol,500 mg,drops,bottle,Gastrointestinal,kabhi,room,41,119,126
+मेटफॉर्मिन 1150,,,consumable,strip,Cardiovascular,Y,cold chain,100,50,500
+Pantoprazole 1151,,,INJ,tablet,Antiallergics,no,cold chain,3,94,262
+Prednisolone 1152,,,Injection,tube,Analgesics,Y,room,37,123,239
+Diclofenac 1153,Paracetamol,250 mg,consumable,capsule,Antibacterials,नहीं,2-8 C,50,129,508
+  Pantoprazole 1154  ,Prednisolone,50 mg,Capsule,tube,Analgesics,yes,2-8 C,40,83,192
+  ,,,,,,,,,,
+,Salbutamol,10 mg,INJ,bottle,Cardiovascular,0,2-8 C,43,75,76
+ओमेप्राज़ोल 1157,,50 mg,Capsule,bottle,Gastrointestinal,हाँ,room,29,30,140
+Salbutamol 1158,,100 mg,TAB,piece,Gastrointestinal,नहीं,,0,50,236
+  Paracetamol 1159  ,Doxycycline,500 mg,consumable,piece,Cardiovascular,kabhi,ROOM,31,35,350
+Metformin 1160,Diclofenac,5 mg,Tablets,bottle,Antibacterials,0,COLD,7,100,195
+पैरासिटामोल 1161,,,consumable,bottle,Gastrointestinal,नहीं,ROOM,34,40,119
+Ranitidine 1162,,5 mg,Tablets,strip,Gastrointestinal,N,2-8 C,0,31,274
+  अमोक्सिसिलिन 1163  ,Prednisolone,250 mg,INJ,vial,Antibacterials,नहीं,Ambient,23,78,419
+  Omeprazole 1164  ,Azithromycin,500 mg,ointment,piece,Analgesics,yes,Ambient,34,117,156
+Metformin 654,Omeprazole,250 mg,drops,vial,Antiallergics,N,room,9,94,318
+Diclofenac 1166,Doxycycline,250 mg,Capsule,vial,Antibacterials,हाँ,ROOM,43,128,326
+  Prednisolone 1167  ,Prednisolone,5 mg,syrup,bottle,Antibacterials,,ROOM,abc,83,177
+Ciprofloxacin 1168,,,drops,piece,"Vitamins, minerals and tonics",Y,Ambient,46,123,227
+Azithromycin 1169,,,Injection,vial,Gastrointestinal,N,,50,112,479
+  Azithromycin 1170  ,Azithromycin,10 mg,INJ,piece,Respiratory,नहीं,,46,120,355
+  Doxycycline 1171  ,Prednisolone,250 mg,TAB,capsule,Analgesics,1,room,20,53,136
+अमोक्सिसिलिन 1172,,5 mg,syrup,tablet,"Vitamins, minerals and tonics",1,cold chain,38,86,209
+Diclofenac 1173,,100 mg,tabletz,bottle,Respiratory,N,room,35,77,302
+सिप्रोफ्लॉक्सासिन 1174,Pantoprazole,,syrup,bottle,Respiratory,no,COLD,45,119,515
+Ibuprofen 1175,,250 mg,Injection,strip,"Vitamins, minerals and tonics",yes,freezer,0,49,171
+Ranitidine 1176,Cetirizine,50 mg,TAB,strip,Analgesics,0,freezer,10,39,242
+Salbutamol 1177,Salbutamol,50 mg,Injection,strip,Respiratory,,COLD,36,121,447
+  Atenolol 1178  ,Atenolol,5 mg,consumable,bottle,Gastrointestinal,yes,cold chain,48,131,527
+Azithromycin 723,Prednisolone,100 mg,drops,tablet,Antiallergics,1,cold chain,8,12,290
+Azithromycin 1180,Omeprazole,,drops,strip,Respiratory,kabhi,,27,28,328
+,Prednisolone,,TAB,piece,Analgesics,हाँ,,48,101,428
+Diclofenac 1182,Azithromycin,5 mg,TAB,tablet,Cardiovascular,हाँ,COLD,50,58,430
+Prednisolone 1183,Doxycycline,5 mg,Tablets,tube,Respiratory,N,COLD,6,58,178
+Amoxicillin 1184,,5 mg,syrup,tube,"Vitamins, minerals and tonics",no,room,5,63,127
+  Salbutamol 1147  ,Ibuprofen,,Capsule,tablet,Antibacterials,yes,Ambient,25,105,410
+अमोक्सिसिलिन 1186,,500 mg,TAB,tablet,Respiratory,0,room,42,69,317
+ओमेप्राज़ोल 1187,Diclofenac,250 mg,ointment,strip,Analgesics,हाँ,COLD,48,66,270
+Prednisolone 1188,,250 mg,drops,piece,Antibacterials,,ROOM,24,62,230
+Prednisolone 1189,,,drops,tube,Gastrointestinal,हाँ,Ambient,100,50,500
+Pantoprazole 1190,,10 mg,Capsule,tube,Antiallergics,हाँ,Ambient,9,22,330
+आइबुप्रोफेन 1191,Paracetamol,50 mg,INJ,piece,Cardiovascular,1,2-8 C,50,71,422
+Ibuprofen 1192,Salbutamol,10 mg,Capsule,capsule,"Vitamins, minerals and tonics",,ROOM,9,79,262
+  Ibuprofen 1193  ,,10 mg,Tablets,piece,Analgesics,Y,ROOM,5,25,229
+Ibuprofen 1194,Ibuprofen,10 mg,consumable,tube,Antibacterials,yes,Ambient,40,63,91
+Amoxicillin 1195,Azithromycin,500 mg,drops,vial,Respiratory,yes,ROOM,33,121,278
+Azithromycin 1196,,,tablet,strip,Analgesics,नहीं,room,22,103,481
+  सेट्रिज़िन 1197  ,Paracetamol,10 mg,syrup,tube,Analgesics,no,,31/02/2026,59,256
+Metformin 1198,,100 mg,drops,bottle,"Vitamins, minerals and tonics",no,room,16,72,350
+
+  सिप्रोफ्लॉक्सासिन 1200  ,Ibuprofen,,Injection,tube,Gastrointestinal,N,ROOM,9,72,288
+ओमेप्राज़ोल 1201,,50 mg,tablet,strip,Respiratory,हाँ,2-8 C,40,93,193
+Paracetamol 1202,,,tablet,strip,Gastrointestinal,1,room,8,73,412
+  Ciprofloxacin 1203  ,,100 mg,INJ,capsule,Respiratory,no,cold chain,42,72,417
+ओमेप्राज़ोल 1204,,,consumable,strip,"Vitamins, minerals and tonics",no,room,2,78,309
+  Doxycycline 1205  ,Azithromycin,,INJ,bottle,Gastrointestinal,Y,ROOM,100,50,500
+अमोक्सिसिलिन 1206,,50 mg,ointment,tube,Antibacterials,हाँ,Ambient,44,130,515
+एज़िथ्रोमाइसिन 1207,Omeprazole,,TAB,tablet,Respiratory,no,room,17,99,456
+Ibuprofen 1208,Omeprazole,500 mg,TAB,bottle,Analgesics,maybe,,47,122,275
+,,,,,,,,,,
+Ibuprofen 1210,Metformin,,tablet,piece,"Vitamins, minerals and tonics",0,2-8 C,23,96,283
+
+Prednisolone 1188,,250 mg,drops,piece,Antibacterials,,ROOM,24,62,230
+अमोक्सिसिलिन 1186,,500 mg,TAB,tablet,Respiratory,0,room,42,69,317
+सिप्रोफ्लॉक्सासिन 1214,,10 mg,consumable,piece,Antibacterials,नहीं,2-8 C,23,92,338
+  Ciprofloxacin 1215  ,,250 mg,Tablets,vial,Gastrointestinal,हाँ,Ambient,22,33,156
+आइबुप्रोफेन 1216,,,ointment,tube,"Vitamins, minerals and tonics",,2-8 C,20,99,131
+Ciprofloxacin 1217,,100 mg,Injection,strip,Antibacterials,N,2-8 C,48,55,374
+मेटफॉर्मिन 1218,,10 mg,consumable,strip,Gastrointestinal,1,ROOM,20,59,301
+  Metformin 1219  ,,10 mg,Capsule,bottle,Respiratory,हाँ,2-8 C,36,46,363
+  Atenolol 1220  ,Cetirizine,10 mg,drops,bottle,Antiallergics,kabhi,ROOM,45,100,215
+Metformin 1221,Salbutamol,500 mg,ointment,capsule,Analgesics,0,2-8 C,4,83,107
+  सिप्रोफ्लॉक्सासिन 1222  ,,250 mg,Injection,strip,Cardiovascular,1,Ambient,100,50,500
+Omeprazole 1223,Atenolol,,tabletz,strip,Antiallergics,yes,Ambient,33,111,205
+अमोक्सिसिलिन 1224,,,Tablets,capsule,Antiallergics,Y,cold chain,21,75,375
+Omeprazole 1225,Omeprazole,50 mg,consumable,bottle,Gastrointestinal,नहीं,COLD,44,88,251
+  Paracetamol 1226  ,,,tablet,vial,Analgesics,0,COLD,9,96,363
+Salbutamol 1227,Omeprazole,500 mg,Injection,bottle,Respiratory,हाँ,,5,20,414
+Diclofenac 1228,Paracetamol,5 mg,Capsule,bottle,Cardiovascular,,ROOM,34,101,440
+  Prednisolone 1229  ,,50 mg,Injection,piece,"Vitamins, minerals and tonics",N,room,46,51,420
+Paracetamol 1230,,,INJ,piece,Respiratory,नहीं,COLD,49,93,117
+  Doxycycline 1231  ,Atenolol,500 mg,ointment,vial,Antiallergics,no,,25,35,388
+  Atenolol 1232  ,Salbutamol,,drops,tablet,Gastrointestinal,kabhi,cold chain,11,40,52
+
+  एटेनोलोल 1234  ,,,syrup,bottle,"Vitamins, minerals and tonics",yes,,28,127,242
+
+Ibuprofen 1236,Paracetamol,50 mg,ointment,vial,Antiallergics,yes,COLD,31/02/2026,117,247
+   ,,250 mg,tablet,tablet,Antibacterials,,cold chain,48,128,157
+  ,,,,,,,,,,
+Prednisolone 1239,,5 mg,Injection,capsule,Antiallergics,नहीं,room,33,110,295
+Atenolol 1240,Amoxicillin,,syrup,vial,Antibacterials,0,cold chain,35,46,440
+Ranitidine 1241,,250 mg,consumable,strip,Antibacterials,Y,2-8 C,33,127,212
+  ,,,,,,,,,,
+  Ranitidine 1243  ,,10 mg,tablet,tube,Antibacterials,नहीं,cold chain,1,43,366
+  Prednisolone 1244  ,Ranitidine,10 mg,consumable,piece,"Vitamins, minerals and tonics",kabhi,Ambient,50,83,392
+Ciprofloxacin 1245,,50 mg,consumable,bottle,Antibacterials,हाँ,cold chain,25,56,202
+Cetirizine 1246,Omeprazole,10 mg,Capsule,vial,"Vitamins, minerals and tonics",no,cold chain,5,55,315
+आइबुप्रोफेन 1247,Amoxicillin,5 mg,TAB,strip,Gastrointestinal,no,Ambient,42,110,394
+Amoxicillin 1248,Diclofenac,250 mg,ointment,bottle,Gastrointestinal,0,Ambient,24,31,315
+Metformin 1249,,,Capsule,bottle,Cardiovascular,no,freezer,36,46,326
+  Ciprofloxacin 1250  ,,500 mg,drops,bottle,"Vitamins, minerals and tonics",,ROOM,49,82,429
+,,,,,,,,,,
+सेट्रिज़िन 1252,,5 mg,pills,piece,Antibacterials,yes,COLD,34,65,72
+Ibuprofen 1253,,50 mg,drops,capsule,Respiratory,,ROOM,29,30,195
+Azithromycin 1254,Pantoprazole,100 mg,Injection,piece,Antiallergics,no,room,26,99,155
+Cetirizine 1255,,,tablet,tablet,"Vitamins, minerals and tonics",0,room,36,110,272
+Diclofenac 1256,Atenolol,,Injection,tablet,Gastrointestinal,N,cold chain,13,55,197
+Diclofenac 1257,Atenolol,250 mg,INJ,tablet,Respiratory,yes,2-8 C,3,70,167
+  अमोक्सिसिलिन 1258  ,Metformin,,syrup,tube,Cardiovascular,no,cold chain,49,87,107
+  Atenolol 1259  ,,500 mg,syrup,capsule,Respiratory,yes,Ambient,18,94,357
+Ranitidine 1260,Diclofenac,,TAB,bottle,Respiratory,,2-8 C,40,116,183
+
+Pantoprazole 1262,,,ointment,capsule,"Vitamins, minerals and tonics",0,cold chain,43,132,350
+Omeprazole 774,Ibuprofen,,INJ,tube,Antibacterials,1,cold chain,21,81,108
+Ibuprofen 1264,Omeprazole,,syrup,tube,"Vitamins, minerals and tonics",Y,freezer,38,113,210
+  Atenolol 1265  ,,100 mg,ointment,strip,"Vitamins, minerals and tonics",0,Ambient,23,40,157
+  सिप्रोफ्लॉक्सासिन 1266  ,Salbutamol,,drops,capsule,Antiallergics,हाँ,ROOM,15,53,111
+Pantoprazole 1267,Paracetamol,500 mg,consumable,strip,Gastrointestinal,,ROOM,4,51,269
+Salbutamol 1268,,,ointment,strip,Antibacterials,नहीं,ROOM,100,50,500
+Cetirizine 1269,Amoxicillin,,Capsule,piece,Analgesics,Y,,26,123,277
+Salbutamol 1270,Ibuprofen,50 mg,Capsule,tube,"Vitamins, minerals and tonics",yes,room,49,65,180
+  Paracetamol 1271  ,Cetirizine,500 mg,TAB,tablet,Antiallergics,N,Ambient,0,21,348
+Doxycycline 1272,,,tablet,bottle,Antibacterials,N,room,49,125,222
+,Ciprofloxacin,10 mg,Injection,bottle,Cardiovascular,,room,39,41,327
+सेट्रिज़िन 786,Amoxicillin,,INJ,bottle,Gastrointestinal,हाँ,cold chain,36,47,56
+Amoxicillin 1275,,250 mg,ointment,strip,Cardiovascular,हाँ,cold chain,22,99,193
+  Atenolol 1276  ,,5 mg,INJ,bottle,Respiratory,नहीं,COLD,33,99,302
+  Atenolol 1277  ,,50 mg,Tablets,tablet,Respiratory,maybe,,47,55,401
+Ciprofloxacin 1278,Omeprazole,10 mg,INJ,piece,Gastrointestinal,हाँ,cold chain,32,57,242
+  Ciprofloxacin 1279  ,Ranitidine,,TAB,capsule,Gastrointestinal,N,2-8 C,37,94,279
+  Atenolol 1265  ,,100 mg,ointment,strip,"Vitamins, minerals and tonics",0,Ambient,23,40,157
+Azithromycin 1281,Azithromycin,,Capsule,strip,Antiallergics,N,cold chain,30,72,358
+Amoxicillin 1282,,10 mg,ointment,vial,Antibacterials,नहीं,2-8 C,35,102,439
+Metformin 1283,,10 mg,TAB,piece,Gastrointestinal,yes,cold chain,16,29,254
+Ciprofloxacin 318,Amoxicillin,250 mg,syrup,vial,Antiallergics,,,34,89,475
+  ,,,,,,,,,,
+  ,,,,,,,,,,
+Omeprazole 1287,Ibuprofen,500 mg,Tablets,tube,Analgesics,yes,room,26,38,277
+  Salbutamol 1288  ,,,INJ,piece,Analgesics,नहीं,2-8 C,46,142,416
+Metformin 1289,Ranitidine,50 mg,ointment,strip,"Vitamins, minerals and tonics",yes,room,15,31,172
+Doxycycline 1290,Ibuprofen,,Capsule,piece,Respiratory,Y,2-8 C,33,73,414
+Azithromycin 1291,Prednisolone,,ointment,vial,Gastrointestinal,हाँ,,100,50,500
+Cetirizine 1292,,5 mg,Capsule,capsule,Gastrointestinal,no,ROOM,4,13,347
+Doxycycline 1293,Paracetamol,100 mg,INJ,piece,Respiratory,Y,COLD,100,50,500
+Azithromycin 1294,,,drops,piece,Antibacterials,N,Ambient,28,33,252
+Pantoprazole 1295,,250 mg,INJ,bottle,Cardiovascular,Y,2-8 C,13/13/2025,89,465
+Azithromycin 1296,,250 mg,drops,tube,Antiallergics,,,32,122,164
+Doxycycline 1297,Metformin,50 mg,Capsule,tube,Analgesics,no,cold chain,25,120,181
+Omeprazole 1298,,,syrup,capsule,Antiallergics,नहीं,Ambient,25,74,217
+Omeprazole 938,Doxycycline,,Injection,tablet,Antiallergics,नहीं,,43,141,219
+Prednisolone 1300,Salbutamol,,Tablets,piece,Analgesics,1,room,38,111,356
+Pantoprazole 1301,Ciprofloxacin,5 mg,Tablets,tablet,Gastrointestinal,0,room,31/02/2026,119,198
+
+  Salbutamol 1303  ,Amoxicillin,,pills,piece,Respiratory,no,COLD,25,51,137
+Amoxicillin 1304,,500 mg,TAB,piece,"Vitamins, minerals and tonics",1,2-8 C,100,50,500
+  पैरासिटामोल 1305  ,Ciprofloxacin,5 mg,Tablets,vial,Gastrointestinal,,cold chain,6,67,185
+  डाइक्लोफेनैक 1306  ,Diclofenac,250 mg,ointment,vial,"Vitamins, minerals and tonics",,freezer,30,54,341
+  ,,,,,,,,,,
+  Prednisolone 1308  ,,,Tablets,tablet,Analgesics,नहीं,Ambient,50,131,483
+Azithromycin 1309,,100 mg,TAB,vial,Antibacterials,Y,,12,48,293
+आइबुप्रोफेन 635,Ciprofloxacin,10 mg,INJ,strip,Antiallergics,,Ambient,40,72,327
+  Metformin 1311  ,Diclofenac,100 mg,TAB,piece,Gastrointestinal,हाँ,ROOM,50,99,465
+Pantoprazole 1312,,,consumable,tablet,Antiallergics,no,COLD,27,97,449
+Ciprofloxacin 1313,Ranitidine,50 mg,TAB,tube,Analgesics,Y,cold chain,34,44,129
+  सिप्रोफ्लॉक्सासिन 1314  ,,100 mg,drops,bottle,Antibacterials,N,2-8 C,38,111,400
+Doxycycline 1315,,10 mg,Tablets,tablet,"Vitamins, minerals and tonics",yes,room,43,117,467
+Pantoprazole 1316,,500 mg,TAB,tube,Gastrointestinal,N,room,1,6,358
+Salbutamol 1317,,250 mg,drops,tablet,"Vitamins, minerals and tonics",हाँ,freezer,34,39,179
+  Paracetamol 1318  ,,,tablet,tablet,Respiratory,no,ROOM,3,17,66
+Ranitidine 1319,,100 mg,Injection,capsule,"Vitamins, minerals and tonics",yes,Ambient,23,32,238
+Ranitidine 1320,Paracetamol,250 mg,syrup,piece,Antiallergics,हाँ,COLD,25,65,278
+Ciprofloxacin 1321,,500 mg,tabletz,bottle,"Vitamins, minerals and tonics",नहीं,2-8 C,44,78,475
+  Ciprofloxacin 1322  ,,50 mg,tablet,capsule,Cardiovascular,no,COLD,100,50,500
+Omeprazole 1323,Ibuprofen,,Capsule,tube,Antibacterials,N,Ambient,30,110,418
+Ranitidine 1324,Diclofenac,5 mg,TAB,bottle,Antibacterials,,room,22,29,407
+,Omeprazole,,TAB,tablet,"Vitamins, minerals and tonics",,COLD,16,52,264
+  Salbutamol 1326  ,Amoxicillin,,Tablets,piece,"Vitamins, minerals and tonics",Y,COLD,10,51,131
+Ranitidine 1327,Diclofenac,10 mg,tablet,piece,Analgesics,हाँ,Ambient,13,27,229
+Azithromycin 1328,Ibuprofen,5 mg,Capsule,strip,Antiallergics,Y,ROOM,-5,65,380
+Cetirizine 1329,Atenolol,50 mg,Injection,strip,"Vitamins, minerals and tonics",0,room,12,53,271
+Prednisolone 1330,,,INJ,capsule,Cardiovascular,maybe,2-8 C,20,48,106
+Ibuprofen 1331,Cetirizine,,Tablets,bottle,Analgesics,नहीं,ROOM,41,85,236
+Cetirizine 83,,50 mg,ointment,piece,Antibacterials,N,2-8 C,1,29,311
+Ibuprofen 1333,,100 mg,Injection,tablet,"Vitamins, minerals and tonics",yes,Ambient,22,84,108
+  Salbutamol 1334  ,Ranitidine,50 mg,TAB,vial,Antiallergics,हाँ,2-8 C,36,66,154
+,,,,,,,,,,
+Pantoprazole 1336,,500 mg,tabletz,vial,Antibacterials,1,Ambient,30,84,182
+Ibuprofen 1337,,500 mg,Tablets,vial,Antibacterials,0,Ambient,2,86,179
+Diclofenac 1338,Ranitidine,,TAB,tube,Gastrointestinal,,ROOM,7,70,193
+Ciprofloxacin 1339,Azithromycin,250 mg,Injection,tablet,Gastrointestinal,N,2-8 C,19,63,443
+Amoxicillin 1079,,,syrup,tube,Respiratory,yes,room,34,98,159
+Ibuprofen 1341,Azithromycin,10 mg,Injection,tablet,"Vitamins, minerals and tonics",,COLD,42,76,179
+Atenolol 1342,Diclofenac,250 mg,Tablets,tube,Gastrointestinal,0,room,44,109,137
+Ranitidine 1343,Salbutamol,250 mg,Capsule,strip,Antiallergics,हाँ,cold chain,9,71,311
+Diclofenac 1344,Metformin,50 mg,tablet,strip,Gastrointestinal,1,ROOM,38,90,288
+Doxycycline 1345,Omeprazole,,ointment,tube,Gastrointestinal,0,COLD,38,113,209
+Cetirizine 1346,Azithromycin,10 mg,syrup,piece,Antiallergics,0,cold chain,100,50,500
+  ,,,,,,,,,,
+Metformin 1348,Pantoprazole,10 mg,syrup,vial,"Vitamins, minerals and tonics",नहीं,2-8 C,30,59,129
+  Metformin 1349  ,,50 mg,Capsule,capsule,"Vitamins, minerals and tonics",0,COLD,41,51,335
+Atenolol 1350,,,Capsule,piece,Antiallergics,हाँ,ROOM,23,36,228
+Amoxicillin 1351,,500 mg,syrup,bottle,Antiallergics,1,2-8 C,35,74,162
+Azithromycin 1352,Ibuprofen,100 mg,INJ,strip,"Vitamins, minerals and tonics",1,COLD,31/02/2026,105,107
+,,,,,,,,,,
+Ciprofloxacin 1354,,,TAB,vial,Antibacterials,no,cold chain,8,103,378
+Omeprazole 1355,,5 mg,INJ,bottle,Gastrointestinal,no,cold chain,18,67,219
+Metformin 1356,,250 mg,INJ,strip,Gastrointestinal,yes,,40,81,140
+Metformin 1357,,500 mg,syrup,strip,"Vitamins, minerals and tonics",N,Ambient,46,60,422
+Ciprofloxacin 1358,Atenolol,10 mg,tablet,tablet,Respiratory,no,COLD,50,87,328
+Prednisolone 1359,Omeprazole,,Capsule,vial,Gastrointestinal,नहीं,COLD,13,15,187
+  Ibuprofen 1043  ,,50 mg,tablet,piece,Cardiovascular,0,Ambient,9,97,484
+Azithromycin 1361,,50 mg,ointment,bottle,Cardiovascular,1,2-8 C,35,54,415
+Omeprazole 1362,,250 mg,drops,tube,Antibacterials,1,COLD,18,62,261
+Azithromycin 1363,,,लिक्विड,tablet,Analgesics,yes,cold chain,3,60,326
+Metformin 1364,Prednisolone,500 mg,Injection,tablet,Cardiovascular,,Ambient,1,56,379
+Atenolol 1365,,,TAB,bottle,"Vitamins, minerals and tonics",0,Ambient,36,106,184
+एज़िथ्रोमाइसिन 1366,Ranitidine,,tabletz,tube,Antibacterials,no,ROOM,27,60,420
+Omeprazole 1367,Ciprofloxacin,,Tablets,tube,"Vitamins, minerals and tonics",0,ROOM,49,64,323
+Omeprazole 1368,Metformin,5 mg,drops,tube,Gastrointestinal,0,2-8 C,20,120,484
+Atenolol 1369,Salbutamol,50 mg,syrup,strip,Analgesics,1,Ambient,42,85,225
+Metformin 1370,,5 mg,लिक्विड,tablet,Gastrointestinal,,cold chain,26,75,347
+Omeprazole 803,Diclofenac,,Injection,capsule,Cardiovascular,1,ROOM,32,48,163
+Azithromycin 1372,,10 mg,Injection,bottle,Cardiovascular,नहीं,2-8 C,9,77,423
+Amoxicillin 1373,,10 mg,Capsule,bottle,"Vitamins, minerals and tonics",N,room,100,50,500
+  Salbutamol 1374  ,,,ointment,strip,Antibacterials,1,2-8 C,42,96,125
+Ranitidine 1375,,500 mg,Injection,tube,Cardiovascular,1,room,49,54,205
+  Ranitidine 1376  ,,,tablet,tube,Cardiovascular,Y,ROOM,1,71,386
+Pantoprazole 1377,,250 mg,drops,capsule,Antibacterials,,,36,115,405
+  Amoxicillin 1378  ,,10 mg,Injection,piece,"Vitamins, minerals and tonics",नहीं,ROOM,21,41,65
+Paracetamol 1379,Paracetamol,500 mg,consumable,tablet,Respiratory,1,ROOM,2,4,365
+Metformin 1380,,5 mg,drops,tablet,"Vitamins, minerals and tonics",1,cold chain,45,68,454
+Salbutamol 1381,,500 mg,syrup,capsule,Antibacterials,N,cold chain,33,47,67
+  Ranitidine 1382  ,,100 mg,tablet,tablet,Cardiovascular,हाँ,Ambient,25,102,306
+Omeprazole 1383,Prednisolone,5 mg,consumable,tablet,"Vitamins, minerals and tonics",हाँ,2-8 C,-5,106,173
+  Diclofenac 1384  ,Diclofenac,100 mg,Injection,strip,Analgesics,yes,cold chain,22,78,228
+  ,,,,,,,,,,
+Paracetamol 1386,,500 mg,drops,tablet,Respiratory,हाँ,COLD,17,28,324
+Diclofenac 1387,,,tablet,bottle,Analgesics,0,COLD,15,17,175
+Diclofenac 1388,,,consumable,piece,"Vitamins, minerals and tonics",no,2-8 C,27,113,302
+Omeprazole 1389,Amoxicillin,,Injection,piece,Cardiovascular,0,COLD,24,120,391
+  Ciprofloxacin 1279  ,Ranitidine,,TAB,capsule,Gastrointestinal,N,2-8 C,37,94,279
+Paracetamol 1391,,50 mg,ointment,bottle,Antiallergics,yes,ROOM,6,101,345
+  Ibuprofen 1392  ,Salbutamol,5 mg,xyz,bottle,Analgesics,no,Ambient,47,93,125
+  Azithromycin 1393  ,Amoxicillin,,ointment,tablet,Analgesics,,2-8 C,50,71,334
+Azithromycin 1394,,500 mg,drops,piece,Antiallergics,Y,cold chain,44,125,206
+Azithromycin 1395,Cetirizine,10 mg,TAB,tube,Gastrointestinal,Y,2-8 C,100,50,500
+Diclofenac 1396,Ranitidine,,consumable,bottle,Cardiovascular,1,Ambient,40,63,391
+ओमेप्राज़ोल 1397,,,drops,capsule,"Vitamins, minerals and tonics",no,COLD,37,95,489
+  डाइक्लोफेनैक 1398  ,Omeprazole,,tablet,vial,Respiratory,yes,2-8 C,10,29,54
+Atenolol 1399,Prednisolone,50 mg,Tablets,tablet,Antibacterials,no,ROOM,6,85,184
+  Omeprazole 1400  ,,10 mg,Capsule,strip,Gastrointestinal,no,freezer,43,79,382
+Amoxicillin 1401,,,Injection,bottle,Antiallergics,yes,ROOM,12,112,382
+Amoxicillin 1402,,10 mg,Injection,tablet,Antiallergics,,ROOM,100,50,500
+Atenolol 1403,,,लिक्विड,tablet,Antibacterials,yes,ROOM,0,13,55
+Amoxicillin 1404,Doxycycline,5 mg,ointment,bottle,"Vitamins, minerals and tonics",no,,47,131,215
+Salbutamol 1405,Ranitidine,5 mg,INJ,vial,"Vitamins, minerals and tonics",नहीं,room,31/02/2026,100,377
+  Pantoprazole 1406  ,Atenolol,50 mg,drops,bottle,Cardiovascular,yes,room,17,60,129
+Paracetamol 1407,Cetirizine,500 mg,ointment,vial,Gastrointestinal,0,cold chain,19,39,331
+Ciprofloxacin 1408,,5 mg,Injection,tube,"Vitamins, minerals and tonics",1,Ambient,100,50,500
+Azithromycin 1042,Pantoprazole,5 mg,Tablets,strip,Gastrointestinal,N,,8,18,214
+Amoxicillin 1410,,50 mg,consumable,bottle,Cardiovascular,no,COLD,7,51,322
+Pantoprazole 1411,Ranitidine,,drops,strip,"Vitamins, minerals and tonics",,,37,60,397
+Ciprofloxacin 1412,,100 mg,Tablets,capsule,"Vitamins, minerals and tonics",1,room,24,24,88
+Paracetamol 1413,,250 mg,Tablets,capsule,Antiallergics,,freezer,35,129,359
+ओमेप्राज़ोल 1414,,5 mg,consumable,piece,Analgesics,Y,,7,29,46
+Azithromycin 1415,Atenolol,50 mg,consumable,capsule,Cardiovascular,,2-8 C,31,126,166
+Salbutamol 1416,Ciprofloxacin,,pills,tablet,Antibacterials,1,ROOM,20,43,194
+Ibuprofen 1417,Ranitidine,10 mg,Injection,tube,Cardiovascular,,room,14,56,324
+  Salbutamol 1418  ,Omeprazole,,drops,capsule,Antibacterials,हाँ,2-8 C,16,42,376
+  अमोक्सिसिलिन 1419  ,Amoxicillin,5 mg,consumable,capsule,Antiallergics,नहीं,room,45,65,451
+Omeprazole 1420,Atenolol,,drops,tube,Antibacterials,0,Ambient,30,30,110
+Omeprazole 1421,Ranitidine,250 mg,ointment,capsule,Cardiovascular,,2-8 C,32,74,250
+Ibuprofen 1422,,100 mg,xyz,vial,Analgesics,no,2-8 C,20,22,116
+  Salbutamol 456  ,,500 mg,Injection,tablet,Cardiovascular,no,,6,12,231
+Ranitidine 1424,Ciprofloxacin,10 mg,consumable,strip,Cardiovascular,no,COLD,33,125,433
+Ciprofloxacin 1425,,,xyz,tube,Respiratory,,room,1,41,308
+Pantoprazole 1426,Prednisolone,100 mg,Capsule,vial,Antiallergics,yes,cold chain,35,41,348
+Ciprofloxacin 1427,,50 mg,Tablets,tube,Respiratory,हाँ,cold chain,25,67,454
+Omeprazole 1428,,100 mg,INJ,strip,Antibacterials,हाँ,Ambient,18,102,126
+   ,,500 mg,ointment,piece,Cardiovascular,हाँ,COLD,2,20,40
+पैरासिटामोल 1430,,500 mg,Tablets,strip,Respiratory,1,COLD,10,28,228
+Pantoprazole 1431,,50 mg,INJ,tube,Antibacterials,no,room,-5,142,336
+Atenolol 1432,Ibuprofen,100 mg,pills,tube,"Vitamins, minerals and tonics",no,room,5,55,234
+Diclofenac 1433,Doxycycline,5 mg,tablet,tube,Analgesics,Y,Ambient,2,67,300
+Diclofenac 673,,500 mg,TAB,bottle,Respiratory,1,Ambient,19,85,111
+Metformin 1435,Metformin,50 mg,tablet,piece,Antiallergics,kabhi,,37,100,265
+पैरासिटामोल 1436,,250 mg,syrup,piece,Analgesics,no,,-5,123,336
+Cetirizine 546,Metformin,100 mg,Tablets,bottle,Respiratory,नहीं,Ambient,39,87,268
+,,,,,,,,,,
+Atenolol 1439,Pantoprazole,100 mg,syrup,tube,Antiallergics,yes,Ambient,48,130,465
+  Prednisolone 1440  ,,100 mg,drops,piece,"Vitamins, minerals and tonics",N,room,2,10,100
+Ciprofloxacin 1441,Pantoprazole,100 mg,ointment,bottle,Respiratory,1,,17,55,420
+Diclofenac 1442,,,ointment,tube,"Vitamins, minerals and tonics",N,ROOM,37,84,439
+ओमेप्राज़ोल 1443,,50 mg,syrup,capsule,Antiallergics,हाँ,ROOM,9,92,228
+  ,,,,,,,,,,
+Ibuprofen 1445,,50 mg,tablet,tablet,Antiallergics,0,Ambient,many,53,201
+Doxycycline 1446,,50 mg,tablet,capsule,Gastrointestinal,,2-8 C,13/13/2025,83,431
+Diclofenac 1447,,250 mg,Capsule,tablet,Cardiovascular,yes,room,43,46,379
+Prednisolone 1448,,500 mg,drops,capsule,Analgesics,0,cold chain,20,117,274
+Azithromycin 1415,Atenolol,50 mg,consumable,capsule,Cardiovascular,,2-8 C,31,126,166
+Ibuprofen 1450,Ciprofloxacin,,TAB,vial,Antiallergics,हाँ,room,30,39,129
+Diclofenac 1451,Metformin,5 mg,Injection,tablet,Respiratory,Y,2-8 C,100,50,500
+  एटेनोलोल 1452  ,,,consumable,piece,Analgesics,नहीं,room,1,65,464
+Metformin 1453,Paracetamol,250 mg,tabletz,strip,"Vitamins, minerals and tonics",yes,room,26,118,141
+  Paracetamol 1454  ,Pantoprazole,5 mg,INJ,tube,Respiratory,no,room,33,130,410
+Paracetamol 1455,Atenolol,,TAB,tube,Gastrointestinal,0,room,23,47,57
+Metformin 1456,Paracetamol,10 mg,Injection,piece,"Vitamins, minerals and tonics",1,ROOM,100,50,500
+Salbutamol 1457,,500 mg,TAB,strip,Respiratory,no,2-8 C,40,44,367
+Prednisolone 1458,Azithromycin,,INJ,piece,"Vitamins, minerals and tonics",yes,2-8 C,19,83,325
+Paracetamol 1459,,50 mg,TAB,strip,"Vitamins, minerals and tonics",yes,room,36,95,263
+Ranitidine 1460,,5 mg,tablet,vial,Cardiovascular,yes,COLD,31/02/2026,45,223
+Omeprazole 1461,Diclofenac,,Tablets,bottle,"Vitamins, minerals and tonics",हाँ,freezer,23,105,271
+  Ibuprofen 1193  ,,10 mg,Tablets,piece,Analgesics,Y,ROOM,5,25,229
+Doxycycline 1463,Amoxicillin,50 mg,consumable,tablet,Antibacterials,,Ambient,7,99,307
+  Amoxicillin 1464  ,Diclofenac,250 mg,drops,strip,Analgesics,Y,2-8 C,16,79,222
+
+Omeprazole 1466,Cetirizine,10 mg,ointment,tablet,"Vitamins, minerals and tonics",0,COLD,27,111,394
+Omeprazole 774,Ibuprofen,,INJ,tube,Antibacterials,1,cold chain,21,81,108
+एज़िथ्रोमाइसिन 1468,,500 mg,tablet,strip,Analgesics,,,33,49,276
+Ranitidine 1469,,,TAB,tablet,Antibacterials,हाँ,Ambient,35,95,342
+Omeprazole 1470,Omeprazole,,Tablets,tube,Antibacterials,N,Ambient,22,74,311
+  Diclofenac 1471  ,,,drops,bottle,Antibacterials,0,freezer,24,107,488
+Azithromycin 1472,,,Injection,tube,"Vitamins, minerals and tonics",,COLD,25,124,309
+  Diclofenac 1473  ,Pantoprazole,10 mg,drops,strip,Cardiovascular,Y,cold chain,1,90,192
+Cetirizine 1474,,50 mg,Capsule,capsule,Respiratory,yes,2-8 C,40,99,198
+Paracetamol 1475,,50 mg,syrup,vial,Antibacterials,0,COLD,20,100,320
+Azithromycin 1476,Salbutamol,50 mg,Tablets,tablet,Analgesics,हाँ,2-8 C,44,75,202
+Pantoprazole 1477,,250 mg,drops,bottle,Antibacterials,0,Ambient,2,65,348
+  Prednisolone 1478  ,,10 mg,ointment,bottle,Analgesics,हाँ,,33,78,470
+,Salbutamol,,ointment,vial,"Vitamins, minerals and tonics",0,,20,54,165
+Doxycycline 1480,Prednisolone,100 mg,syrup,piece,"Vitamins, minerals and tonics",0,room,13/13/2025,30,212
+Paracetamol 1481,Doxycycline,10 mg,drops,tablet,Antiallergics,N,,abc,124,209
+डाइक्लोफेनैक 1482,,50 mg,Injection,vial,Cardiovascular,हाँ,room,39,82,416
+Paracetamol 1483,,5 mg,TAB,bottle,Cardiovascular,kabhi,room,12,20,98
+Cetirizine 1484,Ranitidine,50 mg,drops,tablet,Respiratory,1,cold chain,25,68,178
+  Prednisolone 1485  ,,50 mg,TAB,tablet,Antiallergics,Y,Ambient,44,129,431
+Diclofenac 1486,,10 mg,INJ,piece,"Vitamins, minerals and tonics",नहीं,Ambient,39,125,386
+Azithromycin 1487,Ibuprofen,,INJ,piece,Analgesics,नहीं,,15,103,216
+,,,INJ,strip,Gastrointestinal,नहीं,COLD,19,96,491
+  Doxycycline 1489  ,,250 mg,Capsule,bottle,Respiratory,N,room,25,94,488
+Paracetamol 1490,Doxycycline,10 mg,Tablets,tablet,"Vitamins, minerals and tonics",0,,43,123,466
+  Azithromycin 1491  ,,,ointment,tablet,Antiallergics,हाँ,room,27,123,487
+  Pantoprazole 1492  ,,250 mg,ointment,strip,Antibacterials,0,room,22,28,105
+आइबुप्रोफेन 1493,Salbutamol,500 mg,Capsule,tube,Gastrointestinal,0,,13/13/2025,105,306
+Atenolol 1494,,100 mg,consumable,vial,Gastrointestinal,yes,COLD,34,85,157
+Ranitidine 1495,,500 mg,Capsule,piece,Analgesics,N,cold chain,38,115,159
+Atenolol 1496,Ibuprofen,,INJ,capsule,Respiratory,yes,room,49,128,166
+ओमेप्राज़ोल 1497,,5 mg,syrup,bottle,Antibacterials,N,cold chain,34,45,275
+Azithromycin 1498,,,xyz,capsule,Cardiovascular,0,Ambient,4,66,145
+Diclofenac 1499,,50 mg,ointment,tablet,Antiallergics,,2-8 C,31/02/2026,30,263
+एज़िथ्रोमाइसिन 1500,Azithromycin,500 mg,consumable,capsule,Gastrointestinal,Y,,13,60,364
+Cetirizine 1501,Atenolol,,drops,piece,Cardiovascular,नहीं,room,7,77,344
+Ciprofloxacin 1502,,500 mg,Tablets,vial,Respiratory,N,Ambient,45,65,97
+Doxycycline 1503,Pantoprazole,50 mg,ointment,tube,Analgesics,0,cold chain,24,36,179
+Salbutamol 1504,,250 mg,syrup,piece,Gastrointestinal,हाँ,ROOM,19,65,94
+  Omeprazole 1505  ,Doxycycline,250 mg,Tablets,vial,Respiratory,1,,38,129,375
+  Ranitidine 1506  ,Ranitidine,500 mg,tablet,tube,Analgesics,हाँ,cold chain,33,124,193
+Amoxicillin 1507,Ibuprofen,5 mg,Injection,vial,"Vitamins, minerals and tonics",N,2-8 C,12,61,139
+Cetirizine 1508,,250 mg,Injection,piece,Antibacterials,,COLD,41,66,87
+
+Ciprofloxacin 1510,Paracetamol,50 mg,INJ,bottle,Antibacterials,0,ROOM,3,48,234
+
+Ibuprofen 1512,Azithromycin,,xyz,strip,Respiratory,हाँ,ROOM,3,99,237
+,,,,,,,,,,
+Salbutamol 1514,Pantoprazole,,tablet,strip,Antibacterials,kabhi,2-8 C,25,29,29
+Ranitidine 1515,,100 mg,drops,piece,Cardiovascular,no,,50,142,389
+  Ciprofloxacin 1516  ,Omeprazole,5 mg,लिक्विड,vial,Respiratory,yes,,4,84,194
+Metformin 1517,,50 mg,Injection,vial,Antibacterials,,room,36,77,112
+  सेट्रिज़िन 1518  ,,50 mg,consumable,piece,Antiallergics,0,cold chain,42,52,71
+डाइक्लोफेनैक 1519,Amoxicillin,5 mg,tablet,tablet,Cardiovascular,1,COLD,many,97,350
+  Cetirizine 1520  ,,50 mg,लिक्विड,capsule,Cardiovascular,no,Ambient,18,60,102
+Diclofenac 1521,Cetirizine,,syrup,strip,"Vitamins, minerals and tonics",Y,,18,74,344
+Diclofenac 1522,,10 mg,ointment,strip,Gastrointestinal,हाँ,room,17,108,493
+Pantoprazole 1523,,50 mg,ointment,capsule,Antiallergics,yes,ROOM,41,108,358
+  ,,,,,,,,,,
+  Paracetamol 1525  ,Salbutamol,50 mg,TAB,piece,Respiratory,Y,cold chain,abc,26,35
+Pantoprazole 1526,Salbutamol,100 mg,TAB,bottle,Cardiovascular,0,cold chain,49,86,139
+  Doxycycline 362  ,,,INJ,tablet,Antibacterials,yes,COLD,34,115,220
+Ranitidine 1528,Pantoprazole,50 mg,Capsule,vial,Gastrointestinal,no,Ambient,100,50,500
+Salbutamol 980,Ibuprofen,500 mg,ointment,capsule,Gastrointestinal,1,ROOM,32,48,141
+Ranitidine 1469,,,TAB,tablet,Antibacterials,हाँ,Ambient,35,95,342
+एज़िथ्रोमाइसिन 1531,Ciprofloxacin,5 mg,TAB,piece,"Vitamins, minerals and tonics",no,,many,98,148
+Paracetamol 1475,,50 mg,syrup,vial,Antibacterials,0,COLD,20,100,320
+  Metformin 1533  ,,10 mg,tablet,tube,Antibacterials,0,ROOM,38,91,114
+  ओमेप्राज़ोल 1534  ,Paracetamol,5 mg,tablet,bottle,Antibacterials,नहीं,ROOM,30,77,322
+  Doxycycline 1535  ,,5 mg,Capsule,vial,Cardiovascular,yes,Ambient,100,50,500
+Cetirizine 1536,,500 mg,consumable,tablet,Antiallergics,Y,Ambient,31/02/2026,29,289
+Metformin 1537,,5 mg,syrup,vial,Gastrointestinal,no,2-8 C,21,31,222
+  Ranitidine 1538  ,Cetirizine,,drops,tube,Antiallergics,1,ROOM,47,49,291
+Paracetamol 1539,,500 mg,ointment,strip,Gastrointestinal,0,Ambient,13,74,366
+Prednisolone 1540,,100 mg,drops,bottle,Antiallergics,1,Ambient,20,78,219
+  Cetirizine 1541  ,,100 mg,Injection,bottle,Antibacterials,yes,room,11,43,347
+  Prednisolone 1542  ,,500 mg,Tablets,bottle,Cardiovascular,Y,cold chain,16,60,60
+Diclofenac 1543,,500 mg,Injection,strip,Respiratory,Y,freezer,19,30,307
+Paracetamol 1544,Prednisolone,5 mg,TAB,piece,Gastrointestinal,1,room,many,107,507
+Diclofenac 1545,,10 mg,INJ,vial,Antiallergics,0,Ambient,40,110,271
+Doxycycline 1546,,10 mg,ointment,bottle,"Vitamins, minerals and tonics",1,,46,55,165
+   ,,5 mg,ointment,capsule,"Vitamins, minerals and tonics",yes,ROOM,7,23,284
+  एटेनोलोल 1234  ,,,syrup,bottle,"Vitamins, minerals and tonics",yes,,28,127,242
+Diclofenac 1549,Pantoprazole,,Capsule,strip,Cardiovascular,,,35,37,212
+Ciprofloxacin 1550,,10 mg,Injection,strip,Cardiovascular,yes,Ambient,39,39,140
+  Diclofenac 1551  ,Cetirizine,,Tablets,tube,Antibacterials,नहीं,cold chain,0,56,207
+Ranitidine 1552,,10 mg,ointment,piece,Analgesics,yes,COLD,11,21,315
+  Omeprazole 1553  ,Prednisolone,5 mg,tablet,capsule,Gastrointestinal,हाँ,room,37,121,432
+  Azithromycin 1554  ,Prednisolone,10 mg,drops,capsule,"Vitamins, minerals and tonics",Y,2-8 C,8,38,190
+Pantoprazole 1555,Azithromycin,500 mg,Tablets,capsule,Antibacterials,1,Ambient,40,84,375
+  सेट्रिज़िन 1556  ,,250 mg,Injection,capsule,Gastrointestinal,1,ROOM,33,121,307
+,,250 mg,Tablets,bottle,Antiallergics,हाँ,Ambient,29,113,382
+Doxycycline 1558,Prednisolone,100 mg,Capsule,vial,"Vitamins, minerals and tonics",N,cold chain,25,70,386
+
+सेट्रिज़िन 1560,Salbutamol,100 mg,TAB,piece,Respiratory,हाँ,2-8 C,100,50,500
+ओमेप्राज़ोल 1561,,5 mg,drops,bottle,Antiallergics,1,Ambient,13/13/2025,52,442
+पैरासिटामोल 1562,,250 mg,INJ,tablet,Gastrointestinal,N,cold chain,42,131,273
+  Cetirizine 1563  ,Doxycycline,,consumable,tablet,Cardiovascular,नहीं,,many,43,317
+,,,,,,,,,,
+Doxycycline 1565,Atenolol,500 mg,drops,piece,Antibacterials,1,Ambient,16,107,471
+Metformin 1566,Amoxicillin,10 mg,syrup,tablet,Antiallergics,हाँ,room,16,88,268
+Salbutamol 1567,Diclofenac,100 mg,Capsule,vial,Antibacterials,1,2-8 C,30,52,423
+   ,Metformin,5 mg,tablet,tube,Antibacterials,N,2-8 C,36,62,306
+   ,,,ointment,capsule,Gastrointestinal,no,ROOM,27,64,119
+सेट्रिज़िन 1570,,10 mg,Tablets,tube,Antiallergics,हाँ,room,1,55,96
+  Diclofenac 1571  ,,,tablet,tube,Gastrointestinal,N,,44,71,186
+  Ibuprofen 1572  ,Diclofenac,,consumable,vial,Antiallergics,maybe,,31,52,340
+,,,,,,,,,,
+Ranitidine 1574,Azithromycin,250 mg,ointment,bottle,Antiallergics,yes,Ambient,4,87,144
+  Diclofenac 1575  ,,,tablet,capsule,Antiallergics,हाँ,room,6,7,235
+,,,,,,,,,,
+Paracetamol 1577,Azithromycin,50 mg,ointment,vial,Gastrointestinal,नहीं,Ambient,36,132,437
+Paracetamol 1386,,500 mg,drops,tablet,Respiratory,हाँ,COLD,17,28,324
+Azithromycin 1042,Pantoprazole,5 mg,Tablets,strip,Gastrointestinal,N,,8,18,214
+  Ranitidine 1580  ,Diclofenac,,consumable,piece,"Vitamins, minerals and tonics",yes,2-8 C,many,86,210
+Amoxicillin 1581,,100 mg,INJ,capsule,Cardiovascular,नहीं,cold chain,37,117,289
+आइबुप्रोफेन 791,,100 mg,consumable,tube,Analgesics,1,ROOM,13,33,426
+Ranitidine 1583,Amoxicillin,50 mg,tablet,piece,Antibacterials,नहीं,ROOM,13/13/2025,121,397
+  ,,,,,,,,,,
+Ciprofloxacin 1585,Doxycycline,,Tablets,vial,Respiratory,N,2-8 C,42,107,191
+Paracetamol 1586,Azithromycin,100 mg,drops,bottle,Antibacterials,yes,room,16,88,216
+Cetirizine 1587,Azithromycin,,syrup,bottle,Antibacterials,Y,COLD,42,99,182
+सिप्रोफ्लॉक्सासिन 1588,,250 mg,Capsule,tablet,"Vitamins, minerals and tonics",,cold chain,50,131,448
+डाइक्लोफेनैक 1589,Doxycycline,50 mg,Tablets,vial,Gastrointestinal,no,ROOM,100,50,500
+आइबुप्रोफेन 428,Cetirizine,10 mg,ointment,piece,Gastrointestinal,no,2-8 C,27,37,319
+  Metformin 1591  ,Omeprazole,10 mg,consumable,bottle,Gastrointestinal,N,cold chain,37,77,402
+
+डाइक्लोफेनैक 1593,,500 mg,syrup,capsule,Antiallergics,yes,,31/02/2026,145,493
+Ibuprofen 1594,Pantoprazole,,TAB,strip,Antibacterials,no,,5,7,371
+Pantoprazole 1595,,50 mg,Capsule,vial,Gastrointestinal,yes,2-8 C,44,71,125
+  Atenolol 458  ,Ranitidine,50 mg,drops,strip,Gastrointestinal,Y,cold chain,16,21,339
+मेटफॉर्मिन 1597,Metformin,,syrup,piece,Gastrointestinal,1,Ambient,28,123,402
+Amoxicillin 1598,Omeprazole,5 mg,Injection,strip,Antibacterials,0,2-8 C,-5,65,317
+Cetirizine 1599,Ranitidine,,लिक्विड,vial,Antibacterials,no,cold chain,9,9,403
+Omeprazole 1600,Metformin,,Injection,capsule,Antibacterials,yes,ROOM,36,51,145
+
+Amoxicillin 52,,,syrup,capsule,Gastrointestinal,1,cold chain,38,71,284
+Cetirizine 1603,Ranitidine,,drops,vial,Analgesics,no,2-8 C,13/13/2025,75,461
+Omeprazole 1604,Ibuprofen,,syrup,vial,Gastrointestinal,Y,COLD,10,93,339
+डाइक्लोफेनैक 1605,Diclofenac,,INJ,tablet,Gastrointestinal,हाँ,ROOM,3,33,218
+पैरासिटामोल 1606,,,tablet,bottle,Cardiovascular,0,,100,50,500
+  सिप्रोफ्लॉक्सासिन 472  ,,10 mg,INJ,piece,Gastrointestinal,Y,2-8 C,46,135,390
+
+  डाइक्लोफेनैक 1609  ,Pantoprazole,,syrup,piece,"Vitamins, minerals and tonics",N,,24,58,407
+ओमेप्राज़ोल 1610,,,Tablets,vial,Antibacterials,नहीं,room,26,55,109
+Cetirizine 1611,,250 mg,Tablets,tube,"Vitamins, minerals and tonics",Y,ROOM,23,26,158
+आइबुप्रोफेन 1612,Salbutamol,500 mg,TAB,piece,"Vitamins, minerals and tonics",,,5,59,453
+Prednisolone 1613,,500 mg,TAB,strip,Respiratory,yes,,28,35,342
+Metformin 1614,,10 mg,Injection,tube,"Vitamins, minerals and tonics",नहीं,Ambient,31/02/2026,90,226
+Ibuprofen 968,Ranitidine,,drops,strip,Gastrointestinal,नहीं,Ambient,15,30,52
+Cetirizine 1616,Ibuprofen,,syrup,tablet,Antibacterials,yes,Ambient,17,84,195
+एटेनोलोल 1617,,500 mg,tablet,capsule,Respiratory,,2-8 C,50,131,258
+Metformin 1618,,,Capsule,tube,"Vitamins, minerals and tonics",हाँ,ROOM,25,67,465
+Amoxicillin 1619,,10 mg,TAB,bottle,Antibacterials,,2-8 C,16,41,280
+Atenolol 1620,Doxycycline,10 mg,Tablets,tablet,"Vitamins, minerals and tonics",N,ROOM,37,67,348
+  Doxycycline 1621  ,,,Tablets,capsule,Gastrointestinal,Y,,33,89,377
+Ibuprofen 1622,Atenolol,250 mg,Tablets,tube,Respiratory,0,ROOM,37,136,509
+Ibuprofen 1623,,500 mg,INJ,bottle,Respiratory,yes,ROOM,31,108,257
+Cetirizine 1624,Ranitidine,250 mg,TAB,capsule,Antibacterials,N,2-8 C,24,119,145
+Pantoprazole 1625,,5 mg,Injection,vial,"Vitamins, minerals and tonics",no,COLD,100,50,500
+Ciprofloxacin 1626,Metformin,5 mg,TAB,tube,Antibacterials,1,,20,34,34
+अमोक्सिसिलिन 1627,,,consumable,bottle,Antiallergics,हाँ,Ambient,48,111,448
+Ibuprofen 1628,,10 mg,INJ,piece,Gastrointestinal,0,freezer,50,124,208
+Diclofenac 1486,,10 mg,INJ,piece,"Vitamins, minerals and tonics",नहीं,Ambient,39,125,386
+Pantoprazole 1630,,100 mg,tablet,strip,Gastrointestinal,नहीं,,14,62,387
+  Amoxicillin 1631  ,Ranitidine,,Tablets,piece,"Vitamins, minerals and tonics",1,Ambient,17,87,425
+Cetirizine 1632,,10 mg,Tablets,piece,Gastrointestinal,yes,COLD,28,34,94
+Omeprazole 1633,Doxycycline,,syrup,strip,Respiratory,0,ROOM,34,134,355
+Diclofenac 1634,Ibuprofen,100 mg,consumable,capsule,Respiratory,,ROOM,30,123,149
+Ranitidine 1635,,500 mg,INJ,tube,Gastrointestinal,हाँ,Ambient,45,135,157
+Metformin 1636,Salbutamol,500 mg,tablet,strip,Antiallergics,,Ambient,47,146,530
+Pantoprazole 1637,,,TAB,vial,Analgesics,0,cold chain,7,84,279
+,,,INJ,tube,Antibacterials,Y,2-8 C,6,65,195
+Atenolol 1639,,250 mg,ointment,bottle,Analgesics,हाँ,Ambient,45,138,504
+Prednisolone 1640,,100 mg,ointment,tube,Respiratory,yes,2-8 C,8,44,275
+  Ibuprofen 306  ,Pantoprazole,250 mg,Capsule,tube,Antibacterials,yes,ROOM,17,94,135
+Cetirizine 1642,Diclofenac,5 mg,consumable,vial,Analgesics,0,2-8 C,8,66,356
+Salbutamol 1643,Cetirizine,50 mg,consumable,capsule,Cardiovascular,1,,9,49,66
+  ,,,,,,,,,,
+Doxycycline 1645,Azithromycin,5 mg,drops,tablet,Antibacterials,Y,COLD,47,140,366
+Ranitidine 1646,Diclofenac,100 mg,consumable,strip,Gastrointestinal,no,room,13,32,277
+Paracetamol 1647,Ranitidine,,Injection,tablet,Respiratory,Y,cold chain,48,126,246
+Ibuprofen 1648,Azithromycin,50 mg,drops,bottle,"Vitamins, minerals and tonics",yes,,31,41,252
+  सेट्रिज़िन 1649  ,,500 mg,Injection,vial,Gastrointestinal,yes,Ambient,32,78,263
+Ranitidine 1650,Paracetamol,50 mg,INJ,vial,Antibacterials,Y,ROOM,38,116,259
+Ranitidine 1651,Salbutamol,250 mg,Capsule,strip,Antibacterials,0,COLD,39,129,513
+Doxycycline 1652,,10 mg,syrup,bottle,Analgesics,maybe,COLD,15,93,261
+,,,,,,,,,,
+Azithromycin 1654,,250 mg,consumable,tablet,Respiratory,1,ROOM,48,129,502
+Amoxicillin 1655,,,लिक्विड,piece,Antiallergics,,2-8 C,14,107,120
+Metformin 1656,Pantoprazole,,ointment,capsule,Antibacterials,1,Ambient,11,24,292
+Ciprofloxacin 1657,,10 mg,Injection,piece,Gastrointestinal,yes,cold chain,28,32,374
+  Ibuprofen 1658  ,Paracetamol,100 mg,Injection,tube,"Vitamins, minerals and tonics",Y,cold chain,23,109,317
+Ciprofloxacin 1659,Cetirizine,100 mg,ointment,bottle,Antiallergics,no,2-8 C,47,135,469
+Salbutamol 1660,,250 mg,syrup,strip,Antiallergics,हाँ,Ambient,23,23,155
+  Ranitidine 1661  ,Ranitidine,500 mg,xyz,strip,Antiallergics,हाँ,ROOM,44,81,199
+Azithromycin 1662,,,TAB,vial,Cardiovascular,yes,room,23,120,433
+Omeprazole 630,,5 mg,Capsule,piece,Analgesics,yes,ROOM,7,67,156
+डाइक्लोफेनैक 1664,,100 mg,INJ,capsule,Analgesics,yes,ROOM,1,7,137
+Diclofenac 1665,,100 mg,TAB,vial,Gastrointestinal,N,Ambient,13,69,100
+  ,,,,,,,,,,
+  डाइक्लोफेनैक 1667  ,Ciprofloxacin,250 mg,syrup,piece,Antibacterials,Y,COLD,36,113,125
+  सिप्रोफ्लॉक्सासिन 1668  ,Ciprofloxacin,500 mg,INJ,vial,Respiratory,yes,2-8 C,1,84,238
+  Cetirizine 1669  ,,5 mg,tablet,piece,Respiratory,,ROOM,41,41,113
+Atenolol 1670,Metformin,500 mg,consumable,bottle,Antibacterials,N,Ambient,34,72,317
+Azithromycin 1671,,,consumable,strip,Analgesics,no,ROOM,4,91,284
+Atenolol 1672,Pantoprazole,50 mg,INJ,capsule,Gastrointestinal,N,Ambient,abc,33,363
+Doxycycline 1673,,5 mg,xyz,strip,Respiratory,N,cold chain,35,112,140
+Pantoprazole 1674,Diclofenac,10 mg,drops,vial,"Vitamins, minerals and tonics",no,Ambient,35,72,261
+Salbutamol 1675,Pantoprazole,100 mg,Tablets,strip,Antiallergics,no,Ambient,24,104,419
+Ranitidine 1676,,5 mg,Tablets,bottle,Antiallergics,no,Ambient,14,54,144
+Azithromycin 1677,,,INJ,capsule,Cardiovascular,no,cold chain,44,62,226
+Atenolol 1678,Omeprazole,5 mg,tablet,strip,Cardiovascular,N,,2,74,260
+एटेनोलोल 1679,,100 mg,TAB,capsule,"Vitamins, minerals and tonics",हाँ,Ambient,8,102,277
+Cetirizine 1680,,,drops,capsule,Antibacterials,हाँ,2-8 C,38,113,148
+Ranitidine 276,,100 mg,Capsule,tablet,"Vitamins, minerals and tonics",1,,27,83,409
+Cetirizine 1682,,100 mg,syrup,piece,Gastrointestinal,1,cold chain,13,87,396
+,,5 mg,Injection,vial,Antiallergics,Y,room,14,26,406
+
+Salbutamol 1685,,500 mg,Tablets,tube,Cardiovascular,0,,27,44,87
+Pantoprazole 1686,,5 mg,Capsule,strip,Antiallergics,N,ROOM,47,132,417
+,,,,,,,,,,
+Ranitidine 1688,,250 mg,syrup,tube,Analgesics,kabhi,room,34,83,395
+Diclofenac 1689,Atenolol,500 mg,INJ,bottle,Gastrointestinal,yes,2-8 C,8,42,124
+Salbutamol 1690,,100 mg,Capsule,piece,Antiallergics,no,cold chain,-5,114,152
+Paracetamol 1691,,100 mg,Injection,vial,Gastrointestinal,yes,Ambient,9,18,349
+Omeprazole 1692,Ciprofloxacin,,Injection,tablet,"Vitamins, minerals and tonics",0,COLD,33,49,150
+एज़िथ्रोमाइसिन 1693,,250 mg,INJ,bottle,"Vitamins, minerals and tonics",0,2-8 C,11,25,417
+Prednisolone 482,,500 mg,Tablets,capsule,Analgesics,नहीं,room,32,50,448
+  Azithromycin 1695  ,,50 mg,INJ,vial,Antibacterials,हाँ,2-8 C,26,88,93
+
+  Amoxicillin 539  ,,,tablet,strip,Respiratory,हाँ,ROOM,30,75,152
+Paracetamol 1698,,250 mg,tabletz,tube,Cardiovascular,हाँ,room,23,83,167
+  Azithromycin 1699  ,Amoxicillin,500 mg,TAB,bottle,Antibacterials,0,ROOM,100,50,500
+Ranitidine 1700,Paracetamol,250 mg,drops,tablet,Gastrointestinal,yes,2-8 C,0,53,375
+  ,,,,,,,,,,
+एटेनोलोल 1702,Omeprazole,,tablet,capsule,Analgesics,N,,10,71,172
+Pantoprazole 1703,Cetirizine,,Injection,vial,Respiratory,0,COLD,30,61,213
+मेटफॉर्मिन 1704,Salbutamol,5 mg,Injection,tablet,Antibacterials,हाँ,Ambient,26,113,185
+  Ranitidine 1705  ,Atenolol,5 mg,ointment,tablet,Antibacterials,1,ROOM,11,79,394
+Metformin 1706,Ciprofloxacin,50 mg,Capsule,piece,Analgesics,,cold chain,9,68,111
+  ,,,,,,,,,,
+Prednisolone 1708,Ranitidine,500 mg,syrup,capsule,Cardiovascular,नहीं,,100,50,500
+Omeprazole 1709,,50 mg,tabletz,capsule,Antiallergics,0,room,13,24,277
+Ranitidine 1710,,,Injection,capsule,Antibacterials,,cold chain,19,44,444
+Atenolol 1711,Cetirizine,5 mg,Tablets,tablet,Cardiovascular,yes,COLD,33,81,135
+Cetirizine 1712,Ibuprofen,250 mg,ointment,bottle,Antiallergics,,2-8 C,23,101,156
+Ciprofloxacin 1713,,250 mg,ointment,piece,Gastrointestinal,1,,6,62,460
+Cetirizine 1714,,500 mg,syrup,bottle,Respiratory,हाँ,cold chain,41,136,504
+  Doxycycline 1715  ,,100 mg,Injection,vial,Antiallergics,1,ROOM,1,97,354
+Ciprofloxacin 1716,,,Tablets,vial,Cardiovascular,,Ambient,100,50,500
+Amoxicillin 1717,,5 mg,Capsule,tube,Antibacterials,Y,cold chain,34,61,295
+  ,,,,,,,,,,
+Omeprazole 1719,Paracetamol,10 mg,drops,tube,Antibacterials,yes,room,-5,63,363
+Paracetamol 1720,,100 mg,Capsule,capsule,Antiallergics,हाँ,2-8 C,0,31,281
+  Atenolol 1721  ,,250 mg,tablet,tablet,"Vitamins, minerals and tonics",0,cold chain,24,105,212
+  Pantoprazole 1722  ,Pantoprazole,10 mg,TAB,strip,Gastrointestinal,no,COLD,49,78,98
+Omeprazole 1723,Metformin,250 mg,syrup,vial,Respiratory,,2-8 C,20,114,353
+Omeprazole 1724,Paracetamol,100 mg,Capsule,vial,Cardiovascular,maybe,,33,131,401
+Pantoprazole 1725,,,ointment,vial,"Vitamins, minerals and tonics",Y,ROOM,abc,128,463
+Pantoprazole 1726,,,TAB,bottle,Antiallergics,नहीं,,100,50,500
+Ibuprofen 1727,Azithromycin,5 mg,tablet,vial,"Vitamins, minerals and tonics",नहीं,cold chain,50,139,237
+Atenolol 1728,Diclofenac,100 mg,Injection,bottle,Cardiovascular,1,COLD,23,42,273
+पैरासिटामोल 1729,,250 mg,INJ,bottle,"Vitamins, minerals and tonics",0,cold chain,0,96,447
+Amoxicillin 1730,Salbutamol,,syrup,tablet,"Vitamins, minerals and tonics",yes,Ambient,16,25,56
+Azithromycin 1731,,10 mg,consumable,tube,"Vitamins, minerals and tonics",नहीं,Ambient,43,44,245
+Atenolol 1732,,,syrup,tablet,Analgesics,yes,,0,1,190
+Metformin 1733,Salbutamol,50 mg,INJ,tablet,Gastrointestinal,1,ROOM,13/13/2025,23,262
+
+  Prednisolone 1735  ,Azithromycin,500 mg,syrup,strip,Antiallergics,no,room,45,46,369
+  Ibuprofen 1736  ,Diclofenac,100 mg,लिक्विड,tablet,Antibacterials,0,cold chain,9,51,244
+Atenolol 1737,,5 mg,TAB,capsule,Respiratory,0,Ambient,50,130,477
+आइबुप्रोफेन 1738,,5 mg,Tablets,tube,Gastrointestinal,नहीं,ROOM,45,142,497
+,Paracetamol,,drops,strip,Antiallergics,0,cold chain,14,98,240
+Ibuprofen 1740,,10 mg,Injection,capsule,Analgesics,yes,ROOM,26,65,368
+,,,,,,,,,,
+Ranitidine 1742,Amoxicillin,5 mg,INJ,capsule,Antiallergics,1,ROOM,16,44,443
+  Metformin 1743  ,,500 mg,syrup,piece,Cardiovascular,नहीं,room,23,46,284
+अमोक्सिसिलिन 1744,Diclofenac,500 mg,TAB,vial,Analgesics,,ROOM,36,45,50
+Prednisolone 1745,,250 mg,लिक्विड,capsule,Antiallergics,नहीं,cold chain,38,41,77
+Ciprofloxacin 1746,,,drops,piece,Cardiovascular,maybe,,42,70,296
+Ranitidine 1747,Salbutamol,,consumable,bottle,"Vitamins, minerals and tonics",1,COLD,3,49,177
+Doxycycline 1748,,50 mg,Tablets,piece,"Vitamins, minerals and tonics",Y,ROOM,100,50,500
+Cetirizine 1749,Cetirizine,100 mg,INJ,tablet,Antiallergics,yes,cold chain,many,37,372
+Doxycycline 1750,,10 mg,pills,tablet,Antiallergics,1,Ambient,23,81,281
+  Cetirizine 1751  ,Paracetamol,100 mg,syrup,bottle,Antiallergics,no,cold chain,many,107,139
+सेट्रिज़िन 1752,,10 mg,syrup,bottle,Antibacterials,N,Ambient,100,50,500
+Ibuprofen 1753,,,Injection,bottle,Gastrointestinal,हाँ,Ambient,42,81,377
+Paracetamol 1754,,,drops,piece,"Vitamins, minerals and tonics",Y,,10,43,262
+Ibuprofen 1755,,250 mg,Tablets,bottle,Analgesics,,Ambient,19,114,214
+Diclofenac 1756,Omeprazole,,Injection,tablet,Antiallergics,no,room,9,69,332
+Omeprazole 1757,,5 mg,tablet,capsule,Respiratory,0,,32,66,241
+Ciprofloxacin 1758,,250 mg,pills,tube,Analgesics,no,room,1,99,134
+Prednisolone 1759,,5 mg,syrup,vial,Antiallergics,नहीं,ROOM,22,26,322
+,,,,,,,,,,
+,,,,,,,,,,
+Azithromycin 1762,Paracetamol,,TAB,bottle,Antibacterials,हाँ,Ambient,48,75,350
+Metformin 1763,,500 mg,TAB,bottle,"Vitamins, minerals and tonics",N,room,31,84,164
+Prednisolone 1764,Doxycycline,100 mg,TAB,tube,Antibacterials,no,room,47,111,136
+Pantoprazole 1765,Metformin,,Tablets,strip,Antiallergics,,cold chain,18,54,96
+Salbutamol 1766,,50 mg,INJ,tube,Antiallergics,हाँ,cold chain,39,50,260
+Paracetamol 1767,Amoxicillin,,INJ,capsule,Analgesics,0,2-8 C,45,89,469
+Prednisolone 1768,Azithromycin,10 mg,consumable,vial,"Vitamins, minerals and tonics",1,cold chain,20,92,132
+Omeprazole 1769,Diclofenac,5 mg,tablet,tube,Analgesics,yes,room,35,47,270
+Paracetamol 1770,Ranitidine,250 mg,syrup,strip,Cardiovascular,1,ROOM,11,25,219
+Diclofenac 1771,,10 mg,ointment,bottle,Antibacterials,1,2-8 C,3,30,155
+आइबुप्रोफेन 1772,Diclofenac,,drops,capsule,Cardiovascular,0,Ambient,5,97,496
+Salbutamol 1773,,50 mg,syrup,tablet,"Vitamins, minerals and tonics",0,Ambient,50,56,187
+Ranitidine 1774,Omeprazole,100 mg,tablet,tube,"Vitamins, minerals and tonics",0,COLD,6,94,464
+Doxycycline 1775,Metformin,50 mg,INJ,tube,Gastrointestinal,0,room,18,87,371
+Ranitidine 1776,,,ointment,bottle,Cardiovascular,हाँ,ROOM,23,76,188
+Omeprazole 1777,,,Injection,bottle,Cardiovascular,0,,31/02/2026,69,89
+Pantoprazole 1778,,250 mg,Tablets,vial,Analgesics,,Ambient,8,36,348
+Salbutamol 1779,Paracetamol,10 mg,Capsule,capsule,"Vitamins, minerals and tonics",yes,cold chain,6,95,190
+  Amoxicillin 1780  ,,250 mg,syrup,tube,Gastrointestinal,yes,room,34,131,474
+डाइक्लोफेनैक 1781,Pantoprazole,,ointment,tablet,Respiratory,no,2-8 C,29,69,288
+Paracetamol 1782,,500 mg,tablet,tablet,Antiallergics,नहीं,Ambient,11,106,418
+Metformin 1783,Amoxicillin,250 mg,TAB,tube,Respiratory,no,2-8 C,45,114,218
+  एटेनोलोल 1784  ,,50 mg,syrup,tube,Antibacterials,Y,COLD,0,43,117
+Ciprofloxacin 1785,Ranitidine,500 mg,consumable,capsule,Respiratory,yes,ROOM,38,124,252
+  Cetirizine 1786  ,Prednisolone,5 mg,INJ,bottle,Gastrointestinal,no,2-8 C,31/02/2026,117,497
+ओमेप्राज़ोल 1787,,100 mg,INJ,piece,Gastrointestinal,no,ROOM,29,82,117
+Cetirizine 1788,Salbutamol,,ointment,tube,Gastrointestinal,0,room,14,42,306
+Ciprofloxacin 1789,,5 mg,TAB,tube,"Vitamins, minerals and tonics",N,COLD,16,88,180
+Azithromycin 1790,Cetirizine,50 mg,ointment,tablet,Cardiovascular,,Ambient,24,70,117
+  Prednisolone 1791  ,,250 mg,Injection,strip,Cardiovascular,N,COLD,11,98,199
+Omeprazole 1792,,50 mg,INJ,tablet,"Vitamins, minerals and tonics",no,COLD,20,50,374
+आइबुप्रोफेन 1793,,50 mg,Capsule,strip,Antibacterials,Y,2-8 C,49,63,339
+Ranitidine 1794,Paracetamol,5 mg,syrup,strip,Antiallergics,हाँ,2-8 C,14,57,131
+,,,,,,,,,,
+,,,,,,,,,,
+Cetirizine 1797,,100 mg,INJ,capsule,Cardiovascular,N,COLD,16,21,393
+Ibuprofen 1798,Pantoprazole,50 mg,drops,tablet,Gastrointestinal,1,cold chain,100,50,500
+Omeprazole 1799,Pantoprazole,100 mg,tablet,capsule,Respiratory,हाँ,COLD,37,72,395
+Diclofenac 1800,,,tabletz,vial,Analgesics,yes,ROOM,21,93,152
+Amoxicillin 1801,,,tablet,strip,Respiratory,,ROOM,15,104,190
+सिप्रोफ्लॉक्सासिन 1802,Atenolol,50 mg,ointment,vial,Gastrointestinal,नहीं,2-8 C,8,80,246
+Pantoprazole 1803,,500 mg,Injection,capsule,"Vitamins, minerals and tonics",नहीं,Ambient,44,128,311
+Omeprazole 1804,,100 mg,tablet,bottle,Gastrointestinal,0,,25,64,409
+Amoxicillin 1805,Cetirizine,10 mg,TAB,tube,Respiratory,,ROOM,7,38,202
+Amoxicillin 1806,,250 mg,pills,capsule,"Vitamins, minerals and tonics",नहीं,Ambient,0,22,261
+  Amoxicillin 1807  ,Salbutamol,50 mg,INJ,strip,Gastrointestinal,1,room,14,80,253
+सिप्रोफ्लॉक्सासिन 1808,Azithromycin,50 mg,लिक्विड,tube,Cardiovascular,नहीं,2-8 C,19,37,74
+Pantoprazole 1809,,,INJ,tablet,"Vitamins, minerals and tonics",हाँ,Ambient,6,36,54
+Ranitidine 1810,,500 mg,xyz,bottle,Respiratory,yes,room,41,58,174
+
+  Paracetamol 970  ,Azithromycin,100 mg,ointment,capsule,Analgesics,no,ROOM,2,75,273
+Ibuprofen 780,,10 mg,Capsule,bottle,Analgesics,Y,cold chain,49,51,423
+Atenolol 1111,,50 mg,ointment,tablet,"Vitamins, minerals and tonics",0,Ambient,45,65,143
+
+Ibuprofen 1816,Paracetamol,50 mg,syrup,tube,Antibacterials,no,,24,118,143
+Diclofenac 1817,,500 mg,INJ,strip,Antiallergics,no,cold chain,32,77,298
+Prednisolone 1818,,10 mg,INJ,strip,Analgesics,,room,19,107,139
+  Ciprofloxacin 1819  ,Diclofenac,250 mg,Tablets,tablet,Antibacterials,नहीं,,41,67,268
+Azithromycin 1820,,100 mg,Injection,tube,Gastrointestinal,1,COLD,33,125,165
+Ibuprofen 1821,Omeprazole,100 mg,TAB,tablet,"Vitamins, minerals and tonics",,2-8 C,29,96,398
+सेट्रिज़िन 1822,Atenolol,10 mg,Tablets,strip,"Vitamins, minerals and tonics",N,COLD,100,50,500
+Omeprazole 1823,,,drops,tube,Cardiovascular,नहीं,,46,78,296
+Prednisolone 1824,,10 mg,drops,tablet,Gastrointestinal,,,0,64,201
+Omeprazole 1723,Metformin,250 mg,syrup,vial,Respiratory,,2-8 C,20,114,353
+सिप्रोफ्लॉक्सासिन 1826,Ciprofloxacin,500 mg,Capsule,piece,Antibacterials,N,2-8 C,35,86,184
+Diclofenac 1827,,50 mg,TAB,tablet,Respiratory,yes,room,7,47,437
+
+Ranitidine 1829,Cetirizine,50 mg,syrup,capsule,Antibacterials,maybe,cold chain,41,93,384
+  Diclofenac 11  ,,,Capsule,tablet,Antibacterials,no,Ambient,2,12,396
+Omeprazole 1831,,250 mg,ointment,bottle,Antibacterials,N,COLD,30,120,421
+Salbutamol 1832,,,ointment,strip,Gastrointestinal,,ROOM,19,106,275
+सिप्रोफ्लॉक्सासिन 1833,Ciprofloxacin,,Injection,piece,Antiallergics,,COLD,50,85,269
+Cetirizine 1834,,10 mg,drops,piece,Gastrointestinal,हाँ,cold chain,41,68,133
+Paracetamol 1835,Pantoprazole,10 mg,syrup,tablet,Cardiovascular,,room,13/13/2025,25,291
+
+  Metformin 1837  ,,100 mg,Capsule,strip,Cardiovascular,maybe,,27,37,134
+Cetirizine 1838,,100 mg,ointment,vial,Antiallergics,N,cold chain,43,120,309
+Salbutamol 1839,Cetirizine,,लिक्विड,tube,Antibacterials,no,room,48,124,349
+एटेनोलोल 1840,,,Tablets,bottle,Gastrointestinal,1,ROOM,20,82,304
+  Amoxicillin 1841  ,Diclofenac,,drops,piece,Cardiovascular,N,,38,76,95
+Omeprazole 1842,,50 mg,xyz,piece,Respiratory,हाँ,cold chain,0,100,485
+Omeprazole 1843,,500 mg,tablet,capsule,Respiratory,हाँ,,abc,118,277
+,,10 mg,Injection,tube,Analgesics,1,COLD,21,47,424
+   ,,500 mg,Injection,bottle,Cardiovascular,no,COLD,38,107,415
+Ciprofloxacin 1846,,,drops,capsule,"Vitamins, minerals and tonics",1,COLD,25,111,472
+अमोक्सिसिलिन 1847,,10 mg,syrup,bottle,Gastrointestinal,0,2-8 C,18,21,113
+Omeprazole 1848,,100 mg,pills,piece,Respiratory,no,room,46,46,241
+
+Paracetamol 1850,,250 mg,ointment,bottle,Antiallergics,1,room,36,76,410
+Doxycycline 1851,,250 mg,Tablets,bottle,"Vitamins, minerals and tonics",yes,Ambient,46,73,125
+Ibuprofen 1852,,500 mg,consumable,vial,Antibacterials,हाँ,,100,50,500
+  Salbutamol 1853  ,,250 mg,Injection,bottle,Antiallergics,,cold chain,many,56,199
+Diclofenac 1854,Atenolol,10 mg,consumable,tablet,Gastrointestinal,0,Ambient,3,22,53
+  Pantoprazole 1855  ,,5 mg,Capsule,bottle,"Vitamins, minerals and tonics",N,cold chain,13,18,329
+Azithromycin 1856,Metformin,,INJ,strip,Analgesics,N,ROOM,44,105,376
+आइबुप्रोफेन 1857,,5 mg,drops,capsule,"Vitamins, minerals and tonics",,,2,25,346
+  Azithromycin 1858  ,Doxycycline,50 mg,syrup,capsule,Cardiovascular,N,cold chain,26,52,231
+Pantoprazole 1859,,10 mg,xyz,tube,Gastrointestinal,0,Ambient,48,73,435
+,Ciprofloxacin,250 mg,Tablets,capsule,"Vitamins, minerals and tonics",Y,Ambient,50,93,296
+सेट्रिज़िन 1861,,100 mg,INJ,capsule,Gastrointestinal,no,COLD,15,105,133
+Atenolol 1862,,5 mg,INJ,vial,Gastrointestinal,नहीं,room,23,93,145
+Pantoprazole 1863,,250 mg,Capsule,tube,Analgesics,yes,cold chain,11,14,34
+Ranitidine 1864,,500 mg,Injection,piece,Analgesics,N,room,16,70,287
+Atenolol 1865,,,Tablets,piece,Analgesics,no,ROOM,9,107,246
+सिप्रोफ्लॉक्सासिन 1866,Ibuprofen,,Tablets,vial,"Vitamins, minerals and tonics",0,2-8 C,100,50,500
+Azithromycin 1867,,,ointment,strip,Gastrointestinal,0,Ambient,39,89,166
+Atenolol 1868,Salbutamol,10 mg,drops,strip,Antibacterials,1,Ambient,2,17,31
+  Cetirizine 1869  ,,10 mg,ointment,vial,Gastrointestinal,0,,41,109,216
+
+Ciprofloxacin 1502,,500 mg,Tablets,vial,Respiratory,N,Ambient,45,65,97
+,Prednisolone,,ointment,vial,Cardiovascular,N,room,24,78,115
+डाइक्लोफेनैक 1873,Prednisolone,,INJ,tablet,Antibacterials,N,2-8 C,100,50,500
+  Salbutamol 1874  ,Atenolol,,Capsule,strip,Analgesics,नहीं,COLD,37,79,230
+मेटफॉर्मिन 1875,Atenolol,500 mg,drops,tablet,Analgesics,1,room,50,96,254
+Diclofenac 1876,,50 mg,Capsule,piece,Gastrointestinal,हाँ,COLD,13,75,126
+Pantoprazole 1877,,50 mg,TAB,vial,Gastrointestinal,0,Ambient,abc,56,366
+आइबुप्रोफेन 1878,Ranitidine,50 mg,consumable,piece,"Vitamins, minerals and tonics",Y,cold chain,6,41,342
+एटेनोलोल 1879,Ranitidine,500 mg,xyz,strip,Antibacterials,0,2-8 C,31,70,103
+Cetirizine 1880,Azithromycin,500 mg,TAB,tube,Analgesics,,2-8 C,100,50,500
+Prednisolone 1881,,10 mg,drops,tablet,Respiratory,N,room,100,50,500
+सिप्रोफ्लॉक्सासिन 1882,Cetirizine,100 mg,tablet,tube,Analgesics,yes,ROOM,12,31,151
+Omeprazole 1883,Prednisolone,,consumable,piece,Respiratory,no,Ambient,32,76,281
+Pantoprazole 1884,Metformin,100 mg,consumable,piece,Respiratory,नहीं,COLD,46,82,393
+  Cetirizine 1885  ,,10 mg,drops,bottle,Cardiovascular,नहीं,2-8 C,14,56,314
+  सेट्रिज़िन 1886  ,Atenolol,5 mg,drops,tablet,Gastrointestinal,0,,44,58,267
+Atenolol 1887,Azithromycin,,ointment,bottle,Gastrointestinal,0,,34,46,103
+Azithromycin 1888,Amoxicillin,250 mg,Capsule,bottle,"Vitamins, minerals and tonics",हाँ,,35,122,437
+Doxycycline 1889,Ciprofloxacin,,consumable,strip,Respiratory,हाँ,Ambient,15,54,316
+Ranitidine 1890,,,consumable,piece,"Vitamins, minerals and tonics",0,Ambient,44,138,141
+Pantoprazole 1891,,5 mg,xyz,tablet,"Vitamins, minerals and tonics",no,cold chain,3,67,447
+Diclofenac 1892,Paracetamol,50 mg,TAB,tablet,Gastrointestinal,N,Ambient,31/02/2026,78,438
+Ciprofloxacin 1893,Diclofenac,,ointment,tablet,Antiallergics,1,,100,50,500
+सिप्रोफ्लॉक्सासिन 1894,,50 mg,drops,piece,Antiallergics,N,COLD,47,96,393
+Amoxicillin 1895,Salbutamol,50 mg,Injection,strip,"Vitamins, minerals and tonics",maybe,Ambient,7,12,149
+Metformin 1896,Salbutamol,250 mg,drops,capsule,Respiratory,हाँ,cold chain,14,57,108
+  ,,,,,,,,,,
+सिप्रोफ्लॉक्सासिन 1898,Metformin,50 mg,INJ,vial,Gastrointestinal,0,COLD,42,46,229
+Atenolol 1899,,10 mg,drops,strip,Respiratory,no,2-8 C,5,33,306
+Omeprazole 1900,,,Injection,tablet,Respiratory,1,room,43,121,244
+Paracetamol 1901,,100 mg,syrup,vial,Gastrointestinal,,ROOM,22,112,257
+Cetirizine 1902,Amoxicillin,250 mg,ointment,bottle,Antiallergics,yes,COLD,13/13/2025,85,121
+Amoxicillin 1903,,500 mg,syrup,bottle,Antiallergics,kabhi,cold chain,37,119,485
+Pantoprazole 1904,,,consumable,vial,"Vitamins, minerals and tonics",1,COLD,27,103,481
+सिप्रोफ्लॉक्सासिन 1905,Ciprofloxacin,500 mg,tablet,vial,Gastrointestinal,no,2-8 C,2,72,247
+Diclofenac 1906,,,tablet,bottle,"Vitamins, minerals and tonics",kabhi,room,32,36,321
+Azithromycin 1907,,250 mg,TAB,strip,"Vitamins, minerals and tonics",no,COLD,24,62,312
+Pantoprazole 1908,Cetirizine,100 mg,Tablets,tablet,Antiallergics,no,cold chain,8,30,373
+सिप्रोफ्लॉक्सासिन 1909,Atenolol,,Capsule,strip,Antibacterials,0,COLD,1,93,216
+आइबुप्रोफेन 1910,,10 mg,tablet,bottle,Analgesics,N,COLD,40,67,252
+Ciprofloxacin 1911,,,Injection,capsule,"Vitamins, minerals and tonics",no,2-8 C,31/02/2026,95,121
+Amoxicillin 1912,,5 mg,TAB,tablet,"Vitamins, minerals and tonics",हाँ,cold chain,22,72,409
+Ciprofloxacin 1913,,500 mg,tablet,tablet,"Vitamins, minerals and tonics",नहीं,Ambient,31,50,436
+,,,,,,,,,,
+Metformin 1915,,100 mg,syrup,bottle,Antibacterials,0,ROOM,0,4,310
+Amoxicillin 1916,Doxycycline,50 mg,Tablets,tablet,Analgesics,0,Ambient,19,43,203
+Ibuprofen 1917,Pantoprazole,100 mg,INJ,strip,Analgesics,N,cold chain,5,37,316
+Diclofenac 1918,,10 mg,syrup,capsule,Cardiovascular,,ROOM,13,13,177
+Amoxicillin 1919,,10 mg,drops,tube,Antibacterials,हाँ,ROOM,6,19,351
+  Paracetamol 1920  ,Metformin,250 mg,Tablets,bottle,Respiratory,no,2-8 C,11,53,278
+Omeprazole 1921,Omeprazole,,TAB,vial,Cardiovascular,नहीं,ROOM,abc,38,120
+,Salbutamol,50 mg,drops,piece,Antiallergics,हाँ,Ambient,25,66,85
+Amoxicillin 1923,Atenolol,100 mg,drops,tablet,Cardiovascular,1,,18,81,177
+सिप्रोफ्लॉक्सासिन 1924,Metformin,,drops,capsule,Antibacterials,,room,29,50,349
+Ibuprofen 1925,Omeprazole,500 mg,ointment,strip,"Vitamins, minerals and tonics",हाँ,COLD,7,96,332
+  ,,,,,,,,,,
+Pantoprazole 1927,,50 mg,INJ,bottle,Cardiovascular,Y,Ambient,26,114,469
+  Prednisolone 1928  ,Prednisolone,5 mg,syrup,tablet,Cardiovascular,नहीं,ROOM,3,12,193
+Atenolol 1929,Diclofenac,10 mg,consumable,vial,Antibacterials,N,2-8 C,31/02/2026,71,272
+Salbutamol 1930,Metformin,50 mg,tablet,vial,Cardiovascular,1,Ambient,41,63,323
+Metformin 1931,,500 mg,ointment,capsule,Analgesics,हाँ,COLD,43,102,225
+Atenolol 1932,,100 mg,drops,capsule,Gastrointestinal,हाँ,COLD,10,79,89
+Ranitidine 1933,,100 mg,tablet,piece,Gastrointestinal,no,2-8 C,27,64,64
+सिप्रोफ्लॉक्सासिन 1934,,50 mg,ointment,capsule,"Vitamins, minerals and tonics",हाँ,ROOM,100,50,500
+Ranitidine 1935,Atenolol,250 mg,Capsule,strip,Antibacterials,N,2-8 C,35,101,414
+Ranitidine 1936,,,TAB,vial,Antiallergics,1,COLD,20,97,390
+  Metformin 1937  ,Doxycycline,5 mg,ointment,tablet,Cardiovascular,1,Ambient,100,50,500
+Ranitidine 1938,,,Tablets,bottle,Analgesics,हाँ,cold chain,1,39,187
+Ibuprofen 1939,,100 mg,consumable,bottle,Antibacterials,,ROOM,6,51,258
+सेट्रिज़िन 1940,,500 mg,INJ,strip,Cardiovascular,yes,2-8 C,11,49,241
+  ,,,,,,,,,,
+Azithromycin 1942,Cetirizine,100 mg,Tablets,capsule,Analgesics,नहीं,2-8 C,12,68,320
+Ibuprofen 1943,,100 mg,TAB,tube,Antibacterials,नहीं,Ambient,100,50,500
+  Pantoprazole 1944  ,,,Tablets,piece,Antibacterials,no,,3,87,442
+Metformin 1945,Cetirizine,5 mg,syrup,capsule,"Vitamins, minerals and tonics",1,Ambient,31/02/2026,83,454
+Atenolol 1946,Doxycycline,250 mg,tablet,strip,Antibacterials,,room,25,41,295
+एटेनोलोल 1947,Omeprazole,500 mg,Tablets,vial,"Vitamins, minerals and tonics",N,Ambient,1,13,400
+  अमोक्सिसिलिन 1948  ,Doxycycline,,TAB,tube,Antibacterials,1,freezer,28,124,454
+Metformin 1949,Diclofenac,,Capsule,strip,Analgesics,yes,room,49,132,384
+Ciprofloxacin 1950,Prednisolone,100 mg,Capsule,bottle,Antibacterials,,room,13,61,206
+Azithromycin 1951,,,consumable,bottle,Respiratory,no,cold chain,26,80,161
+Azithromycin 432,,5 mg,consumable,tablet,Respiratory,0,Ambient,15,91,317
+Metformin 1953,Omeprazole,5 mg,consumable,piece,Antibacterials,नहीं,ROOM,18,68,448
+  ,,,,,,,,,,
+  ,,,,,,,,,,
+Salbutamol 1956,Metformin,10 mg,Injection,tube,Respiratory,हाँ,Ambient,17,33,72
+  ,,,,,,,,,,
+Salbutamol 1958,Omeprazole,,Injection,capsule,Antibacterials,N,room,26,98,202
+Salbutamol 1959,Pantoprazole,5 mg,ointment,vial,Antiallergics,Y,2-8 C,13/13/2025,39,369
+
+Salbutamol 1961,,100 mg,ointment,tablet,Analgesics,1,freezer,14,40,380
+Pantoprazole 1962,,5 mg,TAB,tablet,"Vitamins, minerals and tonics",0,cold chain,4,27,324
+Cetirizine 1963,,50 mg,Injection,piece,Analgesics,no,2-8 C,31,71,108
+Paracetamol 1964,,100 mg,Tablets,strip,"Vitamins, minerals and tonics",हाँ,2-8 C,23,41,244
+Doxycycline 1965,Metformin,100 mg,consumable,bottle,Antibacterials,no,2-8 C,29,114,498
+,Amoxicillin,100 mg,drops,tablet,Respiratory,N,ROOM,24,52,54
+Azithromycin 1967,,,Injection,tube,Antibacterials,हाँ,2-8 C,35,74,125
+Atenolol 1011,,250 mg,Injection,tablet,Cardiovascular,नहीं,Ambient,32,132,475
+Prednisolone 1969,,,tablet,capsule,Cardiovascular,हाँ,room,45,52,363
+  ओमेप्राज़ोल 1970  ,Salbutamol,,Tablets,bottle,Antiallergics,,2-8 C,37,106,179
+Pantoprazole 1971,Prednisolone,,Tablets,piece,Analgesics,0,2-8 C,48,121,238
+Omeprazole 1972,,100 mg,Tablets,capsule,Gastrointestinal,no,ROOM,34,92,219
+  Ranitidine 1973  ,,500 mg,TAB,tablet,Antibacterials,yes,room,100,50,500
+  ,,,,,,,,,,
+Ranitidine 1975,Diclofenac,100 mg,INJ,vial,Respiratory,नहीं,,49,75,121
+,,100 mg,consumable,strip,Antiallergics,Y,COLD,35,134,457
+Metformin 1977,,500 mg,syrup,strip,Respiratory,,room,9,52,289
+  Cetirizine 1978  ,,500 mg,Capsule,bottle,Gastrointestinal,no,cold chain,49,135,516
+Paracetamol 1979,,100 mg,INJ,bottle,Analgesics,,2-8 C,44,47,317
+Diclofenac 1980,Atenolol,100 mg,pills,bottle,Respiratory,नहीं,Ambient,41,136,503
+एज़िथ्रोमाइसिन 1981,Atenolol,,tablet,capsule,Antibacterials,हाँ,freezer,35,125,337
+  ,,,,,,,,,,
+Ciprofloxacin 1983,,50 mg,TAB,capsule,Gastrointestinal,0,COLD,41,59,414
+Atenolol 1984,Ranitidine,,consumable,tube,"Vitamins, minerals and tonics",yes,COLD,28,108,485
+Salbutamol 1985,Pantoprazole,100 mg,INJ,strip,Analgesics,yes,,34,126,249
+  एटेनोलोल 1986  ,,250 mg,TAB,tube,"Vitamins, minerals and tonics",Y,COLD,2,24,221
+  ,,,,,,,,,,
+Doxycycline 1988,Salbutamol,50 mg,TAB,tube,Antibacterials,,ROOM,31,61,413
+Cetirizine 1989,,100 mg,TAB,tablet,Gastrointestinal,no,2-8 C,36,120,448
+  Amoxicillin 1990  ,,,syrup,vial,Antiallergics,,Ambient,49,125,234
+Ciprofloxacin 1991,Prednisolone,250 mg,ointment,strip,Cardiovascular,Y,freezer,19,119,175
+Ranitidine 1992,Ciprofloxacin,5 mg,ointment,tablet,Cardiovascular,no,cold chain,8,25,137
+Diclofenac 1993,Salbutamol,,TAB,strip,Antibacterials,हाँ,room,13,20,143
+Ranitidine 1994,Atenolol,250 mg,tabletz,vial,Antiallergics,0,cold chain,17,33,68
+Diclofenac 1995,Diclofenac,,Injection,vial,Analgesics,yes,freezer,26,103,175
+  ओमेप्राज़ोल 858  ,Ibuprofen,5 mg,Tablets,piece,Antibacterials,N,2-8 C,50,92,470
+Ciprofloxacin 1997,,500 mg,Injection,tube,Analgesics,1,room,100,50,500
+Salbutamol 1998,,,INJ,tube,Gastrointestinal,नहीं,room,100,50,500
+Paracetamol 1999,,,tablet,bottle,Analgesics,Y,COLD,6,81,257

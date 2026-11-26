@@ -22,7 +22,8 @@
     "job:retention": "tsx src/worker/index.ts once retention",
     "db:backup": "node --env-file-if-exists=.env scripts/sqlite-backup.mjs backup",
     "db:restore": "node --env-file-if-exists=.env scripts/sqlite-backup.mjs restore",
-    "test:sqlite": "node scripts/generate-test-client.mjs && vitest run -c vitest.integration.sqlite.config.ts"
+    "test:sqlite": "node scripts/generate-test-client.mjs && vitest run -c vitest.integration.sqlite.config.ts",
+    "test:e2e": "playwright test"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -52,6 +53,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
+    "@playwright/test": "^1.65.1",
     "@tailwindcss/postcss": "^4.1.14",
     "@types/node": "^22.18.0",
     "@types/nodemailer": "^8.0.2",

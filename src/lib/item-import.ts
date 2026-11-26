@@ -171,6 +171,8 @@ export function validateItemTable(
   }
 
   const dataRows = table.slice(headerIdx + 1);
+  // the empty line a file always ends with (and any blank lines after the last real row) are not rows
+  while (dataRows.length > 0 && isBlankRow(dataRows[dataRows.length - 1]!)) dataRows.pop();
   if (dataRows.length > MAX_IMPORT_ROWS) {
     result.fatal = `Too many rows (${dataRows.length}). Split the file into parts of at most ${MAX_IMPORT_ROWS} rows.`;
     return result;

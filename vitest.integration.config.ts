@@ -8,6 +8,7 @@ const TEST_DATABASE_URL =
   process.env.TEST_DATABASE_URL ?? "postgresql://stocksafe:change-me@localhost:5434/stocksafe_test";
 
 export default defineConfig({
+  esbuild: { jsx: "automatic" }, // the PDF test renders .tsx
   resolve: { alias: { "@": path.resolve(__dirname, "src") } },
   test: {
     include: ["tests/integration/**/*.test.ts"],

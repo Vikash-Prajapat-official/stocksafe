@@ -16,11 +16,13 @@ export default async function AppLayout({ children }: { children: React.ReactNod
     ...(user.role === "PHARMACIST" ? [{ href: "/dispense", label: "Dispense" }] : []),
     ...(["NURSE", "STOREKEEPER", "ADMIN", "AUDITOR"].includes(user.role) ? [{ href: "/indents", label: "Indents" }] : []),
     ...(["STOREKEEPER", "ADMIN", "AUDITOR"].includes(user.role) ? [{ href: "/counts", label: "Stock counts" }] : []),
+    ...(["ADMIN", "AUDITOR"].includes(user.role) ? [{ href: "/reports", label: "Reports" }, { href: "/admin/audit", label: "Audit log" }] : []),
     ...(user.role === "ADMIN"
       ? [
           { href: "/admin/stores", label: "Stores" },
           { href: "/admin/users", label: "Users" },
           { href: "/admin/suppliers", label: "Suppliers" },
+          { href: "/admin/system", label: "System" },
         ]
       : []),
   ];

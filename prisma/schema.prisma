@@ -206,7 +206,6 @@ model StockMovement {
   refType      String?      @map("ref_type")
   refId        String?      @map("ref_id")
   reason       String?
-  patientLabel String?      @map("patient_label")
   actorUserId  String       @map("actor_user_id")
   approvedBy   String?      @map("approved_by")
   at           DateTime     @default(now())
@@ -215,11 +214,25 @@ model StockMovement {
   store    Store @relation(fields: [storeId], references: [id])
   actor    User  @relation("MovementActor", fields: [actorUserId], references: [id])
   approver User? @relation("MovementApprover", fields: [approvedBy], references: [id])
+  patient  MovementPatient?
 
   @@index([batchId, storeId, at])
   @@index([storeId, at])
   @@index([type, at])
   @@map("stock_movement")
+}
+
+// The patient name or token of a dispensing, kept beside the ledger so the ledger itself is never edited.
+// The retention job clears `label` after RETENTION_DAYS (it sets anonymisedAt).
+model MovementPatient {
+  movementId   String    @id @map("movement_id")
+  label        String?
+  createdAt    DateTime  @default(now()) @map("created_at")
+  anonymisedAt DateTime? @map("anonymised_at")
+
+  movement StockMovement @relation(fields: [movementId], references: [id])
+
+  @@map("movement_patient")
 }
 
 model Grn {

@@ -73,6 +73,8 @@ const MATRIX: [string, string, Allowed][] = [
   ["counts/[id]/route", "GET", ["STOREKEEPER", "ADMIN", "AUDITOR"]],
   ["counts/[id]/route", "PATCH", ["STOREKEEPER", "ADMIN"]],
   ["counts/[id]/approve/route", "POST", ADMIN],
+  ["reports/[name]/route", "GET", ["ADMIN", "AUDITOR"]],
+  ["admin/audit/route", "GET", ["ADMIN", "AUDITOR"]],
   ["admin/stores/route", "GET", ADMIN],
   ["admin/stores/route", "POST", ADMIN],
   ["admin/stores/[id]/route", "PATCH", ADMIN],

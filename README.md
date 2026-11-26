@@ -2,14 +2,15 @@
 
 Free, open-source stock, expiry and reorder tracker for Indian hospital stores and pharmacies. See [SPEC.md](SPEC.md).
 
-**Status:** Phase 4 of 7 (indents, expiry centre, reorder list, dashboard, stock counts on top of the Phase 3 stock ledger).
+**Status:** Phase 5 of 7 (reports with CSV and PDF, nightly alert job and email digest, encrypted backups, audit log, patient-name retention).
 
 ## Run it
 
 ```bash
 cp .env.example .env
-# put a random value after AUTH_SECRET= in .env:
+# put random values after AUTH_SECRET= and BACKUP_PASSPHRASE= in .env (the app will not start without them):
 node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
+node -e "console.log(require('crypto').randomBytes(24).toString('base64'))"
 docker compose up -d
 docker compose exec app npx prisma db seed
 ```
@@ -25,6 +26,8 @@ Open http://localhost:3002 and sign in. Demo accounts (password `ChangeMe@123`, 
 | Auditor | 9000000005 |
 
 Try the flows: the store keeper receives stock, the nurse raises an indent, the keeper approves and issues it; open the Expiry and Reorder pages; the keeper starts a stock count, the admin approves it. `EXPIRY_ALERT_DAYS` in `.env` sets the expiry bands (default 90,60,30).
+
+Admin and auditor accounts also get **Reports** (CSV and PDF) and the **Audit log**; admins get a **System** page showing the latest backup and the nightly jobs. Email digests are optional: set `SMTP_URL` and `DIGEST_TO` in `.env`. Keep a copy of `BACKUP_PASSPHRASE` somewhere safe: without it a backup cannot be opened. Restore a backup into a new database with `docker compose exec backup /backup/restore.sh /backups/<file> <new-database-name>`.
 
 Health: http://localhost:3002/health (JSON: `/api/health`).
 

@@ -17,8 +17,8 @@ export function parseRupees(input: string): number | null {
   return Number.isSafeInteger(paise) && paise <= MAX_PAISE ? paise : null;
 }
 
-/** "₹12,34,567.00": Indian digit grouping (last three digits, then pairs). */
-export function formatPaise(paise: number): string {
+/** "₹12,34,567.00": Indian digit grouping (last three digits, then pairs). Pass "Rs " where ₹ cannot be printed. */
+export function formatPaise(paise: number, symbol = "₹"): string {
   if (!Number.isSafeInteger(paise)) throw new RangeError("paise must be an integer");
   const sign = paise < 0 ? "-" : "";
   const abs = Math.abs(paise);
@@ -26,7 +26,7 @@ export function formatPaise(paise: number): string {
   const frac = String(abs % 100).padStart(2, "0");
   const head = rupees.slice(0, -3);
   const grouped = (head ? head.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," : "") + rupees.slice(-3);
-  return `${sign}₹${grouped}.${frac}`;
+  return `${sign}${symbol}${grouped}.${frac}`;
 }
 
 /** quantity x unit price in paise (stock value, write-off value). Exact integer maths. */

@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // @react-pdf/renderer is loaded from node_modules at run time (it reads its font files from there)
+  serverExternalPackages: ["@react-pdf/renderer"],
   async headers() {
     return [
       {

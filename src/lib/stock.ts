@@ -158,11 +158,13 @@ async function post(tx: Tx, m: MovementData): Promise<string> {
       refId: m.refId,
       actorUserId: m.actorUserId,
       reason: m.reason ?? null,
-      patientLabel: m.patientLabel ?? null,
       approvedBy: m.approvedBy ?? null,
     },
     select: { id: true },
   });
+  // The patient label lives beside the ledger (not in it) so the retention job can anonymise it
+  // without ever editing a movement.
+  if (m.patientLabel) await tx.movementPatient.create({ data: { movementId: row.id, label: m.patientLabel } });
   return row.id;
 }
 

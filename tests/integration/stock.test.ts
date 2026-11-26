@@ -343,9 +343,12 @@ describe("dispense", () => {
     await recv(w, { store: w.s1.id, batchNo: "B", expiry: addDays(TODAY, 90), qty: 20 });
     const r = await dispense({ storeId: w.s1.id, patientLabel: "  OPD token 42 ", actorUserId: w.pharmacist.id, lines: [{ itemId: w.item.id, quantity: 6 }] });
     expect(r.picks.map((p) => [p.batchNo, p.quantity])).toEqual([["A", 4], ["B", 2]]);
-    const ms = await db.stockMovement.findMany({ where: { refId: r.refId } });
+    const ms = await db.stockMovement.findMany({ where: { refId: r.refId }, include: { patient: true } });
     expect(ms).toHaveLength(2);
-    for (const m of ms) expect(m).toMatchObject({ type: "DISPENSE", patientLabel: "OPD token 42", refType: "DISPENSE" });
+    for (const m of ms) {
+      expect(m).toMatchObject({ type: "DISPENSE", refType: "DISPENSE" });
+      expect(m.patient).toMatchObject({ label: "OPD token 42" }); // kept beside the ledger, not in it
+    }
     await noMismatch(w.s1.id);
   });
 
@@ -356,7 +359,7 @@ describe("dispense", () => {
     await recv(w, { store: w.s1.id, batchNo: "NEW", expiry: addDays(TODAY, 60), qty: 2 });
     await expect(dispense({ storeId: w.s1.id, patientLabel: "x".repeat(101), actorUserId: w.pharmacist.id, lines: [{ itemId: w.item.id, quantity: 1 }] })).rejects.toMatchObject({ code: "VALIDATION" });
     const ok = await dispense({ storeId: w.s1.id, actorUserId: w.pharmacist.id, lines: [{ itemId: w.item.id, quantity: 1 }] });
-    expect((await db.stockMovement.findFirstOrThrow({ where: { refId: ok.refId } })).patientLabel).toBeNull();
+    expect((await db.stockMovement.findFirstOrThrow({ where: { refId: ok.refId }, include: { patient: true } })).patient).toBeNull();
   });
 });
 

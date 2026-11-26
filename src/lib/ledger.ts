@@ -94,11 +94,12 @@ export async function getLedger(opts: {
         SELECT m.id, m.seq, m."at", m.type::text AS type, m.store_id AS "storeId", s.name AS "storeName",
                m.batch_id AS "batchId", b.batch_no AS "batchNo", b.expiry_date AS "expiryDate", m.quantity,
                SUM(m.quantity) OVER (PARTITION BY m.store_id, m.batch_id ORDER BY m.seq)::int AS "balanceAfter",
-               m.reason, m.patient_label AS "patientLabel", m.ref_type AS "refType", m.ref_id AS "refId", u.name AS "actorName"
+               m.reason, CASE WHEN mp.anonymised_at IS NOT NULL THEN '[anonymised]' ELSE mp.label END AS "patientLabel", m.ref_type AS "refType", m.ref_id AS "refId", u.name AS "actorName"
         FROM stock_movement m
         JOIN batch b ON b.id = m.batch_id
         JOIN store s ON s.id = m.store_id
         JOIN "user" u ON u.id = m.actor_user_id
+        LEFT JOIN movement_patient mp ON mp.movement_id = m.id
         WHERE b.item_id = ${opts.itemId} ${storeF} ${batchF}
       )
       SELECT * FROM all_rows ORDER BY seq ${direction} LIMIT ${limit} OFFSET ${offset}`,

@@ -6,7 +6,7 @@ You need: a GitHub account (the repo is already public), and free accounts on [n
 
 ## 1. The database (Neon)
 
-1. On neon.tech create a project, for example `stocksafe-demo`. Pick PostgreSQL 16 and the region closest to India (Singapore).
+1. On neon.tech create a project, for example `stocksafe-demo`. Pick any current PostgreSQL version and the region closest to India (Singapore, which is also where `vercel.json` runs the site).
 2. On the project page press **Connect**. You need two connection strings; the page shows both, using the "Connection pooling" switch:
    - **Direct** (switch off): the host has no `-pooler` in it. Used once, to load the demo data.
    - **Pooled** (switch on): the host has `-pooler`. Used by the live site.
@@ -31,7 +31,7 @@ You need: a GitHub account (the repo is already public), and free accounts on [n
 
    | Name | Value |
    | --- | --- |
-   | `DATABASE_URL` | the **pooled** string from Neon, with `&pgbouncer=true&connection_limit=1` added at the end |
+   | `DATABASE_URL` | the **pooled** string from Neon, with `&pgbouncer=true&connection_limit=5&pool_timeout=20&connect_timeout=15` added at the end (and without `channel_binding=require` if the string has it) |
    | `AUTH_SECRET` | a random value: `node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"` |
    | `AUTH_TRUST_HOST` | `true` |
    | `DEMO_MODE` | `1` (shows a "public demo" banner, lists the demo sign-ins on the login page, and stops anyone changing users or passwords) |

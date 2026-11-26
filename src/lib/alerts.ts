@@ -1,8 +1,7 @@
 // Read-only queries behind the expiry centre, the reorder list and the dashboard.
 
-import { Prisma } from "@prisma/client";
 import { db } from "@/lib/db";
-import { toDay, todayIST } from "@/lib/fefo";
+import { isExpired, toDay, todayIST } from "@/lib/fefo";
 import { bandOf, daysLeft, makeBands, parseBands, summarizeBands, type Band } from "@/lib/expiry-bands";
 import { lineValuePaise } from "@/lib/money";
 import { assessReorder, type ReorderStatus } from "@/lib/reorder";
@@ -40,20 +39,32 @@ export async function getExpiryList(opts: { storeId?: string; today?: string } =
   const bands = expiryBands();
   const last = bands[bands.length - 1]!.maxDays;
   const limit = addDays(today, last);
-  const storeF = opts.storeId ? Prisma.sql`AND sb.store_id = ${opts.storeId}` : Prisma.empty;
-
-  const raw = await db.$queryRaw<
-    { storeId: string; storeName: string; itemId: string; itemName: string; strength: string | null; unit: string; batchId: string; batchNo: string; expiryDate: Date; quantity: number; costPaise: number }[]
-  >`
-    SELECT sb.store_id AS "storeId", s.name AS "storeName", i.id AS "itemId", i.name AS "itemName", i.strength, i.unit,
-           sb.batch_id AS "batchId", b.batch_no AS "batchNo", b.expiry_date AS "expiryDate", sb.quantity, b.cost_paise AS "costPaise"
-    FROM stock_balance sb
-    JOIN batch b ON b.id = sb.batch_id
-    JOIN item i ON i.id = b.item_id
-    JOIN store s ON s.id = sb.store_id
-    WHERE sb.quantity > 0 AND b.expiry_date <= ${limit}::date ${storeF}
-    ORDER BY b.expiry_date, i.name, s.name
-    LIMIT ${MAX_ROWS}`;
+  const found = await db.stockBalance.findMany({
+    where: {
+      quantity: { gt: 0 },
+      batch: { expiryDate: { lte: new Date(`${limit}T00:00:00Z`) } },
+      ...(opts.storeId ? { storeId: opts.storeId } : {}),
+    },
+    include: {
+      store: { select: { name: true } },
+      batch: { include: { item: { select: { id: true, name: true, strength: true, unit: true } } } },
+    },
+    orderBy: [{ batch: { expiryDate: "asc" } }, { batch: { item: { name: "asc" } } }, { store: { name: "asc" } }],
+    take: MAX_ROWS,
+  });
+  const raw = found.map((r) => ({
+    storeId: r.storeId,
+    storeName: r.store.name,
+    itemId: r.batch.item.id,
+    itemName: r.batch.item.name,
+    strength: r.batch.item.strength,
+    unit: r.batch.item.unit,
+    batchId: r.batchId,
+    batchNo: r.batch.batchNo,
+    expiryDate: r.batch.expiryDate,
+    quantity: r.quantity,
+    costPaise: r.batch.costPaise,
+  }));
 
   const rows: ExpiryRow[] = raw.map((r) => {
     const days = daysLeft(r.expiryDate, today);
@@ -90,18 +101,33 @@ export type LowStockRow = {
  */
 export async function getLowStock(opts: { storeId?: string; today?: string } = {}): Promise<LowStockRow[]> {
   const today = opts.today ?? todayIST();
-  const storeJoin = opts.storeId ? Prisma.sql`AND sb.store_id = ${opts.storeId}` : Prisma.empty;
-  const raw = await db.$queryRaw<
-    { itemId: string; name: string; strength: string | null; unit: string; minLevel: number; reorderLevel: number; maxLevel: number; onHand: number; expiredQty: number }[]
-  >`
-    SELECT i.id AS "itemId", i.name, i.strength, i.unit, i.min_level AS "minLevel", i.reorder_level AS "reorderLevel", i.max_level AS "maxLevel",
-           COALESCE(SUM(sb.quantity) FILTER (WHERE b.expiry_date >= ${today}::date), 0)::int AS "onHand",
-           COALESCE(SUM(sb.quantity) FILTER (WHERE b.expiry_date < ${today}::date), 0)::int AS "expiredQty"
-    FROM item i
-    LEFT JOIN batch b ON b.item_id = i.id
-    LEFT JOIN stock_balance sb ON sb.batch_id = b.id ${storeJoin}
-    WHERE i.active AND (i.reorder_level > 0 OR i.min_level > 0)
-    GROUP BY i.id`;
+  const items = await db.item.findMany({
+    where: { active: true, OR: [{ reorderLevel: { gt: 0 } }, { minLevel: { gt: 0 } }] },
+    select: { id: true, name: true, strength: true, unit: true, minLevel: true, reorderLevel: true, maxLevel: true },
+  });
+  const held = items.length
+    ? await db.stockBalance.findMany({
+        where: { quantity: { gt: 0 }, batch: { itemId: { in: items.map((i) => i.id) } }, ...(opts.storeId ? { storeId: opts.storeId } : {}) },
+        select: { quantity: true, batch: { select: { itemId: true, expiryDate: true } } },
+      })
+    : [];
+  const usable = new Map<string, number>();
+  const expired = new Map<string, number>();
+  for (const b of held) {
+    const m = isExpired(b.batch.expiryDate, today) ? expired : usable;
+    m.set(b.batch.itemId, (m.get(b.batch.itemId) ?? 0) + b.quantity);
+  }
+  const raw = items.map((i) => ({
+    itemId: i.id,
+    name: i.name,
+    strength: i.strength,
+    unit: i.unit,
+    minLevel: i.minLevel,
+    reorderLevel: i.reorderLevel,
+    maxLevel: i.maxLevel,
+    onHand: usable.get(i.id) ?? 0,
+    expiredQty: expired.get(i.id) ?? 0,
+  }));
 
   const rows: LowStockRow[] = [];
   for (const r of raw) {

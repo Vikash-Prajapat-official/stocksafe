@@ -1,5 +1,6 @@
 import type { Prisma } from "@prisma/client";
 import { db } from "@/lib/db";
+import { ci } from "@/lib/dialect";
 import { itemKey } from "@/lib/schemas/item";
 
 export type ItemListParams = { q?: string; page?: number; pageSize?: number; active?: boolean; gtin?: string };
@@ -15,9 +16,9 @@ export async function listItems({ q, page = 1, pageSize = 50, active, gtin }: It
     ...(term
       ? {
           OR: [
-            { name: { contains: term, mode: "insensitive" } },
-            { genericName: { contains: term, mode: "insensitive" } },
-            { category: { contains: term, mode: "insensitive" } },
+            { name: { contains: term, ...ci } },
+            { genericName: { contains: term, ...ci } },
+            { category: { contains: term, ...ci } },
           ],
         }
       : {}),
@@ -43,7 +44,7 @@ export async function itemExists(
 ): Promise<boolean> {
   const key = itemKey(name, strength, form);
   const candidates = await db.item.findMany({
-    where: { name: { equals: name.trim(), mode: "insensitive" } },
+    where: { name: { contains: name.trim(), ...ci } },
     select: { id: true, name: true, strength: true, form: true },
   });
   return candidates.some((c) => c.id !== excludeId && itemKey(c.name, c.strength, c.form) === key);

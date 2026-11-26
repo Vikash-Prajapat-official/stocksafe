@@ -1,4 +1,3 @@
-import { Prisma } from "@prisma/client";
 import { db } from "@/lib/db";
 import { isExpired, toDay, todayIST } from "@/lib/fefo";
 
@@ -28,19 +27,24 @@ export type StockRowView = {
 
 /** Stock on hand for one item: one row per store and batch, earliest expiry first. Empty balances are left out. */
 export async function getStockRows(opts: { itemId: string; storeId?: string }): Promise<StockRowView[]> {
-  const storeF = opts.storeId ? Prisma.sql`AND sb.store_id = ${opts.storeId}` : Prisma.empty;
-  const rows = await db.$queryRaw<
-    { storeId: string; storeName: string; batchId: string; batchNo: string; expiryDate: Date; quantity: number; mrpPaise: number; costPaise: number }[]
-  >`
-    SELECT sb.store_id AS "storeId", s.name AS "storeName", sb.batch_id AS "batchId", b.batch_no AS "batchNo",
-           b.expiry_date AS "expiryDate", sb.quantity, b.mrp_paise AS "mrpPaise", b.cost_paise AS "costPaise"
-    FROM stock_balance sb
-    JOIN batch b ON b.id = sb.batch_id
-    JOIN store s ON s.id = sb.store_id
-    WHERE b.item_id = ${opts.itemId} AND sb.quantity > 0 ${storeF}
-    ORDER BY s.name, b.expiry_date, b.batch_no`;
+  const rows = await db.stockBalance.findMany({
+    where: { quantity: { gt: 0 }, batch: { itemId: opts.itemId }, ...(opts.storeId ? { storeId: opts.storeId } : {}) },
+    include: { store: { select: { name: true } }, batch: { select: { batchNo: true, expiryDate: true, mrpPaise: true, costPaise: true } } },
+  });
   const today = todayIST();
-  return rows.map((r) => ({ ...r, expiryDate: toDay(r.expiryDate), expired: isExpired(r.expiryDate, today) }));
+  return rows
+    .map((r) => ({
+      storeId: r.storeId,
+      storeName: r.store.name,
+      batchId: r.batchId,
+      batchNo: r.batch.batchNo,
+      expiryDate: toDay(r.batch.expiryDate),
+      expired: isExpired(r.batch.expiryDate, today),
+      quantity: r.quantity,
+      mrpPaise: r.batch.mrpPaise,
+      costPaise: r.batch.costPaise,
+    }))
+    .sort((x, y) => x.storeName.localeCompare(y.storeName) || x.expiryDate.localeCompare(y.expiryDate) || x.batchNo.localeCompare(y.batchNo));
 }
 
 export type LedgerRow = {
@@ -78,37 +82,41 @@ export async function getLedger(opts: {
 }): Promise<{ rows: LedgerRow[]; total: number }> {
   const limit = Math.min(Math.max(1, Math.trunc(opts.limit ?? 100)), 500);
   const offset = Math.max(0, Math.trunc(opts.offset ?? 0));
-  const storeF = opts.storeId ? Prisma.sql`AND m.store_id = ${opts.storeId}` : Prisma.empty;
-  const batchF = opts.batchId ? Prisma.sql`AND m.batch_id = ${opts.batchId}` : Prisma.empty;
-  const direction = opts.order === "desc" ? Prisma.sql`DESC` : Prisma.sql`ASC`;
-
-  type Raw = Omit<LedgerRow, "expiryDate" | "seq" | "quantity" | "balanceAfter"> & {
-    expiryDate: Date;
-    seq: number;
-    quantity: number;
-    balanceAfter: number;
-  };
-  const [rows, count] = await Promise.all([
-    db.$queryRaw<Raw[]>`
-      WITH all_rows AS (
-        SELECT m.id, m.seq, m."at", m.type::text AS type, m.store_id AS "storeId", s.name AS "storeName",
-               m.batch_id AS "batchId", b.batch_no AS "batchNo", b.expiry_date AS "expiryDate", m.quantity,
-               SUM(m.quantity) OVER (PARTITION BY m.store_id, m.batch_id ORDER BY m.seq)::int AS "balanceAfter",
-               m.reason, CASE WHEN mp.anonymised_at IS NOT NULL THEN '[anonymised]' ELSE mp.label END AS "patientLabel", m.ref_type AS "refType", m.ref_id AS "refId", u.name AS "actorName"
-        FROM stock_movement m
-        JOIN batch b ON b.id = m.batch_id
-        JOIN store s ON s.id = m.store_id
-        JOIN "user" u ON u.id = m.actor_user_id
-        LEFT JOIN movement_patient mp ON mp.movement_id = m.id
-        WHERE b.item_id = ${opts.itemId} ${storeF} ${batchF}
-      )
-      SELECT * FROM all_rows ORDER BY seq ${direction} LIMIT ${limit} OFFSET ${offset}`,
-    db.$queryRaw<{ n: bigint }[]>`
-      SELECT COUNT(*) AS n FROM stock_movement m JOIN batch b ON b.id = m.batch_id
-      WHERE b.item_id = ${opts.itemId} ${storeF} ${batchF}`,
-  ]);
-  return {
-    rows: rows.map((r) => ({ ...r, expiryDate: toDay(r.expiryDate) })),
-    total: Number(count[0]?.n ?? 0),
-  };
+  const all = await db.stockMovement.findMany({
+    where: { batch: { itemId: opts.itemId }, ...(opts.storeId ? { storeId: opts.storeId } : {}), ...(opts.batchId ? { batchId: opts.batchId } : {}) },
+    orderBy: { seq: "asc" },
+    include: {
+      batch: { select: { batchNo: true, expiryDate: true } },
+      store: { select: { name: true } },
+      actor: { select: { name: true } },
+      patient: { select: { label: true, anonymisedAt: true } },
+    },
+  });
+  // The running balance is computed over the whole history, then paged, so a page always shows true balances.
+  const running = new Map<string, number>();
+  const rows: LedgerRow[] = all.map((m) => {
+    const k = `${m.storeId}|${m.batchId}`;
+    const balanceAfter = (running.get(k) ?? 0) + m.quantity;
+    running.set(k, balanceAfter);
+    return {
+      id: m.id,
+      seq: m.seq,
+      at: m.at,
+      type: m.type,
+      storeId: m.storeId,
+      storeName: m.store.name,
+      batchId: m.batchId,
+      batchNo: m.batch.batchNo,
+      expiryDate: toDay(m.batch.expiryDate),
+      quantity: m.quantity,
+      balanceAfter,
+      reason: m.reason,
+      patientLabel: m.patient ? (m.patient.anonymisedAt ? "[anonymised]" : m.patient.label) : null,
+      refType: m.refType,
+      refId: m.refId,
+      actorName: m.actor.name,
+    };
+  });
+  const ordered = opts.order === "desc" ? rows.reverse() : rows;
+  return { rows: ordered.slice(offset, offset + limit), total: rows.length };
 }

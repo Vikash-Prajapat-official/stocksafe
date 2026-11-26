@@ -13,10 +13,12 @@
 import { randomUUID } from "node:crypto";
 import { Prisma } from "@prisma/client";
 import { db } from "@/lib/db";
+import { isSqlite } from "@/lib/dialect";
 import { isExpired, splitFefo, toDay, todayIST } from "@/lib/fefo";
 import { canDo, outstanding, statusAfterIssue, type IndentStatus } from "@/lib/indent-flow";
 import { writeAudit } from "@/lib/audit";
 import { MAX_PAISE, lineValuePaise } from "@/lib/money";
+import { nextSeq } from "@/lib/seq";
 import { StockError } from "@/lib/stock-errors";
 
 export { StockError } from "@/lib/stock-errors";
@@ -96,12 +98,18 @@ async function run<T>(fn: (tx: Tx) => Promise<T>): Promise<T> {
   }
 }
 
-/** Serialises concurrent operations on the same items. Locks are taken in sorted order, so they cannot deadlock. */
-async function lockItems(tx: Tx, itemIds: Iterable<string>) {
-  for (const id of [...new Set(itemIds)].sort()) {
-    await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtextextended(${id}, 0))`;
+/**
+ * Serialises concurrent operations on the same keys (item ids, "indent:<id>", "count:<id>"). PostgreSQL: transaction-level
+ * advisory locks, taken in sorted order so they cannot deadlock. SQLite: nothing to do, because single-PC mode runs on
+ * one connection, so write transactions already run one at a time.
+ */
+async function lockKeys(tx: Tx, keys: Iterable<string>) {
+  if (isSqlite) return;
+  for (const k of [...new Set(keys)].sort()) {
+    await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtextextended(${k}, 0))`;
   }
 }
+const lockItems = (tx: Tx, itemIds: Iterable<string>) => lockKeys(tx, itemIds);
 
 async function requireStore(tx: Tx, id: string, label = "Store") {
   const s = await tx.store.findUnique({ where: { id }, select: { id: true, active: true, name: true } });
@@ -116,19 +124,22 @@ async function requireApprover(tx: Tx, userId: string | null | undefined) {
     throw new StockError("APPROVER_REQUIRED", "This needs the approval of an active admin");
 }
 
-/** Adds `delta` to a balance row (creating it if needed). Never lets it go below zero. */
+/** Adds `delta` to a balance row (creating it if needed). Never lets it go below zero (the decrement only matches if enough is there). */
 async function addBalance(tx: Tx, storeId: string, batchId: string, delta: number) {
   try {
     if (delta > 0) {
-      await tx.$executeRaw`INSERT INTO stock_balance (store_id, batch_id, quantity) VALUES (${storeId}, ${batchId}, ${delta}::int)
-        ON CONFLICT (store_id, batch_id) DO UPDATE SET quantity = stock_balance.quantity + EXCLUDED.quantity`;
+      await tx.stockBalance.upsert({
+        where: { storeId_batchId: { storeId, batchId } },
+        create: { storeId, batchId, quantity: delta },
+        update: { quantity: { increment: delta } },
+      });
     } else {
-      const n = await tx.$executeRaw`UPDATE stock_balance SET quantity = quantity + ${delta}::int WHERE store_id = ${storeId} AND batch_id = ${batchId}`;
-      if (n !== 1) throw new StockError("INSUFFICIENT_STOCK", "Not enough stock", { available: 0 });
+      const r = await tx.stockBalance.updateMany({ where: { storeId, batchId, quantity: { gte: -delta } }, data: { quantity: { increment: delta } } });
+      if (r.count !== 1) throw new StockError("INSUFFICIENT_STOCK", "Not enough stock", { available: 0 });
     }
   } catch (e) {
     if (e instanceof StockError) throw e;
-    if (/stock_balance_quantity_nonnegative/.test(String(e))) throw new StockError("INSUFFICIENT_STOCK", "Not enough stock");
+    if (/stock_balance_quantity_nonnegative|CHECK constraint/i.test(String(e))) throw new StockError("INSUFFICIENT_STOCK", "Not enough stock");
     throw e;
   }
 }
@@ -150,6 +161,7 @@ async function post(tx: Tx, m: MovementData): Promise<string> {
   await addBalance(tx, m.storeId, m.batchId, m.quantity);
   const row = await tx.stockMovement.create({
     data: {
+      seq: await nextSeq(tx, "stockMovement"),
       type: m.type,
       storeId: m.storeId,
       batchId: m.batchId,
@@ -172,14 +184,12 @@ async function post(tx: Tx, m: MovementData): Promise<string> {
 
 type StockRow = { batchId: string; batchNo: string; expiryDate: Date; quantity: number };
 
-async function stockRows(tx: Tx, storeId: string, itemId: string, lock: boolean): Promise<StockRow[]> {
-  const forUpdate = lock ? Prisma.sql`FOR UPDATE OF sb` : Prisma.empty;
-  return tx.$queryRaw<StockRow[]>`
-    SELECT sb.batch_id AS "batchId", b.batch_no AS "batchNo", b.expiry_date AS "expiryDate", sb.quantity
-    FROM stock_balance sb JOIN batch b ON b.id = sb.batch_id
-    WHERE sb.store_id = ${storeId} AND b.item_id = ${itemId} AND sb.quantity > 0
-    ORDER BY b.expiry_date, sb.quantity, sb.batch_id
-    ${forUpdate}`;
+async function stockRows(tx: Tx, storeId: string, itemId: string): Promise<StockRow[]> {
+  const rows = await tx.stockBalance.findMany({
+    where: { storeId, quantity: { gt: 0 }, batch: { itemId } },
+    include: { batch: { select: { batchNo: true, expiryDate: true } } },
+  });
+  return rows.map((r) => ({ batchId: r.batchId, batchNo: r.batch.batchNo, expiryDate: r.batch.expiryDate, quantity: r.quantity }));
 }
 
 type Shortage = { requested: number; available: number; expired: number };
@@ -189,7 +199,7 @@ type Planned = { itemId: string; quantity: number; picks: Pick[]; shortage?: Sho
  * Works out which batches each line comes from. Writes nothing. With lock=true the rows it reads are
  * locked until the transaction ends. Lines for the same item see what earlier lines already took.
  */
-async function plan(tx: Tx, storeId: string, lines: readonly IssueLine[], today: string, lock: boolean): Promise<Planned[]> {
+async function plan(tx: Tx, storeId: string, lines: readonly IssueLine[], today: string): Promise<Planned[]> {
   const taken = new Map<string, number>();
   const out: Planned[] = [];
   // Stable sort by item: the same lock order for everyone.
@@ -197,10 +207,10 @@ async function plan(tx: Tx, storeId: string, lines: readonly IssueLine[], today:
 
   for (const { l } of ordered) {
     if (l.batchId) {
-      out.push(await planOverride(tx, storeId, l, today, lock, taken));
+      out.push(await planOverride(tx, storeId, l, today, taken));
       continue;
     }
-    const rows = (await stockRows(tx, storeId, l.itemId, lock)).map((r) => ({ ...r, quantity: r.quantity - (taken.get(r.batchId) ?? 0) }));
+    const rows = (await stockRows(tx, storeId, l.itemId)).map((r) => ({ ...r, quantity: r.quantity - (taken.get(r.batchId) ?? 0) }));
     const r = splitFefo(rows.map((x) => ({ batchId: x.batchId, expiryDate: x.expiryDate, quantity: x.quantity })), l.quantity, today);
     if (!r.ok) {
       out.push({ itemId: l.itemId, quantity: l.quantity, picks: [], shortage: { requested: r.requested, available: r.available, expired: r.expired } });
@@ -220,15 +230,14 @@ async function plan(tx: Tx, storeId: string, lines: readonly IssueLine[], today:
   return out;
 }
 
-async function planOverride(tx: Tx, storeId: string, l: IssueLine, today: string, lock: boolean, taken: Map<string, number>): Promise<Planned> {
+async function planOverride(tx: Tx, storeId: string, l: IssueLine, today: string, taken: Map<string, number>): Promise<Planned> {
   const reason = (l.overrideReason ?? "").trim();
   if (reason.length < 3) throw new StockError("OVERRIDE_REASON_REQUIRED", "Choosing a batch by hand needs a reason (at least 3 characters)");
   const batch = await tx.batch.findUnique({ where: { id: l.batchId! }, select: { id: true, itemId: true, batchNo: true, expiryDate: true } });
   if (!batch || batch.itemId !== l.itemId) throw bad("That batch does not belong to this item");
   if (isExpired(batch.expiryDate, today)) throw new StockError("EXPIRED_BATCH", `Batch ${batch.batchNo} has expired and cannot be issued`, { batchId: batch.id });
-  const forUpdate = lock ? Prisma.sql`FOR UPDATE` : Prisma.empty;
-  const rows = await tx.$queryRaw<{ quantity: number }[]>`SELECT quantity FROM stock_balance WHERE store_id = ${storeId} AND batch_id = ${batch.id} ${forUpdate}`;
-  const available = (rows[0]?.quantity ?? 0) - (taken.get(batch.id) ?? 0);
+  const bal = await tx.stockBalance.findUnique({ where: { storeId_batchId: { storeId, batchId: batch.id } }, select: { quantity: true } });
+  const available = (bal?.quantity ?? 0) - (taken.get(batch.id) ?? 0);
   if (available < l.quantity)
     return { itemId: l.itemId, quantity: l.quantity, picks: [], shortage: { requested: l.quantity, available: Math.max(0, available), expired: 0 } };
   taken.set(batch.id, (taken.get(batch.id) ?? 0) + l.quantity);
@@ -262,7 +271,7 @@ export async function previewPicks(
   opts: Opts = {},
 ): Promise<Planned[]> {
   checkLines(input.lines);
-  return plan(db as unknown as Tx, input.storeId, input.lines, opts.today ?? todayIST(), false);
+  return plan(db as unknown as Tx, input.storeId, input.lines, opts.today ?? todayIST());
 }
 
 /** Shared by issue, dispense and transfer: pick under lock, then post the outgoing movements. */
@@ -281,7 +290,7 @@ async function takeStock(
   },
 ): Promise<Pick[]> {
   await lockItems(tx, a.lines.map((l) => l.itemId));
-  const planned = await plan(tx, a.storeId, a.lines, a.today, true);
+  const planned = await plan(tx, a.storeId, a.lines, a.today);
   throwIfShort(planned);
   const picks: Pick[] = [];
   for (const p of planned) {
@@ -526,8 +535,8 @@ async function moveOneBatch(a: SingleBatchArgs) {
     await lockItems(tx, [batch.itemId]);
     if (a.requireExpired && !isExpired(batch.expiryDate, a.today))
       throw new StockError("NOT_EXPIRED", `Batch ${batch.batchNo} has not expired (expires ${toDay(batch.expiryDate)}). Use an adjustment or a return instead.`);
-    const rows = await tx.$queryRaw<{ quantity: number }[]>`SELECT quantity FROM stock_balance WHERE store_id = ${a.storeId} AND batch_id = ${a.batchId} FOR UPDATE`;
-    const available = rows[0]?.quantity ?? 0;
+    const bal = await tx.stockBalance.findUnique({ where: { storeId_batchId: { storeId: a.storeId, batchId: a.batchId } }, select: { quantity: true } });
+    const available = bal?.quantity ?? 0;
     if (a.delta < 0 && available + a.delta < 0)
       throw new StockError("INSUFFICIENT_STOCK", `Only ${available} in stock`, { requested: -a.delta, available });
     const movementId = await post(tx, {
@@ -638,10 +647,8 @@ export async function issueIndent(
 ): Promise<IndentIssueResult> {
   const today = opts.today ?? todayIST();
   return run(async (tx) => {
-    const found = await tx.$queryRaw<{ id: string; status: string; fromStoreId: string; toStoreId: string; seq: number }[]>`
-      SELECT id, status::text AS status, from_store_id AS "fromStoreId", to_store_id AS "toStoreId", seq
-      FROM indent WHERE id = ${input.indentId} FOR UPDATE`;
-    const ind = found[0];
+    await lockKeys(tx, [`indent:${input.indentId}`]); // two people pressing Issue at once queue here
+    const ind = await tx.indent.findUnique({ where: { id: input.indentId }, select: { id: true, status: true, fromStoreId: true, toStoreId: true, seq: true } });
     if (!ind) throw new StockError("NOT_FOUND", "Indent not found");
     if (!canDo("issue", ind.status as IndentStatus))
       throw new StockError("INVALID_STATE", `Indent #${ind.seq} is ${ind.status.toLowerCase()}, so it cannot be issued`);
@@ -657,12 +664,12 @@ export async function issueIndent(
     const shortages: Record<string, unknown>[] = [];
     for (const l of todo) {
       let want = outstanding(l);
-      let [p] = await plan(tx, ind.toStoreId, [{ itemId: l.itemId, quantity: want }], today, true);
+      let [p] = await plan(tx, ind.toStoreId, [{ itemId: l.itemId, quantity: want }], today);
       if (p?.shortage) {
         shortages.push({ itemId: l.itemId, wanted: want, available: p.shortage.available, expired: p.shortage.expired });
         want = p.shortage.available;
         if (want <= 0) continue;
-        [p] = await plan(tx, ind.toStoreId, [{ itemId: l.itemId, quantity: want }], today, true);
+        [p] = await plan(tx, ind.toStoreId, [{ itemId: l.itemId, quantity: want }], today);
       }
       if (!p || p.shortage) continue;
       for (const pick of p.picks) {
@@ -700,9 +707,8 @@ export async function issueIndent(
 export async function applyCount(input: { countId: string; approverId: string; ip?: string | null }) {
   return run(async (tx) => {
     await requireApprover(tx, input.approverId);
-    const found = await tx.$queryRaw<{ id: string; status: string; storeId: string; seq: number }[]>`
-      SELECT id, status::text AS status, store_id AS "storeId", seq FROM stock_count WHERE id = ${input.countId} FOR UPDATE`;
-    const c = found[0];
+    await lockKeys(tx, [`count:${input.countId}`]); // approving twice at once queues here
+    const c = await tx.stockCount.findUnique({ where: { id: input.countId }, select: { id: true, status: true, storeId: true, seq: true } });
     if (!c) throw new StockError("NOT_FOUND", "Stock count not found");
     if (c.status !== "SUBMITTED")
       throw new StockError("INVALID_STATE", `Count #${c.seq} is ${c.status.toLowerCase()}, so it cannot be approved`);
@@ -717,8 +723,8 @@ export async function applyCount(input: { countId: string; approverId: string; i
     let adjustments = 0;
     let netUnits = 0;
     for (const l of lines) {
-      const rows = await tx.$queryRaw<{ quantity: number }[]>`SELECT quantity FROM stock_balance WHERE store_id = ${c.storeId} AND batch_id = ${l.batchId} FOR UPDATE`;
-      const current = rows[0]?.quantity ?? 0;
+      const bal = await tx.stockBalance.findUnique({ where: { storeId_batchId: { storeId: c.storeId, batchId: l.batchId } }, select: { quantity: true } });
+      const current = bal?.quantity ?? 0;
       const counted = l.countedQty ?? 0;
       const delta = counted - current;
       if (delta === 0) continue;
@@ -751,14 +757,22 @@ export type LedgerMismatch = { storeId: string; batchId: string; balance: number
  * Returns the rows where it does not (an empty list means everything matches).
  */
 export async function ledgerMismatches(opts: { storeIds?: string[] } = {}): Promise<LedgerMismatch[]> {
-  const ids = opts.storeIds?.length ? opts.storeIds : null;
-  const inner = ids ? Prisma.sql`WHERE store_id IN (${Prisma.join(ids)})` : Prisma.empty;
-  const outer = ids ? Prisma.sql`AND COALESCE(b.store_id, m.store_id) IN (${Prisma.join(ids)})` : Prisma.empty;
-  return db.$queryRaw<LedgerMismatch[]>`
-    SELECT COALESCE(b.store_id, m.store_id) AS "storeId", COALESCE(b.batch_id, m.batch_id) AS "batchId",
-           COALESCE(b.quantity, 0)::int AS balance, COALESCE(m.total, 0)::int AS ledger
-    FROM stock_balance b
-    FULL OUTER JOIN (SELECT store_id, batch_id, SUM(quantity)::int AS total FROM stock_movement ${inner} GROUP BY store_id, batch_id) m
-      ON m.store_id = b.store_id AND m.batch_id = b.batch_id
-    WHERE COALESCE(b.quantity, 0) <> COALESCE(m.total, 0) ${outer}`;
+  const where = opts.storeIds?.length ? { storeId: { in: opts.storeIds } } : {};
+  const [sums, balances] = await Promise.all([
+    db.stockMovement.groupBy({ by: ["storeId", "batchId"], where, _sum: { quantity: true } }),
+    db.stockBalance.findMany({ where }),
+  ]);
+  const key = (storeId: string, batchId: string) => `${storeId}|${batchId}`;
+  const ledger = new Map(sums.map((x) => [key(x.storeId, x.batchId), x._sum.quantity ?? 0]));
+  const held = new Map(balances.map((x) => [key(x.storeId, x.batchId), x.quantity]));
+  const out: LedgerMismatch[] = [];
+  for (const k of new Set([...ledger.keys(), ...held.keys()])) {
+    const l = ledger.get(k) ?? 0;
+    const b = held.get(k) ?? 0;
+    if (l !== b) {
+      const [storeId, batchId] = k.split("|") as [string, string];
+      out.push({ storeId, batchId, balance: b, ledger: l });
+    }
+  }
+  return out;
 }

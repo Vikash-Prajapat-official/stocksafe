@@ -16,7 +16,9 @@ export async function anonymisePatientLabels(opts: { days: number; now?: Date })
   if (!Number.isInteger(opts.days) || opts.days < 1) throw new RangeError("retention must be a whole number of days, 1 or more");
   const now = opts.now ?? new Date();
   const cutoff = new Date(now.getTime() - opts.days * 86_400_000);
-  return db.$executeRaw`
-    UPDATE movement_patient SET label = NULL, anonymised_at = ${now}
-    WHERE anonymised_at IS NULL AND label IS NOT NULL AND created_at < ${cutoff}`;
+  const r = await db.movementPatient.updateMany({
+    where: { anonymisedAt: null, label: { not: null }, createdAt: { lt: cutoff } },
+    data: { label: null, anonymisedAt: now },
+  });
+  return r.count;
 }

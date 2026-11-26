@@ -3,14 +3,18 @@ import { SMTPServer } from "smtp-server";
 import { afterAll, describe, expect, it } from "vitest";
 import { listAudit } from "@/lib/audit-query";
 import { db } from "@/lib/db";
+import { isSqlite } from "@/lib/dialect";
 import { todayIST } from "@/lib/fefo";
 import { getLedger } from "@/lib/ledger";
 import { anonymisePatientLabels } from "@/lib/retention";
 import { buildReport } from "@/lib/reports";
+import { nextSeq } from "@/lib/seq";
 import { dispense, issue, ledgerMismatches, receive, writeOff } from "@/lib/stock";
 import { createMailTransport, runAlertJob, runRetentionJob } from "@/worker/jobs";
 
 // ---------- helpers ----------
+// What a refused write to an append-only table looks like: PostgreSQL says "append-only"; Prisma reports SQLite's trigger abort as a constraint error.
+const APPEND_ONLY = /append-only|constraint/i;
 let counter = 0;
 const uid = () => `${Date.now().toString(36)}${(counter++).toString(36)}${Math.random().toString(36).slice(2, 6)}`;
 const TODAY = todayIST();
@@ -71,7 +75,7 @@ describe("patient labels live beside the ledger, so retention never touches a mo
     const old1 = await dispenseOne(w, it.id, 1, "Ramesh Kumar");
     const old2 = await dispenseOne(w, it.id, 1, "Sita Devi");
     const fresh = await dispenseOne(w, it.id, 1, "OPD 99");
-    await db.$executeRaw`UPDATE movement_patient SET created_at = now() - interval '100 days' WHERE movement_id IN (SELECT id FROM stock_movement WHERE ref_id IN (${old1.refId}, ${old2.refId}))`;
+    await db.movementPatient.updateMany({ where: { movement: { refId: { in: [old1.refId, old2.refId] } } }, data: { createdAt: new Date(Date.now() - 100 * 86_400_000) } });
     const movementsBefore = await db.stockMovement.findMany({ where: { storeId: w.store.id }, orderBy: { seq: "asc" } });
 
     expect(await anonymisePatientLabels({ days: 90 })).toBeGreaterThanOrEqual(2);
@@ -120,9 +124,10 @@ describe("audit log", () => {
   it("cannot be edited or deleted, even by direct SQL", async () => {
     const w = await world();
     const row = await db.auditLog.create({ data: { actorUserId: w.admin.id, action: "TEST_ACTION", entity: "test", entityId: "1" } });
-    await expect(db.auditLog.update({ where: { id: row.id }, data: { action: "CHANGED" } })).rejects.toThrow(/append-only/);
-    await expect(db.auditLog.delete({ where: { id: row.id } })).rejects.toThrow(/append-only/);
-    await expect(db.$executeRaw`TRUNCATE audit_log`).rejects.toThrow(/append-only/);
+    await expect(db.auditLog.update({ where: { id: row.id }, data: { action: "CHANGED" } })).rejects.toThrow(APPEND_ONLY);
+    await expect(db.auditLog.delete({ where: { id: row.id } })).rejects.toThrow(APPEND_ONLY);
+    // PostgreSQL has a separate guard for TRUNCATE (it skips row triggers); SQLite has no TRUNCATE, only a bulk delete
+    await expect(isSqlite ? db.$executeRaw`DELETE FROM audit_log` : db.$executeRaw`TRUNCATE audit_log`).rejects.toThrow(APPEND_ONLY);
   });
 
   it("can be filtered by who, what, entity and date, newest first, with paging", async () => {
@@ -231,8 +236,8 @@ describe("reports", () => {
     const b = await w.item("OutDaysB");
     const never = await w.item("OutDaysNever");
     const batch = (itemId: string, expiry: string, no: string) => db.batch.create({ data: { itemId, batchNo: no, expiryDate: new Date(`${expiry}T00:00:00Z`), mrpPaise: 1, costPaise: 1 } });
-    const mv = (batchId: string, qty: number, offset: number, type: "RECEIPT" | "ISSUE") =>
-      db.stockMovement.create({ data: { type, batchId, storeId: w.store.id, quantity: qty, actorUserId: w.keeper.id, at: istNoon(offset) } });
+    const mv = async (batchId: string, qty: number, offset: number, type: "RECEIPT" | "ISSUE") =>
+      db.stockMovement.create({ data: { seq: await nextSeq(db, "stockMovement"), type, batchId, storeId: w.store.id, quantity: qty, actorUserId: w.keeper.id, at: istNoon(offset) } });
     // A: +10 on day -6, all issued on day -4, +5 on day -1  => nothing on days -4, -3, -2
     const ba = await batch(a.id, addDays(TODAY, 300), "A1");
     await mv(ba.id, 10, -6, "RECEIPT");
@@ -262,7 +267,7 @@ describe("reports", () => {
     expect(r.totals).toMatchObject({ value: 2100 });
   });
 
-  it("reads from the SQL views", async () => {
+  it.skipIf(isSqlite)("reads from the SQL views", async () => {
     const rows = await db.$queryRaw<{ n: bigint }[]>`SELECT (SELECT count(*) FROM report_stock_on_hand) + (SELECT count(*) FROM report_consumption) AS n`;
     expect(Number(rows[0]!.n)).toBeGreaterThanOrEqual(0);
   });

@@ -432,8 +432,8 @@ describe("ledger integrity", () => {
     const w = await world();
     await recv(w, { batchNo: "A", expiry: addDays(TODAY, 30), qty: 3 });
     const m = (await movements(w.s0.id, await batchIdOf(w, "A")))[0]!;
-    await expect(db.stockMovement.update({ where: { id: m.id }, data: { quantity: 999 } })).rejects.toThrow(/append-only/);
-    await expect(db.stockMovement.delete({ where: { id: m.id } })).rejects.toThrow(/append-only/);
+    await expect(db.stockMovement.update({ where: { id: m.id }, data: { quantity: 999 } })).rejects.toThrow(/append-only|constraint/i);
+    await expect(db.stockMovement.delete({ where: { id: m.id } })).rejects.toThrow(/append-only|constraint/i);
   });
 
   it("the database refuses a negative balance", async () => {

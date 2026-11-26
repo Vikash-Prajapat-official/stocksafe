@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button, ButtonLink } from "@/components/ui/button";
@@ -40,6 +41,10 @@ const EMPTY: ItemFormValues = {
 
 export function ItemFormView({ initial }: { initial?: ItemFormValues }) {
   const router = useRouter();
+  const t = useTranslations("itemForm");
+  const tc = useTranslations("common");
+  const tf = useTranslations("forms");
+  const ts = useTranslations("storages");
   const editing = Boolean(initial?.id);
   const [v, setV] = useState<ItemFormValues>(initial ?? EMPTY);
   const [error, setError] = useState<string | null>(null);
@@ -70,13 +75,13 @@ export function ItemFormView({ initial }: { initial?: ItemFormValues }) {
       });
       if (!res.ok) {
         const data = (await res.json().catch(() => null)) as { error?: { message?: string } } | null;
-        setError(data?.error?.message ?? "Could not save. Please try again.");
+        setError(data?.error?.message ?? t("saveFailed"));
         return;
       }
       router.push("/items");
       router.refresh();
     } catch {
-      setError("Could not reach the server. Please try again.");
+      setError(tc("offline"));
     } finally {
       setBusy(false);
     }
@@ -85,16 +90,16 @@ export function ItemFormView({ initial }: { initial?: ItemFormValues }) {
   return (
     <form onSubmit={submit} className="space-y-5">
       <div className="grid gap-4 sm:grid-cols-2">
-        <Field label="Name" htmlFor="name">
+        <Field label={tc("name")} htmlFor="name">
           <Input id="name" required value={v.name} onChange={(e) => set("name", e.target.value)} />
         </Field>
-        <Field label="Generic name" htmlFor="genericName">
+        <Field label={t("genericName")} htmlFor="genericName">
           <Input id="genericName" value={v.genericName ?? ""} onChange={(e) => set("genericName", e.target.value)} />
         </Field>
-        <Field label="Strength" htmlFor="strength" hint="For example 500 mg or 5 mg/ml">
+        <Field label={t("strength")} htmlFor="strength" hint={t("strengthHint")}>
           <Input id="strength" value={v.strength ?? ""} onChange={(e) => set("strength", e.target.value)} />
         </Field>
-        <Field label="Form" htmlFor="form">
+        <Field label={t("form")} htmlFor="form">
           <Select
             id="form"
             value={v.form}
@@ -107,25 +112,25 @@ export function ItemFormView({ initial }: { initial?: ItemFormValues }) {
           >
             {ITEM_FORMS.map((f) => (
               <option key={f} value={f}>
-                {f.charAt(0) + f.slice(1).toLowerCase()}
+                {tf(f)}
               </option>
             ))}
           </Select>
         </Field>
-        <Field label="Unit" htmlFor="unit" hint="What you count in the store: tablet, vial, bottle, tube, piece">
+        <Field label={tc("unit")} htmlFor="unit" hint={t("unitHint")}>
           <Input id="unit" required value={v.unit} onChange={(e) => set("unit", e.target.value)} />
         </Field>
-        <Field label="Category" htmlFor="category">
+        <Field label={t("category")} htmlFor="category">
           <Input id="category" value={v.category ?? ""} onChange={(e) => set("category", e.target.value)} />
         </Field>
-        <Field label="Barcode (GTIN)" htmlFor="gtin" hint="Optional. The number under the barcode on the pack. Lets a scan pick this item.">
+        <Field label={t("gtin")} htmlFor="gtin" hint={t("gtinHint")}>
           <Input id="gtin" inputMode="numeric" value={v.gtin ?? ""} onChange={(e) => set("gtin", e.target.value)} />
         </Field>
-        <Field label="Storage" htmlFor="storage">
+        <Field label={t("storage")} htmlFor="storage">
           <Select id="storage" value={v.storage} onChange={(e) => set("storage", e.target.value as "ROOM" | "COLD")}>
             {STORAGES.map((s) => (
               <option key={s} value={s}>
-                {s === "COLD" ? "Cold chain (2 to 8 °C)" : "Room temperature"}
+                {ts(s)}
               </option>
             ))}
           </Select>
@@ -133,30 +138,30 @@ export function ItemFormView({ initial }: { initial?: ItemFormValues }) {
         <div className="flex flex-col justify-end gap-2">
           <label className="flex items-center gap-2 text-sm">
             <input type="checkbox" checked={v.isEssential} onChange={(e) => set("isEssential", e.target.checked)} />
-            Essential medicine (NLEM)
+            {t("essential")}
           </label>
           {editing ? (
             <label className="flex items-center gap-2 text-sm">
               <input type="checkbox" checked={v.active ?? true} onChange={(e) => set("active", e.target.checked)} />
-              Active
+              {tc("active")}
             </label>
           ) : null}
         </div>
       </div>
 
       <fieldset className="space-y-2">
-        <legend className="text-sm font-medium">Stock levels</legend>
+        <legend className="text-sm font-medium">{t("levels")}</legend>
         <p className="text-xs text-neutral-500">
-          Counted in the unit above. Use 0 for &quot;not set&quot;. Minimum ≤ reorder ≤ maximum.
+          {t("levelsHint")}
         </p>
         <div className="grid gap-4 sm:grid-cols-3">
-          <Field label="Minimum" htmlFor="minLevel">
+          <Field label={t("minimum")} htmlFor="minLevel">
             {num("minLevel")}
           </Field>
-          <Field label="Reorder level" htmlFor="reorderLevel">
+          <Field label={t("reorderLevel")} htmlFor="reorderLevel">
             {num("reorderLevel")}
           </Field>
-          <Field label="Maximum" htmlFor="maxLevel">
+          <Field label={t("maximum")} htmlFor="maxLevel">
             {num("maxLevel")}
           </Field>
         </div>
@@ -165,10 +170,10 @@ export function ItemFormView({ initial }: { initial?: ItemFormValues }) {
       <FormError message={error} />
       <div className="flex gap-2">
         <Button type="submit" disabled={busy}>
-          {busy ? "Saving..." : editing ? "Save changes" : "Add item"}
+          {busy ? tc("saving") : editing ? t("saveChanges") : t("addItem")}
         </Button>
         <ButtonLink href="/items" variant="outline">
-          Cancel
+          {tc("cancel")}
         </ButtonLink>
       </div>
     </form>

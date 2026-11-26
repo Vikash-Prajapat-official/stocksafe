@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
+import { getLocale, getTranslations } from "next-intl/server";
+import { dateTimeFormat } from "@/i18n/labels";
+import { intlTag, type Locale } from "@/i18n/locale";
 import { CountDecision } from "@/components/count-actions";
 import { CountSheet } from "@/components/count-sheet";
 import { Badge } from "@/components/ui/fields";
@@ -11,12 +14,14 @@ import { requirePageUser } from "@/lib/session";
 
 export const dynamic = "force-dynamic";
 
-const LABEL = { OPEN: "Counting", SUBMITTED: "Waiting for approval", APPROVED: "Approved" } as const;
 const signed = (p: number) => (p < 0 ? `−${formatPaise(-p)}` : p > 0 ? `+${formatPaise(p)}` : formatPaise(0));
 const signedUnits = (n: number) => (n < 0 ? `−${-n}` : n > 0 ? `+${n}` : "0");
 
 export default async function CountPage({ params }: { params: Promise<{ id: string }> }) {
   const user = await requirePageUser(["STOREKEEPER", "ADMIN", "AUDITOR"]);
+  const t = await getTranslations("counts");
+  const tc = await getTranslations("common");
+  const locale = (await getLocale()) as Locale;
   const { id } = await params;
   const c = await getCount(id).catch((e) => {
     if (e instanceof ApiError && e.status === 404) notFound();
@@ -26,7 +31,7 @@ export default async function CountPage({ params }: { params: Promise<{ id: stri
     const link = await db.userStore.findUnique({ where: { userId_storeId: { userId: user.id, storeId: c.storeId } } });
     if (!link) redirect("/counts");
   }
-  const fmt = new Intl.DateTimeFormat("en-IN", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Kolkata" });
+  const fmt = dateTimeFormat(intlTag(locale));
   const canCount = c.status === "OPEN" && user.role !== "AUDITOR";
   const counted = c.lines.filter((l) => l.countedQty !== null);
   const byImpact = [...counted].sort((a, b) => Math.abs(b.variance.valuePaise) - Math.abs(a.variance.valuePaise) || a.itemName.localeCompare(b.itemName));
@@ -36,14 +41,14 @@ export default async function CountPage({ params }: { params: Promise<{ id: stri
   return (
     <div className="space-y-5">
       <div>
-        <Link href="/counts" className="text-sm text-primary hover:underline">← All counts</Link>
+        <Link href="/counts" className="text-sm text-primary hover:underline">← {t("all")}</Link>
         <div className="mt-1 flex flex-wrap items-center gap-3">
-          <h1 className="text-xl font-semibold">Count #{c.seq}: {c.storeName}</h1>
-          <Badge tone={c.status === "APPROVED" ? "green" : "neutral"}>{LABEL[c.status]}</Badge>
+          <h1 className="text-xl font-semibold">{t("heading", { seq: c.seq, store: c.storeName })}</h1>
+          <Badge tone={c.status === "APPROVED" ? "green" : "neutral"}>{t(`status.${c.status}`)}</Badge>
         </div>
         <p className="mt-1 text-sm text-neutral-600">
-          Started by {c.startedByName} on <span className="tabular-nums">{fmt.format(c.createdAt)}</span>
-          {c.approvedByName ? <> · approved by {c.approvedByName} on <span className="tabular-nums">{c.approvedAt ? fmt.format(c.approvedAt) : ""}</span></> : null}
+          {t("startedLine", { by: c.startedByName })} <span className="tabular-nums">{fmt.format(c.createdAt)}</span>
+          {c.approvedByName ? <> · {t("approvedLine", { by: c.approvedByName })} <span className="tabular-nums">{c.approvedAt ? fmt.format(c.approvedAt) : ""}</span></> : null}
         </p>
       </div>
 
@@ -54,31 +59,31 @@ export default async function CountPage({ params }: { params: Promise<{ id: stri
         />
       ) : (
         <>
-          {c.status === "OPEN" ? <p className="rounded-md border bg-neutral-50 px-3 py-2 text-sm">This count is still being done by the store ({counted.length} of {c.lines.length} batches counted so far).</p> : null}
+          {c.status === "OPEN" ? <p className="rounded-md border bg-neutral-50 px-3 py-2 text-sm">{t("inProgress", { done: counted.length, total: c.lines.length })}</p> : null}
 
-          <section aria-label="Variance summary" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-lg border p-4"><div className="text-sm text-neutral-600">Counted</div><div className="text-2xl font-semibold tabular-nums">{s.counted} <span className="text-base font-normal text-neutral-500">of {s.total}</span></div></div>
-            <div className="rounded-lg border p-4"><div className="text-sm text-neutral-600">Short (missing stock)</div><div className="text-2xl font-semibold tabular-nums">{formatPaise(s.lossPaise)}</div><div className="text-xs text-neutral-500">{s.short} batch{s.short === 1 ? "" : "es"}</div></div>
-            <div className="rounded-lg border p-4"><div className="text-sm text-neutral-600">Over (extra stock)</div><div className="text-2xl font-semibold tabular-nums">{formatPaise(s.gainPaise)}</div><div className="text-xs text-neutral-500">{s.over} batch{s.over === 1 ? "" : "es"}</div></div>
-            <div className="rounded-lg border p-4"><div className="text-sm text-neutral-600">Net difference</div><div className="text-2xl font-semibold tabular-nums">{signed(s.netPaise)}</div><div className="text-xs text-neutral-500">{signedUnits(s.netUnits)} units · {s.matching} matched</div></div>
+          <section aria-label={t("varianceSummary")} className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-lg border p-4"><div className="text-sm text-neutral-600">{t("counted")}</div><div className="text-2xl font-semibold tabular-nums">{s.counted} <span className="text-base font-normal text-neutral-500">{t("ofTotal", { total: s.total })}</span></div></div>
+            <div className="rounded-lg border p-4"><div className="text-sm text-neutral-600">{t("short")}</div><div className="text-2xl font-semibold tabular-nums">{formatPaise(s.lossPaise)}</div><div className="text-xs text-neutral-500">{tc("batches", { count: s.short })}</div></div>
+            <div className="rounded-lg border p-4"><div className="text-sm text-neutral-600">{t("over")}</div><div className="text-2xl font-semibold tabular-nums">{formatPaise(s.gainPaise)}</div><div className="text-xs text-neutral-500">{tc("batches", { count: s.over })}</div></div>
+            <div className="rounded-lg border p-4"><div className="text-sm text-neutral-600">{t("net")}</div><div className="text-2xl font-semibold tabular-nums">{signed(s.netPaise)}</div><div className="text-xs text-neutral-500">{t("netSub", { units: signedUnits(s.netUnits), matched: s.matching })}</div></div>
           </section>
 
           <div className="overflow-x-auto rounded-lg border">
             <table className="w-full min-w-[52rem] text-left text-sm">
               <thead className="bg-neutral-50 text-neutral-600">
                 <tr>
-                  <th scope="col" className="px-3 py-2 font-medium">Item</th>
-                  <th scope="col" className="px-3 py-2 font-medium">Batch</th>
-                  <th scope="col" className="px-3 py-2 text-right font-medium">System</th>
-                  <th scope="col" className="px-3 py-2 text-right font-medium">Counted</th>
-                  <th scope="col" className="px-3 py-2 text-right font-medium">Difference</th>
-                  <th scope="col" className="px-3 py-2 text-right font-medium">Value</th>
-                  <th scope="col" className="px-3 py-2 font-medium">Note</th>
+                  <th scope="col" className="px-3 py-2 font-medium">{tc("item")}</th>
+                  <th scope="col" className="px-3 py-2 font-medium">{tc("batch")}</th>
+                  <th scope="col" className="px-3 py-2 text-right font-medium">{t("system")}</th>
+                  <th scope="col" className="px-3 py-2 text-right font-medium">{t("counted")}</th>
+                  <th scope="col" className="px-3 py-2 text-right font-medium">{t("difference")}</th>
+                  <th scope="col" className="px-3 py-2 text-right font-medium">{tc("value")}</th>
+                  <th scope="col" className="px-3 py-2 font-medium">{tc("note")}</th>
                 </tr>
               </thead>
               <tbody className="divide-y">
                 {byImpact.length === 0 ? (
-                  <tr><td colSpan={7} className="px-3 py-8 text-center text-neutral-500">No lines have been counted.</td></tr>
+                  <tr><td colSpan={7} className="px-3 py-8 text-center text-neutral-500">{t("noneCounted")}</td></tr>
                 ) : (
                   byImpact.map((l) => (
                     <tr key={l.id} className={l.variance.units === 0 ? "text-neutral-500" : undefined}>
@@ -88,7 +93,7 @@ export default async function CountPage({ params }: { params: Promise<{ id: stri
                       <td className="px-3 py-2 text-right tabular-nums">{l.countedQty}</td>
                       <td className="px-3 py-2 text-right font-medium tabular-nums">{signedUnits(l.variance.units)}</td>
                       <td className="px-3 py-2 text-right tabular-nums">{signed(l.variance.valuePaise)}</td>
-                      <td className="px-3 py-2 text-xs">{l.movedSince && c.status !== "APPROVED" ? `Stock moved during the count: system now ${l.currentQty}` : ""}</td>
+                      <td className="px-3 py-2 text-xs">{l.movedSince && c.status !== "APPROVED" ? t("moved", { qty: l.currentQty }) : ""}</td>
                     </tr>
                   ))
                 )}
@@ -98,21 +103,21 @@ export default async function CountPage({ params }: { params: Promise<{ id: stri
 
           {s.uncounted > 0 ? (
             <details className="text-sm">
-              <summary className="cursor-pointer text-neutral-700">{s.uncounted} batch{s.uncounted === 1 ? " was" : "es were"} not counted and will be left unchanged</summary>
+              <summary className="cursor-pointer text-neutral-700">{t("uncounted", { count: s.uncounted })}</summary>
               <ul className="mt-2 list-inside list-disc text-neutral-600">
-                {c.lines.filter((l) => l.countedQty === null).map((l) => <li key={l.id}>{l.itemName}, batch {l.batchNo} (system {l.systemQty})</li>)}
+                {c.lines.filter((l) => l.countedQty === null).map((l) => <li key={l.id}>{t("uncountedLine", { item: l.itemName, batch: l.batchNo, qty: l.systemQty })}</li>)}
               </ul>
             </details>
           ) : null}
 
           {c.status === "SUBMITTED" && moved > 0 ? (
             <p className="rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm">
-              {moved} counted batch{moved === 1 ? " has" : "es have"} had stock movements since the count started. Approval adjusts to the quantity counted compared with the stock in the system at the moment you approve. If the movements happened after the shelf was counted, send it back for a recount.
+              {t("movedWarning", { count: moved })}
             </p>
           ) : null}
 
-          {c.status === "SUBMITTED" && user.role === "ADMIN" ? <CountDecision id={c.id} netUnits={s.netUnits} lossText={`${signed(s.netPaise)} at cost`} /> : null}
-          {c.status === "SUBMITTED" && user.role !== "ADMIN" ? <p className="text-sm text-neutral-600">Waiting for an admin to approve or send it back.</p> : null}
+          {c.status === "SUBMITTED" && user.role === "ADMIN" ? <CountDecision id={c.id} netUnits={s.netUnits} lossText={t("atCost", { amount: signed(s.netPaise) })} /> : null}
+          {c.status === "SUBMITTED" && user.role !== "ADMIN" ? <p className="text-sm text-neutral-600">{t("waitingAdmin")}</p> : null}
         </>
       )}
     </div>

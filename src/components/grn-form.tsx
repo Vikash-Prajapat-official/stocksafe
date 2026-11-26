@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { BarcodeScanner } from "@/components/barcode-scanner";
 import { Button } from "@/components/ui/button";
@@ -14,15 +15,19 @@ type Done = { grnId: string; totalPaise: number; warnings: string[]; lines: numb
 
 let nextKey = 1;
 
-function expiryNote(expiry: string, today: string): { text: string; cls: string } | null {
+type Tr = (key: string, values?: Record<string, string | number>) => string;
+
+function expiryNote(t: Tr, expiry: string, today: string): { text: string; cls: string } | null {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(expiry)) return null;
   const days = Math.round((Date.parse(`${expiry}T00:00:00Z`) - Date.parse(`${today}T00:00:00Z`)) / 86_400_000);
-  if (days < 0) return { text: "Already expired: cannot be received", cls: "text-red-700" };
-  if (days <= 90) return { text: `Short expiry: ${days} days`, cls: "text-amber-700" };
+  if (days < 0) return { text: t("alreadyExpired"), cls: "text-red-700" };
+  if (days <= 90) return { text: t("shortExpiry", { days }), cls: "text-amber-700" };
   return null;
 }
 
 export function GrnForm({ stores, suppliers, today }: { stores: Opt[]; suppliers: Opt[]; today: string }) {
+  const t = useTranslations("grn") as unknown as Tr;
+  const tc = useTranslations("common");
   const [storeId, setStoreId] = useState(stores[0]?.id ?? "");
   const [supplierId, setSupplierId] = useState(suppliers[0]?.id ?? "");
   const [invoiceNo, setInvoiceNo] = useState("");
@@ -45,7 +50,7 @@ export function GrnForm({ stores, suppliers, today }: { stores: Opt[]; suppliers
     setCamera(false);
     setCode("");
     if (!g.gtin && !g.batchNo && !g.expiry) {
-      setScanMsg(`Could not read "${text.slice(0, 40)}" as a medicine barcode.`);
+      setScanMsg(t("unreadable", { code: text.slice(0, 40) }));
       return;
     }
     let item: PickedItem | undefined;
@@ -58,18 +63,18 @@ export function GrnForm({ stores, suppliers, today }: { stores: Opt[]; suppliers
       }
     }
     const fill = { ...(g.batchNo ? { batchNo: g.batchNo } : {}), ...(g.expiry ? { expiry: g.expiry } : {}) };
-    const filled = [g.batchNo && "batch", g.expiry && "expiry"].filter(Boolean).join(" and ");
+    const filled = g.batchNo && g.expiry ? t("filledBoth") : g.batchNo ? t("filledBatch") : g.expiry ? t("filledExpiry") : "";
     if (item) {
       const last = lines[lines.length - 1];
       if (last && last.item.id === item.id && !last.batchNo && !last.expiry) patch(last.key, fill);
       else addLine(item, fill);
-      setScanMsg(`${itemLabel(item)}: ${filled || "item"} filled from the barcode.`);
+      setScanMsg(t("filledFromCode", { item: itemLabel(item), what: filled || t("filledItem") }));
     } else if (lines.length > 0 && filled) {
       const last = lines[lines.length - 1]!;
       patch(last.key, fill);
-      setScanMsg(`No item has this barcode, so the ${filled} went into the last line (${itemLabel(last.item)}). Check it is the right item.`);
+      setScanMsg(t("noItemLastLine", { what: filled, item: itemLabel(last.item) }));
     } else {
-      setScanMsg("No item has this barcode. Add the item first, then scan again. (You can save the barcode number on the item.)");
+      setScanMsg(t("noItem"));
     }
   }
 
@@ -83,19 +88,19 @@ export function GrnForm({ stores, suppliers, today }: { stores: Opt[]; suppliers
     e.preventDefault();
     setError(null);
     setDone(null);
-    if (!invoiceNo.trim()) return setError("Enter the invoice number.");
-    if (lines.length === 0) return setError("Add at least one item.");
+    if (!invoiceNo.trim()) return setError(t("needInvoice"));
+    if (lines.length === 0) return setError(t("needLine"));
     const payloadLines = [];
     for (const [i, l] of lines.entries()) {
-      const n = `Line ${i + 1} (${itemLabel(l.item)})`;
+      const n = t("lineName", { n: i + 1, item: itemLabel(l.item) });
       const qty = Number(l.qty);
-      if (!l.batchNo.trim()) return setError(`${n}: enter the batch number.`);
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(l.expiry)) return setError(`${n}: enter the expiry date.`);
-      if (!Number.isInteger(qty) || qty < 1) return setError(`${n}: quantity must be a whole number, 1 or more.`);
+      if (!l.batchNo.trim()) return setError(t("needBatch", { line: n }));
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(l.expiry)) return setError(t("needExpiry", { line: n }));
+      if (!Number.isInteger(qty) || qty < 1) return setError(t("needQty", { line: n }));
       const mrp = parseRupees(l.mrp);
       const cost = parseRupees(l.cost);
-      if (mrp === null) return setError(`${n}: enter the MRP in rupees, for example 25.50.`);
-      if (cost === null) return setError(`${n}: enter the purchase price in rupees, for example 19.99.`);
+      if (mrp === null) return setError(t("needMrp", { line: n }));
+      if (cost === null) return setError(t("needCost", { line: n }));
       payloadLines.push({ itemId: l.item.id, batchNo: l.batchNo.trim(), expiryDate: l.expiry, quantity: qty, mrpPaise: mrp, costPaise: cost });
     }
     setBusy(true);
@@ -108,13 +113,13 @@ export function GrnForm({ stores, suppliers, today }: { stores: Opt[]; suppliers
       const data = (await res.json().catch(() => null)) as
         | { grnId?: string; totalPaise?: number; warnings?: string[]; error?: { message?: string } }
         | null;
-      if (!res.ok || !data?.grnId) return setError(data?.error?.message ?? "Could not save the receipt. Please try again.");
+      if (!res.ok || !data?.grnId) return setError(data?.error?.message ?? t("saveFailed"));
       setDone({ grnId: data.grnId, totalPaise: data.totalPaise ?? 0, warnings: data.warnings ?? [], lines: payloadLines.length });
       setLines([]);
       setInvoiceNo("");
       setScanMsg(null);
     } catch {
-      setError("Could not reach the server. Nothing was saved. Please try again.");
+      setError(t("offlineNothingSaved"));
     } finally {
       setBusy(false);
     }
@@ -124,7 +129,7 @@ export function GrnForm({ stores, suppliers, today }: { stores: Opt[]; suppliers
     <form onSubmit={submit} className="space-y-5">
       {done ? (
         <div role="status" className="rounded-md border border-green-200 bg-green-50 px-3 py-2 text-sm text-green-800">
-          Received {done.lines} line(s), total <span className="tabular-nums font-medium">{formatPaise(done.totalPaise)}</span>. Receipt {done.grnId.slice(-8)}.
+          {t("received", { lines: done.lines })} <span className="tabular-nums font-medium">{formatPaise(done.totalPaise)}</span>. {t("receipt", { id: done.grnId.slice(-8) })}
           {done.warnings.map((w) => (
             <p key={w} className="mt-1 text-amber-800">{w}</p>
           ))}
@@ -132,24 +137,24 @@ export function GrnForm({ stores, suppliers, today }: { stores: Opt[]; suppliers
       ) : null}
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Field label="Receive into" htmlFor="storeId">
+        <Field label={t("receiveInto")} htmlFor="storeId">
           <Select id="storeId" value={storeId} onChange={(e) => setStoreId(e.target.value)}>
             {stores.map((s) => (
               <option key={s.id} value={s.id}>{s.name}</option>
             ))}
           </Select>
         </Field>
-        <Field label="Supplier" htmlFor="supplierId">
+        <Field label={t("supplier")} htmlFor="supplierId">
           <Select id="supplierId" value={supplierId} onChange={(e) => setSupplierId(e.target.value)} required>
             {suppliers.map((s) => (
               <option key={s.id} value={s.id}>{s.name}</option>
             ))}
           </Select>
         </Field>
-        <Field label="Invoice number" htmlFor="invoiceNo">
+        <Field label={t("invoiceNo")} htmlFor="invoiceNo">
           <Input id="invoiceNo" value={invoiceNo} onChange={(e) => setInvoiceNo(e.target.value)} required />
         </Field>
-        <Field label="Invoice date" htmlFor="invoiceDate">
+        <Field label={t("invoiceDate")} htmlFor="invoiceDate">
           <Input id="invoiceDate" type="date" value={invoiceDate} max={today} onChange={(e) => setInvoiceDate(e.target.value)} required />
         </Field>
       </div>
@@ -157,12 +162,12 @@ export function GrnForm({ stores, suppliers, today }: { stores: Opt[]; suppliers
       <div className="flex flex-wrap items-end gap-4">
         <ItemPicker onPick={(item) => addLine(item)} />
         <div className="max-w-xs">
-          <label htmlFor="scan" className="mb-1 block text-sm font-medium">Scan or type a barcode</label>
+          <label htmlFor="scan" className="mb-1 block text-sm font-medium">{t("scanLabel")}</label>
           <div className="flex gap-2">
             <Input
               id="scan"
               value={code}
-              placeholder="USB scanner types here"
+              placeholder={t("scanPlaceholder")}
               autoComplete="off"
               onChange={(e) => setCode(e.target.value)}
               onKeyDown={(e) => {
@@ -173,12 +178,12 @@ export function GrnForm({ stores, suppliers, today }: { stores: Opt[]; suppliers
               }}
             />
             <Button variant="outline" onClick={() => setCamera((c) => !c)}>
-              {camera ? "Stop" : "Camera"}
+              {camera ? t("stop") : t("camera")}
             </Button>
           </div>
         </div>
       </div>
-      {camera ? <BarcodeScanner onCode={(t) => void handleCode(t)} onClose={() => setCamera(false)} /> : null}
+      {camera ? <BarcodeScanner onCode={(text) => void handleCode(text)} onClose={() => setCamera(false)} /> : null}
       {scanMsg ? <p role="status" className="text-sm text-neutral-700">{scanMsg}</p> : null}
 
       {lines.length > 0 ? (
@@ -186,40 +191,40 @@ export function GrnForm({ stores, suppliers, today }: { stores: Opt[]; suppliers
           <table className="w-full min-w-[56rem] text-left text-sm">
             <thead className="bg-neutral-50 text-neutral-600">
               <tr>
-                <th scope="col" className="px-3 py-2 font-medium">Item</th>
-                <th scope="col" className="px-3 py-2 font-medium">Batch no.</th>
-                <th scope="col" className="px-3 py-2 font-medium">Expiry</th>
-                <th scope="col" className="px-3 py-2 font-medium">Quantity</th>
-                <th scope="col" className="px-3 py-2 font-medium">MRP (₹)</th>
-                <th scope="col" className="px-3 py-2 font-medium">Cost (₹)</th>
-                <th scope="col" className="px-3 py-2"><span className="sr-only">Remove</span></th>
+                <th scope="col" className="px-3 py-2 font-medium">{tc("item")}</th>
+                <th scope="col" className="px-3 py-2 font-medium">{t("batchNo")}</th>
+                <th scope="col" className="px-3 py-2 font-medium">{tc("expiry")}</th>
+                <th scope="col" className="px-3 py-2 font-medium">{tc("quantity")}</th>
+                <th scope="col" className="px-3 py-2 font-medium">{t("mrp")}</th>
+                <th scope="col" className="px-3 py-2 font-medium">{t("cost")}</th>
+                <th scope="col" className="px-3 py-2"><span className="sr-only">{tc("remove")}</span></th>
               </tr>
             </thead>
             <tbody className="divide-y align-top">
               {lines.map((l) => {
-                const note = expiryNote(l.expiry, today);
+                const note = expiryNote(t, l.expiry, today);
                 return (
                   <tr key={l.key}>
                     <td className="px-3 py-2">
                       {itemLabel(l.item)}
-                      <div className="text-xs text-neutral-500">{l.item.unit}{l.item.storage === "COLD" ? " · keep at 2–8 °C" : ""}</div>
+                      <div className="text-xs text-neutral-500">{l.item.unit}{l.item.storage === "COLD" ? ` · ${t("keepCold")}` : ""}</div>
                     </td>
-                    <td className="px-3 py-2"><Input aria-label={`Batch number for ${l.item.name}`} value={l.batchNo} onChange={(e) => patch(l.key, { batchNo: e.target.value })} className="w-32" /></td>
+                    <td className="px-3 py-2"><Input aria-label={t("batchFor", { item: l.item.name })} value={l.batchNo} onChange={(e) => patch(l.key, { batchNo: e.target.value })} className="w-32" /></td>
                     <td className="px-3 py-2">
-                      <Input aria-label={`Expiry date for ${l.item.name}`} type="date" value={l.expiry} onChange={(e) => patch(l.key, { expiry: e.target.value })} className="w-40" />
+                      <Input aria-label={t("expiryFor", { item: l.item.name })} type="date" value={l.expiry} onChange={(e) => patch(l.key, { expiry: e.target.value })} className="w-40" />
                       {note ? <div className={`mt-1 text-xs ${note.cls}`}>{note.text}</div> : null}
                     </td>
-                    <td className="px-3 py-2"><Input aria-label={`Quantity for ${l.item.name}`} inputMode="numeric" value={l.qty} onChange={(e) => patch(l.key, { qty: e.target.value })} className="w-24 tabular-nums" /></td>
-                    <td className="px-3 py-2"><Input aria-label={`MRP for ${l.item.name}`} inputMode="decimal" value={l.mrp} onChange={(e) => patch(l.key, { mrp: e.target.value })} className="w-24 tabular-nums" /></td>
-                    <td className="px-3 py-2"><Input aria-label={`Purchase price for ${l.item.name}`} inputMode="decimal" value={l.cost} onChange={(e) => patch(l.key, { cost: e.target.value })} className="w-24 tabular-nums" /></td>
-                    <td className="px-3 py-2"><Button size="sm" variant="ghost" onClick={() => setLines((ls) => ls.filter((x) => x.key !== l.key))}>Remove</Button></td>
+                    <td className="px-3 py-2"><Input aria-label={t("qtyFor", { item: l.item.name })} inputMode="numeric" value={l.qty} onChange={(e) => patch(l.key, { qty: e.target.value })} className="w-24 tabular-nums" /></td>
+                    <td className="px-3 py-2"><Input aria-label={t("mrpFor", { item: l.item.name })} inputMode="decimal" value={l.mrp} onChange={(e) => patch(l.key, { mrp: e.target.value })} className="w-24 tabular-nums" /></td>
+                    <td className="px-3 py-2"><Input aria-label={t("costFor", { item: l.item.name })} inputMode="decimal" value={l.cost} onChange={(e) => patch(l.key, { cost: e.target.value })} className="w-24 tabular-nums" /></td>
+                    <td className="px-3 py-2"><Button size="sm" variant="ghost" onClick={() => setLines((ls) => ls.filter((x) => x.key !== l.key))}>{tc("remove")}</Button></td>
                   </tr>
                 );
               })}
             </tbody>
             <tfoot className="bg-neutral-50 font-medium">
               <tr>
-                <td colSpan={5} className="px-3 py-2 text-right">Invoice total (at cost)</td>
+                <td colSpan={5} className="px-3 py-2 text-right">{t("invoiceTotal")}</td>
                 <td className="px-3 py-2 tabular-nums">{formatPaise(total)}</td>
                 <td />
               </tr>
@@ -227,12 +232,12 @@ export function GrnForm({ stores, suppliers, today }: { stores: Opt[]; suppliers
           </table>
         </div>
       ) : (
-        <p className="text-sm text-neutral-500">Search for an item or scan a pack to start the receipt.</p>
+        <p className="text-sm text-neutral-500">{t("start")}</p>
       )}
 
       <FormError message={error} />
       <Button type="submit" disabled={busy || lines.length === 0}>
-        {busy ? "Saving..." : "Receive stock"}
+        {busy ? tc("saving") : t("submit")}
       </Button>
     </form>
   );

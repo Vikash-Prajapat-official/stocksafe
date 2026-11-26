@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { isExpired, todayIST } from "@/lib/fefo";
 import { formatPaise, lineValuePaise } from "@/lib/money";
 import type { StockRowView } from "@/lib/ledger";
@@ -7,9 +8,11 @@ function daysUntil(day: string, today: string) {
 }
 
 /** Stock on hand by store and batch. Amber/red only mark expiry (the colour rule from the spec). */
-export function StockTable({ rows }: { rows: StockRowView[] }) {
+export async function StockTable({ rows }: { rows: StockRowView[] }) {
+  const t = await getTranslations("stockTable");
+  const tc = await getTranslations("common");
   const today = todayIST();
-  if (rows.length === 0) return <p className="text-sm text-neutral-500">No stock on hand.</p>;
+  if (rows.length === 0) return <p className="text-sm text-neutral-500">{t("none")}</p>;
   const total = rows.reduce((s, r) => s + r.quantity, 0);
   const value = rows.reduce((s, r) => s + lineValuePaise(r.quantity, r.costPaise), 0);
   return (
@@ -17,11 +20,11 @@ export function StockTable({ rows }: { rows: StockRowView[] }) {
       <table className="w-full text-left text-sm">
         <thead className="bg-neutral-50 text-neutral-600">
           <tr>
-            <th scope="col" className="px-3 py-2 font-medium">Store</th>
-            <th scope="col" className="px-3 py-2 font-medium">Batch</th>
-            <th scope="col" className="px-3 py-2 font-medium">Expiry</th>
-            <th scope="col" className="px-3 py-2 text-right font-medium">Quantity</th>
-            <th scope="col" className="px-3 py-2 text-right font-medium">Value (at cost)</th>
+            <th scope="col" className="px-3 py-2 font-medium">{tc("store")}</th>
+            <th scope="col" className="px-3 py-2 font-medium">{tc("batch")}</th>
+            <th scope="col" className="px-3 py-2 font-medium">{tc("expiry")}</th>
+            <th scope="col" className="px-3 py-2 text-right font-medium">{tc("quantity")}</th>
+            <th scope="col" className="px-3 py-2 text-right font-medium">{t("valueAtCost")}</th>
           </tr>
         </thead>
         <tbody className="divide-y">
@@ -34,9 +37,9 @@ export function StockTable({ rows }: { rows: StockRowView[] }) {
                 <td className="px-3 py-2 tabular-nums">
                   {r.expiryDate}{" "}
                   {isExpired(r.expiryDate, today) ? (
-                    <span className="ml-1 rounded bg-red-50 px-1.5 py-0.5 text-xs font-medium text-red-700">Expired</span>
+                    <span className="ml-1 rounded bg-red-50 px-1.5 py-0.5 text-xs font-medium text-red-700">{t("expired")}</span>
                   ) : days <= 90 ? (
-                    <span className="ml-1 rounded bg-amber-50 px-1.5 py-0.5 text-xs font-medium text-amber-700">{days} days</span>
+                    <span className="ml-1 rounded bg-amber-50 px-1.5 py-0.5 text-xs font-medium text-amber-700">{t("days", { days })}</span>
                   ) : null}
                 </td>
                 <td className="px-3 py-2 text-right tabular-nums">{r.quantity}</td>
@@ -47,7 +50,7 @@ export function StockTable({ rows }: { rows: StockRowView[] }) {
         </tbody>
         <tfoot className="bg-neutral-50 font-medium">
           <tr>
-            <td colSpan={3} className="px-3 py-2">Total</td>
+            <td colSpan={3} className="px-3 py-2">{tc("total")}</td>
             <td className="px-3 py-2 text-right tabular-nums">{total}</td>
             <td className="px-3 py-2 text-right tabular-nums">{formatPaise(value)}</td>
           </tr>

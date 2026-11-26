@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -22,6 +23,7 @@ type Line = {
  */
 export function CountSheet({ countId, lines }: { countId: string; lines: Line[] }) {
   const router = useRouter();
+  const t = useTranslations("countSheet");
   const [values, setValues] = useState<Record<string, string>>(Object.fromEntries(lines.map((l) => [l.id, l.countedQty === null ? "" : String(l.countedQty)])));
   const [saved, setSaved] = useState<Record<string, string>>(values);
   const [q, setQ] = useState("");
@@ -33,8 +35,8 @@ export function CountSheet({ countId, lines }: { countId: string; lines: Line[] 
   const counted = lines.filter((l) => /^\d+$/.test((values[l.id] ?? "").trim())).length; // only real numbers count as counted
   const dirty = lines.filter((l) => (values[l.id] ?? "") !== (saved[l.id] ?? ""));
   const shown = useMemo(() => {
-    const t = q.trim().toLowerCase();
-    return t ? lines.filter((l) => `${l.itemName} ${l.strength ?? ""} ${l.batchNo}`.toLowerCase().includes(t)) : lines;
+    const needle = q.trim().toLowerCase();
+    return needle ? lines.filter((l) => `${l.itemName} ${l.strength ?? ""} ${l.batchNo}`.toLowerCase().includes(needle)) : lines;
   }, [lines, q]);
 
   function payload() {
@@ -44,7 +46,7 @@ export function CountSheet({ countId, lines }: { countId: string; lines: Line[] 
       if (raw === "") out.push({ lineId: l.id, countedQty: null });
       else if (/^\d+$/.test(raw) && Number(raw) <= 10_000_000) out.push({ lineId: l.id, countedQty: Number(raw) });
       else {
-        setError(`${l.itemName}, batch ${l.batchNo}: enter a whole number, 0 or more.`);
+        setError(t("needNumber", { item: l.itemName, batch: l.batchNo }));
         return null;
       }
     }
@@ -59,7 +61,7 @@ export function CountSheet({ countId, lines }: { countId: string; lines: Line[] 
     const res = await fetch(`/api/counts/${countId}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ lines: body }) });
     if (!res.ok) {
       const data = (await res.json().catch(() => null)) as { error?: { message?: string } } | null;
-      setError(data?.error?.message ?? "Could not save. Please try again.");
+      setError(data?.error?.message ?? t("saveFailed"));
       return false;
     }
     setSaved({ ...values });
@@ -70,18 +72,18 @@ export function CountSheet({ countId, lines }: { countId: string; lines: Line[] 
     setBusy(true);
     setInfo(null);
     try {
-      if (await save()) setInfo(`Saved. ${counted} of ${lines.length} counted.`);
+      if (await save()) setInfo(t("saved", { counted, total: lines.length }));
     } catch {
-      setError("Could not reach the server. Your counts are still on this screen.");
+      setError(t("offline"));
     } finally {
       setBusy(false);
     }
   }
 
   async function onSubmit() {
-    if (counted === 0) return setError("Count at least one line first.");
+    if (counted === 0) return setError(t("needOne"));
     const left = lines.length - counted;
-    if (left > 0 && !window.confirm(`${left} line(s) have not been counted. They will be left unchanged. Submit for approval?`)) return;
+    if (left > 0 && !window.confirm(t("confirmSubmit", { left }))) return;
     setBusy(true);
     setInfo(null);
     try {
@@ -89,11 +91,11 @@ export function CountSheet({ countId, lines }: { countId: string; lines: Line[] 
       const res = await fetch(`/api/counts/${countId}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "submit" }) });
       if (!res.ok) {
         const data = (await res.json().catch(() => null)) as { error?: { message?: string } } | null;
-        return setError(data?.error?.message ?? "Could not submit. Please try again.");
+        return setError(data?.error?.message ?? t("submitFailed"));
       }
       router.refresh();
     } catch {
-      setError("Could not reach the server. Your counts are still on this screen.");
+      setError(t("offline"));
     } finally {
       setBusy(false);
     }
@@ -103,13 +105,13 @@ export function CountSheet({ countId, lines }: { countId: string; lines: Line[] 
     <div className="space-y-4">
       <div className="sticky top-0 z-10 -mx-4 space-y-2 border-b bg-white px-4 py-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="text-sm font-medium tabular-nums" aria-live="polite">{counted} of {lines.length} counted</div>
+          <div className="text-sm font-medium tabular-nums" aria-live="polite">{t("progress", { counted, total: lines.length })}</div>
           <label className="flex items-center gap-2 text-sm">
             <input type="checkbox" checked={showSystem} onChange={(e) => setShowSystem(e.target.checked)} />
-            Show system quantity
+            {t("showSystem")}
           </label>
         </div>
-        <Input aria-label="Find an item or batch" placeholder="Find an item or batch" value={q} onChange={(e) => setQ(e.target.value)} />
+        <Input aria-label={t("find")} placeholder={t("find")} value={q} onChange={(e) => setQ(e.target.value)} />
       </div>
 
       <ul className="space-y-3">
@@ -119,16 +121,16 @@ export function CountSheet({ countId, lines }: { countId: string; lines: Line[] 
               <div className="min-w-0 flex-1">
                 <div className="font-medium">{l.strength ? `${l.itemName} ${l.strength}` : l.itemName}</div>
                 <div className="text-sm text-neutral-600">
-                  Batch {l.batchNo} · expires <span className="tabular-nums">{l.expiryDate}</span>
-                  {showSystem ? <span> · system says <span className="font-medium tabular-nums">{l.systemQty}</span></span> : null}
+                  {t("batchExpires", { batch: l.batchNo })} <span className="tabular-nums">{l.expiryDate}</span>
+                  {showSystem ? <span> · {t("systemSays")} <span className="font-medium tabular-nums">{l.systemQty}</span></span> : null}
                 </div>
               </div>
               <label className="flex items-center gap-2 text-sm">
-                <span className="sr-only">Counted {l.itemName} batch {l.batchNo}</span>
+                <span className="sr-only">{t("countedFor", { item: l.itemName, batch: l.batchNo })}</span>
                 <Input
                   inputMode="numeric"
                   pattern="[0-9]*"
-                  placeholder="Count"
+                  placeholder={t("count")}
                   className="h-12 w-28 text-center text-lg tabular-nums"
                   value={values[l.id] ?? ""}
                   onChange={(e) => setValues({ ...values, [l.id]: e.target.value })}
@@ -138,14 +140,14 @@ export function CountSheet({ countId, lines }: { countId: string; lines: Line[] 
             </div>
           </li>
         ))}
-        {shown.length === 0 ? <li className="py-6 text-center text-sm text-neutral-500">Nothing matches.</li> : null}
+        {shown.length === 0 ? <li className="py-6 text-center text-sm text-neutral-500">{t("noMatch")}</li> : null}
       </ul>
 
       <FormError message={error} />
       {info ? <p role="status" className="text-sm text-green-800">{info}</p> : null}
       <div className="sticky bottom-0 -mx-4 flex flex-wrap gap-3 border-t bg-white px-4 py-3">
-        <Button variant="outline" disabled={busy || dirty.length === 0} onClick={() => void onSave()}>{busy ? "Working..." : `Save progress${dirty.length ? ` (${dirty.length})` : ""}`}</Button>
-        <Button disabled={busy || counted === 0} onClick={() => void onSubmit()}>Submit for approval</Button>
+        <Button variant="outline" disabled={busy || dirty.length === 0} onClick={() => void onSave()}>{busy ? t("working") : `${t("save")}${dirty.length ? ` (${dirty.length})` : ""}`}</Button>
+        <Button disabled={busy || counted === 0} onClick={() => void onSubmit()}>{t("submit")}</Button>
       </div>
     </div>
   );

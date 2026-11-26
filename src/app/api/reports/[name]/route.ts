@@ -1,4 +1,6 @@
+import { getLocale } from "next-intl/server";
 import { NextResponse } from "next/server";
+import type { Locale } from "@/i18n/locale";
 import { ApiError, route } from "@/lib/api";
 import { writeAudit } from "@/lib/audit";
 import { db } from "@/lib/db";
@@ -29,7 +31,7 @@ export const GET = route(["ADMIN", "AUDITOR"], async ({ req, user, params, ip })
 
   let report;
   try {
-    report = await buildReport(name, { storeId, months: intParam(sp, "months"), days: intParam(sp, "days") });
+    report = await buildReport(name, { storeId, months: intParam(sp, "months"), days: intParam(sp, "days"), locale: (await getLocale()) as Locale });
   } catch (e) {
     if (e instanceof RangeError) throw new ApiError(400, "VALIDATION", e.message);
     throw e;

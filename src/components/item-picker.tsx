@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { Input } from "@/components/ui/fields";
 
@@ -18,12 +19,14 @@ export const itemLabel = (i: Pick<PickedItem, "name" | "strength">) => (i.streng
 export function ItemPicker({
   onPick,
   id = "item-picker",
-  label = "Add item",
+  label,
 }: {
   onPick: (item: PickedItem) => void;
   id?: string;
   label?: string;
 }) {
+  const t = useTranslations("picker");
+  const tf = useTranslations("forms");
   const [q, setQ] = useState("");
   const [results, setResults] = useState<PickedItem[]>([]);
   const [busy, setBusy] = useState(false);
@@ -54,19 +57,19 @@ export function ItemPicker({
   return (
     <div className="relative max-w-md">
       <label htmlFor={id} className="mb-1 block text-sm font-medium">
-        {label}
+        {label ?? t("add")}
       </label>
       <Input
         id={id}
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        placeholder="Type at least 2 letters of the medicine name"
+        placeholder={t("placeholder")}
         autoComplete="off"
       />
       {q.trim().length >= 2 ? (
-        <ul className="absolute z-20 mt-1 max-h-72 w-full overflow-auto rounded-md border bg-white shadow-lg" role="listbox" aria-label="Matching items">
+        <ul className="absolute z-20 mt-1 max-h-72 w-full overflow-auto rounded-md border bg-white shadow-lg" role="listbox" aria-label={t("matching")}>
           {results.length === 0 ? (
-            <li className="px-3 py-2 text-sm text-neutral-500">{busy ? "Searching..." : "No active item matches."}</li>
+            <li className="px-3 py-2 text-sm text-neutral-500">{busy ? t("searching") : t("noMatch")}</li>
           ) : (
             results.map((i) => (
               <li key={i.id} role="option" aria-selected="false">
@@ -81,7 +84,7 @@ export function ItemPicker({
                 >
                   <span>{itemLabel(i)}</span>
                   <span className="text-xs text-neutral-500">
-                    {i.form.charAt(0) + i.form.slice(1).toLowerCase()}
+                    {tf.has(i.form) ? tf(i.form) : i.form}
                     {i.storage === "COLD" ? " · 2–8 °C" : ""}
                   </span>
                 </button>

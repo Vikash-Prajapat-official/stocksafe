@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getLocale, getTranslations } from "next-intl/server";
+import { dateTimeFormat } from "@/i18n/labels";
+import { intlTag, type Locale } from "@/i18n/locale";
 import { IndentActions } from "@/components/indent-actions";
 import { Badge } from "@/components/ui/fields";
 import { ApiError } from "@/lib/api-error";
 import { db } from "@/lib/db";
-import { INDENT_STATUS_LABEL, outstanding } from "@/lib/indent-flow";
+import { outstanding } from "@/lib/indent-flow";
 import { getIndent } from "@/lib/indents";
 import { getStockRows } from "@/lib/ledger";
 import { requirePageUser } from "@/lib/session";
@@ -13,12 +16,16 @@ export const dynamic = "force-dynamic";
 
 export default async function IndentPage({ params }: { params: Promise<{ id: string }> }) {
   const user = await requirePageUser(["NURSE", "STOREKEEPER", "ADMIN", "AUDITOR"]);
+  const t = await getTranslations("indentPage");
+  const tc = await getTranslations("common");
+  const ts = await getTranslations("indentStatus");
+  const locale = (await getLocale()) as Locale;
   const { id } = await params;
   const ind = await getIndent(user, id).catch((e) => {
     if (e instanceof ApiError && e.status === 404) notFound();
     throw e;
   });
-  const fmt = new Intl.DateTimeFormat("en-IN", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Kolkata" });
+  const fmt = dateTimeFormat(intlTag(locale));
 
   // Admins and auditors can look but not act (the spec gives indent actions to the ward nurse and the store keeper).
   const mine = new Set((await db.userStore.findMany({ where: { userId: user.id }, select: { storeId: true } })).map((s) => s.storeId));
@@ -38,27 +45,27 @@ export default async function IndentPage({ params }: { params: Promise<{ id: str
   return (
     <div className="max-w-4xl space-y-5">
       <div>
-        <Link href="/indents" className="text-sm text-primary hover:underline">← All indents</Link>
+        <Link href="/indents" className="text-sm text-primary hover:underline">← {t("all")}</Link>
         <div className="mt-1 flex flex-wrap items-center gap-3">
-          <h1 className="text-xl font-semibold">Indent #{ind.seq}</h1>
-          <Badge tone={ind.status === "REJECTED" || ind.status === "DRAFT" || ind.status === "SUBMITTED" ? "neutral" : "green"}>{INDENT_STATUS_LABEL[ind.status]}</Badge>
+          <h1 className="text-xl font-semibold">{t("title", { seq: ind.seq })}</h1>
+          <Badge tone={ind.status === "REJECTED" || ind.status === "DRAFT" || ind.status === "SUBMITTED" ? "neutral" : "green"}>{ts(ind.status)}</Badge>
         </div>
         <p className="mt-1 text-sm text-neutral-600">
-          {ind.fromStore.name} asked {ind.toStore.name} · raised by {ind.creator.name} · <span className="tabular-nums">{fmt.format(ind.createdAt)}</span>
+          {t("summary", { from: ind.fromStore.name, to: ind.toStore.name, by: ind.creator.name })} · <span className="tabular-nums">{fmt.format(ind.createdAt)}</span>
         </p>
-        {ind.note ? <p className="mt-2 text-sm">Ward note: {ind.note}</p> : null}
-        {ind.decisionNote ? <p className="mt-1 text-sm">Store note: {ind.decisionNote}</p> : null}
+        {ind.note ? <p className="mt-2 text-sm">{t("wardNote", { note: ind.note })}</p> : null}
+        {ind.decisionNote ? <p className="mt-1 text-sm">{t("storeNote", { note: ind.decisionNote })}</p> : null}
       </div>
 
       <div className="overflow-x-auto rounded-lg border">
         <table className="w-full text-left text-sm">
           <thead className="bg-neutral-50 text-neutral-600">
             <tr>
-              <th scope="col" className="px-3 py-2 font-medium">Item</th>
-              <th scope="col" className="px-3 py-2 text-right font-medium">Requested</th>
-              {decided ? <th scope="col" className="px-3 py-2 text-right font-medium">Approved</th> : null}
-              {decided ? <th scope="col" className="px-3 py-2 text-right font-medium">Issued</th> : null}
-              {decided && ind.status !== "REJECTED" ? <th scope="col" className="px-3 py-2 text-right font-medium">Still to issue</th> : null}
+              <th scope="col" className="px-3 py-2 font-medium">{tc("item")}</th>
+              <th scope="col" className="px-3 py-2 text-right font-medium">{t("requested")}</th>
+              {decided ? <th scope="col" className="px-3 py-2 text-right font-medium">{t("approved")}</th> : null}
+              {decided ? <th scope="col" className="px-3 py-2 text-right font-medium">{t("issued")}</th> : null}
+              {decided && ind.status !== "REJECTED" ? <th scope="col" className="px-3 py-2 text-right font-medium">{t("stillToIssue")}</th> : null}
             </tr>
           </thead>
           <tbody className="divide-y">

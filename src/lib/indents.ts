@@ -6,6 +6,7 @@ import { Prisma } from "@prisma/client";
 import { ApiError } from "@/lib/api-error";
 import { writeAudit } from "@/lib/audit";
 import { db } from "@/lib/db";
+import { nextSeq } from "@/lib/seq";
 import { checkApprovals, statusesFor, type IndentAction, type IndentStatus } from "@/lib/indent-flow";
 import type { SessionUser } from "@/lib/session";
 import { assertStoreAccess } from "@/lib/store-access";
@@ -68,6 +69,7 @@ export async function createIndent(input: {
   return db.$transaction(async (tx) => {
     const ind = await tx.indent.create({
       data: {
+        seq: await nextSeq(tx, "indent"),
         fromStoreId: input.fromStoreId,
         toStoreId: input.toStoreId,
         createdBy: user.id,

@@ -1,0 +1,10 @@
+# Optional HTTPS in front of StockSafe:  docker compose --profile https up -d
+# Set SITE_ADDRESS in .env to the name people type, for example stocksafe.hospital.local or the PC address 192.168.1.10.
+# "tls internal" makes Caddy create its own certificate, which works on a hospital network with no internet. Each browser
+# shows a one-time warning until the file caddy-root.crt (see ADMIN_GUIDE.md) is installed. HTTPS is what lets phones use
+# the camera for barcode scanning and lets the app be installed.
+{$SITE_ADDRESS:localhost} {
+	tls internal
+	encode gzip
+	reverse_proxy app:3002
+}

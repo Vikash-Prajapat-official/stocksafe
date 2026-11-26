@@ -6,7 +6,8 @@ import { ApiError } from "@/lib/api-error";
 import { writeAudit } from "@/lib/audit";
 import { summarizeVariance, lineVariance } from "@/lib/count-variance";
 import { db } from "@/lib/db";
-import { toDay, todayIST } from "@/lib/fefo";
+import { isExpired, toDay, todayIST } from "@/lib/fefo";
+import { nextSeq } from "@/lib/seq";
 import type { SessionUser } from "@/lib/session";
 import { assertStoreAccess } from "@/lib/store-access";
 
@@ -31,12 +32,14 @@ export async function startCount(input: { user: SessionUser; storeId: string; ip
   const today = todayIST();
   try {
     return await db.$transaction(async (tx) => {
-      const c = await tx.stockCount.create({ data: { storeId: input.storeId, startedBy: input.user.id }, select: { id: true, seq: true, status: true } });
-      const lines = await tx.$executeRaw`
-        INSERT INTO stock_count_line (id, count_id, batch_id, system_qty)
-        SELECT gen_random_uuid()::text, ${c.id}, sb.batch_id, sb.quantity
-        FROM stock_balance sb JOIN batch b ON b.id = sb.batch_id
-        WHERE sb.store_id = ${input.storeId} AND (sb.quantity > 0 OR b.expiry_date >= ${today}::date)`;
+      const c = await tx.stockCount.create({
+        data: { seq: await nextSeq(tx, "stockCount"), storeId: input.storeId, startedBy: input.user.id },
+        select: { id: true, seq: true, status: true },
+      });
+      const held = await tx.stockBalance.findMany({ where: { storeId: input.storeId }, include: { batch: { select: { expiryDate: true } } } });
+      const keep = held.filter((r) => r.quantity > 0 || !isExpired(r.batch.expiryDate, today));
+      const made = await tx.stockCountLine.createMany({ data: keep.map((r) => ({ countId: c.id, batchId: r.batchId, systemQty: r.quantity })) });
+      const lines = made.count;
       await writeAudit(tx, { actorUserId: input.user.id, action: "STOCK_COUNT_START", entity: "stock_count", entityId: c.id, ip: input.ip });
       return { ...c, lines };
     });

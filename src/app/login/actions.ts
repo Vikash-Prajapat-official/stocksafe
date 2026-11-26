@@ -1,6 +1,7 @@
 "use server";
 
 import { AuthError } from "next-auth";
+import { getTranslations } from "next-intl/server";
 import { signIn } from "@/lib/auth";
 
 export type LoginState = { error?: string } | undefined;
@@ -11,6 +12,7 @@ function safePath(p: FormDataEntryValue | null): string {
 }
 
 export async function loginAction(_prev: LoginState, formData: FormData): Promise<LoginState> {
+  const t = await getTranslations("login");
   try {
     await signIn("credentials", {
       phone: String(formData.get("phone") ?? ""),
@@ -19,10 +21,9 @@ export async function loginAction(_prev: LoginState, formData: FormData): Promis
     });
   } catch (e) {
     if (e instanceof AuthError) {
-      if ((e as { code?: string }).code === "rate_limited")
-        return { error: "Too many failed attempts. Please wait 15 minutes and try again." };
-      if (e.type === "CredentialsSignin") return { error: "Wrong phone number or password." };
-      return { error: "Could not sign in. Please try again." };
+      if ((e as { code?: string }).code === "rate_limited") return { error: t("rateLimited") };
+      if (e.type === "CredentialsSignin") return { error: t("wrong") };
+      return { error: t("failed") };
     }
     throw e; // the redirect after a successful sign-in is thrown and must pass through
   }

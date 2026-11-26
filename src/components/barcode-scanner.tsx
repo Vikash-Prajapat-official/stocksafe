@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -9,6 +10,7 @@ import { Button } from "@/components/ui/button";
  * and the user can use a USB scanner (which types into the code box) or type the code.
  */
 export function BarcodeScanner({ onCode, onClose }: { onCode: (text: string) => void; onClose: () => void }) {
+  const t = useTranslations("scanner");
   const video = useRef<HTMLVideoElement>(null);
   const latest = useRef(onCode);
   latest.current = onCode;
@@ -21,7 +23,7 @@ export function BarcodeScanner({ onCode, onClose }: { onCode: (text: string) => 
 
     (async () => {
       if (!window.isSecureContext || !navigator.mediaDevices?.getUserMedia) {
-        setError("The camera only works on a secure page (HTTPS or localhost). Use a USB barcode scanner or type the code instead.");
+        setError(t("insecure"));
         setStarting(false);
         return;
       }
@@ -52,7 +54,7 @@ export function BarcodeScanner({ onCode, onClose }: { onCode: (text: string) => 
         else stop = () => handle.controls?.stop();
         setStarting(false);
       } catch {
-        setError("Could not start the camera. Allow camera access in the browser, or use a USB scanner or type the code.");
+        setError(t("noCamera"));
         setStarting(false);
       }
     })();
@@ -61,10 +63,10 @@ export function BarcodeScanner({ onCode, onClose }: { onCode: (text: string) => 
       cancelled = true;
       stop?.();
     };
-  }, []);
+  }, [t]);
 
   return (
-    <div className="space-y-2 rounded-lg border bg-neutral-50 p-3" role="dialog" aria-label="Scan a barcode">
+    <div className="space-y-2 rounded-lg border bg-neutral-50 p-3" role="dialog" aria-label={t("title")}>
       {error ? (
         <p role="alert" className="text-sm text-red-700">
           {error}
@@ -73,12 +75,12 @@ export function BarcodeScanner({ onCode, onClose }: { onCode: (text: string) => 
         <>
           <video ref={video} className="aspect-video w-full max-w-sm rounded bg-black" muted playsInline />
           <p className="text-sm text-neutral-600" aria-live="polite">
-            {starting ? "Starting the camera..." : "Point the camera at the barcode on the pack."}
+            {starting ? t("starting") : t("point")}
           </p>
         </>
       )}
       <Button variant="outline" size="sm" onClick={onClose}>
-        Close camera
+        {t("close")}
       </Button>
     </div>
   );

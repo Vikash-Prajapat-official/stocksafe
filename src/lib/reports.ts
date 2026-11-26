@@ -6,8 +6,12 @@ import { Prisma } from "@prisma/client";
 import { abcClassify } from "@/lib/abc";
 import { expiryBands, getExpiryList } from "@/lib/alerts";
 import { db } from "@/lib/db";
+import { isSqlite } from "@/lib/dialect";
+import type { Locale } from "@/i18n/locale";
 import { todayIST } from "@/lib/fefo";
+import { localizeReport } from "@/lib/report-i18n";
 import type { Report, ReportRow } from "@/lib/report-format";
+import { abcRawJs, consumptionRawJs, stockoutRawJs, stockRawJs } from "@/lib/reports-js";
 
 export const REPORT_NAMES = ["stock", "expiry", "consumption", "abc", "stockout"] as const;
 export type ReportName = (typeof REPORT_NAMES)[number];
@@ -21,9 +25,14 @@ export type ReportParams = {
   days?: number;
   /** Override today's date (YYYY-MM-DD), for tests. */
   today?: string;
+  /** "sql" reads the PostgreSQL views, "js" computes from the ledger in code. Default: sql on PostgreSQL, js on SQLite. Tests compare the two. */
+  engine?: "sql" | "js";
+  /** Language of the words in the report (default English). Numbers and dates never change. */
+  locale?: Locale;
 };
 
 const n = (v: bigint | number | null | undefined) => Number(v ?? 0);
+const jsEngine = (p: ReportParams) => (p.engine ?? (isSqlite ? "js" : "sql")) === "js";
 const label = (name: string, strength: string | null) => (strength ? `${name} ${strength}` : name);
 const addDays = (day: string, k: number) => new Date(Date.parse(`${day}T00:00:00Z`) + k * 86_400_000).toISOString().slice(0, 10);
 
@@ -47,6 +56,10 @@ async function storeName(storeId?: string): Promise<string> {
 }
 
 export async function buildReport(name: ReportName, p: ReportParams = {}): Promise<Report> {
+  return localizeReport(await buildReportEnglish(name, p), p.locale ?? "en");
+}
+
+async function buildReportEnglish(name: ReportName, p: ReportParams): Promise<Report> {
   const today = p.today ?? todayIST();
   const where = await storeName(p.storeId);
   switch (name) {
@@ -66,8 +79,8 @@ export async function buildReport(name: ReportName, p: ReportParams = {}): Promi
 // ---------- stock on hand ----------
 async function stockReport(p: ReportParams, today: string, where: string): Promise<Report> {
   const storeF = p.storeId ? Prisma.sql`AND store_id = ${p.storeId}` : Prisma.empty;
-  const raw = await db.$queryRaw<
-    { itemName: string; strength: string | null; unit: string; usableQty: bigint; expiredQty: bigint; usableValue: bigint; expiredValue: bigint }[]
+  const sqlRaw = () => db.$queryRaw<
+    { itemName: string; strength: string | null; unit: string; usableQty: bigint | number; expiredQty: bigint | number; usableValue: bigint | number; expiredValue: bigint | number }[]
   >`
     SELECT item_name AS "itemName", strength, unit,
            COALESCE(SUM(quantity) FILTER (WHERE expiry_date >= ${today}::date), 0)::bigint AS "usableQty",
@@ -78,6 +91,7 @@ async function stockReport(p: ReportParams, today: string, where: string): Promi
     WHERE quantity > 0 ${storeF}
     GROUP BY item_id, item_name, strength, unit
     ORDER BY item_name, strength NULLS FIRST`;
+  const raw = jsEngine(p) ? await stockRawJs(p.storeId, today) : await sqlRaw();
   const rows: ReportRow[] = raw.map((r) => ({
     item: label(r.itemName, r.strength),
     unit: r.unit,
@@ -145,8 +159,8 @@ async function consumptionReport(p: ReportParams, today: string, where: string):
   const months = intParam(p.months, 6, 1, 24, "months");
   const from = firstMonth(today, months);
   const storeF = p.storeId ? Prisma.sql`AND c.store_id = ${p.storeId}` : Prisma.empty;
-  const raw = await db.$queryRaw<
-    { month: string; name: string; strength: string | null; unit: string; issued: bigint; dispensed: bigint; writtenOff: bigint; value: bigint }[]
+  const sqlRaw = () => db.$queryRaw<
+    { month: string; name: string; strength: string | null; unit: string; issued: bigint | number; dispensed: bigint | number; writtenOff: bigint | number; value: bigint | number }[]
   >`
     SELECT to_char(c.month, 'YYYY-MM') AS month, i.name, i.strength, i.unit,
            SUM(c.qty_issued)::bigint AS issued, SUM(c.qty_dispensed)::bigint AS dispensed,
@@ -155,6 +169,7 @@ async function consumptionReport(p: ReportParams, today: string, where: string):
     WHERE c.month >= ${from}::date ${storeF}
     GROUP BY c.month, i.id, i.name, i.strength, i.unit
     ORDER BY c.month DESC, SUM(c.value_consumed_paise) DESC, i.name`;
+  const raw = jsEngine(p) ? await consumptionRawJs(p.storeId, from) : await sqlRaw();
   const rows: ReportRow[] = raw.map((r) => ({
     month: r.month,
     item: label(r.name, r.strength),
@@ -191,13 +206,14 @@ async function abcReport(p: ReportParams, today: string, where: string): Promise
   const months = intParam(p.months, 12, 1, 24, "months");
   const from = firstMonth(today, months);
   const storeF = p.storeId ? Prisma.sql`AND c.store_id = ${p.storeId}` : Prisma.empty;
-  const raw = await db.$queryRaw<{ id: string; name: string; strength: string | null; unit: string; qty: bigint; value: bigint }[]>`
+  const sqlRaw = () => db.$queryRaw<{ id: string; name: string; strength: string | null; unit: string; qty: bigint | number; value: bigint | number }[]>`
     SELECT i.id, i.name, i.strength, i.unit,
            SUM(c.qty_issued + c.qty_dispensed)::bigint AS qty, SUM(c.value_consumed_paise)::bigint AS value
     FROM report_consumption c JOIN item i ON i.id = c.item_id
     WHERE c.month >= ${from}::date ${storeF}
     GROUP BY i.id, i.name, i.strength, i.unit
     HAVING SUM(c.value_consumed_paise) > 0`;
+  const raw = jsEngine(p) ? await abcRawJs(p.storeId, from) : await sqlRaw();
   const byId = new Map(raw.map((r) => [r.id, r]));
   const ranked = abcClassify(raw.map((r) => ({ id: r.id, name: label(r.name, r.strength), value: n(r.value) })));
   const rows: ReportRow[] = ranked.map((a) => {
@@ -235,8 +251,8 @@ async function stockoutReport(p: ReportParams, today: string, where: string): Pr
   // For each item and each day: usable stock at the end of that day = every movement up to that day, counting only
   // batches that had not expired by then. A stock-out day is a day with nothing usable, counted from the day the item
   // was first stocked.
-  const raw = await db.$queryRaw<
-    { name: string; strength: string | null; unit: string; firstDay: Date; tracked: bigint; stockout: bigint; outNow: boolean | null }[]
+  const sqlRaw = () => db.$queryRaw<
+    { name: string; strength: string | null; unit: string; firstDay: Date; tracked: bigint | number; stockout: bigint | number; outNow: boolean | null }[]
   >`
     WITH days AS (
       SELECT gs::date AS d FROM generate_series(${from}::date, ${today}::date, interval '1 day') gs
@@ -266,6 +282,7 @@ async function stockoutReport(p: ReportParams, today: string, where: string): Pr
     GROUP BY i.id, i.name, i.strength, i.unit, f.first_day
     HAVING COUNT(*) FILTER (WHERE u.usable <= 0) > 0
     ORDER BY stockout DESC, i.name`;
+  const raw = jsEngine(p) ? await stockoutRawJs(p.storeId, from, today) : await sqlRaw();
   const rows: ReportRow[] = raw.map((r) => ({
     item: label(r.name, r.strength),
     unit: r.unit,

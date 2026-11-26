@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { getLocale, getTranslations } from "next-intl/server";
+import type { Locale } from "@/i18n/locale";
 import { ButtonLink } from "@/components/ui/button";
 import { db } from "@/lib/db";
 import { displayCell } from "@/lib/report-format";
@@ -6,19 +8,17 @@ import { REPORT_NAMES, buildReport, isReportName, type ReportName } from "@/lib/
 import { requirePageUser } from "@/lib/session";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Reports · StockSafe" };
+export async function generateMetadata() {
+  return { title: (await getTranslations("reports"))("title") };
+}
 
-const TITLES: Record<ReportName, string> = {
-  stock: "Stock on hand",
-  expiry: "Expiry",
-  consumption: "Monthly consumption",
-  abc: "ABC analysis",
-  stockout: "Stock-out days",
-};
 const SCREEN_ROWS = 300;
 
 export default async function ReportsPage({ searchParams }: { searchParams: Promise<{ name?: string; store?: string; months?: string; days?: string }> }) {
   await requirePageUser(["ADMIN", "AUDITOR"]);
+  const t = await getTranslations("reports");
+  const tc = await getTranslations("common");
+  const locale = (await getLocale()) as Locale;
   const sp = await searchParams;
   const name: ReportName = sp.name && isReportName(sp.name) ? sp.name : "stock";
   const stores = await db.store.findMany({ orderBy: { name: "asc" }, select: { id: true, name: true } });
@@ -28,7 +28,7 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
   let report = null;
   let error: string | null = null;
   try {
-    report = await buildReport(name, { storeId: sp.store || undefined, months, days });
+    report = await buildReport(name, { storeId: sp.store || undefined, months, days, locale });
   } catch (e) {
     if (e instanceof RangeError) error = e.message;
     else throw e;
@@ -45,14 +45,14 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-xl font-semibold">Reports</h1>
-        <p className="text-sm text-neutral-600">Read-only. Download any report as a spreadsheet (CSV) or a PDF.</p>
+        <h1 className="text-xl font-semibold">{t("title")}</h1>
+        <p className="text-sm text-neutral-600">{t("intro")}</p>
       </div>
 
-      <nav aria-label="Reports" className="flex flex-wrap gap-2">
+      <nav aria-label={t("title")} className="flex flex-wrap gap-2">
         {REPORT_NAMES.map((n) => (
           <Link key={n} href={`/reports?name=${n}${sp.store ? `&store=${sp.store}` : ""}`} aria-current={n === name ? "page" : undefined} className={`rounded-lg border px-3 py-2 text-sm ${n === name ? "border-primary bg-green-50" : "hover:bg-neutral-50"}`}>
-            {TITLES[n]}
+            {t(`names.${n}`)}
           </Link>
         ))}
       </nav>
@@ -60,29 +60,29 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
       <form action="/reports" className="flex flex-wrap items-end gap-3" role="search">
         <input type="hidden" name="name" value={name} />
         <label className="text-sm">
-          <span className="mb-1 block font-medium">Store</span>
+          <span className="mb-1 block font-medium">{tc("store")}</span>
           <select name="store" defaultValue={sp.store ?? ""} className="rounded-md border border-neutral-300 px-3 py-2 text-sm">
-            <option value="">All stores</option>
+            <option value="">{t("allStores")}</option>
             {stores.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}
           </select>
         </label>
         {usesMonths ? (
           <label className="text-sm">
-            <span className="mb-1 block font-medium">Months back</span>
+            <span className="mb-1 block font-medium">{t("monthsBack")}</span>
             <input name="months" type="number" min={1} max={24} defaultValue={months ?? (name === "abc" ? 12 : 6)} className="w-24 rounded-md border border-neutral-300 px-3 py-2 text-sm tabular-nums" />
           </label>
         ) : null}
         {name === "stockout" ? (
           <label className="text-sm">
-            <span className="mb-1 block font-medium">Days back</span>
+            <span className="mb-1 block font-medium">{t("daysBack")}</span>
             <input name="days" type="number" min={1} max={366} defaultValue={days ?? 90} className="w-24 rounded-md border border-neutral-300 px-3 py-2 text-sm tabular-nums" />
           </label>
         ) : null}
-        <button type="submit" className="rounded-md border px-3 py-2 text-sm hover:bg-neutral-50">Show</button>
+        <button type="submit" className="rounded-md border px-3 py-2 text-sm hover:bg-neutral-50">{t("show")}</button>
         {report ? (
           <div className="ml-auto flex gap-2">
-            <ButtonLink href={download("csv")} variant="outline" prefetch={false}>Download CSV</ButtonLink>
-            <ButtonLink href={download("pdf")} variant="outline" prefetch={false}>Download PDF</ButtonLink>
+            <ButtonLink href={download("csv")} variant="outline" prefetch={false}>{t("csv")}</ButtonLink>
+            <ButtonLink href={download("pdf")} variant="outline" prefetch={false}>{t("pdf")}</ButtonLink>
           </div>
         ) : null}
       </form>
@@ -106,7 +106,7 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
               </thead>
               <tbody className="divide-y">
                 {report.rows.length === 0 ? (
-                  <tr><td colSpan={report.columns.length} className="px-3 py-8 text-center text-neutral-500">Nothing to report for these settings.</td></tr>
+                  <tr><td colSpan={report.columns.length} className="px-3 py-8 text-center text-neutral-500">{t("nothing")}</td></tr>
                 ) : (
                   report.rows.slice(0, SCREEN_ROWS).map((row, i) => (
                     <tr key={i}>
@@ -128,7 +128,7 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
               ) : null}
             </table>
           </div>
-          {report.rows.length > SCREEN_ROWS ? <p className="text-sm text-neutral-600">Showing the first {SCREEN_ROWS} of {report.rows.length} rows. Download the CSV for all of them.</p> : null}
+          {report.rows.length > SCREEN_ROWS ? <p className="text-sm text-neutral-600">{t("truncated", { shown: SCREEN_ROWS, total: report.rows.length })}</p> : null}
           {(report.notes ?? []).map((n) => <p key={n} className="text-xs text-neutral-500">{n}</p>)}
         </section>
       ) : null}

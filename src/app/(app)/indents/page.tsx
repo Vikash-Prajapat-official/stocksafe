@@ -1,40 +1,49 @@
 import Link from "next/link";
+import { getLocale, getTranslations } from "next-intl/server";
+import { dateTimeFormat } from "@/i18n/labels";
+import { intlTag, type Locale } from "@/i18n/locale";
 import { ButtonLink } from "@/components/ui/button";
 import { Badge } from "@/components/ui/fields";
-import { INDENT_STATUS_LABEL, type IndentStatus } from "@/lib/indent-flow";
+import type { IndentStatus } from "@/lib/indent-flow";
 import { listIndents } from "@/lib/indents";
 import { requirePageUser } from "@/lib/session";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Indents · StockSafe" };
+export async function generateMetadata() {
+  return { title: (await getTranslations("indents"))("title") };
+}
 
 const ORDER: IndentStatus[] = ["DRAFT", "SUBMITTED", "APPROVED", "PARTIAL", "ISSUED", "REJECTED"];
 const tone = (s: IndentStatus) => (s === "REJECTED" || s === "DRAFT" || s === "SUBMITTED" ? "neutral" : "green");
 
 export default async function IndentsPage({ searchParams }: { searchParams: Promise<{ status?: string }> }) {
   const user = await requirePageUser(["NURSE", "STOREKEEPER", "ADMIN", "AUDITOR"]);
+  const t = await getTranslations("indents");
+  const tc = await getTranslations("common");
+  const ts = await getTranslations("indentStatus");
+  const locale = (await getLocale()) as Locale;
   const sp = await searchParams;
   const status = ORDER.find((s) => s === sp.status);
   const [indents] = await Promise.all([listIndents({ user, status })]);
-  const fmt = new Intl.DateTimeFormat("en-IN", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Kolkata" });
+  const fmt = dateTimeFormat(intlTag(locale));
 
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-xl font-semibold">Indents</h1>
+          <h1 className="text-xl font-semibold">{t("title")}</h1>
           <p className="text-sm text-neutral-600">
-            {user.role === "NURSE" ? "Ask the store for stock for your ward." : user.role === "STOREKEEPER" ? "Requests from the wards to your store." : "All ward requests."}
+            {user.role === "NURSE" ? t("introNurse") : user.role === "STOREKEEPER" ? t("introStore") : t("introAll")}
           </p>
         </div>
-        {user.role === "NURSE" ? <ButtonLink href="/indents/new">New indent</ButtonLink> : null}
+        {user.role === "NURSE" ? <ButtonLink href="/indents/new">{t("new")}</ButtonLink> : null}
       </div>
 
-      <nav aria-label="Status" className="flex flex-wrap gap-2">
-        <Link href="/indents" aria-current={!status ? "page" : undefined} className={`rounded-lg border px-3 py-1.5 text-sm ${!status ? "border-primary bg-green-50" : "hover:bg-neutral-50"}`}>All</Link>
+      <nav aria-label={tc("status")} className="flex flex-wrap gap-2">
+        <Link href="/indents" aria-current={!status ? "page" : undefined} className={`rounded-lg border px-3 py-1.5 text-sm ${!status ? "border-primary bg-green-50" : "hover:bg-neutral-50"}`}>{tc("all")}</Link>
         {ORDER.filter((s) => user.role !== "STOREKEEPER" || s !== "DRAFT").map((s) => (
           <Link key={s} href={`/indents?status=${s}`} aria-current={status === s ? "page" : undefined} className={`rounded-lg border px-3 py-1.5 text-sm ${status === s ? "border-primary bg-green-50" : "hover:bg-neutral-50"}`}>
-            {INDENT_STATUS_LABEL[s]}
+            {ts(s)}
           </Link>
         ))}
       </nav>
@@ -43,25 +52,25 @@ export default async function IndentsPage({ searchParams }: { searchParams: Prom
         <table className="w-full min-w-[44rem] text-left text-sm">
           <thead className="bg-neutral-50 text-neutral-600">
             <tr>
-              <th scope="col" className="px-3 py-2 font-medium">No.</th>
-              <th scope="col" className="px-3 py-2 font-medium">Ward</th>
-              <th scope="col" className="px-3 py-2 font-medium">Asked of</th>
-              <th scope="col" className="px-3 py-2 font-medium">Status</th>
-              <th scope="col" className="px-3 py-2 text-right font-medium">Items</th>
-              <th scope="col" className="px-3 py-2 font-medium">Raised by</th>
-              <th scope="col" className="px-3 py-2 font-medium">When</th>
+              <th scope="col" className="px-3 py-2 font-medium">{t("no")}</th>
+              <th scope="col" className="px-3 py-2 font-medium">{t("ward")}</th>
+              <th scope="col" className="px-3 py-2 font-medium">{t("askedOf")}</th>
+              <th scope="col" className="px-3 py-2 font-medium">{tc("status")}</th>
+              <th scope="col" className="px-3 py-2 text-right font-medium">{tc("items")}</th>
+              <th scope="col" className="px-3 py-2 font-medium">{t("raisedBy")}</th>
+              <th scope="col" className="px-3 py-2 font-medium">{tc("when")}</th>
             </tr>
           </thead>
           <tbody className="divide-y">
             {indents.length === 0 ? (
-              <tr><td colSpan={7} className="px-3 py-8 text-center text-neutral-500">No indents{status ? ` that are ${INDENT_STATUS_LABEL[status].toLowerCase()}` : " yet"}.</td></tr>
+              <tr><td colSpan={7} className="px-3 py-8 text-center text-neutral-500">{status ? t("noneStatus", { status: ts(status) }) : t("none")}</td></tr>
             ) : (
               indents.map((i) => (
                 <tr key={i.id}>
                   <td className="px-3 py-2 font-medium tabular-nums"><Link href={`/indents/${i.id}`} className="text-primary hover:underline">#{i.seq}</Link></td>
                   <td className="px-3 py-2">{i.fromStore.name}</td>
                   <td className="px-3 py-2">{i.toStore.name}</td>
-                  <td className="px-3 py-2"><Badge tone={tone(i.status)}>{INDENT_STATUS_LABEL[i.status]}</Badge></td>
+                  <td className="px-3 py-2"><Badge tone={tone(i.status)}>{ts(i.status)}</Badge></td>
                   <td className="px-3 py-2 text-right tabular-nums">{i._count.lines}</td>
                   <td className="px-3 py-2">{i.creator.name}</td>
                   <td className="px-3 py-2 tabular-nums">{fmt.format(i.createdAt)}</td>

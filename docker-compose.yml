@@ -76,6 +76,23 @@ services:
       start_period: 3m
       retries: 2
 
+  # Optional HTTPS (camera barcode scanning on phones, installable app). Start with: docker compose --profile https up -d
+  caddy:
+    image: caddy:2-alpine
+    profiles: ["https"]
+    restart: unless-stopped
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:-localhost}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+    depends_on:
+      - app
+
 volumes:
+  caddy_data:
   pgdata:
   backups:

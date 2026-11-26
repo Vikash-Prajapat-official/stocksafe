@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
+import { getLocale } from "next-intl/server";
 import { ZodError, type z } from "zod";
+import { DEFAULT_LOCALE, type Locale } from "@/i18n/locale";
+import { translateMessage } from "@/i18n/server-messages";
 import { ApiError } from "@/lib/api-error";
 import { clientIp } from "@/lib/audit";
 import { checkAccess, type RoleName } from "@/lib/rbac";
@@ -10,29 +13,38 @@ import { getSessionUser, type SessionUser } from "@/lib/session";
 export { ApiError };
 
 /** Error body shape from SPEC section 7: { error: { code, message } }. */
-export function errorResponse(status: number, code: string, message: string, details?: unknown) {
+/** The language of the current request (cookie, then browser). Outside a request (tests, scripts) it is English. */
+export async function requestLocale(): Promise<Locale> {
+  try {
+    return (await getLocale()) as Locale;
+  } catch {
+    return DEFAULT_LOCALE;
+  }
+}
+
+export function errorResponse(status: number, code: string, message: string, details?: unknown, locale: Locale = DEFAULT_LOCALE) {
   return NextResponse.json(
-    { error: { code, message, ...(details === undefined ? {} : { details }) } },
+    { error: { code, message: translateMessage(message, locale), ...(details === undefined ? {} : { details }) } },
     { status },
   );
 }
 
-export function toErrorResponse(e: unknown): Response {
-  if (e instanceof ApiError) return errorResponse(e.status, e.code, e.message, e.details);
-  if (e instanceof StockError) return errorResponse(e.status, e.code, e.message, e.details);
+export function toErrorResponse(e: unknown, locale: Locale = DEFAULT_LOCALE): Response {
+  if (e instanceof ApiError) return errorResponse(e.status, e.code, e.message, e.details, locale);
+  if (e instanceof StockError) return errorResponse(e.status, e.code, e.message, e.details, locale);
   if (e instanceof ZodError) {
     const details = e.issues.map((i) => ({ path: i.path.join("."), message: i.message }));
     const message = details.map((d) => (d.path ? `${d.path}: ${d.message}` : d.message)).join("; ");
-    return errorResponse(400, "VALIDATION", message, details);
+    return errorResponse(400, "VALIDATION", message, details, locale);
   }
   if (e instanceof Prisma.PrismaClientKnownRequestError) {
-    if (e.code === "P2002") return errorResponse(409, "DUPLICATE", "That value already exists.");
-    if (e.code === "P2025") return errorResponse(404, "NOT_FOUND", "Not found.");
+    if (e.code === "P2002") return errorResponse(409, "DUPLICATE", "That value already exists.", undefined, locale);
+    if (e.code === "P2025") return errorResponse(404, "NOT_FOUND", "Not found.", undefined, locale);
     if (e.code === "P2003")
-      return errorResponse(409, "IN_USE", "This record is referenced by other records.");
+      return errorResponse(409, "IN_USE", "This record is referenced by other records.", undefined, locale);
   }
   console.error("Unhandled API error", e);
-  return errorResponse(500, "INTERNAL", "Something went wrong.");
+  return errorResponse(500, "INTERNAL", "Something went wrong.", undefined, locale);
 }
 
 export async function readJson(req: Request): Promise<unknown> {
@@ -64,6 +76,8 @@ export type HandlerArgs = {
   user: SessionUser;
   params: Record<string, string>;
   ip: string | null;
+  /** Language of this request, for any words the handler puts in its own response body. */
+  locale: Locale;
 };
 
 type RouteContext = { params: Promise<Record<string, string>> };
@@ -79,7 +93,9 @@ export function route(
 ) {
   // Next.js always passes the context; its route-type check rejects an optional parameter.
   return async (req: Request, ctx: RouteContext): Promise<Response> => {
+    let locale: Locale = DEFAULT_LOCALE;
     try {
+      locale = await requestLocale();
       const user = await getSessionUser();
       const access = checkAccess(user?.role, allowed === "ANY" ? undefined : allowed);
       if (!access.ok || !user) {
@@ -88,12 +104,14 @@ export function route(
           status,
           status === 401 ? "UNAUTHENTICATED" : "FORBIDDEN",
           status === 401 ? "Please sign in." : "You do not have permission to do this.",
+          undefined,
+          locale,
         );
       }
       const params = ctx?.params ? await ctx.params : {};
-      return await handler({ req, user, params, ip: clientIp(req) });
+      return await handler({ req, user, params, ip: clientIp(req), locale });
     } catch (e) {
-      return toErrorResponse(e);
+      return toErrorResponse(e, locale);
     }
   };
 }

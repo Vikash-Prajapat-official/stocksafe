@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { ItemFormView } from "@/components/item-form";
 import Link from "next/link";
 import { StockTable } from "@/components/stock-table";
@@ -10,6 +11,10 @@ export const dynamic = "force-dynamic";
 
 export default async function ItemPage({ params }: { params: Promise<{ id: string }> }) {
   const user = await requirePageUser();
+  const t = await getTranslations("items");
+  const tc = await getTranslations("common");
+  const tf = await getTranslations("forms");
+  const ts = await getTranslations("storages");
   const { id } = await params;
   const item = await db.item.findUnique({ where: { id } });
   if (!item) notFound();
@@ -17,8 +22,8 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
   const stockSection = (
     <section className="space-y-2">
       <div className="flex items-baseline justify-between">
-        <h2 className="font-medium">Stock on hand</h2>
-        <Link href={`/items/${id}/ledger`} className="text-sm text-primary hover:underline">View ledger (bin card)</Link>
+        <h2 className="font-medium">{t("stockOnHand")}</h2>
+        <Link href={`/items/${id}/ledger`} className="text-sm text-primary hover:underline">{t("viewLedger")}</Link>
       </div>
       <StockTable rows={stock} />
     </section>
@@ -27,7 +32,7 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
   if (user.role === "ADMIN") {
     return (
       <div className="max-w-3xl space-y-4">
-        <h1 className="text-xl font-semibold">Edit item</h1>
+        <h1 className="text-xl font-semibold">{t("editTitle")}</h1>
         <ItemFormView initial={item} />
         {stockSection}
       </div>
@@ -35,14 +40,14 @@ export default async function ItemPage({ params }: { params: Promise<{ id: strin
   }
 
   const rows: [string, string][] = [
-    ["Generic name", item.genericName ?? ""],
-    ["Strength", item.strength ?? ""],
-    ["Form", item.form],
-    ["Unit", item.unit],
-    ["Category", item.category ?? ""],
-    ["Essential (NLEM)", item.isEssential ? "Yes" : "No"],
-    ["Storage", item.storage === "COLD" ? "Cold chain (2 to 8 °C)" : "Room temperature"],
-    ["Minimum / reorder / maximum", `${item.minLevel} / ${item.reorderLevel} / ${item.maxLevel}`],
+    [t("genericName"), item.genericName ?? ""],
+    [t("strength"), item.strength ?? ""],
+    [t("form"), tf(item.form)],
+    [tc("unit"), item.unit],
+    [t("category"), item.category ?? ""],
+    [t("essential"), item.isEssential ? tc("yes") : tc("no")],
+    [t("storage"), ts(item.storage)],
+    [t("levels"), `${item.minLevel} / ${item.reorderLevel} / ${item.maxLevel}`],
   ];
   return (
     <div className="max-w-xl space-y-4">

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { translateMessage } from "@/i18n/server-messages";
 import { ApiError, route } from "@/lib/api";
 import { db } from "@/lib/db";
 import { writeAudit } from "@/lib/audit";
@@ -10,7 +11,7 @@ const CHUNK = 500;
 
 // multipart/form-data with a "file" field (.csv, .xlsx, .xls). Add ?dryRun=true to only check.
 // Valid rows are imported; every invalid row is reported with its row number and column.
-export const POST = route(ADMIN_ONLY, async ({ req, user, ip }) => {
+export const POST = route(ADMIN_ONLY, async ({ req, user, ip, locale }) => {
   const dryRun = new URL(req.url).searchParams.get("dryRun") === "true";
 
   let form: FormData;
@@ -54,8 +55,8 @@ export const POST = route(ADMIN_ONLY, async ({ req, user, ip }) => {
     dryRun,
     created,
     wouldCreate: result.items.length,
-    errors: result.errors,
-    warnings: result.warnings,
+    errors: result.errors.map((e) => ({ ...e, message: translateMessage(e.message, locale) })),
+    warnings: result.warnings.map((w) => translateMessage(w, locale)),
     skippedBlank: result.skippedBlank,
     totalRows: result.totalRows,
   });

@@ -1,28 +1,32 @@
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
+import { LocaleSwitcher } from "@/components/locale-switcher";
 import { signOut } from "@/lib/auth";
-import { ROLE_LABELS } from "@/lib/rbac";
 import { requirePageUser } from "@/lib/session";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const user = await requirePageUser();
+  const t = await getTranslations("nav");
+  const tc = await getTranslations("common");
+  const tr = await getTranslations("roles");
   const links = [
-    { href: "/dashboard", label: "Dashboard" },
-    { href: "/items", label: "Items" },
-    { href: "/expiry", label: "Expiry" },
-    { href: "/reorder", label: "Reorder list" },
-    ...(user.role === "STOREKEEPER" ? [{ href: "/grn", label: "Receive stock" }] : []),
-    ...(user.role === "STOREKEEPER" || user.role === "PHARMACIST" ? [{ href: "/issue", label: "Issue / transfer" }] : []),
-    ...(user.role === "PHARMACIST" ? [{ href: "/dispense", label: "Dispense" }] : []),
-    ...(["NURSE", "STOREKEEPER", "ADMIN", "AUDITOR"].includes(user.role) ? [{ href: "/indents", label: "Indents" }] : []),
-    ...(["STOREKEEPER", "ADMIN", "AUDITOR"].includes(user.role) ? [{ href: "/counts", label: "Stock counts" }] : []),
-    ...(["ADMIN", "AUDITOR"].includes(user.role) ? [{ href: "/reports", label: "Reports" }, { href: "/admin/audit", label: "Audit log" }] : []),
+    { href: "/dashboard", label: t("dashboard") },
+    { href: "/items", label: t("items") },
+    { href: "/expiry", label: t("expiry") },
+    { href: "/reorder", label: t("reorder") },
+    ...(user.role === "STOREKEEPER" ? [{ href: "/grn", label: t("grn") }] : []),
+    ...(user.role === "STOREKEEPER" || user.role === "PHARMACIST" ? [{ href: "/issue", label: t("issue") }] : []),
+    ...(user.role === "PHARMACIST" ? [{ href: "/dispense", label: t("dispense") }] : []),
+    ...(["NURSE", "STOREKEEPER", "ADMIN", "AUDITOR"].includes(user.role) ? [{ href: "/indents", label: t("indents") }] : []),
+    ...(["STOREKEEPER", "ADMIN", "AUDITOR"].includes(user.role) ? [{ href: "/counts", label: t("counts") }] : []),
+    ...(["ADMIN", "AUDITOR"].includes(user.role) ? [{ href: "/reports", label: t("reports") }, { href: "/admin/audit", label: t("audit") }] : []),
     ...(user.role === "ADMIN"
       ? [
-          { href: "/admin/stores", label: "Stores" },
-          { href: "/admin/users", label: "Users" },
-          { href: "/admin/suppliers", label: "Suppliers" },
-          { href: "/admin/system", label: "System" },
+          { href: "/admin/stores", label: t("stores") },
+          { href: "/admin/users", label: t("users") },
+          { href: "/admin/suppliers", label: t("suppliers") },
+          { href: "/admin/system", label: t("system") },
         ]
       : []),
   ];
@@ -39,20 +43,21 @@ export default async function AppLayout({ children }: { children: React.ReactNod
           <Link href="/dashboard" className="text-lg font-semibold text-primary">
             StockSafe
           </Link>
-          <nav aria-label="Main" className="flex flex-wrap gap-4 text-sm">
+          <nav aria-label={t("main")} className="flex flex-wrap gap-4 text-sm">
             {links.map((l) => (
               <Link key={l.href} href={l.href} className="text-neutral-700 hover:text-primary hover:underline">
                 {l.label}
               </Link>
             ))}
           </nav>
-          <div className="ml-auto flex items-center gap-3 text-sm">
+          <div className="ml-auto flex flex-wrap items-center gap-3 text-sm">
+            <LocaleSwitcher />
             <span className="text-neutral-600">
-              {user.name} <span className="text-neutral-400">({ROLE_LABELS[user.role]})</span>
+              {user.name} <span className="text-neutral-400">({tr(user.role)})</span>
             </span>
             <form action={logout}>
               <Button type="submit" variant="outline" size="sm">
-                Sign out
+                {tc("signOut")}
               </Button>
             </form>
           </div>

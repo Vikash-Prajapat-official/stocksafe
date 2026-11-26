@@ -8,11 +8,11 @@ export type BackupFile = { name: string; sizeBytes: number; modified: Date };
 
 /** What the admin "System" page shows: backups, email, retention and when the nightly jobs last ran. */
 export async function getSystemStatus() {
-  const dir = process.env.BACKUP_DIR?.trim() || "/backups";
+  const dir = process.env.BACKUP_DIR?.trim() || ((process.env.DATABASE_URL ?? "").startsWith("file:") ? "backups" : "/backups");
   let files: BackupFile[] = [];
   let backupsVisible = true;
   try {
-    const names = (await readdir(dir)).filter((n) => /^stocksafe-.*\.sql\.gz\.enc$/.test(n));
+    const names = (await readdir(dir)).filter((n) => /^stocksafe-.*\.(sql|db)\.gz\.enc$/.test(n));
     const stats = await Promise.all(names.slice(-200).map(async (n) => ({ name: n, st: await stat(path.join(dir, n)) })));
     files = stats.map((x) => ({ name: x.name, sizeBytes: x.st.size, modified: x.st.mtime })).sort((a, b) => b.modified.getTime() - a.modified.getTime());
   } catch {

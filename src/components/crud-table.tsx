@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -24,7 +25,8 @@ export type ColumnDef = {
 type Row = { id: string } & Record<string, unknown>;
 
 type Props = {
-  noun: string;
+  /** Words for this table, already in the language of the user: the add button, the two form titles, and the empty message. */
+  labels: { add: string; addTitle: string; editTitle: string; none: string };
   /** e.g. "/api/admin/stores". Add = POST here; edit = PATCH here/{id}. */
   endpoint: string;
   fields: FieldDef[];
@@ -44,19 +46,21 @@ function initialValues(fields: FieldDef[], row?: Row): Record<string, unknown> {
   return v;
 }
 
-function cell(row: Row, col: ColumnDef) {
+function cell(row: Row, col: ColumnDef, yes: string, no: string, none: string) {
   const value = row[col.key];
-  if (col.kind === "bool") return value ? "Yes" : "No";
+  if (col.kind === "bool") return value ? yes : no;
   if (col.kind === "option") return col.options?.find((o) => o.value === value)?.label ?? String(value ?? "");
   if (col.kind === "multi") {
     const ids = (value as string[]) ?? [];
-    return ids.map((id) => col.options?.find((o) => o.value === id)?.label ?? id).join(", ") || "None";
+    return ids.map((id) => col.options?.find((o) => o.value === id)?.label ?? id).join(", ") || none;
   }
   return String(value ?? "");
 }
 
-export function CrudTable({ noun, endpoint, fields, columns, rows }: Props) {
+export function CrudTable({ labels, endpoint, fields, columns, rows }: Props) {
   const router = useRouter();
+  const tc = useTranslations("common");
+  const t = useTranslations("crud");
   const [editing, setEditing] = useState<Row | "new" | null>(null);
   const [values, setValues] = useState<Record<string, unknown>>({});
   const [error, setError] = useState<string | null>(null);
@@ -88,13 +92,13 @@ export function CrudTable({ noun, endpoint, fields, columns, rows }: Props) {
       });
       if (!res.ok) {
         const data = (await res.json().catch(() => null)) as { error?: { message?: string } } | null;
-        setError(data?.error?.message ?? "Could not save. Please try again.");
+        setError(data?.error?.message ?? t("saveFailed"));
         return;
       }
       setEditing(null);
       router.refresh();
     } catch {
-      setError("Could not reach the server. Please try again.");
+      setError(tc("offline"));
     } finally {
       setBusy(false);
     }
@@ -103,12 +107,12 @@ export function CrudTable({ noun, endpoint, fields, columns, rows }: Props) {
   return (
     <div className="space-y-4">
       <div className="flex justify-end">
-        <Button onClick={() => open("new")}>Add {noun}</Button>
+        <Button onClick={() => open("new")}>{labels.add}</Button>
       </div>
 
       {editing ? (
         <form onSubmit={submit} className="space-y-4 rounded-lg border bg-neutral-50 p-4">
-          <h2 className="font-medium">{editing === "new" ? `Add ${noun}` : `Edit ${noun}`}</h2>
+          <h2 className="font-medium">{editing === "new" ? labels.addTitle : labels.editTitle}</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {fields.map((f) => {
               const id = `f-${f.key}`;
@@ -156,7 +160,7 @@ export function CrudTable({ noun, endpoint, fields, columns, rows }: Props) {
                   key={f.key}
                   label={f.label}
                   htmlFor={id}
-                  hint={f.type === "password" && !isNew ? "Leave blank to keep the current password" : f.hint}
+                  hint={f.type === "password" && !isNew ? t("keepPassword") : f.hint}
                 >
                   {f.type === "select" ? (
                     <Select
@@ -188,10 +192,10 @@ export function CrudTable({ noun, endpoint, fields, columns, rows }: Props) {
           <FormError message={error} />
           <div className="flex gap-2">
             <Button type="submit" disabled={busy}>
-              {busy ? "Saving..." : "Save"}
+              {busy ? tc("saving") : tc("save")}
             </Button>
             <Button variant="outline" onClick={() => setEditing(null)} disabled={busy}>
-              Cancel
+              {tc("cancel")}
             </Button>
           </div>
         </form>
@@ -207,7 +211,7 @@ export function CrudTable({ noun, endpoint, fields, columns, rows }: Props) {
                 </th>
               ))}
               <th scope="col" className="px-4 py-2">
-                <span className="sr-only">Actions</span>
+                <span className="sr-only">{tc("actions")}</span>
               </th>
             </tr>
           </thead>
@@ -215,7 +219,7 @@ export function CrudTable({ noun, endpoint, fields, columns, rows }: Props) {
             {rows.length === 0 ? (
               <tr>
                 <td colSpan={columns.length + 1} className="px-4 py-6 text-center text-neutral-500">
-                  No {noun}s yet.
+                  {labels.none}
                 </td>
               </tr>
             ) : (
@@ -223,12 +227,12 @@ export function CrudTable({ noun, endpoint, fields, columns, rows }: Props) {
                 <tr key={row.id} className={row.active === false ? "text-neutral-400" : undefined}>
                   {columns.map((c) => (
                     <td key={c.key} className="px-4 py-2">
-                      {cell(row, c)}
+                      {cell(row, c, tc("yes"), tc("no"), tc("none"))}
                     </td>
                   ))}
                   <td className="px-4 py-2 text-right">
                     <Button size="sm" variant="outline" onClick={() => open(row)}>
-                      Edit
+                      {tc("edit")}
                     </Button>
                   </td>
                 </tr>

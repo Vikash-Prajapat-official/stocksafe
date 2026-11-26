@@ -1,0 +1,435 @@
+name,strength,form,unit,category,is_essential,storage
+Ketamine,50 mg/ml,INJECTION,vial,Anaesthetics,yes,ROOM
+Propofol,10 mg/ml,INJECTION,vial,Anaesthetics,yes,ROOM
+Thiopentone,500 mg,INJECTION,vial,Anaesthetics,yes,ROOM
+Isoflurane,250 ml,OTHER,bottle,Anaesthetics,yes,ROOM
+Sevoflurane,250 ml,OTHER,bottle,Anaesthetics,yes,ROOM
+Lignocaine,2%,INJECTION,vial,Anaesthetics,yes,ROOM
+Lignocaine + Adrenaline,2% + 1:200000,INJECTION,vial,Anaesthetics,yes,ROOM
+Lignocaine,2% jelly,OINTMENT,tube,Anaesthetics,yes,ROOM
+Bupivacaine,0.5%,INJECTION,vial,Anaesthetics,yes,ROOM
+Bupivacaine heavy (spinal),0.5% in dextrose 8%,INJECTION,ampoule,Anaesthetics,yes,ROOM
+Ropivacaine,0.75%,INJECTION,vial,Anaesthetics,yes,ROOM
+Atropine,0.6 mg/ml,INJECTION,ampoule,Anaesthetics,yes,ROOM
+Glycopyrrolate,0.2 mg/ml,INJECTION,ampoule,Anaesthetics,yes,ROOM
+Neostigmine,0.5 mg/ml,INJECTION,ampoule,Anaesthetics,yes,ROOM
+Succinylcholine,50 mg/ml,INJECTION,vial,Anaesthetics,yes,COLD
+Vecuronium,4 mg,INJECTION,vial,Anaesthetics,yes,ROOM
+Atracurium,10 mg/ml,INJECTION,ampoule,Anaesthetics,yes,COLD
+Rocuronium,10 mg/ml,INJECTION,vial,Anaesthetics,yes,COLD
+Midazolam,1 mg/ml,INJECTION,ampoule,Anaesthetics,yes,ROOM
+Fentanyl,50 mcg/ml,INJECTION,ampoule,Anaesthetics,yes,ROOM
+Dexmedetomidine,100 mcg/ml,INJECTION,vial,Anaesthetics,yes,ROOM
+Naloxone,0.4 mg/ml,INJECTION,ampoule,Antidotes,yes,ROOM
+Flumazenil,0.1 mg/ml,INJECTION,ampoule,Antidotes,yes,ROOM
+Morphine,10 mg/ml,INJECTION,ampoule,Analgesics,yes,ROOM
+Morphine,10 mg,TABLET,tablet,Analgesics,yes,ROOM
+Tramadol,50 mg/ml,INJECTION,ampoule,Analgesics,yes,ROOM
+Tramadol,50 mg,CAPSULE,capsule,Analgesics,yes,ROOM
+Diclofenac,25 mg/ml,INJECTION,ampoule,Analgesics,yes,ROOM
+Diclofenac,50 mg,TABLET,tablet,Analgesics,yes,ROOM
+Ketorolac,30 mg/ml,INJECTION,ampoule,Analgesics,yes,ROOM
+Paracetamol,500 mg,TABLET,tablet,Analgesics,yes,ROOM
+Paracetamol,650 mg,TABLET,tablet,Analgesics,yes,ROOM
+Paracetamol,125 mg/5 ml,SYRUP,bottle,Analgesics,yes,ROOM
+Paracetamol,10 mg/ml (100 ml),INJECTION,bottle,Analgesics,yes,ROOM
+Ibuprofen,400 mg,TABLET,tablet,Analgesics,yes,ROOM
+Ibuprofen,100 mg/5 ml,SYRUP,bottle,Analgesics,yes,ROOM
+Aspirin,75 mg,TABLET,tablet,Analgesics,yes,ROOM
+Aspirin,150 mg,TABLET,tablet,Analgesics,yes,ROOM
+Aspirin,325 mg,TABLET,tablet,Analgesics,yes,ROOM
+Naproxen,250 mg,TABLET,tablet,Analgesics,no,ROOM
+Allopurinol,100 mg,TABLET,tablet,Gout,yes,ROOM
+Colchicine,0.5 mg,TABLET,tablet,Gout,yes,ROOM
+Methotrexate,2.5 mg,TABLET,tablet,Antirheumatic,yes,ROOM
+Hydroxychloroquine,200 mg,TABLET,tablet,Antirheumatic,yes,ROOM
+Sulfasalazine,500 mg,TABLET,tablet,Antirheumatic,yes,ROOM
+Cetirizine,10 mg,TABLET,tablet,Antiallergics,yes,ROOM
+Cetirizine,5 mg/5 ml,SYRUP,bottle,Antiallergics,yes,ROOM
+Levocetirizine,5 mg,TABLET,tablet,Antiallergics,no,ROOM
+Chlorpheniramine,4 mg,TABLET,tablet,Antiallergics,yes,ROOM
+Chlorpheniramine,2 mg/5 ml,SYRUP,bottle,Antiallergics,yes,ROOM
+Pheniramine,22.75 mg/ml,INJECTION,ampoule,Antiallergics,yes,ROOM
+Adrenaline,1 mg/ml,INJECTION,ampoule,Antiallergics,yes,ROOM
+Hydrocortisone,100 mg,INJECTION,vial,Antiallergics,yes,ROOM
+Dexamethasone,4 mg/ml,INJECTION,ampoule,Hormones,yes,ROOM
+Dexamethasone,0.5 mg,TABLET,tablet,Hormones,yes,ROOM
+Prednisolone,5 mg,TABLET,tablet,Hormones,yes,ROOM
+Prednisolone,10 mg,TABLET,tablet,Hormones,yes,ROOM
+Prednisolone,20 mg,TABLET,tablet,Hormones,yes,ROOM
+Methylprednisolone,40 mg,INJECTION,vial,Hormones,yes,ROOM
+Betamethasone,4 mg/ml,INJECTION,ampoule,Hormones,yes,ROOM
+Fludrocortisone,0.1 mg,TABLET,tablet,Hormones,yes,ROOM
+Pralidoxime,1 g,INJECTION,vial,Antidotes,yes,ROOM
+Atropine,1 mg/ml,INJECTION,ampoule,Antidotes,yes,ROOM
+Activated charcoal,50 g,OTHER,pack,Antidotes,yes,ROOM
+Acetylcysteine,200 mg/ml,INJECTION,vial,Antidotes,yes,ROOM
+Anti-snake venom polyvalent,10 ml,INJECTION,vial,Antidotes,yes,COLD
+Anti-rabies serum (equine),1000 IU,INJECTION,vial,Antidotes,yes,COLD
+Tetanus immunoglobulin,250 IU,INJECTION,vial,Antidotes,yes,COLD
+Methylene blue,1%,INJECTION,ampoule,Antidotes,yes,ROOM
+Protamine sulphate,10 mg/ml,INJECTION,ampoule,Antidotes,yes,ROOM
+Vitamin K (Phytomenadione),10 mg/ml,INJECTION,ampoule,Antidotes,yes,ROOM
+Calcium gluconate,10%,INJECTION,ampoule,Antidotes,yes,ROOM
+Desferrioxamine,500 mg,INJECTION,vial,Antidotes,yes,ROOM
+Glucagon,1 mg,INJECTION,vial,Antidotes,yes,COLD
+Phenytoin,100 mg,CAPSULE,capsule,Anticonvulsants,yes,ROOM
+Phenytoin,50 mg/ml,INJECTION,ampoule,Anticonvulsants,yes,ROOM
+Carbamazepine,200 mg,TABLET,tablet,Anticonvulsants,yes,ROOM
+Sodium valproate,200 mg,TABLET,tablet,Anticonvulsants,yes,ROOM
+Sodium valproate,500 mg,TABLET,tablet,Anticonvulsants,yes,ROOM
+Sodium valproate,200 mg/5 ml,SYRUP,bottle,Anticonvulsants,yes,ROOM
+Phenobarbitone,30 mg,TABLET,tablet,Anticonvulsants,yes,ROOM
+Phenobarbitone,200 mg/ml,INJECTION,ampoule,Anticonvulsants,yes,ROOM
+Levetiracetam,500 mg,TABLET,tablet,Anticonvulsants,yes,ROOM
+Levetiracetam,100 mg/ml,INJECTION,vial,Anticonvulsants,yes,ROOM
+Clonazepam,0.5 mg,TABLET,tablet,Anticonvulsants,yes,ROOM
+Lorazepam,2 mg/ml,INJECTION,ampoule,Anticonvulsants,yes,COLD
+Diazepam,5 mg/ml,INJECTION,ampoule,Anticonvulsants,yes,ROOM
+Diazepam,5 mg,TABLET,tablet,Anticonvulsants,yes,ROOM
+Magnesium sulphate,50%,INJECTION,ampoule,Anticonvulsants,yes,ROOM
+Lamotrigine,50 mg,TABLET,tablet,Anticonvulsants,yes,ROOM
+Amoxicillin,250 mg,CAPSULE,capsule,Antibacterials,yes,ROOM
+Amoxicillin,500 mg,CAPSULE,capsule,Antibacterials,yes,ROOM
+Amoxicillin,125 mg/5 ml,SYRUP,bottle,Antibacterials,yes,ROOM
+Amoxicillin + Clavulanic acid,500 + 125 mg,TABLET,tablet,Antibacterials,yes,ROOM
+Amoxicillin + Clavulanic acid,1.2 g,INJECTION,vial,Antibacterials,yes,ROOM
+Amoxicillin + Clavulanic acid,228.5 mg/5 ml,SYRUP,bottle,Antibacterials,yes,ROOM
+Ampicillin,500 mg,INJECTION,vial,Antibacterials,yes,ROOM
+Ampicillin,1 g,INJECTION,vial,Antibacterials,yes,ROOM
+Benzathine benzylpenicillin,12 lakh IU,INJECTION,vial,Antibacterials,yes,ROOM
+Benzylpenicillin,5 lakh IU,INJECTION,vial,Antibacterials,yes,ROOM
+Cloxacillin,500 mg,CAPSULE,capsule,Antibacterials,yes,ROOM
+Cefadroxil,500 mg,TABLET,tablet,Antibacterials,yes,ROOM
+Cefalexin,500 mg,CAPSULE,capsule,Antibacterials,yes,ROOM
+Cefazolin,1 g,INJECTION,vial,Antibacterials,yes,ROOM
+Cefixime,200 mg,TABLET,tablet,Antibacterials,yes,ROOM
+Cefixime,100 mg/5 ml,SYRUP,bottle,Antibacterials,yes,ROOM
+Cefuroxime,500 mg,TABLET,tablet,Antibacterials,yes,ROOM
+Cefotaxime,1 g,INJECTION,vial,Antibacterials,yes,ROOM
+Ceftriaxone,250 mg,INJECTION,vial,Antibacterials,yes,ROOM
+Ceftriaxone,500 mg,INJECTION,vial,Antibacterials,yes,ROOM
+Ceftriaxone,1 g,INJECTION,vial,Antibacterials,yes,ROOM
+Ceftazidime,1 g,INJECTION,vial,Antibacterials,yes,ROOM
+Cefoperazone + Sulbactam,1.5 g,INJECTION,vial,Antibacterials,yes,ROOM
+Piperacillin + Tazobactam,4.5 g,INJECTION,vial,Antibacterials,yes,ROOM
+Meropenem,1 g,INJECTION,vial,Antibacterials,yes,ROOM
+Imipenem + Cilastatin,500 mg,INJECTION,vial,Antibacterials,yes,ROOM
+Ertapenem,1 g,INJECTION,vial,Antibacterials,yes,ROOM
+Gentamicin,40 mg/ml,INJECTION,vial,Antibacterials,yes,ROOM
+Amikacin,500 mg/2 ml,INJECTION,vial,Antibacterials,yes,ROOM
+Azithromycin,500 mg,TABLET,tablet,Antibacterials,yes,ROOM
+Azithromycin,200 mg/5 ml,SYRUP,bottle,Antibacterials,yes,ROOM
+Clarithromycin,500 mg,TABLET,tablet,Antibacterials,yes,ROOM
+Erythromycin,250 mg,TABLET,tablet,Antibacterials,yes,ROOM
+Ciprofloxacin,500 mg,TABLET,tablet,Antibacterials,yes,ROOM
+Ciprofloxacin,200 mg/100 ml,INJECTION,bottle,Antibacterials,yes,ROOM
+Levofloxacin,500 mg,TABLET,tablet,Antibacterials,yes,ROOM
+Levofloxacin,5 mg/ml (100 ml),INJECTION,bottle,Antibacterials,yes,ROOM
+Ofloxacin,200 mg,TABLET,tablet,Antibacterials,yes,ROOM
+Doxycycline,100 mg,CAPSULE,capsule,Antibacterials,yes,ROOM
+Cotrimoxazole,400 + 80 mg,TABLET,tablet,Antibacterials,yes,ROOM
+Cotrimoxazole,200 + 40 mg/5 ml,SYRUP,bottle,Antibacterials,yes,ROOM
+Metronidazole,400 mg,TABLET,tablet,Antibacterials,yes,ROOM
+Metronidazole,500 mg/100 ml,INJECTION,bottle,Antibacterials,yes,ROOM
+Metronidazole,200 mg/5 ml,SYRUP,bottle,Antibacterials,yes,ROOM
+Clindamycin,300 mg,CAPSULE,capsule,Antibacterials,yes,ROOM
+Clindamycin,150 mg/ml,INJECTION,ampoule,Antibacterials,yes,ROOM
+Linezolid,600 mg,TABLET,tablet,Antibacterials,yes,ROOM
+Linezolid,2 mg/ml (300 ml),INJECTION,bag,Antibacterials,yes,ROOM
+Vancomycin,500 mg,INJECTION,vial,Antibacterials,yes,ROOM
+Vancomycin,1 g,INJECTION,vial,Antibacterials,yes,ROOM
+Teicoplanin,400 mg,INJECTION,vial,Antibacterials,yes,ROOM
+Colistin,2 MIU,INJECTION,vial,Antibacterials,yes,ROOM
+Polymyxin B,5 lakh IU,INJECTION,vial,Antibacterials,yes,ROOM
+Nitrofurantoin,100 mg,CAPSULE,capsule,Antibacterials,yes,ROOM
+Fluconazole,50 mg,TABLET,tablet,Antifungals,yes,ROOM
+Fluconazole,150 mg,TABLET,tablet,Antifungals,yes,ROOM
+Fluconazole,2 mg/ml (100 ml),INJECTION,bottle,Antifungals,yes,ROOM
+Amphotericin B,50 mg,INJECTION,vial,Antifungals,yes,COLD
+Clotrimazole,1%,OINTMENT,tube,Antifungals,yes,ROOM
+Clotrimazole,100 mg,OTHER,pack,Antifungals,yes,ROOM
+Nystatin,100000 IU/ml,DROPS,bottle,Antifungals,yes,ROOM
+Terbinafine,250 mg,TABLET,tablet,Antifungals,yes,ROOM
+Griseofulvin,250 mg,TABLET,tablet,Antifungals,yes,ROOM
+Itraconazole,100 mg,CAPSULE,capsule,Antifungals,yes,ROOM
+Voriconazole,200 mg,TABLET,tablet,Antifungals,yes,ROOM
+Miconazole,2%,OINTMENT,tube,Antifungals,no,ROOM
+Albendazole,400 mg,TABLET,tablet,Antiparasitic,yes,ROOM
+Albendazole,200 mg/5 ml,SYRUP,bottle,Antiparasitic,yes,ROOM
+Ivermectin,12 mg,TABLET,tablet,Antiparasitic,yes,ROOM
+Praziquantel,600 mg,TABLET,tablet,Antiparasitic,yes,ROOM
+Diethylcarbamazine,100 mg,TABLET,tablet,Antiparasitic,yes,ROOM
+Chloroquine,250 mg,TABLET,tablet,Antimalarial,yes,ROOM
+Primaquine,7.5 mg,TABLET,tablet,Antimalarial,yes,ROOM
+Artesunate,60 mg,INJECTION,vial,Antimalarial,yes,ROOM
+Artemether + Lumefantrine,20 + 120 mg,TABLET,tablet,Antimalarial,yes,ROOM
+Quinine,300 mg,TABLET,tablet,Antimalarial,yes,ROOM
+Quinine,300 mg/ml,INJECTION,ampoule,Antimalarial,yes,ROOM
+Permethrin,5%,OINTMENT,tube,Antiparasitic,yes,ROOM
+Benzyl benzoate,25%,OTHER,bottle,Antiparasitic,yes,ROOM
+Acyclovir,400 mg,TABLET,tablet,Antivirals,yes,ROOM
+Acyclovir,250 mg,INJECTION,vial,Antivirals,yes,ROOM
+Oseltamivir,75 mg,CAPSULE,capsule,Antivirals,yes,ROOM
+Tenofovir,300 mg,TABLET,tablet,Antivirals,yes,ROOM
+Entecavir,0.5 mg,TABLET,tablet,Antivirals,yes,ROOM
+Sofosbuvir,400 mg,TABLET,tablet,Antivirals,yes,ROOM
+Isoniazid,300 mg,TABLET,tablet,Anti-TB,yes,ROOM
+Rifampicin,450 mg,CAPSULE,capsule,Anti-TB,yes,ROOM
+Pyrazinamide,500 mg,TABLET,tablet,Anti-TB,yes,ROOM
+Ethambutol,400 mg,TABLET,tablet,Anti-TB,yes,ROOM
+Streptomycin,1 g,INJECTION,vial,Anti-TB,yes,ROOM
+Dapsone,100 mg,TABLET,tablet,Anti-leprosy,yes,ROOM
+Tamoxifen,20 mg,TABLET,tablet,Anticancer,yes,ROOM
+Letrozole,2.5 mg,TABLET,tablet,Anticancer,yes,ROOM
+Anastrozole,1 mg,TABLET,tablet,Anticancer,yes,ROOM
+Imatinib,400 mg,TABLET,tablet,Anticancer,yes,ROOM
+Capecitabine,500 mg,TABLET,tablet,Anticancer,yes,ROOM
+Hydroxyurea,500 mg,CAPSULE,capsule,Anticancer,yes,ROOM
+Cyclophosphamide,500 mg,INJECTION,vial,Anticancer,yes,ROOM
+Cisplatin,50 mg,INJECTION,vial,Anticancer,yes,ROOM
+Carboplatin,450 mg,INJECTION,vial,Anticancer,yes,ROOM
+Paclitaxel,260 mg,INJECTION,vial,Anticancer,yes,ROOM
+Vincristine,1 mg,INJECTION,vial,Anticancer,yes,COLD
+Fluorouracil,500 mg,INJECTION,vial,Anticancer,yes,ROOM
+Doxorubicin,50 mg,INJECTION,vial,Anticancer,yes,COLD
+BCG vaccine,10 doses,INJECTION,vial,Vaccines,yes,COLD
+Oral polio vaccine,20 doses,DROPS,vial,Vaccines,yes,COLD
+Hepatitis B vaccine,10 ml,INJECTION,vial,Vaccines,yes,COLD
+DPT vaccine,10 doses,INJECTION,vial,Vaccines,yes,COLD
+Measles-Rubella vaccine,5 doses,INJECTION,vial,Vaccines,yes,COLD
+Tetanus toxoid,0.5 ml,INJECTION,vial,Vaccines,yes,COLD
+Rabies vaccine,2.5 IU,INJECTION,vial,Vaccines,yes,COLD
+Anti-D immunoglobulin,300 mcg,INJECTION,vial,Vaccines,yes,COLD
+Amlodipine,5 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Amlodipine,10 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Atenolol,50 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Metoprolol,50 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Metoprolol,1 mg/ml,INJECTION,ampoule,Cardiovascular,yes,ROOM
+Propranolol,40 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Carvedilol,6.25 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Enalapril,5 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Ramipril,2.5 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Telmisartan,40 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Losartan,50 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Hydrochlorothiazide,12.5 mg,TABLET,tablet,Diuretics,yes,ROOM
+Furosemide,40 mg,TABLET,tablet,Diuretics,yes,ROOM
+Furosemide,10 mg/ml,INJECTION,ampoule,Diuretics,yes,ROOM
+Spironolactone,25 mg,TABLET,tablet,Diuretics,yes,ROOM
+Acetazolamide,250 mg,TABLET,tablet,Diuretics,yes,ROOM
+Mannitol,20% (100 ml),INJECTION,bottle,Diuretics,yes,ROOM
+Digoxin,0.25 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Digoxin,0.25 mg/ml,INJECTION,ampoule,Cardiovascular,yes,ROOM
+Amiodarone,200 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Amiodarone,50 mg/ml,INJECTION,ampoule,Cardiovascular,yes,ROOM
+Adenosine,3 mg/ml,INJECTION,vial,Cardiovascular,yes,ROOM
+Verapamil,40 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Diltiazem,30 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Nifedipine,10 mg,CAPSULE,capsule,Cardiovascular,yes,ROOM
+Nifedipine,20 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Isosorbide dinitrate,10 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Glyceryl trinitrate,0.5 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Glyceryl trinitrate,5 mg/ml,INJECTION,ampoule,Cardiovascular,yes,ROOM
+Atorvastatin,10 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Atorvastatin,40 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Rosuvastatin,10 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Clopidogrel,75 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Warfarin,5 mg,TABLET,tablet,Blood,yes,ROOM
+Heparin,5000 IU/ml,INJECTION,vial,Blood,yes,ROOM
+Enoxaparin,40 mg,INJECTION,syringe,Blood,yes,ROOM
+Dopamine,40 mg/ml,INJECTION,ampoule,Cardiovascular,yes,ROOM
+Dobutamine,250 mg,INJECTION,vial,Cardiovascular,yes,ROOM
+Noradrenaline,2 mg/ml,INJECTION,ampoule,Cardiovascular,yes,ROOM
+Hydralazine,25 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Hydralazine,20 mg/ml,INJECTION,ampoule,Cardiovascular,yes,ROOM
+Methyldopa,250 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Labetalol,100 mg,TABLET,tablet,Cardiovascular,yes,ROOM
+Labetalol,5 mg/ml,INJECTION,vial,Cardiovascular,yes,ROOM
+Sodium nitroprusside,50 mg,INJECTION,vial,Cardiovascular,yes,ROOM
+Streptokinase,15 lakh IU,INJECTION,vial,Cardiovascular,yes,COLD
+Tranexamic acid,500 mg,TABLET,tablet,Blood,yes,ROOM
+Tranexamic acid,100 mg/ml,INJECTION,ampoule,Blood,yes,ROOM
+Ethamsylate,250 mg/2 ml,INJECTION,ampoule,Blood,yes,ROOM
+Ivabradine,5 mg,TABLET,tablet,Cardiovascular,no,ROOM
+Betamethasone,0.1%,OINTMENT,tube,Dermatological,yes,ROOM
+Hydrocortisone,1%,OINTMENT,tube,Dermatological,yes,ROOM
+Clobetasol,0.05%,OINTMENT,tube,Dermatological,yes,ROOM
+Mupirocin,2%,OINTMENT,tube,Dermatological,yes,ROOM
+Silver sulfadiazine,1%,OINTMENT,tube,Dermatological,yes,ROOM
+Calamine,lotion 100 ml,OTHER,bottle,Dermatological,yes,ROOM
+Povidone iodine,5%,OTHER,bottle,Antiseptics,yes,ROOM
+Povidone iodine,10%,OTHER,bottle,Antiseptics,yes,ROOM
+Chlorhexidine,5% concentrate,OTHER,bottle,Antiseptics,yes,ROOM
+Chlorhexidine,2%,OTHER,bottle,Antiseptics,yes,ROOM
+Ethyl alcohol,70%,OTHER,bottle,Antiseptics,yes,ROOM
+Hydrogen peroxide,6%,OTHER,bottle,Antiseptics,yes,ROOM
+Glutaraldehyde,2%,OTHER,bottle,Antiseptics,yes,ROOM
+Sodium hypochlorite,5%,OTHER,bottle,Antiseptics,yes,ROOM
+Famotidine,20 mg,TABLET,tablet,Gastrointestinal,yes,ROOM
+Famotidine,20 mg,INJECTION,vial,Gastrointestinal,yes,ROOM
+Omeprazole,20 mg,CAPSULE,capsule,Gastrointestinal,yes,ROOM
+Pantoprazole,40 mg,TABLET,tablet,Gastrointestinal,yes,ROOM
+Pantoprazole,40 mg,INJECTION,vial,Gastrointestinal,yes,ROOM
+Aluminium hydroxide + Magnesium hydroxide,gel 170 ml,SYRUP,bottle,Gastrointestinal,yes,ROOM
+Ondansetron,4 mg,TABLET,tablet,Gastrointestinal,yes,ROOM
+Ondansetron,2 mg/ml,INJECTION,ampoule,Gastrointestinal,yes,ROOM
+Ondansetron,2 mg/5 ml,SYRUP,bottle,Gastrointestinal,yes,ROOM
+Domperidone,10 mg,TABLET,tablet,Gastrointestinal,yes,ROOM
+Metoclopramide,10 mg,TABLET,tablet,Gastrointestinal,yes,ROOM
+Metoclopramide,5 mg/ml,INJECTION,ampoule,Gastrointestinal,yes,ROOM
+Promethazine,25 mg/ml,INJECTION,ampoule,Gastrointestinal,yes,ROOM
+Promethazine,25 mg,TABLET,tablet,Gastrointestinal,yes,ROOM
+Dicyclomine,10 mg,TABLET,tablet,Gastrointestinal,yes,ROOM
+Dicyclomine,10 mg/ml,INJECTION,ampoule,Gastrointestinal,yes,ROOM
+Hyoscine butylbromide,10 mg,TABLET,tablet,Gastrointestinal,yes,ROOM
+Hyoscine butylbromide,20 mg/ml,INJECTION,ampoule,Gastrointestinal,yes,ROOM
+Oral rehydration salts,WHO low osmolarity,OTHER,sachet,Gastrointestinal,yes,ROOM
+Zinc sulphate,20 mg,TABLET,tablet,Gastrointestinal,yes,ROOM
+Loperamide,2 mg,CAPSULE,capsule,Gastrointestinal,yes,ROOM
+Bisacodyl,5 mg,TABLET,tablet,Gastrointestinal,yes,ROOM
+Lactulose,10 g/15 ml,SYRUP,bottle,Gastrointestinal,yes,ROOM
+Ispaghula husk,3.5 g,OTHER,sachet,Gastrointestinal,yes,ROOM
+Ursodeoxycholic acid,300 mg,TABLET,tablet,Gastrointestinal,yes,ROOM
+Sucralfate,1 g/10 ml,SYRUP,bottle,Gastrointestinal,yes,ROOM
+Octreotide,100 mcg/ml,INJECTION,ampoule,Gastrointestinal,yes,COLD
+Terlipressin,1 mg,INJECTION,vial,Gastrointestinal,yes,COLD
+Insulin human regular,40 IU/ml,INJECTION,vial,Endocrine,yes,COLD
+Insulin isophane (NPH),40 IU/ml,INJECTION,vial,Endocrine,yes,COLD
+Insulin glargine,100 IU/ml,INJECTION,vial,Endocrine,yes,COLD
+Metformin,500 mg,TABLET,tablet,Endocrine,yes,ROOM
+Glimepiride,1 mg,TABLET,tablet,Endocrine,yes,ROOM
+Glibenclamide,5 mg,TABLET,tablet,Endocrine,yes,ROOM
+Gliclazide,80 mg,TABLET,tablet,Endocrine,yes,ROOM
+Pioglitazone,15 mg,TABLET,tablet,Endocrine,yes,ROOM
+Levothyroxine,50 mcg,TABLET,tablet,Endocrine,yes,ROOM
+Levothyroxine,100 mcg,TABLET,tablet,Endocrine,yes,ROOM
+Carbimazole,5 mg,TABLET,tablet,Endocrine,yes,ROOM
+Propylthiouracil,50 mg,TABLET,tablet,Endocrine,yes,ROOM
+Oxytocin,5 IU/ml,INJECTION,ampoule,Obstetric,yes,COLD
+Methylergometrine,0.2 mg/ml,INJECTION,ampoule,Obstetric,yes,COLD
+Misoprostol,200 mcg,TABLET,tablet,Obstetric,yes,ROOM
+Carboprost,250 mcg/ml,INJECTION,ampoule,Obstetric,yes,COLD
+Mifepristone,200 mg,TABLET,tablet,Obstetric,yes,ROOM
+Medroxyprogesterone,150 mg/ml,INJECTION,vial,Contraceptives,yes,ROOM
+Levonorgestrel,1.5 mg,TABLET,tablet,Contraceptives,yes,ROOM
+Ethinylestradiol + Levonorgestrel,30 mcg + 150 mcg,TABLET,strip,Contraceptives,yes,ROOM
+Norethisterone,5 mg,TABLET,tablet,Obstetric,yes,ROOM
+Progesterone,200 mg,CAPSULE,capsule,Obstetric,yes,ROOM
+Clomiphene,50 mg,TABLET,tablet,Obstetric,yes,ROOM
+Cabergoline,0.5 mg,TABLET,tablet,Endocrine,yes,ROOM
+Bromocriptine,2.5 mg,TABLET,tablet,Endocrine,yes,ROOM
+Calcitriol,0.25 mcg,CAPSULE,capsule,Endocrine,yes,ROOM
+Alendronate,70 mg,TABLET,tablet,Endocrine,yes,ROOM
+Atropine,1%,DROPS,bottle,Ophthalmological,yes,ROOM
+Timolol,0.5%,DROPS,bottle,Ophthalmological,yes,ROOM
+Ciprofloxacin,0.3%,DROPS,bottle,Ophthalmological,yes,ROOM
+Gentamicin,0.3%,DROPS,bottle,Ophthalmological,yes,ROOM
+Tropicamide,1%,DROPS,bottle,Ophthalmological,yes,ROOM
+Pilocarpine,2%,DROPS,bottle,Ophthalmological,yes,ROOM
+Prednisolone,1%,DROPS,bottle,Ophthalmological,yes,ROOM
+Chloramphenicol,0.5%,DROPS,bottle,Ophthalmological,yes,ROOM
+Acyclovir,3%,OINTMENT,tube,Ophthalmological,yes,ROOM
+Ciprofloxacin,0.3% ear drops,DROPS,bottle,ENT,yes,ROOM
+Clotrimazole,1% ear drops,DROPS,bottle,ENT,yes,ROOM
+Xylometazoline,0.1%,DROPS,bottle,ENT,yes,ROOM
+Xylometazoline,0.05%,DROPS,bottle,ENT,yes,ROOM
+Haloperidol,5 mg,TABLET,tablet,Psychotherapeutic,yes,ROOM
+Haloperidol,5 mg/ml,INJECTION,ampoule,Psychotherapeutic,yes,ROOM
+Chlorpromazine,100 mg,TABLET,tablet,Psychotherapeutic,yes,ROOM
+Chlorpromazine,25 mg/ml,INJECTION,ampoule,Psychotherapeutic,yes,ROOM
+Risperidone,2 mg,TABLET,tablet,Psychotherapeutic,yes,ROOM
+Olanzapine,5 mg,TABLET,tablet,Psychotherapeutic,yes,ROOM
+Olanzapine,10 mg,TABLET,tablet,Psychotherapeutic,yes,ROOM
+Clozapine,100 mg,TABLET,tablet,Psychotherapeutic,yes,ROOM
+Fluoxetine,20 mg,CAPSULE,capsule,Psychotherapeutic,yes,ROOM
+Escitalopram,10 mg,TABLET,tablet,Psychotherapeutic,yes,ROOM
+Sertraline,50 mg,TABLET,tablet,Psychotherapeutic,yes,ROOM
+Amitriptyline,25 mg,TABLET,tablet,Psychotherapeutic,yes,ROOM
+Lithium carbonate,300 mg,TABLET,tablet,Psychotherapeutic,yes,ROOM
+Lorazepam,2 mg,TABLET,tablet,Psychotherapeutic,yes,ROOM
+Trihexyphenidyl,2 mg,TABLET,tablet,Psychotherapeutic,yes,ROOM
+Naltrexone,50 mg,TABLET,tablet,Psychotherapeutic,yes,ROOM
+Salbutamol,2 mg,TABLET,tablet,Respiratory,yes,ROOM
+Salbutamol,100 mcg/dose,OTHER,inhaler,Respiratory,yes,ROOM
+Salbutamol,5 mg/ml,OTHER,bottle,Respiratory,yes,ROOM
+Salbutamol,2 mg/5 ml,SYRUP,bottle,Respiratory,yes,ROOM
+Ipratropium,250 mcg/ml,OTHER,bottle,Respiratory,yes,ROOM
+Budesonide,200 mcg/dose,OTHER,inhaler,Respiratory,yes,ROOM
+Budesonide,0.5 mg/2 ml,OTHER,respule,Respiratory,yes,ROOM
+Beclomethasone,200 mcg/dose,OTHER,inhaler,Respiratory,yes,ROOM
+Formoterol + Budesonide,6 mcg + 200 mcg,OTHER,inhaler,Respiratory,yes,ROOM
+Aminophylline,25 mg/ml,INJECTION,ampoule,Respiratory,yes,ROOM
+Montelukast,10 mg,TABLET,tablet,Respiratory,yes,ROOM
+Dextromethorphan,10 mg/5 ml,SYRUP,bottle,Respiratory,no,ROOM
+Ambroxol,30 mg/5 ml,SYRUP,bottle,Respiratory,no,ROOM
+Folic acid,5 mg,TABLET,tablet,Vitamins and minerals,yes,ROOM
+Ferrous sulphate + Folic acid,100 mg + 500 mcg,TABLET,tablet,Vitamins and minerals,yes,ROOM
+Iron sucrose,20 mg/ml,INJECTION,ampoule,Vitamins and minerals,yes,ROOM
+Vitamin B complex,standard,TABLET,tablet,Vitamins and minerals,yes,ROOM
+Cyanocobalamin (Vitamin B12),1000 mcg/ml,INJECTION,ampoule,Vitamins and minerals,yes,ROOM
+Ascorbic acid (Vitamin C),500 mg,TABLET,tablet,Vitamins and minerals,yes,ROOM
+Cholecalciferol (Vitamin D3),60000 IU,OTHER,sachet,Vitamins and minerals,yes,ROOM
+Vitamin A,100000 IU/ml,SYRUP,bottle,Vitamins and minerals,yes,ROOM
+Calcium carbonate,500 mg,TABLET,tablet,Vitamins and minerals,yes,ROOM
+Pyridoxine,10 mg,TABLET,tablet,Vitamins and minerals,yes,ROOM
+Thiamine,100 mg,TABLET,tablet,Vitamins and minerals,yes,ROOM
+Thiamine,100 mg/ml,INJECTION,ampoule,Vitamins and minerals,yes,ROOM
+Potassium chloride,150 mg/ml (2 mEq/ml),INJECTION,ampoule,Electrolytes,yes,ROOM
+Potassium chloride,500 mg/5 ml,SYRUP,bottle,Electrolytes,yes,ROOM
+Sodium bicarbonate,7.5% (10 ml),INJECTION,ampoule,Electrolytes,yes,ROOM
+Sodium bicarbonate,8.4% (25 ml),INJECTION,vial,Electrolytes,yes,ROOM
+Sodium chloride,0.9% (500 ml),INJECTION,bottle,IV fluids,yes,ROOM
+Sodium chloride,0.9% (100 ml),INJECTION,bottle,IV fluids,yes,ROOM
+Sodium chloride,0.45% (500 ml),INJECTION,bottle,IV fluids,yes,ROOM
+Sodium chloride,3% (100 ml),INJECTION,bottle,IV fluids,yes,ROOM
+Dextrose,5% (500 ml),INJECTION,bottle,IV fluids,yes,ROOM
+Dextrose,5% (100 ml),INJECTION,bottle,IV fluids,yes,ROOM
+Dextrose,10% (500 ml),INJECTION,bottle,IV fluids,yes,ROOM
+Dextrose,25% (100 ml),INJECTION,bottle,IV fluids,yes,ROOM
+Dextrose + Sodium chloride,5% + 0.9% (500 ml),INJECTION,bottle,IV fluids,yes,ROOM
+Ringer lactate,500 ml,INJECTION,bottle,IV fluids,yes,ROOM
+Water for injection,5 ml,INJECTION,ampoule,IV fluids,yes,ROOM
+Water for injection,10 ml,INJECTION,ampoule,IV fluids,yes,ROOM
+Pyridostigmine,60 mg,TABLET,tablet,Neurological,yes,ROOM
+Levodopa + Carbidopa,100 + 10 mg,TABLET,tablet,Neurological,yes,ROOM
+Syringe disposable,2 ml,CONSUMABLE,piece,Consumables,no,ROOM
+Syringe disposable,5 ml,CONSUMABLE,piece,Consumables,no,ROOM
+Syringe disposable,10 ml,CONSUMABLE,piece,Consumables,no,ROOM
+Syringe disposable,20 ml,CONSUMABLE,piece,Consumables,no,ROOM
+Insulin syringe,40 IU/ml,CONSUMABLE,piece,Consumables,no,ROOM
+Needle,24 G,CONSUMABLE,piece,Consumables,no,ROOM
+Needle,22 G,CONSUMABLE,piece,Consumables,no,ROOM
+IV cannula,18 G,CONSUMABLE,piece,Consumables,no,ROOM
+IV cannula,20 G,CONSUMABLE,piece,Consumables,no,ROOM
+IV cannula,22 G,CONSUMABLE,piece,Consumables,no,ROOM
+IV cannula,24 G,CONSUMABLE,piece,Consumables,no,ROOM
+Scalp vein set,23 G,CONSUMABLE,piece,Consumables,no,ROOM
+IV infusion set,adult,CONSUMABLE,piece,Consumables,no,ROOM
+Blood transfusion set,standard,CONSUMABLE,piece,Consumables,no,ROOM
+Surgical gloves sterile,6.5,CONSUMABLE,pair,Consumables,no,ROOM
+Surgical gloves sterile,7,CONSUMABLE,pair,Consumables,no,ROOM
+Surgical gloves sterile,7.5,CONSUMABLE,pair,Consumables,no,ROOM
+Examination gloves,medium,CONSUMABLE,piece,Consumables,no,ROOM
+Cotton absorbent,500 g,CONSUMABLE,roll,Consumables,no,ROOM
+Gauze swab,10 x 10 cm,CONSUMABLE,pack,Consumables,no,ROOM
+Roller bandage,10 cm,CONSUMABLE,piece,Consumables,no,ROOM
+Adhesive tape,2.5 cm,CONSUMABLE,roll,Consumables,no,ROOM
+Surgical mask,3 ply,CONSUMABLE,piece,Consumables,no,ROOM
+N95 respirator,standard,CONSUMABLE,piece,Consumables,no,ROOM
+Urine bag,2000 ml,CONSUMABLE,piece,Consumables,no,ROOM
+Foley catheter,14 Fr,CONSUMABLE,piece,Consumables,no,ROOM
+Foley catheter,16 Fr,CONSUMABLE,piece,Consumables,no,ROOM
+Ryles tube,16 Fr,CONSUMABLE,piece,Consumables,no,ROOM
+Suction catheter,12 Fr,CONSUMABLE,piece,Consumables,no,ROOM
+Oxygen mask,adult,CONSUMABLE,piece,Consumables,no,ROOM
+Nebuliser mask,adult,CONSUMABLE,piece,Consumables,no,ROOM
+Surgical blade,No. 11,CONSUMABLE,piece,Consumables,no,ROOM
+Surgical blade,No. 15,CONSUMABLE,piece,Consumables,no,ROOM
+Suture silk,1-0,CONSUMABLE,piece,Consumables,no,ROOM
+Suture polyglactin (Vicryl),2-0,CONSUMABLE,piece,Consumables,no,ROOM
+Suture chromic catgut,2-0,CONSUMABLE,piece,Consumables,no,ROOM
+Suture nylon,3-0,CONSUMABLE,piece,Consumables,no,ROOM
+Alcohol swab,70%,CONSUMABLE,piece,Consumables,no,ROOM
+Blood glucose test strips,50 strips,CONSUMABLE,pack,Consumables,no,ROOM
+Urine dipstick,10 parameter,CONSUMABLE,pack,Consumables,no,ROOM
+Pregnancy test kit,card,CONSUMABLE,piece,Consumables,no,ROOM

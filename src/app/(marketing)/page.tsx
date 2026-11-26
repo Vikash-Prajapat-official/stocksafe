@@ -7,6 +7,10 @@ export default function Home() {
         Free, open-source stock and expiry tracker for hospital stores and pharmacies.
       </p>
       <p className="mt-6 text-sm">
+        <a className="text-green-700 underline" href="/login">
+          Sign in
+        </a>
+        {" | "}
         <a className="text-green-700 underline" href="/health">
           System health
         </a>

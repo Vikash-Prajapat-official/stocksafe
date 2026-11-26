@@ -598,9 +598,9 @@
     "problemSub": "Stores and pharmacies in small and public hospitals often run on paper bin cards and Excel. Expiry is checked by hand once a month, so near-expiry batches are found too late, and reorders happen only after a shelf is empty.",
     "source": "Source",
     "evidence": {
-      "north": "Studies of public health facilities in two North Indian states report gaps in the availability of essential medicines and weak storage and record-keeping.",
-      "puducherry": "Studies in Puducherry report gaps in the availability of essential medicines and weak storage and record-keeping.",
-      "gap": "Governments use state systems (DVDMS / e-Aushadhi) for warehouses, but many CHCs, nursing homes, trust and NGO hospitals have nothing free and simple for their own store and dispensary."
+      "north": "A 2015 study of 80 public health facilities in Punjab and Haryana found medicine availability of 45% and 51%. In 28% and 18% of facilities, medicines were stored directly on the floor.",
+      "puducherry": "Studies of 10 public pharmacies in Puducherry found median availability of 76% for 50 key essential medicines (2021), and none had separate storage for expired medicines and narcotics (2022).",
+      "gap": "Many states use DVDMS / e-Aushadhi for government drug supply. StockSafe is a free tool for any store or dispensary that needs its own, and it exports CSV."
     },
     "howTitle": "How it works",
     "steps": {
@@ -665,7 +665,7 @@
     "faq": {
       "dvdms": {
         "q": "Does it replace DVDMS?",
-        "a": "No. It can export to it: items and stock import and export as CSV, so it sits beside the state systems."
+        "a": "No. It exports CSV so it can be used alongside; there is no direct connection to DVDMS."
       },
       "internet": {
         "q": "Is the internet needed?",

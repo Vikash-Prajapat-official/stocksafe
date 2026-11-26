@@ -4,7 +4,7 @@ For the person who installs and looks after StockSafe in a hospital. No programm
 
 ## 1. Setting it up for real use
 
-1. Put `SEED_DEMO=0` in `.env`, then install as in the [README](README.md). The seed gives you the stores "Main Store", "Pharmacy" and "Ward A", three example suppliers, the essential-medicines list and five demo accounts, and **no** demo movements.
+1. Put `SEED_DEMO=0` in `.env`, then install as in the [README](README.md). The seed gives you the stores "Main Store", "Pharmacy" and "Ward A", three example suppliers, a starter list of about 430 common medicines and supplies (check it against your own list) and five demo accounts, and **no** demo movements.
 2. Sign in as the admin (9000000001, password `ChangeMe@123`) and **change the passwords** of all five accounts (Admin, Users, Edit). Better still, create real users and switch the demo ones off (untick Active). The system always keeps at least one active admin.
 3. **Stores** (Admin, Stores): rename or add your stores and wards. Types: Main store, Pharmacy, Ward.
 4. **Users** (Admin, Users): one account per person, with a 10-digit mobile number, a role, and the stores they work in. Store keepers, pharmacists and nurses see and change only their own stores. Admins and auditors see all.

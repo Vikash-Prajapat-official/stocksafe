@@ -20,7 +20,7 @@ docker compose up -d
 docker compose exec app npx prisma db seed
 ```
 
-Open <http://localhost:3002> and sign in. The last command adds three stores, three suppliers, about 430 essential medicines (NLEM) and six months of demo movements, so the dashboard looks real (it takes a couple of minutes). For a real hospital put `SEED_DEMO=0` in `.env` first, so you start empty (see the [ADMIN_GUIDE](ADMIN_GUIDE.md)).
+Open <http://localhost:3002> and sign in. The last command adds three stores, three suppliers, about 430 common medicines and supplies (those found by name in the NLEM 2022 list are marked essential) and six months of demo movements, so the dashboard looks real (it takes a couple of minutes). For a real hospital put `SEED_DEMO=0` in `.env` first, so you start empty (see the [ADMIN_GUIDE](ADMIN_GUIDE.md)).
 
 Demo accounts (password `ChangeMe@123`; set `SEED_PASSWORD` in `.env` before seeding to change it):
 

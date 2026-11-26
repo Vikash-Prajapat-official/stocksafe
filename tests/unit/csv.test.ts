@@ -35,7 +35,8 @@ describe("toCsv", () => {
   it("round-trips any text through a CSV parser (property)", () => {
     fc.assert(
       fc.property(fc.array(fc.array(fc.string({ maxLength: 15 }), { minLength: 2, maxLength: 2 }), { minLength: 1, maxLength: 8 }), (rows) => {
-        const parsed = Papa.parse<string[]>(toCsv(["a", "b"], rows).slice(1), { skipEmptyLines: false }).data;
+        // say the separator: left to guess, the parser picks "|" for cells such as ["|", "\"|"]
+        const parsed = Papa.parse<string[]>(toCsv(["a", "b"], rows).slice(1), { delimiter: ",", skipEmptyLines: false }).data;
         const body = parsed.slice(1).filter((r) => !(r.length === 1 && r[0] === ""));
         expect(body.length).toBe(rows.length);
         rows.forEach((row, i) =>
@@ -47,7 +48,7 @@ describe("toCsv", () => {
           }),
         );
       }),
-      { numRuns: 200 },
+      { numRuns: 200, examples: [[[["|", "\"|"]]]] }, // a case a random run once found
     );
   });
 });

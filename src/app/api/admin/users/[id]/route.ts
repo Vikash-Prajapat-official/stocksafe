@@ -1,3 +1,4 @@
+import { assertNotDemo } from "@/lib/demo";
 import { NextResponse } from "next/server";
 import { ApiError, parseBody, route } from "@/lib/api";
 import { db } from "@/lib/db";
@@ -8,6 +9,7 @@ import { ADMIN_ONLY } from "@/lib/rbac";
 import { userPatchSchema } from "@/lib/schemas/admin";
 
 export const PATCH = route(ADMIN_ONLY, async ({ req, user, params, ip }) => {
+  assertNotDemo();
   const id = params.id ?? "";
   const body = await parseBody(req, userPatchSchema);
 

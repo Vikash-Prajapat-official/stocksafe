@@ -1,3 +1,4 @@
+import { assertNotDemo } from "@/lib/demo";
 import { NextResponse } from "next/server";
 import { ApiError, parseBody, route } from "@/lib/api";
 import { db } from "@/lib/db";
@@ -23,6 +24,7 @@ export const GET = route(ADMIN_ONLY, async () => {
 });
 
 export const POST = route(ADMIN_ONLY, async ({ req, user, ip }) => {
+  assertNotDemo();
   const body = await parseBody(req, userCreateSchema);
   const phone = normalizePhone(body.phone);
   if (!phone) throw new ApiError(400, "VALIDATION", "phone: Enter a valid 10-digit Indian mobile number");

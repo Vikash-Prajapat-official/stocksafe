@@ -81,6 +81,7 @@ const RULES: Rule[] = [
   [/^There must be at least one active admin\.$/, "कम से कम एक चालू एडमिन होना ज़रूरी है।"],
   [/^storeIds: one or more stores do not exist$/, "storeIds: एक या ज़्यादा स्टोर मौजूद नहीं हैं"],
   [/^An item with the same name, strength and form already exists\.$/, "इसी नाम, स्ट्रेंथ और रूप की दवा पहले से मौजूद है।"],
+  [/^Users and passwords cannot be changed in the public demo\.$/, "सार्वजनिक डेमो में उपयोगकर्ता और पासवर्ड नहीं बदले जा सकते।"],
   [/^Nothing to do$/, "करने के लिए कुछ नहीं"],
   // ---- reports, audit
   [/^Unknown report\. Use stock, expiry, consumption, abc or stockout\.$/, "अज्ञात रिपोर्ट। stock, expiry, consumption, abc या stockout इस्तेमाल करें।"],

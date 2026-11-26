@@ -857,5 +857,10 @@
     "ok": "OK",
     "down": "Down",
     "checked": "Checked {time}"
+  },
+  "demo": {
+    "banner": "This is a public demo with sample data. Anything you enter is visible to everyone and may be reset at any time. Do not enter real patient or hospital data.",
+    "accountsTitle": "Demo sign-ins",
+    "accountsHelp": "Sign in with any phone number below to see that role's screens. Password for all: {password}"
   }
 }

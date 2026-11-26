@@ -45,6 +45,10 @@ npm run start
 
 Needs Node 22.13 or newer. Same screens, same rules; the data is one file (`prisma/stocksafe.db`), backed up nightly by the app itself.
 
+### A free public demo (Neon + Vercel)
+
+To show StockSafe to a hospital without installing anything, put a sample-data demo online for free: [docs/DEPLOY_DEMO.md](docs/DEPLOY_DEMO.md). The demo is for trying only. Real stock and patient data belong on the hospital's own PC or server.
+
 ## Languages
 
 English and हिन्दी everywhere: screens, forms, errors, reports (screen, CSV and PDF). Switch with the button at the top of every page; the choice is remembered.

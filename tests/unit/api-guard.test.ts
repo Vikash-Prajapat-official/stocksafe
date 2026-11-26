@@ -12,7 +12,8 @@ vi.mock("@/lib/session", () => ({ getSessionUser: async () => session.user }));
 vi.spyOn(console, "error").mockImplementation(() => {}); // handlers that reach the fake db log a 500
 
 const API_DIR = path.join(__dirname, "../../src/app/api");
-const PUBLIC_ROUTES = new Set(["health/route.ts", "auth/[...nextauth]/route.ts"]);
+// cron/nightly is public on purpose but closed without CRON_SECRET (tests/unit/cron.test.ts)
+const PUBLIC_ROUTES = new Set(["health/route.ts", "auth/[...nextauth]/route.ts", "cron/nightly/route.ts"]);
 const METHODS = ["GET", "POST", "PUT", "PATCH", "DELETE"];
 
 function routeFiles(dir: string): string[] {

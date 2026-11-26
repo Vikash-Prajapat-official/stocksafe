@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { signOut } from "@/lib/auth";
+import { isDemoMode } from "@/lib/demo";
 import { requirePageUser } from "@/lib/session";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
@@ -10,6 +11,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   const t = await getTranslations("nav");
   const tc = await getTranslations("common");
   const tr = await getTranslations("roles");
+  const td = await getTranslations("demo");
   const links = [
     { href: "/dashboard", label: t("dashboard") },
     { href: "/items", label: t("items") },
@@ -38,6 +40,11 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   return (
     <div className="min-h-screen">
+      {isDemoMode() ? (
+        <p role="note" className="bg-neutral-900 px-4 py-2 text-center text-sm text-white print:hidden">
+          {td("banner")}
+        </p>
+      ) : null}
       <header className="border-b bg-white print:hidden">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3">
           <Link href="/dashboard" className="text-lg font-semibold text-primary">

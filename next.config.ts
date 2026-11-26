@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
   htmlLimitedBots: /.*/,
   // @react-pdf/renderer is loaded from node_modules at run time (it reads its font files from there)
   serverExternalPackages: ["@react-pdf/renderer"],
+  // on serverless hosts (Vercel) only traced files are shipped: the PDF fonts are read by path at run time, so name them
+  outputFileTracingIncludes: { "/api/reports/[name]": ["./node_modules/@fontsource/noto-sans-devanagari/files/*.woff"] },
   async headers() {
     return [
       {

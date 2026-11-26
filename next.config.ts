@@ -10,7 +10,10 @@ const nextConfig: NextConfig = {
   // @react-pdf/renderer is loaded from node_modules at run time (it reads its font files from there)
   serverExternalPackages: ["@react-pdf/renderer"],
   // on serverless hosts (Vercel) only traced files are shipped: the PDF fonts are read by path at run time, so name them
-  outputFileTracingIncludes: { "/api/reports/[name]": ["./node_modules/@fontsource/noto-sans-devanagari/files/*.woff"] },
+  // (the key is a pattern, so "[name]" must not appear in it: brackets would be read as a set of characters)
+  outputFileTracingIncludes: {
+    "/api/reports/**": ["./node_modules/@fontsource/noto-sans-devanagari/files/*.woff", "./node_modules/pdfkit/js/**/*"],
+  },
   async headers() {
     return [
       {

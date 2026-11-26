@@ -2,7 +2,7 @@ import { mkdtempSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { backupSqlite, decrypt, encrypt, restoreSqlite } from "../../scripts/sqlite-backup.mjs";
 import { migrate } from "../../scripts/sqlite-migrate.mjs";
 
@@ -60,6 +60,9 @@ describe("encryption", () => {
     expect(() => decrypt(Buffer.from("not a backup file at all, just text........"), PASS)).toThrow(/not a StockSafe backup/);
   });
 });
+
+// each backup runs the deliberately slow key derivation (200,000 rounds) a few times, which can take seconds on a busy machine
+vi.setConfig({ testTimeout: 30_000 });
 
 describe("SQLite backup and restore", () => {
   it("backs up a live database and restores it, keeping the old one aside", async () => {

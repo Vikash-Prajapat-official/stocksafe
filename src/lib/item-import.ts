@@ -27,11 +27,12 @@ export const TEMPLATE_HEADERS = [
   "min_level",
   "reorder_level",
   "max_level",
+  "gtin",
 ] as const;
 
 const TEMPLATE_EXAMPLES = [
-  ["Paracetamol", "Paracetamol", "500 mg", "TABLET", "tablet", "Analgesics", "yes", "ROOM", "1000", "2000", "6000"],
-  ["Insulin Regular", "Human insulin", "40 IU/ml", "INJECTION", "vial", "Hormones", "yes", "COLD", "20", "40", "100"],
+  ["Paracetamol", "Paracetamol", "500 mg", "TABLET", "tablet", "Analgesics", "yes", "ROOM", "1000", "2000", "6000", "08901234567890"],
+  ["Insulin Regular", "Human insulin", "40 IU/ml", "INJECTION", "vial", "Hormones", "yes", "COLD", "20", "40", "100", ""],
 ];
 
 /** CSV template for download. UTF-8 with BOM so Excel shows Hindi correctly. */
@@ -50,7 +51,8 @@ type Field =
   | "storage"
   | "minLevel"
   | "reorderLevel"
-  | "maxLevel";
+  | "maxLevel"
+  | "gtin";
 
 const FIELD_HEADER: Record<Field, string> = {
   name: "name",
@@ -64,6 +66,7 @@ const FIELD_HEADER: Record<Field, string> = {
   minLevel: "min_level",
   reorderLevel: "reorder_level",
   maxLevel: "max_level",
+  gtin: "gtin",
 };
 
 // Header text is lower-cased with everything but a-z0-9 removed before lookup.
@@ -79,6 +82,7 @@ const ALIASES: Record<string, Field> = {
   minlevel: "minLevel", min: "minLevel", minimum: "minLevel", minstock: "minLevel",
   reorderlevel: "reorderLevel", reorder: "reorderLevel", reorderpoint: "reorderLevel",
   maxlevel: "maxLevel", max: "maxLevel", maximum: "maxLevel", maxstock: "maxLevel",
+  gtin: "gtin", barcode: "gtin", ean: "gtin", upc: "gtin",
 };
 
 const FORM_ALIASES: Record<string, ItemForm> = {
@@ -231,6 +235,7 @@ export function validateItemTable(
       category: get("category") || null,
       isEssential,
       storage,
+      gtin: get("gtin") || null,
       ...levels,
     };
     const parsed = itemCreateSchema.safeParse(candidate);

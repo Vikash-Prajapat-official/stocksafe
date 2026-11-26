@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 import { writeAudit } from "@/lib/audit";
 import { itemExists } from "@/lib/items";
 import { ADMIN_ONLY } from "@/lib/rbac";
-import { itemPatchSchema, levelProblem } from "@/lib/schemas/item";
+import { itemPatchSchema, levelProblem, normalizeGtin } from "@/lib/schemas/item";
 import { blankToNull } from "@/lib/schemas/admin";
 
 export const GET = route("ANY", async ({ params }) => {
@@ -49,6 +49,7 @@ export const PATCH = route(ADMIN_ONLY, async ({ req, user, params, ip }) => {
         minLevel: patch.minLevel,
         reorderLevel: patch.reorderLevel,
         maxLevel: patch.maxLevel,
+        gtin: patch.gtin === undefined ? undefined : normalizeGtin(patch.gtin),
         active: patch.active,
       },
     });

@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 import { writeAudit } from "@/lib/audit";
 import { itemExists, listItems } from "@/lib/items";
 import { ADMIN_ONLY } from "@/lib/rbac";
-import { itemCreateSchema, levelProblem, toItemInput } from "@/lib/schemas/item";
+import { itemCreateSchema, levelProblem, normalizeGtin, toItemInput } from "@/lib/schemas/item";
 
 const int = (v: string | null) => (v && /^\d+$/.test(v) ? Number(v) : undefined);
 
@@ -17,6 +17,7 @@ export const GET = route("ANY", async ({ req }) => {
     page: int(sp.get("page")),
     pageSize: int(sp.get("pageSize")),
     active: active === "true" ? true : active === "false" ? false : undefined,
+    gtin: normalizeGtin(sp.get("gtin")) ?? undefined,
   });
   return NextResponse.json(result);
 });

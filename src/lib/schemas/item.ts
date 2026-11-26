@@ -46,6 +46,8 @@ const itemFields = {
   minLevel: level,
   reorderLevel: level,
   maxLevel: level,
+  // Barcode number printed on the pack (8 to 14 digits). Stored as 14 digits. Blank = none.
+  gtin: z.union([z.string().trim().regex(/^\d{8,14}$/, "GTIN must be 8 to 14 digits"), z.literal("")]).nullable().optional(),
 };
 
 // No transforms or defaults here on purpose: they would misbehave under .partial() (PATCH).
@@ -73,9 +75,16 @@ export type ItemInput = {
   minLevel: number;
   reorderLevel: number;
   maxLevel: number;
+  gtin: string | null;
 };
 
 const blank = (v: string | null | undefined) => (v && v.trim() ? v.trim() : null);
+
+/** 8 to 14 digit barcode number to the 14-digit form used for matching; blank gives null. */
+export function normalizeGtin(v: string | null | undefined): string | null {
+  const s = (v ?? "").trim();
+  return /^\d{8,14}$/.test(s) ? s.padStart(14, "0") : null;
+}
 
 /** Fills defaults and turns empty text into null. */
 export function toItemInput(v: z.infer<typeof itemCreateSchema>): ItemInput {
@@ -91,6 +100,7 @@ export function toItemInput(v: z.infer<typeof itemCreateSchema>): ItemInput {
     minLevel: v.minLevel ?? 0,
     reorderLevel: v.reorderLevel ?? 0,
     maxLevel: v.maxLevel ?? 0,
+    gtin: normalizeGtin(v.gtin),
   };
 }
 

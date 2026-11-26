@@ -2,7 +2,7 @@
 
 Free, open-source stock, expiry and reorder tracker for Indian hospital stores and pharmacies. See [SPEC.md](SPEC.md).
 
-**Status:** Phase 2 of 7 (auth, roles, stores, suppliers, item master with CSV/Excel import, NLEM seed).
+**Status:** Phase 3 of 7 (stock ledger with FEFO: receive, issue, transfer, dispense, ledger; barcode scan).
 
 ## Run it
 
@@ -34,7 +34,13 @@ docker compose up -d db          # Postgres on 127.0.0.1:5434
 npm install
 npx prisma migrate dev
 npm run dev                      # http://localhost:3002
-npm run typecheck && npm run lint && npm test
+npm run typecheck && npm run lint
+npm test                         # fast unit tests, no database
+npm run test:integration         # stock ledger tests on a real Postgres (see below)
 ```
+
+The integration tests (concurrency, property tests) need the compose database running (`docker compose up -d db`). They create and drop a separate `stocksafe_test` database, never your real one.
+
+**Camera scanning** needs the page to be served over HTTPS or from `localhost`. On a plain `http://` LAN address use a USB barcode scanner (it types into the scan box) or type the code.
 
 Design choices are logged in [DECISIONS.md](DECISIONS.md). Licence: MIT.

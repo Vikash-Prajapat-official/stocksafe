@@ -8,6 +8,9 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   const user = await requirePageUser();
   const links = [
     { href: "/items", label: "Items" },
+    ...(user.role === "STOREKEEPER" ? [{ href: "/grn", label: "Receive stock" }] : []),
+    ...(user.role === "STOREKEEPER" || user.role === "PHARMACIST" ? [{ href: "/issue", label: "Issue / transfer" }] : []),
+    ...(user.role === "PHARMACIST" ? [{ href: "/dispense", label: "Dispense" }] : []),
     ...(user.role === "ADMIN"
       ? [
           { href: "/admin/stores", label: "Stores" },
@@ -24,7 +27,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   return (
     <div className="min-h-screen">
-      <header className="border-b bg-white">
+      <header className="border-b bg-white print:hidden">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3">
           <Link href="/items" className="text-lg font-semibold text-primary">
             StockSafe

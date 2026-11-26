@@ -2,15 +2,16 @@ import type { Prisma } from "@prisma/client";
 import { db } from "@/lib/db";
 import { itemKey } from "@/lib/schemas/item";
 
-export type ItemListParams = { q?: string; page?: number; pageSize?: number; active?: boolean };
+export type ItemListParams = { q?: string; page?: number; pageSize?: number; active?: boolean; gtin?: string };
 
 /** Shared by GET /api/items and the items page so they always agree. */
-export async function listItems({ q, page = 1, pageSize = 50, active }: ItemListParams) {
+export async function listItems({ q, page = 1, pageSize = 50, active, gtin }: ItemListParams) {
   const take = Math.min(Math.max(1, Math.trunc(pageSize)), 200);
   const pageNo = Math.max(1, Math.trunc(page));
   const term = q?.trim();
   const where: Prisma.ItemWhereInput = {
     ...(active === undefined ? {} : { active }),
+    ...(gtin ? { gtin } : {}),
     ...(term
       ? {
           OR: [

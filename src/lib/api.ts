@@ -3,6 +3,7 @@ import { Prisma } from "@prisma/client";
 import { ZodError, type z } from "zod";
 import { clientIp } from "@/lib/audit";
 import { checkAccess, type RoleName } from "@/lib/rbac";
+import { StockError } from "@/lib/stock-errors";
 import { getSessionUser, type SessionUser } from "@/lib/session";
 
 export class ApiError extends Error {
@@ -26,6 +27,7 @@ export function errorResponse(status: number, code: string, message: string, det
 
 export function toErrorResponse(e: unknown): Response {
   if (e instanceof ApiError) return errorResponse(e.status, e.code, e.message, e.details);
+  if (e instanceof StockError) return errorResponse(e.status, e.code, e.message, e.details);
   if (e instanceof ZodError) {
     const details = e.issues.map((i) => ({ path: i.path.join("."), message: i.message }));
     const message = details.map((d) => (d.path ? `${d.path}: ${d.message}` : d.message)).join("; ");

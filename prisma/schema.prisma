@@ -138,12 +138,14 @@ model Item {
   minLevel     Int      @default(0) @map("min_level")
   reorderLevel Int      @default(0) @map("reorder_level")
   maxLevel     Int      @default(0) @map("max_level")
+  gtin         String? // 14-digit GTIN printed as a barcode on the pack; lets a scan pick the item
   active       Boolean  @default(true)
 
   batches     Batch[]
   indentLines IndentLine[]
 
   @@index([name])
+  @@index([gtin])
   @@map("item")
 }
 
@@ -196,6 +198,7 @@ model StockBalance {
 // Append-only ledger. quantity is signed: positive in, negative out.
 model StockMovement {
   id           String       @id @default(cuid())
+  seq          Int          @unique @default(autoincrement()) // insertion order; makes the bin card deterministic
   type         MovementType
   batchId      String       @map("batch_id")
   storeId      String       @map("store_id")

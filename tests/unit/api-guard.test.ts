@@ -9,6 +9,7 @@ vi.mock("@/lib/db", () => ({
 }));
 const session = vi.hoisted(() => ({ user: null as null | { id: string; name: string; role: string } }));
 vi.mock("@/lib/session", () => ({ getSessionUser: async () => session.user }));
+vi.spyOn(console, "error").mockImplementation(() => {}); // handlers that reach the fake db log a 500
 
 const API_DIR = path.join(__dirname, "../../src/app/api");
 const PUBLIC_ROUTES = new Set(["health/route.ts", "auth/[...nextauth]/route.ts"]);
@@ -24,7 +25,7 @@ function routeFiles(dir: string): string[] {
 describe("every API route is wrapped in route(...)", () => {
   const files = routeFiles(API_DIR).map((f) => ({ f, rel: path.relative(API_DIR, f).split(path.sep).join("/") }));
 
-  it("finds the routes", () => expect(files.length).toBeGreaterThan(8));
+  it("finds the routes", () => expect(files.length).toBeGreaterThan(15));
 
   it.each(files.filter(({ rel }) => !PUBLIC_ROUTES.has(rel)))("$rel", ({ f }) => {
     const src = readFileSync(f, "utf8");
@@ -40,24 +41,32 @@ describe("every API route is wrapped in route(...)", () => {
   });
 });
 
-const ADMIN_ROUTES: [string, string][] = [
-  ["items/route", "POST"],
-  ["items/[id]/route", "PATCH"],
-  ["items/import/route", "POST"],
-  ["items/import/template/route", "GET"],
-  ["admin/stores/route", "GET"],
-  ["admin/stores/route", "POST"],
-  ["admin/stores/[id]/route", "PATCH"],
-  ["admin/suppliers/route", "GET"],
-  ["admin/suppliers/route", "POST"],
-  ["admin/suppliers/[id]/route", "PATCH"],
-  ["admin/users/route", "GET"],
-  ["admin/users/route", "POST"],
-  ["admin/users/[id]/route", "PATCH"],
-];
-const SIGNED_IN_ROUTES: [string, string][] = [
-  ["items/route", "GET"],
-  ["items/[id]/route", "GET"],
+// Who may call what (SPEC section 7). Every route must appear here: the test below fails if one is missing.
+type Allowed = readonly RoleName[] | "ANY";
+const ADMIN: Allowed = ["ADMIN"];
+const MATRIX: [string, string, Allowed][] = [
+  ["items/route", "GET", "ANY"],
+  ["items/route", "POST", ADMIN],
+  ["items/[id]/route", "GET", "ANY"],
+  ["items/[id]/route", "PATCH", ADMIN],
+  ["items/[id]/ledger/route", "GET", "ANY"],
+  ["items/import/route", "POST", ADMIN],
+  ["items/import/template/route", "GET", ADMIN],
+  ["stock/route", "GET", "ANY"],
+  ["grn/route", "POST", ["STOREKEEPER"]],
+  ["issue/route", "POST", ["STOREKEEPER", "PHARMACIST"]],
+  ["dispense/route", "POST", ["PHARMACIST"]],
+  ["writeoff/route", "POST", ADMIN],
+  ["returns/route", "POST", ADMIN],
+  ["admin/stores/route", "GET", ADMIN],
+  ["admin/stores/route", "POST", ADMIN],
+  ["admin/stores/[id]/route", "PATCH", ADMIN],
+  ["admin/suppliers/route", "GET", ADMIN],
+  ["admin/suppliers/route", "POST", ADMIN],
+  ["admin/suppliers/[id]/route", "PATCH", ADMIN],
+  ["admin/users/route", "GET", ADMIN],
+  ["admin/users/route", "POST", ADMIN],
+  ["admin/users/[id]/route", "PATCH", ADMIN],
 ];
 
 async function call(mod: string, method: string) {
@@ -71,21 +80,38 @@ async function call(mod: string, method: string) {
 }
 
 describe("role checks on the server", () => {
-  it.each([...ADMIN_ROUTES, ...SIGNED_IN_ROUTES])("%s %s rejects anonymous callers with 401", async (mod, method) => {
+  it("the matrix covers every exported handler of every guarded route", () => {
+    const expected = new Set<string>();
+    for (const f of routeFiles(API_DIR)) {
+      const rel = path.relative(API_DIR, f).split(path.sep).join("/");
+      if (PUBLIC_ROUTES.has(rel)) continue;
+      const src = readFileSync(f, "utf8");
+      for (const m of src.matchAll(/export\s+const\s+(\w+)\s*=\s*route\(/g)) {
+        if (METHODS.includes(m[1]!)) expected.add(`${rel.replace(/\.ts$/, "")} ${m[1]}`);
+      }
+    }
+    expect(new Set(MATRIX.map(([m, v]) => `${m} ${v}`))).toEqual(expected);
+  });
+
+  it.each(MATRIX)("%s %s: anonymous callers get 401", async (mod, method) => {
     session.user = null;
     const res = await call(mod, method);
     expect(res.status).toBe(401);
     expect(await res.json()).toMatchObject({ error: { code: "UNAUTHENTICATED" } });
   });
 
-  const nonAdmins = ROLES.filter((r): r is Exclude<RoleName, "ADMIN"> => r !== "ADMIN");
-  it.each(ADMIN_ROUTES.flatMap(([mod, method]) => nonAdmins.map((role) => [mod, method, role] as const)))(
-    "%s %s rejects %s with 403",
-    async (mod, method, role) => {
-      session.user = { id: "u1", name: "T", role };
-      const res = await call(mod, method);
+  const cases = MATRIX.flatMap(([mod, method, allowed]) =>
+    ROLES.map((role) => [mod, method, role, allowed === "ANY" || allowed.includes(role)] as const),
+  );
+  it.each(cases)("%s %s as %s (allowed: %s)", async (mod, method, role, allowed) => {
+    session.user = { id: "u1", name: "T", role };
+    const res = await call(mod, method);
+    if (allowed) {
+      // Past the guard: the fake database or the empty body then makes the handler fail, but never with 401/403.
+      expect([401, 403]).not.toContain(res.status);
+    } else {
       expect(res.status).toBe(403);
       expect(await res.json()).toMatchObject({ error: { code: "FORBIDDEN" } });
-    },
-  );
+    }
+  });
 });

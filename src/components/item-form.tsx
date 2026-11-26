@@ -19,6 +19,7 @@ export type ItemFormValues = {
   minLevel: number;
   reorderLevel: number;
   maxLevel: number;
+  gtin?: string | null;
   active?: boolean;
 };
 
@@ -34,6 +35,7 @@ const EMPTY: ItemFormValues = {
   minLevel: 0,
   reorderLevel: 0,
   maxLevel: 0,
+  gtin: "",
 };
 
 export function ItemFormView({ initial }: { initial?: ItemFormValues }) {
@@ -115,6 +117,9 @@ export function ItemFormView({ initial }: { initial?: ItemFormValues }) {
         </Field>
         <Field label="Category" htmlFor="category">
           <Input id="category" value={v.category ?? ""} onChange={(e) => set("category", e.target.value)} />
+        </Field>
+        <Field label="Barcode (GTIN)" htmlFor="gtin" hint="Optional. The number under the barcode on the pack. Lets a scan pick this item.">
+          <Input id="gtin" inputMode="numeric" value={v.gtin ?? ""} onChange={(e) => set("gtin", e.target.value)} />
         </Field>
         <Field label="Storage" htmlFor="storage">
           <Select id="storage" value={v.storage} onChange={(e) => set("storage", e.target.value as "ROOM" | "COLD")}>
